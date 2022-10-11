@@ -1,9 +1,9 @@
 ---
-title: "EEPA, CF"
-subtitle: ""
-author: 
-  - Ozan Jaquette
-  - Karina Salazar
+#title: "EEPA, CF"
+#subtitle: ""
+#author: 
+#  - Ozan Jaquette
+#  - Karina Salazar
 bibliography: ../../assets/bib/eepa_student_list.bib
 csl: ../../assets/bib/apa.csl
 citeproc: no
@@ -22,9 +22,49 @@ fontsize: 12pt
 header-includes:
       - \usepackage{floatrow}
       - \floatsetup{capposition=top}
+      #- \usepackage{setspace}\doublespacing
       - \usepackage{setspace}\onehalfspacing #\doublespacing
 ---
 
+```{r setup, include= FALSE}
+library(knitr)
+library(bookdown)
+
+# https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_pdf.pdf
+library(kableExtra)
+library(tidyverse)
+library(gridExtra)
+library(scales)
+
+knitr::opts_chunk$set(echo = F, message = F, warning = F)
+
+knitr::knit_hooks$set(inline = function(x) {   if(!is.numeric(x)){     x   }else{    prettyNum(round(x,2), big.mark=",")    } })
+
+theme_set(
+  theme(
+    text = element_text(size = 7),
+    panel.background = element_blank(),
+    plot.title = element_text(color = '#444444', size = 7, hjust = 0.5, face = 'bold'),
+    axis.ticks = element_blank(),
+    axis.title = element_text(face = 'bold'),
+    legend.title = element_text(face = 'bold'),
+    legend.key.size = unit(0.3, 'cm')
+  )
+)
+```
+
+
+# Introduction
+
+Colleges and universities (herein universities) identify prospective students by purchasing "student lists" from College Board, ACT, and other vendors. A Student list contains the contact information of prospective students who meet the search filter criteria (e.g., test score range, high school GPA, zip codes) specified by the university that purchases the list. In turn, student lists are a fundamental input for undergraduate recruiting "campaigns," which target individual prospects by mail, email, and on social media.
+
+Recent research suggests that student lists are surprisingly important for college access -- and degree completion -- for millions of students each year. @RN4739 compared SAT test-takers who opted into the College Board Student Search Service -- allowing accredited institutions to "licence" their contact information -- and test-takers who opted out, after controlling for covariates (for a similar analysis of ACT's Educational Opportunity Service see @RN4752). Figure \@ref(fig:cb-fig) reproduces the main results. For students with the same values of SAT score, parental education, race/ethnicity, sex, graduation year, and who attended the same high school, 41.1\% of students who participated in Search attended a 4-year college compared to 32.8\% of students who opted out, representing an 8.3 (`=41.1-32.8`) percentage point difference and a 25.3 (`=(41.1-32.8)/32.8`) percent change in the relative probability of attending a 4-year college. Figure \@ref(fig:cb-fig) shows that participating in Search was associated with a larger percent change in the probability of attending a 4-year institution for students who identified as Black (24.5\%`=(39.6-31.8)/31.8`), and Latinx (34.4\%) than it was for students who identified as White (21.6\%) or Asian (15.2\%). Similarly, the percent change in the probability of attending a four-year college was higher for students whose parents did not attend college (40.6\%) than it was for students whose parents had a BA (18.9\%).
+
+A series of reports by _TICAS_ argues that student list products systematically exclude underrepresented student populations in two ways [CITE]. The first source of exclusion is which prospective students are in the underlying database. Historically, student list products sold by College Board and ACT exclude non test-takers, but rates of test-taking differ by race and class. Second, several "search filters" (e.g., zip code, AP score) used to control which prospect profiles are purchased facilitate the effecient exclusion of students from communities of color and low-income communities. 
+
+Prior scholarship assumes that recruiting is something done by individual universities [CITE], motivating policies that incentivize or regulate (e.g., nonresident enrollment caps) university behavior. In reality, the recruiting behavior of universities -- and also financial aid and student success behaviors -- is increasingly structured by software-as-service products sold by third-party vendors and consultancies in the enrollment management industry. Third-party digital platforms increasingly perform core functions of schools and universities. The nascent literature "platform studies in education" calls for critical scholarship that examines products sold to universities and informs policy regulations [@RN4843; @RN4815]. This study focuses on student list products sold by College Board. We ask, what is the relationship between student list search filters (e.g., test score range, zip code) and the characteristics of students who are included vs. excluded in student lists sold by College Board? We address this question by reconstructing the College Board Student Search Service using data from the High School Longitudinal Survey of 2009 (HLS:09).
+
+PX: LAY OUT CONCEPTUAL FRAMEWORK FROM SOCIOLOGY OF RACE
 
 # Background: The Student List Business
 
@@ -154,39 +194,33 @@ Student list products in the digital era develop filters that increase precision
 
 ## Mechanisms of Exclusion in Student List Products
 
-**Conceptualizing student-list products**.  Sociologists have studied products that standardize decision-making based on an algorithm [e.g., @RN4786; @RN4778]. After the algorithm has been created, these products eliminate racial inequality caused by individual decision-making bias, but may cause racial inequality because structural racism is baked into the underlying product (e.g., structurally racist inputs, predatory inclusion). For example, Moody's algorithm assigns credit scores to cities based on analyses of the determinants of default in previous cases [@RN4786]. By contrast, student list products allow customers to choose prospective students by selecting search filters. When purchasing student lists, individual universities may be thoughtful about avoiding structurally racist search filters. However, in contrast to purely standardized algorithms, individual discretion in student list purchases raises the possibility of racial disparities due to individual bias (explicit or implicit) and due to lack of knowledge about these products.
+**Conceptualizing student-list products**.  Sociologists have studied products that standardize decision-making based on an algorithm [e.g., @RN4786; @RN4778]. After the algorithm has been created, these products eliminate racial inequality caused by individual decision-making bias, but may cause racial inequality because structural racism is baked into the underlying product (e.g., structurally racist inputs, predatory inclusion). For example, Moody's algorithm assigns credit scores to cities based on analyses of the determinants of default in previous cases [@RN4786]. By contrast, student list products are similar to purchasing ads from Facebook or Google in that student list products allow universities to choose prospective students by selecting search filters. When purchasing student lists, individual universities may be thoughtful about avoiding structurally racist search filters. However, in contrast to purely standardized algorithms, individual discretion in student list purchases raises the possibility of racial disparities due to individual bias (explicit or implicit) and due to lack of knowledge about these products.
 
 This research focuses on exclusion due to structural inequality embedded in the underlying product. We argue that twp sources of structural exclusion in student list products are (1) who is included in the underlying database and (2) utilizing structurally racist inputs as search filters for selecting prospects from the underlying database. First, students who do not complete a College Board assessment are generally excluded from the underlying database.^[footnote: recently added college search engine blah blah] Test-taking rates differ by race and by class [CITE]. Thus, we expect College Board student list databases to exhibit racial inequality even before search filters are selected. Second, College Board search filters have long utilized search filters (e.g., zip code, AP score) that are structurally racist because communities of color have been historically excluded from these inputs.
 
-More recently, student list products have developed new algorithmic search filters that utilize market segmentation and micro-targeting approaches that have been analyzed by critical data studies. For example, College Board [cite] utilized market segmentation methodologies to create "geodemographic segment" filters. These filters utilize cluster analysis to classify each high school and each neighborhood (census tract) to a group based on the past college-going behaviors of students from that school or neighborhood. The resulting classification is highly correlated with race because communities of color that have been historically excluded from higher education are more likely to be lumped together.
-
-
-In the era of digital platforms, student list products have developed new filters designed to increase precision in targeting desired prospects (e.g., ACT's predicted probability of enrollment filter, and College Board's "interest in my peers" filter). To the extent that customers of student list products (universities) value the ablility to target students from affluent, predominantly white schools and communities, student list products have developed filters that enable universities to do this with great efficiency. In turn, these products adopt micro-targeting as a branding strategy. For example, College Board Student Search promises to “create a real pipeline of best-fit prospects” @RN1623 while ACT Encoura uses the tag-line “find and engage your best-fit students” @RN1624. Enrollment management consulting firms promise precision when marketing list buying services. For example, Ruffalo Noel Levitz states the “RNL Student Search and Engagement” product enables universities to “target the right students in the right markets” by making “the most efficient name purchases using predictive modeling” [@ruffalo_noel_levitz_2021]. 
+In the era of digital platforms, student list products have developed new algorithmic search filters that utilize market segmentation and micro-targeting approaches. For example, @RN4565 utilized market segmentation methodologies to create "geodemographic segment" filters, which classify each high school and each neighborhood to a group based on the past college-going behaviors of students. In 2021, College Board added three new geodemographic filters [@cb_vid_2021]. More generally, student list products have incorporated new filters designed to increase precision in targeting desired prospects. Examples include ACT's predicted probability of enrollment filter, and College Board's "interest in my peers" filter. To the extent that universities want to target students from affluent schools and communities, student list products facilitate this goal with great efficiency. As in political advertising [@RN4789], micro-targeting has become a branding strategy for student list products. For example, College Board Student Search promises to “create a real pipeline of best-fit prospects” @RN1623 while ACT Encoura uses the tag-line “find and engage your best-fit students” @RN1624. Enrollment management consulting firms promise precision when marketing list buying services. For example, Ruffalo Noel Levitz states the “RNL Student Search and Engagement” product enables universities to “target the right students in the right markets” by making “the most efficient name purchases using predictive modeling” [@ruffalo_noel_levitz_2021]. 
 
 ### Predicting Exclusion
 
-@list_empirics categorize the filters available in the College Board Student Search Service product into the four buckets of geographic, academic, demographic, and student preferences (e.g., desired campus size, intended major). Table X describes filters by category. Drawing from the sociology of race, we conceptualize particular student list filters as "structurally racist" or "racialized inputs" if they have the appearance of neutrality but are correlated with race due to historic exclusion from this input. This section develops predictions about the relationship between filters and exclusion, focusing on racial and socioeconomic exclusion.
+@list_empirics categorize the filters available in the College Board Student Search Service product into the four buckets of geographic, academic, demographic, and student preferences (e.g., desired campus size, intended major). Table X lists selected filters by category. We conceptualize a search filter as a structurally racist input if it is correlated with race due to historic exclusion from the input. This section draws from the sociology of race and related fields to develop expectations [?predictions?] about the relationship between search filters and exclusion, focusing on geographic search filters and academic search filters.
 
+**Geographic filters**. Geographic search filters enable universities to target prospects based on where they live. College Board Student Search Service offers two kinds of geographic search filters: filters based on known geographic borders (e.g., state, CBSA, zip code); and filters based on geographic borders that College Board constructs using historic data about test-takers (e.g, geomarket, geodemographic filters).
 
+The concepts "space" and "place" from critical geography [@RN4754; @RN4755] describe alternative approaches to conceptualizing geographic location, which are useful for developing predictions about the relationship between geographic filters and exclusion. Place denotes a holistic understanding of a geographic location that incorporates the “history, peoples, and purposes within the political, social, and economic landscape” [@RN4755, p. 317]. By contrast, space simply refers to a physical location which can be described in terms of quantifiable spatial features (e.g., distance, demographics, economic activity). Geospatial analyses typically adopt this view of space “as a location on a surface where things ‘just happen’” [@RN4754, p. 318].
 
-Geographic search filters (e.g., state, zip code, "geomarket," CBSA, geodemographic market segment) enable universities to target prospects based on where they live.
+Marketing conceives of geography as space. Market research exploits racial segregation as a means to identify and target prospective customers [@RN4772; @RN4775]. For example, geodemography (now referred to as "spatial big data") is a branch of market research that estimates the behavior of consumers based on where they live. @RN4565[p. 1], which develops geodemographic segment search filters, states that "the basic tenet of geodemography is that people with similar cultural backgrounds, means, and perspectives naturally gravitate toward one another or form relatively homogeneous communities; in other words, birds of a feather flock together."
 
-The concepts of "space" and "place" from critical geography [@RN4754; @RN4755] describe two alternative approaches to conceptualizing geographic location. Place refers to a holistic understanding of a geographic location that incorporates the “history, peoples, and purposes within the political, social, and economic landscape” [@RN4755, p. 317]. By contrast, space simply refers to a physical location which can be described in terms of quantifiable spatial features (e.g., distance, demographics, economic activity) and geospatial research adopts a view of space “as a location on a surface where things ‘just happen’” [@RN4754, p. 318].
+By contrast, scholarship on racial segregation conceives of geography as place. Racial segregation is a function of historic and contemporary structurally racist laws, policies, and practices promoting residential segregation [e.g., @rothstein2017color; @RN4551; @RN4801; @RN4800]. Geographic search filters are built on the back of racial segregation. Targeting prospective students based on geographic location (space) without consideration to the historic and contemporary structures (place) that produce residential segregation is likely to reinforce historical race-based inequality in educational opportunity.
 
-Marketing practices conceive of geography as space. Market research exploits racial segregation as a means to identify and target prospective customers [@RN4772; @RN4775]. @RN4775 (p. 147) states that "racialized zip codes are the output of Jim Crow policies and the input of New Jim Code practices." Geodemography (now referred to as "spatial big data") is a branch of market research that estimates the behavior of consumers based on where they live. @RN4565, which describes the development of geodemographic segment filters, illustrates the underlying assumptions of geodemography: The basic tenet of geodemography is that people with similar cultural backgrounds, means, and perspectives naturally gravitate toward one another or form relatively homogeneous communities; in other words, birds of a feather flock together (p. 1).
+With respect to filters based on known geographic borders (e.g., county, zip code), we expect that utilizing finer geographic filters is associated with greater racial and socioeconomic dispairities in student list purchases because American residential segregation occurs at fine-grained geographic levels [CITE]. Prior research on recruiting, which finds that selective private and public research universities disproportionately target affluent schools and communities [@RN3519; @RN4759; @RN4758; @RN4733], implies that some universities may filter on affluent zip codes when purchasing student lists. We expect that filtering for affluent neighborhoods is positively associated with racial exclusion because of historical and contemporary practices that exclude people of color from living in many affluent neighborhoods.
 
-Scholarship on racial segregation conceives of geography as place. Contemporary segregation is a function of historic [e.g., @rothstein2017color; @RN4551] and contemporary [e.g., @RN4801; RN4800] structurally racist laws, policies, and practices promoting residential segregation. Geographic filters are built on the back of racial segregation. We argue that targeting prospective students based on geographic location (space) without consideration to the history (place) that produces its unique patterns of residential segregation is likely to reinforce historical race-based inequality in educational opportunity.
+In addition to filters for known geographic borders, College Board uses data on test-takers from previous admissions cycles to create new geographic borders for the purpose of filtering prospective students. "Geomarkets" divide metropolitan areas into smaller pieces. For example, the San Francisco Bay Area is divided into eight geomarkets, including CA10 the "City of San Jose" and CA11 "Santa Clara County excluding San Jose" [[CITE](https://drive.google.com/drive/u/0/folders/1mqvLpSZZ6k7EWHPh0btt2hWy2J-jXs_y)]. Geodemographic segment filters utilize cluster analysis allocate each high school and each neighborhood (census tract) to a market segment based on based on past college-going behaviors of students from that school or neighborhood [@RN4565]. The resulting classification is highly correlated with race because communities of color that have been historically excluded from higher education are more likely to be lumped together. More generally, we argue that filtering on geographic borders created from past education data is associated with racial exclusion because these borders likely reflect historic disparities in educational opportunity. Further, these filters increase the effects of historic place-based inequality because they enable universities to discriminate between prospects based on previously unknown geographic borders.[BUT CAN'T ANALYZE THESE CUZ WE DON'T HAVE/NEED TO CREATE THE BORDERS]
+<!-- 
+These filters utilize cluster analysis to classify each high school and each neighborhood (census tract) to a group based on the past college-going behaviors of students from that school or neighborhood. The resulting classification is highly correlated with race because communities of color that have been historically excluded from higher education are more likely to be lumped together.
+In 2021, College Board added three new "environmental attributes" geodemographic filters that filter prospects based on past behavior of students from their high school -- Travel Rates (out of state), Travel Rates (distance from home), and AP engagement rates [@cb_vid_2021]. 
+-->
 
-EXPECTATIONS 
-We expect that utilizing smaller geographic filters is associated with greater racial and socioeconomic dispairities in student list purchases because American residential segregation occurs at fine-grained geographic levels [CITE]. Prior research on recruiting finds that selective private universities and also public research universities -- particularly in out-of-state recruiting efforts -- target affluent schools and communities [@RN3519; @RN4759; @RN4758; @RN4733].  These results suggest that universities may filter on affluent zip codes when purchasing student lists. We expect that filtering for affluent neighborhoods is positively associated with racial exclusion because people of historical and contemporary practices that exclude people of color from living in many affluent neighborhoods
-
-"Geomarkets" are created by by College Board Enrollment Management Services using information about score senders from previous admissions cycles [@RN1621] <!-- Geomarket filters are created by the College Board within their Enrollment Management Services, which use information about SAT score senders from the past five admissions cycles within a specific geographic locality (e.g., counties, metropolitan areas, cities) to make projections about high school graduates in the area (College Board, 2011a) -->. For example, CA10 is the "City of San Jose" and CA11 is "Santa Clara County excluding San Jose." We expect that geomarket filters positively associated with racial exclusion because geomarket borders are drawn to reflect historic geographic disparities in educational opportunities.
-
-SOMETHING ABOUT GEODEMOGRAPHIC FILTERS?
-
-### Academic filters
-
-College Board academic filters include high school graduating class, SAT score, PSAT score, AP score by subject, high school GPA, and high school class rank.
+**Academic filters**. [KARINA + OZAN REVISE THIS SECTION AFTER SOME PRELIMINARY WORK] College Board academic filters include high school graduating class, SAT score, PSAT score, AP score by subject, high school GPA, and high school class rank.
 
 Broadly, the first source of racial and socioeconomic exclusion is that the underlying student list database excludes students who have not taken College Board assessments (SAT, AP, PSAT). Prior research shows that test-taking rates differ by race and class. Thus, we expect that who is included in the underlying database exhibits racial and socioeconomic exclusion prior to conditioning on a particular assessment or a particular score. 
 
@@ -195,6 +229,7 @@ A related source of exclusion within the population of test-takers is who takes 
 A second broad source of exclusion comes from test score thresholds utilized on filters. Test scores differ by race and class as a function of differential access to test preparation and …. [READ SOME STUFF AND THEN WRITE; STUFF FROM STRUCTURAL RACISM IN STANDARDIZED TESTING BY TIAKO AND RAY?]. We expect a positive relationship between test score thresholds and racial and socioeconomic exclusion. As an alternative to test scores, universities may filter on high school GPA or high school class rank [RESEARCH BY TIENDA AND FOLKS?]. We expect a weaker relationship between these filters and racial/socioeconomic exclusion.
 
 
+<!--  CUT THIS BECAUSE NOT GOING TO ANALYZE DEMOGRAPHIC FILTERS IN EEPA?
 ### Demographic filters
 
 Demographic filters include race, ethnicity, gender, low SES, and first generation status. We focus on filtering by race, which was the most commonly used demographic filter in @list_empirics.
@@ -204,6 +239,8 @@ Drawing from critical legal scholarship [@RN4685;@RN4551], we argue that race/et
 Whereas "nonwhiteness" was historically "used as a basis for withholding value by denying nonwhite people legal rights and privileges” [@RN4685, p. 2155], nonwhiteness now confers social and legal value as a function with society's preoccupation with diversity. The commodification of nonwhiteness -- a “commodity to be pursued, captured, possessed, and used” (p. 2155) -- encourages organizations to prioritize representational diversity, which @RN4685 argues is exemplified by universities enrolling and marketing a diverse student body as a marker of status and prestige. However, selective universities pursue representational diversity while simultaneously privileging characteristics  associated with whiteness (e.g., a "good high school", "interesting extracurricular activities", "good scores") [@RN4720;@RN4495; @RN3519]. By combining race/ethnicity filters with academic achievement (e.g., AP test score range), geographic, and/or geodemographic filters, universities can screen for Students of Color who have characteristics perceived to be associated with whiteness, often as a function of living in a predominantly white community or attending a predominantly white school.
 
 Building from these ideas, we expect that filtering for underrepresented students of color in combination with racialized inputs (e.g., AP scores, PSAT scores, affluent zip codes) systematically excludes students of color who live in predominantly non-white communities and attend predominantly non-white schools.
+-->
+
 
 
 ### Student preference filters
@@ -212,6 +249,79 @@ Building from these ideas, we expect that filtering for underrepresented student
 
 
 \pagebreak
+
+<!-- \pagebreak -->
+
+
+```{r cb-fig, fig.height = 5, out.width = '85%', fig.cap = 'Student Search Service and four-year college enrollment/completion'}
+
+create_cb_figure <- function(categories, values, plot_title) {
+  cb_fig_df <- data.frame(
+    category = rep(categories, each = 2),
+    subcategory = rep(c('Not Licensed', 'Gain from being Licensed'), length(categories)), 
+    value = values
+  )
+  
+  cb_fig_df$category <- factor(cb_fig_df$category, levels = categories)
+  
+  cb_fig_df %>%
+    left_join(
+      cb_fig_df %>%
+        pivot_wider(id_cols = category, names_from = subcategory, values_from = value) %>%
+        mutate(
+          total = `Not Licensed` + `Gain from being Licensed`,
+          pct_change = `Gain from being Licensed` / `Not Licensed` * 100
+        ),
+      by = 'category') %>% 
+    ggplot(aes(x = category, y = value, fill = subcategory, width = 0.6)) +
+    geom_bar(position = 'stack', stat = 'identity') +
+    geom_text(aes(y = value, label = if_else(subcategory == 'Not Licensed', str_c(sprintf('%.1f', value), '%'), '')), color = '#444444', size = 2, position = position_stack(vjust = 0.5)) +
+    geom_text(aes(y = total + 3, label = if_else(subcategory == 'Not Licensed', str_c('(', sprintf('%.1f', pct_change), '%)'), '')), color = '#444444', size = 2) +
+    geom_text(aes(y = total + 7, label = if_else(subcategory == 'Not Licensed', str_c(sprintf('%.1f', `Gain from being Licensed`), 'pp'), '')), color = '#444444', size = 2) +
+    ggtitle(plot_title) +
+    xlab('') + ylab('') + 
+    scale_y_continuous(expand = expansion(mult = c(0, 0.05)), limits = c(0, 80)) +
+    scale_fill_manual(values = c('#ba9a88', '#bbcfd7')) +
+    theme(
+        plot.margin = margin(t = 0.6, unit = 'cm'),
+        panel.grid.major.y = element_line(size = 0.1, color = 'gray'),
+        legend.title = element_blank(),
+        legend.position = 'bottom',
+        legend.margin = margin(t = -0.5, unit = 'cm'),
+        legend.text = element_text(margin = margin(r = 0.2, unit = 'cm'))
+      ) +
+      guides(fill = guide_legend(reverse = T))
+}
+
+grid.arrange(
+  create_cb_figure(
+    c('Overall', 'Asian', 'Black', 'Hispanic', 'AI/AN', 'HI/PI', 'White'),
+    c(32.8, 8.3, 37.5, 5.7, 31.8, 7.8, 24.1, 8.3, 26.5, 6.3, 22.2, 5.8, 44.4, 9.6),
+    'Enrollment'
+  ),
+  create_cb_figure(
+    c('Overall', 'Asian', 'Black', 'Hispanic', 'AI/AN', 'White'),
+    c(15.7, 4.9, 17.7, 5.0, 7.2, 2.9, 6.7, 2.9, 8.7, 4.2, 24.0, 6.7),
+    'BA Completion within 4 Years'
+  ),
+  create_cb_figure(
+    c('Overall', 'No College', 'College,\nNo BA', 'College,\nBA or Higher'),
+    c(32.8, 8.3, 24.9, 10.1, 36.5, 11.0, 53.4, 10.1),
+    'Enrollment'
+  ),
+  create_cb_figure(
+    c('Overall', 'No College', 'College,\nNo BA', 'College,\nBA or Higher'),
+    c(15.7, 4.9, 13.6, 6.8, 21.3, 8.5, 39.9, 10.1),
+    'BA Completion within 4 Years'
+  ),
+  ncol = 2
+)
+```
+
+\begingroup\fontsize{8}{12}\selectfont
+_Notes: AI/AN = American Indian or Alaska Native. HI/PI = Hawaiian or Pacific Islander. Sample for enrollment outcomes is all SAT takers in the 2015–2018 high school graduation cohorts. Sample for completion outcomes is students in the 2015–2016 cohorts. Results are estimated from regressions that include student-level controls for: sex, race/ethnicity, SAT score, parental education level, last Student Search Service opt-in status, graduation cohort, and high school fixed effects. All differences between licensed versus non-licensed students are statistically significant at the 1% level._
+\endgroup
+
 
 ```{r em-funnel, echo = FALSE, fig.align = 'center', fig.cap = "The enrollment funnel", out.width = "45%"}
 knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
