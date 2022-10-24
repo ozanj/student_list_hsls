@@ -20,6 +20,7 @@ library(haven)
 library(labelled)
 library(tidyr)
 library(stringr)
+#library(survey)
 
 
 ### Directory Paths
@@ -104,8 +105,8 @@ df_stu <- df_stu_all %>% rename_all(toupper) %>% select(all_of(keep_vars)) %>%
     # position 3 = 2013 update  (2013)
     # position 4 = high school transcript (data collected in 2013-14)
     # position 5 = followup 2 (2016)
-  # keep students who completed base year, f1, and high school transcript; regardless of whether completed U13 update
-  filter(X3UNIV1 %in% c('1111','1101')) %>%
+  filter(X3UNIV1 %in% c('1111','0111')) %>%
+  #filter(X3UNIV1 %in% c('1111','1101')) %>%
   ## convert negative numbers to proper NA
   val_to_na(miss_vars, cw_miss_vars, varname, reserve) %>% 
   ## convert factor variables to actual factors, including NA as level
@@ -142,12 +143,16 @@ df_stu <- df_stu_all %>% rename_all(toupper) %>% select(all_of(keep_vars)) %>%
 
 ########### start creating analysis variables
 
-df_stu %>% glimpse()
+#START MAKING FILTERS
+  df_stu %>% mutate(in_list = if_else(hsgradyr ==2013,1,0)) %>% count(hsgradyr, in_list) %>% mutate(pfreq = (n / sum(n)) * 100)
+  
+  df_stu %>% mutate(in_list = if_else(hsgradyr ==2013,1,0)) %>% filter(in_list ==1) %>% count(x2race) %>% mutate(pfreq = (n / sum(n)) * 100)
+  df_stu %>% mutate(in_list = if_else(hsgradyr ==2013,1,0)) %>% filter(in_list ==0) %>% count(x2race) %>% mutate(pfreq = (n / sum(n)) * 100)
+  df_stu %>% mutate(in_list = if_else(hsgradyr ==2013,1,0)) %>% filter(is.na(in_list)==1) %>% count(x2race) %>% mutate(pfreq = (n / sum(n)) * 100)
 
-df_work <- df_stu
 
-df_stu_all %>% filter(X3UNIV1 %in% c('1111','1101')) %>% 
-  select(X2TXMTSCOR,X2TXMQUINT,X2X1TXMSCR) %>%
+df_stu_all %>% filter(X3UNIV1 %in% c('1111','0111')) %>% 
+  select(W3W1W2STUTR,W3W2STUTR) %>%
   summarize_all(
     .funs = list(
       avg = ~ mean(., na.rm = TRUE),
@@ -157,63 +162,5 @@ df_stu_all %>% filter(X3UNIV1 %in% c('1111','1101')) %>%
       n_miss = ~ sum(is.na(.))
     )
   )
-
-
-df_stu_all %>% filter(X3UNIV1 %in% c('1111','1101')) %>% count(X1SESQ5)
-df_stu_all %>% filter(X3UNIV1 %in% c('1111','1101')) %>% count(X2SESQ5)
-
-
-
-
-
-df_stu_all %>% filter(X3UNIV1 %in% c('1111','1101')) %>% count(X2TXMTH)
-
-df_stu_all %>% filter(X3UNIV1 %in% c('1111','1101')) %>% count(X1TXMTH)
-
-
-df_stu_all %>% filter(X3UNIV1 %in% c('1111','1101')) %>% count(X2SESQ5)
-
-df_stu_all %>% filter(X3UNIV1 %in% c('1111','1101')) %>% count(X2PAREDU)
-
-
-keep_vars %>% tolower()
-
-
-
-
-
-  
-  df_work %>% select(contains("race"))
-  
-  df_work %>% count(x1race)
-  df_work %>% count(x2race)
-  df_work %>% count(x1race,x2race)
-  
-  df_work %>% select(matches("s2.+num"))
-  df_work %>% count(s2psatnum)
-  df_work %>% mutate(
-            s2psatnum = recode(s2psatnum,`4`=0)
-            ) %>% count(s2psatnum)
-
-  df_work %>% mutate(across(.cols = matches("s2.+num"), ~ recode(.,`4`=0))
-    ) %>% count(s2apexamnum)
-  
-df_stu %>% count(x1race)
-df_stu %>% count(x2race)
-
-df_stu %>% glimpse()
-df_stu %>% select(x1par1race,x1par2edu) %>% glimpse()
-
-df_stu$x1par1race %>% class()
-df_stu$x1par2edu %>% class()
-
-df_stu %>% count(x1par1race)
-df_stu %>% count(x1par2edu)
-
-df_stu %>% var_label()
-
-df_stu %>% count( X1PAR2EMP) %>% print(n=40)
-df_stu %>% count(x3univ1) %>% print(n=40)
-
 
 

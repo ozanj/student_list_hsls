@@ -24,7 +24,7 @@ W3W1W2STU,W3 Student Longitudinal Analytic Weight BY-F1-U13,IDs and weights,0,0,
 W3W2STU,W3 Student Longitudinal Analytic Weight F1-U13,IDs and weights,0,0,0,0,IDs,W3,0,
 W3HSTRANS,W3 Student High School Transcript Weight,IDs and weights,0,0,0,0,IDs,W3,0,
 W3STUDENTTR,W3 High school transcript and 2013 Update weight,IDs and weights,0,0,0,0,IDs,W3,0,
-W3W1STUTR,"W3 High school transcript, base year and 2013 Update weight",IDs and weights,1,0,0,0,IDs,W3,0,
+W3W1STUTR,"W3 High school transcript, base year and 2013 Update weight",IDs and weights,0,0,0,0,IDs,W3,0,
 W3W1W2STUTR,"W3 High school transcript, base year, first follow-up, and 2013 Update weight",IDs and weights,1,0,0,0,IDs,W3,0,
 W3W2STUTR,"W3 High school transcript, first follow-up, and 2013 Update weight",IDs and weights,1,0,0,0,IDs,W3,0,
 W4STUDENT,Second follow-up student analytic weight,IDs and weights,0,0,0,0,IDs,W4,0,
@@ -152,7 +152,7 @@ X1TSEFF,X1 Scale of science teacher's self-efficacy,BY student level composites,
 X1TSEXP,X1 Scale of science teacher's perceptions of science teachers expectations,BY student level composites,0,0,0,0,BY,X1,0,789
 X1TSPRINC,X1 Scale of science teacher's perceptions of principal support,BY student level composites,0,0,0,0,BY,X1,0,789
 X1TSRESP,X1 Scale of science teacher's perceptions of collective responsibility,BY student level composites,0,0,0,0,BY,X1,0,789
-X1CONTROL,X1 School control,BY student level composites,0,1,0,0,BY,X1,0,
+X1CONTROL,X1 School control,BY student level composites,1,1,0,0,BY,X1,0,
 X1LOCALE,X1 School locale (urbanicity),BY student level composites,1,1,0,0,BY,X1,0,
 X1REGION,X1 School geographic region,BY student level composites,1,1,0,0,BY,X1,0,
 X1CENDIV,X1 School census geographic division,BY student level composites,0,0,0,0,BY,X1,1,
@@ -298,7 +298,7 @@ X2PQLANG,X2 Parent questionnaire language (English v. Spanish),F1 student level 
 X2CONTROL,X2 School control,F1 student level composites,1,1,0,0,F1,X2,0,69
 X2LOCALE,X2 School locale (urbanicity),F1 student level composites,1,1,0,0,F1,X2,0,69
 X2REGION,X2 School geographic region,F1 student level composites,1,1,0,0,F1,X2,0,69
-X2CENDIV,X2 School census geographic division,F1 student level composites,0,0,0,0,F1,X2,0,
+X2CENDIV,X2 School census geographic division,F1 student level composites,1,0,0,0,F1,X2,0,
 X2STATE,X2 State code for school,F1 student level composites,1,0,0,0,F1,X2,0,
 X2FREELUNCH,X2 Grade 11 percent free lunch-categorical,F1 student level composites,1,0,0,0,F1,X2,0,
 X2SCHOOLCLI,X2 Scale of administrator's assessment of school climate,F1 student level composites,0,0,0,0,F1,X2,0,89
