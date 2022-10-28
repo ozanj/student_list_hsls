@@ -1,5 +1,5 @@
 ---
-title: "Structurally Racist Inputs in Student List Products"
+title: ""
 #subtitle: ""
 #author: 
 #  - Ozan Jaquette
@@ -53,28 +53,33 @@ theme_set(
 )
 ```
 
+<!-- Structurally Racist Inputs in Student List Products -->
+
+**Introduction and background**. Colleges and universities (herein universities) identify prospective students by purchasing "student lists" from College Board, ACT, and other vendors. A student list contains the contact information of prospective students who meet the search filter criteria (e.g., test score range, GPA, zip codes) specified by the university, who can then be recruited via mail, email, and on social media. Recent research suggests that student lists are important for the college access outcomes of millions of students each year [@RN4739]. After controlling for covariates, students who opt into College Board Student Search Service -- allowing accredited institutions to "licence" their contact information -- were 25% more likely to enroll in a 4-year college than students who opted out (see these results reproduced in Figure \@ref(fig:cb-outcomes)). Furthermore, the results were stronger for students who identified as Black, Latinx, and first-generation.
+
+However, a series of recent reports by Author (XXXXa, XXXXb, XXXXc) argue that student list products systematically exclude underrepresented student populations in two ways. The first source of exclusion is which prospective students are in the underlying database. Historically, student list products sold by College Board and ACT exclude non test-takers, but rates of test-taking differ by race and class. Second, several "search filters" (e.g., zip code, AP score) used to control which prospect profiles are purchased further facilitate the exclusion of students from communities of color and low-income communities. 
+
+This paper examines the exclusionary effects of student list products. We ask, what is the relationship between student list search filters and the characteristics of students who are included vs. excluded in student lists purchased from College Board? We reconstruct College Board student list products using nationally representative data on high school students from the High School Longitudinal Study of 2009 (HSLS:09). We create measures for each search filter and measures that identify whether students are included in the underlying student list database. Empirical analyses investigate the relationship between particular filters and combinations of filters -- our "X" variables of interest -- and the racial and socioeconomic composition of students who are included vs. excluded from purchases that utilize these filters.
+
+**Literature Review**. A growing literature within the sociology of education examines the relationship between recruiting and college access. For example, @RN4324 analyzes recruiting from the perspective of high school students. @RN3519 analyzes recruiting from the perspective of a selective liberal arts college. @cottom2017lower analyzes the recruiting behavior of for-profit universities. Authors (XXXXD, XXXXE) investigated off-campus recruiting visits by public research universities. All of these studies assume that recruiting is primarily a practice of individual colleges and universities. 
+
+By contrast, Authors (XXXXA) argue that university enrollment management behaviors are increasingly structured by products purchased from third-party software and consulting firms. Historically, the market for student list data has been dominated by College Board and ACT. However, advances in technology and the test-optional movement have created opportunities for edtech software and consulting firms to become suppliers of student list data. 
+
+Author (XXXXB) issued public records requests to public universities to collect data about student list purchases. Empirically, Authors (XXXB) showed that student list filters that utilized particular combinations of search filters were associated with profound racial and socioeconomic exclusion. Because of data limitations, Authors (XXXB) cannot determine which particular filters and filter thresholds are driving the exclusion. This paper overcomes this limitation, by recreating College Board student list products using HSLS:09 and then simulating who is included/excluded as filters and filter thresholds are changed.
 
 
-**Introduction and background**. Colleges and universities (herein universities) identify prospective students by purchasing "student lists" from College Board, ACT, and other vendors. A Student list contains the contact information of prospective students who meet the search filter criteria (e.g., test score range, GPA, zip codes) specified by the university. Purchased lists are a necessary input for undergraduate recruiting interventions, which target individual prospects by mail, email, and on social media. Recent research by @RN4739 suggests that student lists are surprisingly important for the college access outcomes of millions of students each year. Figure \@ref(fig:cb-fig) reproduces the main results. After controlling for covariates, the authors found that students who opted into College Board Student Search Service -- allowing accredited institutions to "licence" their contact information -- were 25% more likely to enroll in a 4-year college than students who opted out. Furthermore, the results were stronger for students who identified as Black, LatinX, and first-generation.
+**Theory**. We develop a conceptual framework from scholarship at the nexus of sociology of race and digital platforms [@RN4774; @RN4786; @RN4778; @RN4777; @RN4421; @RN4794]. Student list products are algorithmic selection devices that – similar to Google Ads or Facebook – allow advertisers to control the prospective customers through the use of search filters. Structural racism is “systematic racial bias embedded in the ‘normal’ functions of laws and social relations” [@RN4760, p. 1143], whereby processes viewed as neutral or common-sense systematically advantage dominant groups. Structurally racist inputs are determinants of a selection device that are correlated with race because non-white people have been historically excluded from the input [@RN4786]. After establishing foundational concepts, we conceptualize several "geographic" and "academic" search filters as structurally racist inputs. For example, prospects may be filtered by zip code, but zip codes are correlated with race because of residential segregation [@RN4775]. Next, we develop testable propositions about the relationship between specific filters and racial exclusion from purchased lists.
 
-However, a series of recently published reports by Author (XXXXa, XXXXb, XXXXc) argue that student list products systematically exclude underrepresented student populations in two ways. The first source of exclusion is which prospective students are in the underlying database. Historically, student list products sold by College Board and ACT exclude non test-takers, but rates of test-taking differ by race and class. Second, several "search filters" (e.g., zip code, AP score) used to control which prospect profiles are purchased facilitate the efficient exclusion of students from communities of color and low-income communities. 
+**Methods, analyses, progress to date**. Propositions will be tested using data from HLS:09 and student list order summaries by public universities collected from public records requests. The nationally representative analysis dataset will include measures of whether students are included in College Board student list products and measures for each search filter. Figure \@ref(fig:filters), based on data from public records requests, shows that search filters can be categorized into the four buckets of geographic, academic, demographic, and student preferences.
 
-This paper empirically examines the exclusionary effects of student list products. We ask, what is the relationship between student list search filters and the characteristics of students who are included vs. excluded in student lists purchased from College Board? We reconstruct College Board student list products using nationally representative data on high school students from the High School Longitudinal Study of 2009 (HSLS:09). We create measures for each search filter and measures that identify whether students are included in the underlying student list database. Empirical analyses investigate the relationship between particular filters and combinations of filters -- our "X" variables of interest -- and the racial and socioeconomic composition of students who are included vs. excluded from purchases that utilize these filters.
+Analyses will consist of simple descriptive statistics -- with appropriate tests of significance -- and interactive maps. First, we will analyze the racial and socioeconomic composition of purchases that filter only on particular geographic filters discussed in the conceptual framework. Second, we will analyze purchases that filter on particular academic filters. However, actual student list purchases utilize multiple search filters. Drawing from data on actual purchases made by public universities, the third stage of analyses will analyze purchases that filter on both geographic and academic filters. We will then simulate marginal changes to filters to identify the drivers of exclusion.
 
-**Literature Review**. Most scholarship at the nexus of college access and enrollment management focuses on which applicants are admitted or financial aid leveraging to convert admits to enrolled students. However, a growing literature within the sociology of education examines the relationship between recruiting and college access. For example, @RN4324 analyzes recruiting from the perspective of high school students. @RN3519 analyzes recruiting from the perspective of a selective liberal arts college. @cottom2017lower analyzes the recruiting behavior of for-profit universities. Authors (XXXXD, XXXXE) investigated off-campus recruiting visits by public research universities.All of these studies assume that recruiting is something done by indvidual colleges and universities. 
-
-By contrast, Authors (XXXXA) argue that university enrollment management behaviors are increasingly structured by products purchased from third-party software and consulting firms. Historically, the market for student list data has been dominated by College Board and ACT, which capitalized on their bank of test-takers. However, advances and technology and the test-optional movement have created opportunities for edtech software and consulting firms to become suppliers of student list data. 
-
-Author (XXXXB) issued public recrods requests to public universities in order to collect data about student list purchases (the filters selected in purchases, and the prospects associated with each purchase). Empirically, Authors (XXXB) showed that student list filters that utilized particular combinations of search filters were associated with profound racial and socioeconomic exclusion. Because of data limitations, Authors (XXXB) cannot determine which particular filters and filter thresholds are driving the exclusion. This paper overcomes this limitation, by recreating the College Board student list product using a nationally representative sample of high school students and then simulating who is included/excluded as filters and filter thresholds are changed.
+To date, we have created an analysis dataset from public-use HSL:09 data. We have submitted a request for restricted HLS:09 data and expect to receive data by 12/1/2022. Additionally, we have created scripts that produce desired descriptive statistics and interactive maps. These can be seen in Figures \@ref(fig:zipcode) and \@ref(fig:metromaps), respectively.
 
 
-**Theory**. We develop a conceptual framework from scholarship at the nexus of sociology of race and digital platforms [@RN4774; @RN4786; @RN4778; @RN4777; @RN4421; @RN4794]. Algorithms are instructions written in code [@RN4794]. Student list products are algorithmic selection devices that – similar to Google Ads or Facebook – allow advertisers to control the prospective customers through the use of search filters. Structural racism is “systematic racial bias embedded in the ‘normal’ functions of laws and social relations” [@RN4760, p. 1143], whereby processes viewed as neutral or common-sense systematically advantage dominant groups. Structurally racist inputs are determinants of a selection device that are correlated with race because non-white people have been historically excluded from the input [@RN4786]. After establishing foundational concepts, we conceptualize several "geographic" and "academic" search filters as structurally racist inputs. For example, prospects may be filtered by zip code, but zip codes are correlated with race because of residential segregation [@RN4775]. Next, we develop testable propositions about the relationship between specific filters -- and combinations of filters -- and racial exclusion from purchased lists.
+**Significance**. This research contributes to the sociology of education in two ways. First, whereas scholarship on college access focuses on students, schools, and policies, we push scholarship to consider how third-party products structure college access. Second, we encourage the sociology of education to analyze structural barriers to opportunity by drawing from recent advances in the sociology of race. 
 
-**Methods**. text
-
-**Analyses and progress to date**. text
-
-**Significance**. text
+<!-- Third, we contribute empirical analyses to the nascent "platform studies in education" literature [@RN4843; @RN4847; @RN4827; @RN4815]. -->
 
 
 
@@ -83,80 +88,39 @@ Author (XXXXB) issued public recrods requests to public universities in order to
 <!-- \pagebreak -->
 
 
-```{r cb-fig, fig.height = 5, out.width = '85%', fig.cap = 'Student Search Service and four-year college enrollment/completion'}
-
-create_cb_figure <- function(categories, values, plot_title) {
-  cb_fig_df <- data.frame(
-    category = rep(categories, each = 2),
-    subcategory = rep(c('Not Licensed', 'Gain from being Licensed'), length(categories)), 
-    value = values
-  )
-  
-  cb_fig_df$category <- factor(cb_fig_df$category, levels = categories)
-  
-  cb_fig_df %>%
-    left_join(
-      cb_fig_df %>%
-        pivot_wider(id_cols = category, names_from = subcategory, values_from = value) %>%
-        mutate(
-          total = `Not Licensed` + `Gain from being Licensed`,
-          pct_change = `Gain from being Licensed` / `Not Licensed` * 100
-        ),
-      by = 'category') %>% 
-    ggplot(aes(x = category, y = value, fill = subcategory, width = 0.6)) +
-    geom_bar(position = 'stack', stat = 'identity') +
-    geom_text(aes(y = value, label = if_else(subcategory == 'Not Licensed', str_c(sprintf('%.1f', value), '%'), '')), color = '#444444', size = 2, position = position_stack(vjust = 0.5)) +
-    geom_text(aes(y = total + 3, label = if_else(subcategory == 'Not Licensed', str_c('(', sprintf('%.1f', pct_change), '%)'), '')), color = '#444444', size = 2) +
-    geom_text(aes(y = total + 7, label = if_else(subcategory == 'Not Licensed', str_c(sprintf('%.1f', `Gain from being Licensed`), 'pp'), '')), color = '#444444', size = 2) +
-    ggtitle(plot_title) +
-    xlab('') + ylab('') + 
-    scale_y_continuous(expand = expansion(mult = c(0, 0.05)), limits = c(0, 80)) +
-    scale_fill_manual(values = c('#ba9a88', '#bbcfd7')) +
-    theme(
-        plot.margin = margin(t = 0.6, unit = 'cm'),
-        panel.grid.major.y = element_line(size = 0.1, color = 'gray'),
-        legend.title = element_blank(),
-        legend.position = 'bottom',
-        legend.margin = margin(t = -0.5, unit = 'cm'),
-        legend.text = element_text(margin = margin(r = 0.2, unit = 'cm'))
-      ) +
-      guides(fill = guide_legend(reverse = T))
-}
-
-grid.arrange(
-  create_cb_figure(
-    c('Overall', 'Asian', 'Black', 'Hispanic', 'AI/AN', 'HI/PI', 'White'),
-    c(32.8, 8.3, 37.5, 5.7, 31.8, 7.8, 24.1, 8.3, 26.5, 6.3, 22.2, 5.8, 44.4, 9.6),
-    'Enrollment'
-  ),
-  create_cb_figure(
-    c('Overall', 'Asian', 'Black', 'Hispanic', 'AI/AN', 'White'),
-    c(15.7, 4.9, 17.7, 5.0, 7.2, 2.9, 6.7, 2.9, 8.7, 4.2, 24.0, 6.7),
-    'BA Completion within 4 Years'
-  ),
-  create_cb_figure(
-    c('Overall', 'No College', 'College,\nNo BA', 'College,\nBA or Higher'),
-    c(32.8, 8.3, 24.9, 10.1, 36.5, 11.0, 53.4, 10.1),
-    'Enrollment'
-  ),
-  create_cb_figure(
-    c('Overall', 'No College', 'College,\nNo BA', 'College,\nBA or Higher'),
-    c(15.7, 4.9, 13.6, 6.8, 21.3, 8.5, 39.9, 10.1),
-    'BA Completion within 4 Years'
-  ),
-  ncol = 2
-)
-```
-
-\begingroup\fontsize{8}{12}\selectfont
-_Notes: AI/AN = American Indian or Alaska Native. HI/PI = Hawaiian or Pacific Islander. Sample for enrollment outcomes is all SAT takers in the 2015–2018 high school graduation cohorts. Sample for completion outcomes is students in the 2015–2016 cohorts. Results are estimated from regressions that include student-level controls for: sex, race/ethnicity, SAT score, parental education level, last Student Search Service opt-in status, graduation cohort, and high school fixed effects. All differences between licensed versus non-licensed students are statistically significant at the 1% level._
-\endgroup
-
-
 
 # References
 
 <div id="refs"></div>
+
+\pagebreak
+
+
+# Figures
+
+
+```{r cb-outcomes, echo = FALSE, fig.cap = "Student Search Service: College Enrollment and Degree Completion", out.width=500, fig.align='center'}
+knitr::include_graphics('../../assets/images/cb_outcomes.png')
+#![The enrollment funnel](assets/images/enrollment_funnel.png)
+```
+
+```{r filters, echo = FALSE, fig.cap = "Filters Used in Order Purchases by Research vs. MA/Doctoral Universities", out.width=500, fig.align='center'}
+knitr::include_graphics('../../assets/images/filters.png')
+#![The enrollment funnel](assets/images/enrollment_funnel.png)
+```
+
+
+```{r zipcode, echo = FALSE, fig.cap = "Los Angeles Prospects from Top Income Decile Zip Codes by Racial Composition", out.width=500, fig.align='center'}
+knitr::include_graphics('../../assets/images/zipcode.png')
+#![The enrollment funnel](assets/images/enrollment_funnel.png)
+```
+
+```{r metromaps, echo = FALSE, fig.cap = "Segment Filter Prospects by Metro Maps (Average Income and Racial Composition)", out.width=500, fig.align='center'}
+knitr::include_graphics('../../assets/images/metromaps.png')
+#![The enrollment funnel](assets/images/enrollment_funnel.png)
+```
+
+
 
 
 
