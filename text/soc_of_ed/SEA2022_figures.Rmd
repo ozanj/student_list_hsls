@@ -53,6 +53,14 @@ theme_set(
 )
 ```
 
+**Methods, analyses, progress to date**. Propositions will be tested using data from HLS:09 and student list order summaries by public universities collected from public records requests. The nationally representative analysis dataset will include measures of whether students are included in College Board student list products and measures for each search filter. Figure \@ref(fig:filters), based on data from public records requests, shows that College Board search filters can be categorized into the four buckets of geographic, academic, demographic, and student preferences.
+
+Analyses will consist of simple descriptive statistics -- with appropriate tests of significance -- and interactive maps. First, we will analyze the racial and socioeconomic composition of purchases that filter only on particular geographic filters discussed in the conceptual framework. Second, we will analyze purchases that filter on particular academic filters. However, actual student list purchases utilize multiple search filters. Drawing from data on actual purchases made by public universities, the third stage of analyses will analyze purchases that filter on both geographic and academic filters. We will then simulate marginal changes to these filters to identify the drivers of exclusion.
+
+To date, we have created an analysis dataset from public-use HSL:09 data. We have submitted a request for restricted HLS:09 data and have been told that we will receive the data by 12/1/2022. Additionally, we have created scripts that produce desired descriptive statistics and interactive maps. These can be seen in Figures \@ref(fig:zipcode) and \@ref(fig:metromaps), respectively.
+
+
+**Significance**. This research contributes to the sociology of education in several ways. First, whereas scholarship on college access focuses on students, schools, and policies, we push scholarship to consider how third-party products structure college access. Second, we encourage the sociology of education to analyze structural barriers to opportunity by drawing from recent advances in the sociology of race. Third, we contribute empirical analyses to the nascent "platform studies in education" literature [@RN4843; @RN4847; @RN4827; @RN4815].
 
 # Figures
 
