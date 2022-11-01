@@ -1,0 +1,610 @@
+---
+title: "Programming with dplyr tutorial"
+author: Ozan Jaquette
+date: '2022-11-01'
+urlcolor: blue
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true # toc_float option to float the table of contents to the left of the main document content. floating table of contents will always be visible even when the document is scrolled
+      #collapsed: false # collapsed (defaults to TRUE) controls whether the TOC appears with only the top-level (e.g., H2) headers. If collapsed initially, the TOC is automatically expanded inline when necessary
+      #smooth_scroll: true # smooth_scroll (defaults to TRUE) controls whether page scrolls are animated when TOC items are navigated to via mouse clicks
+    number_sections: true
+    fig_caption: true # ? this option doesn't seem to be working for figure inserted below outside of r code chunk    
+    highlight: tango # Supported styles include "default", "tango", "pygments", "kate", "monochrome", "espresso", "zenburn", and "haddock" (specify null to prevent syntax    
+    theme: default # theme specifies the Bootstrap theme to use for the page. Valid themes include default, cerulean, journal, flatly, readable, spacelab, united, cosmo, lumen, paper, sandstone, simplex, and yeti.
+    df_print: tibble #options: default, tibble, paged
+
+---
+
+```{r, echo=FALSE, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>", highlight = TRUE)
+  #comment = "#>" makes it so results from a code chunk start with "#>"; default is "##"
+```
+
+# Introduction
+
+FILE DESCRIPTION
+
+- learning how to write functions that use dplyr verbs
+
+Links for learning resources
+
+- https://dplyr.tidyverse.org/articles/programming.html
+- https://adv-r.hadley.nz/metaprogramming.html
+  - advanced R textbook, unit on "metaprogramming" starts on chapter 17. ugh...
+
+
+```{r}
+library(tidyverse)
+```
+
+
+
+- most dplyr verbs use "tidy evaluation"
+  - tidy evaluation is a kind of "non-standard evaluation" used throughout the tidyverse
+- two forms of tidy evaluation found in dplyr:
+  -  "data masking"
+    - what it do:
+      - allows you to use data variables as if they were variables in the environment
+    - example: 
+      - you write `my_variable` rather than `df$my_variable`
+    - functions that use this: 
+      - arrange; count; filter; group_by; mutate; summarize
+  - "tidy selection"
+    - what it do
+      - allows you to choose variables based on on their position, name, or type
+    - examples
+      - `starts_with('x')`
+      - `is.numeric`
+      
+how to determine wither a function argument uses data masking or tidy selection
+
+- look at the documentation: in the arguments list, you’ll see <data-masking> or <tidy-select>.
+
+problem this tutorial overcomes
+
+- "Data masking and tidy selection make interactive data exploration fast and fluid, but they add some new challenges when you attempt to use them indirectly such as in a for loop or a function. This vignette shows you how to overcome those challenges. We’ll first go over the basics of data masking and tidy selection, talk about how to use them indirectly, and then show you a number of recipes to solve common problems."
+
+
+# Data masking
+
+reminder of what it is:
+
+  -  "data masking"
+    - what it do:
+      - allows you to use data variables as if they were variables in the environment
+    - example: 
+      - you write `my_variable` rather than `df$my_variable`
+    - functions that use this: 
+      - arrange; count; filter; group_by; mutate; summarize
+      
+utility of data masking
+
+- makes data manipulation faster because it requires less typing
+
+the base R way of filtering
+```{r}
+starwars[which(starwars$homeworld == "Naboo" & starwars$species == "Human"), ]
+```
+
+dplyr version of this code
+```{r}
+starwars %>% filter(homeworld == "Naboo", species == "Human")
+```
+
+## Data- and env-variables
+
+two different meanings of the word "variable"
+
+- env-variables
+  - "programming" variables that live in an environment
+  - these are things you create with assignment operator `<-`
+  - you see these in your "global environment"
+    - by contrast you don't see the name of a variable within a data frame listed in your global environment
+  - when you write user-defined functions, function calls can refer to env-vars directly cuz they exist in your global environment
+- data variables
+  - these are "statistical" variables that live in a data frame
+  - the usually come from data files or are created by manipulating exisitng variables
+  - when you write user-defined functions, function calls cannot refer to "data variables" directly. if you try to do so, you get errors like this:
+
+  
+```
+
+> prop_w_ci(s2psatnum01)
+Error in `group_by()`:
+! Must group by variables found in `.data`.
+✖ Column `var` is not found.
+
+...
+...
+
+Backtrace:
+    ▆
+ 1. ├─global prop_w_ci(s2psatnum01)
+ 2. │ └─df_stu %>% group_by(var, x2race) %>% ...
+ 3. ├─dplyr::summarize(...)
+ 4. ├─dplyr::group_by(., var, x2race)
+ 5. └─dplyr:::group_by.data.frame(., var, x2race)
+ 6.   └─dplyr::group_by_prepare(.data, ..., .add = .add, caller_env = caller_env())
+ 7.     └─rlang::abort(bullets, call = error_call)
+```
+  
+example
+
+- below, `df` is an env-variable
+- `x` and `y` are "data variables"
+- the code `df$x` does this: extracts the data-variable x out of the env-variable `df` using `$`
+```{r}
+df <- data.frame(x = runif(3), y = runif(3))
+df$x
+```
+Utility of this two-fold definition of the concept "variable"
+
+- allows you to refer to data-vars "as is", without any prefex
+
+Cost of the "data variables" concept
+
+- "Unfortunately, this benefit does not come for free. When you start to program with these tools, you’re going to have to grapple with the distinction. This will be hard because you’ve never had to think about it before, so it’ll take a while for your brain to learn these new concepts and categories. However, once you’ve teased apart the idea of “variable” into data-variable and env-variable, I think you’ll find it fairly straightforward to use."
+
+## Indirection
+
+Indirection
+
+- you want to get the data-variable from an env-variable (e.g., some data frame in your global environment) without typing the data-variable's name
+
+two types of cases this arises
+
+Indirection Main case 1:
+
+- when you have a data-variable in a function argument
+  - calls this" "an env-variable that holds a promise"
+  - example: you write a function that creates summary statistics (using summarize) of some variable of your choosing
+  - what you need to do
+    - "embrace the argument" by surrounding it in doubled braces, e.g.,: `filter(df, {{var}})`
+- The following function uses embracing to create a wrapper around summarise() that computes the minimum and maximum values of a variable, as well as the number of observations that were summarised:
+
+```{r, eval = FALSE}
+var_summary <- function(data, var) {
+  data %>%
+    summarise(n = n(), min = min({{ var }}), max = max({{ var }}))
+}
+
+mtcars %>% group_by(cyl) %>% var_summary(mpg)
+
+mtcars %>% group_by(cyl) %>% var_summary(mpg) %>% str()
+
+mtcars %>% group_by(cyl,gear) %>% var_summary(mpg)
+
+mtcars %>% group_by(cyl,gear) %>% var_summary(mpg) %>% str()
+
+mtcars %>% group_by(vs) %>% var_summary(mpg)
+
+mtcars %>% group_by(cyl) %>% var_summary(wt)
+```
+
+Below is the way you would try to write this function using the programming skills you know
+
+- basic problem seems to be that w/ the function call `var_summary_bad(mpg)` you want the argument `var` to be evaluated as the variable `mtcars$mpg` but `mpg` is a "data variable" and not an env-variable, and cannot be referred to that way
+```{r, eval = FALSE}
+var_summary_bad <- function(data, var) {
+  data %>%
+    summarise(n = n(), min = min(var), max = max(var))
+}
+
+mtcars %>% group_by(cyl) %>% var_summary_bad(mpg)
+```
+
+
+Indirection Main case 2:
+
+- When you have an env-variable that is a character vector
+- what you need to do
+  - you need to "index into the .data pronoun" with double brackets `[[`, like this:
+    - `summarise(df, mean = mean(.data[[var]]))`
+- example: uses .data to count the number of unique values in each variable of mtcars
+
+doing this outside of a loop
+```{r, eval = FALSE}
+names(mtcars)
+names(mtcars) %>% str() # character vector; so this is an "env-variable" that is a character vector
+
+mtcars %>% count(mpg) %>% print()
+mtcars %>% count(cyl) %>% print()
+```
+trying to do this in a loop with programming skills you know
+```{r, eval = FALSE}
+# first create a loop w/ variable names
+for (var in names(mtcars)) { # this loop works fine!
+  print(var)
+}
+
+# for each variable, calculate frequency
+for (var in names(mtcars)) { # this loop works fine!
+  mtcars %>% count(var)
+}
+```
+error you get (same as error you got in eda_srvyr.R!)
+```
+> for (var in names(mtcars)) { # this loop works fine!
++   mtcars %>% count(var)
++ }
+Error in `group_by()`:
+! Must group by variables found in `.data`.
+✖ Column `var` is not found.
+Backtrace:
+ 1. mtcars %>% count(var)
+ 3. dplyr:::count.data.frame(., var)
+ 5. dplyr:::group_by.data.frame(x, ..., .add = TRUE, .drop = .drop)
+```
+
+the right way to do it
+
+- comment: 
+  - Note that `.data` is not a data frame; it’s a special construct, a pronoun, that allows you to access the current variables (i.e., "data variables" rather than "env variables") either directly, with .data$x or indirectly with .data[[var]]. Don’t expect other functions to work with it.
+  - unpacking `.data[[var]]`
+  - `.data` refers to the data frame in the pipe
+  - `[[var]]` refers to grabbing a particular variable (atomic vector) from the data frame that `.data` refers to
+  
+```{r, results="hide"}
+for (var in names(mtcars)) {
+  mtcars %>% count(.data[[var]]) %>% print()
+}
+```
+
+# Tidy selection
+
+remindr of tidy selection
+
+  - "tidy selection"
+    - what it do
+      - allows you to choose variables based on on their position, name, or type
+    - examples
+      - `starts_with('x')`
+      - `is.numeric`
+
+  
+whereas "data masking" makes it easy to compute values within a dataset, tidy selection is a tool that makes it easy to work with columns of a dataset
+
+all functions that use tidy selection utilize the tidyselect package
+
+- tidyselect provides a "miniature domain specific language that makes it easy to select columns by name, position, or type"
+  - I'm guessing that when they say "domain specific language" that they mean within the domain of a particular data frame?
+- examples of tidyselect package in action
+  - select(df, 1) selects the first column; select(df, last_col()) selects the last column.
+  - select(df, c(a, b, c)) selects columns a, b, and c.
+  - select(df, starts_with("a")) selects all columns whose name starts with “a”; select(df, ends_with("z")) selects all columns whose name ends with “z”.
+  - select(df, where(is.numeric)) selects all numeric columns.
+
+## Indirection
+
+Indirection and tidy selection (the cost)
+
+- As with data masking, tidy selection makes a common task easier at the cost of making a less common task harder. 
+- When you want to use tidy select indirectly with the column specification stored in an intermediate variable, you’ll need to learn some new tools.
+
+
+Two forms of indirection w/ tidy selection
+
+1. When you have the data-variable in an env-variable that is a function argument
+1. When you have an env-variable that is a character vector
+
+__indirection #1: When you have the data-variable in an env-variable that is a function argument__
+
+- when this arises:
+  - you create a user-defined function where a function argument refers to "data variables" [using tidyselection functions to choose variables] that exist within an "env-variable" object (e.g., a data frame!)
+- example:
+  - create a function that calculates descriptive stats for some set of variables, where the set of variables is selected using tidyselect
+- what is the solution
+  - within the function body, "embrace" the argument that utilizes tidyselect functions within doubled braces
+  - note: this is the same technique as data masking
+- example:
+  - The following function summarises a data frame by computing the mean of all variables selected by the user
+
+```{r, results = 'hide'}
+summarise_mean <- function(data, vars) {
+  data %>% summarise(n = n(), across({{ vars }}, mean))
+}
+
+mtcars %>% 
+  group_by(cyl) %>% 
+  summarise_mean(where(is.numeric))
+
+mtcars %>% group_by(cyl) %>% summarise_mean(1)
+mtcars %>% group_by(cyl) %>% summarise_mean(c(1,2,3,4,5))
+mtcars %>% group_by(cyl) %>% summarise_mean(c(mpg,disp,hp,wt))
+
+```
+
+the srong way of programming this:
+
+```{r, eval = FALSE}
+summarise_mean_bad <- function(data, vars) {
+  data %>% summarise(n = n(), across(vars, mean))
+}
+
+mtcars %>% group_by(cyl) %>% summarise_mean_bad(c(mpg,disp,hp,wt))
+
+```
+can't find the variable "disp"
+```
+Error in `summarise()`:
+! Problem while computing `..2 = across(vars, mean)`.
+ℹ The error occurred in group 3: cyl = 8.
+Caused by error in `across()`:
+! object 'disp' not found
+Backtrace:
+  1. mtcars %>% group_by(cyl) %>% ...
+ 21. base::.handleSimpleError(...)
+ 22. dplyr (local) h(simpleError(msg, call))
+ Error in summarise(., n = n(), across(vars, mean)) : 
+ℹ The error occurred in group 3: cyl = 8.
+Caused by error in `across()`:
+! object 'disp' not found
+```
+
+
+__indirection #2: When you have an env-variable that is a character vector__
+
+- when this arises:
+  - when you refer to an env-variable (something that exists in your global environment) and that env-variable is a character vector
+- example:
+  - create object: `vars <- c("mpg", "vs")` and then refer to object `vars` within dplyr verbs
+- what is the solution
+  - you need to use `all_of()` or `any_of()` depending on whether you want the function to error if a variable is not found.
+  - use `all_of()` in cases when:
+    - function throws an error if any of the variables selected are not found
+  - use `any_of()` in cases when:
+    - function does not throw an error if none of the variables are found; instead, returns a data frame with zero columns
+    
+    
+example: 
+
+- The following code uses all_of() to select all of the variables found in a character vector; then ! plus all_of() to select all of the variables not found in a character vector:
+
+```{r}
+vars <- c("mpg", "vs")
+
+mtcars %>% select(all_of(vars))
+mtcars %>% select(!all_of(vars))
+
+
+mtcars %>% select(any_of(vars))
+mtcars %>% select(!any_of(vars))
+
+#diamonds %>% select(all_of(vars)) # this returns an error
+diamonds %>% select(any_of(vars))
+```
+doing this the wrong way
+```{r, eval = FALSE}
+vars <- c("cyl","hp")
+
+mtcars %>% select(vars)
+```
+
+Error message
+```
+Warning: Using an external vector in selections was deprecated in tidyselect 1.1.0.
+Please use `all_of()` or `any_of()` instead.
+# Was:
+data %>% select(vars)
+
+# Now:
+data %>% select(all_of(vars))
+
+See <https://tidyselect.r-lib.org/reference/faq-external-vector.html>.
+```
+
+a little info on `any_of()` and `all_of()` functions
+
+- These selection helpers select variables contained in a character vector. They are especially useful for programming with selecting functions.
+- all_of() is for strict selection. If any of the variables in the character vector is missing, an error is thrown.
+- any_of() doesn't check for missing variables. It is especially useful with negative selections, when you would like to make sure a variable is removed.
+
+
+# How-tos
+
+## User- supplied data
+
+"If you check the documentation, you’ll see that .data never uses data masking or tidy select. That means you don’t need to do anything special in your function:"
+
+- below function works. not sure what the lesson of this "how to" is; except maybe that you can refer to the name of a data frame as a function argument without any special programming?
+
+```{r}
+mutate_y <- function(data) {
+  #mutate(data, y = a + x)
+  mutate(data, y = disp + hp)
+}
+
+mutate_y(data = mtcars)
+```
+## Eliminating R CMD check NOTEs
+
+If you’re writing a package and you have a function that uses data-variables:
+
+```{r}
+my_summary_function <- function(data) {
+  data %>% 
+    filter(hp > 120) %>% 
+    group_by(cyl) %>% 
+    summarise(wt = mean(wt), n = n())
+}
+
+my_summary_function(data = mtcars)
+```
+
+
+You’ll get an R CMD CHECK NOTE:
+
+N  checking R code for possible problems
+   my_summary_function: no visible binding for global variable ‘x’, ‘grp’, ‘y’
+   Undefined global functions or variables:
+     x grp y
+     
+You can eliminate this by using .data$var and importing .data from its source in the rlang package (the underlying package that implements tidy evaluation):
+
+- what problem is this overcoming?
+  - can refer to "data variables" within an "env-variable" (i.e., data frame) by using the syntax `.data[[varname]]`
+  - recall that: 
+    - ".data is not a data frame; it’s a special construct, a pronoun, that allows you to access the current variables either directly, with .data$x or indirectly with .data[[var]]. Don’t expect other functions to work with it."
+```{r}
+my_summary_function <- function(data) {
+  data %>% 
+    filter(.data$hp > 120) %>% 
+    group_by(.data$cyl) %>% 
+    summarise(y = mean(.data$wt), n = n())
+}
+
+my_summary_function(data = mtcars)
+```
+
+## One or more user-supplied expressions
+
+Situation: 
+
+- you write a function that has an argument in which "you want the user to supply an expression that’s passed onto an argument which uses data masking or tidy select"
+- solution: "embrace the argument"
+- comment:
+  - this will be useful for writing the functions for eepa_hsls paper
+
+
+```{r}
+my_summarise <- function(data, group_var, mean_var) {
+  data %>%
+    group_by({{ group_var }}) %>%
+    summarise(mean = mean({{mean_var}}))
+}
+
+my_summarise(data = mtcars, group_var = cyl, mean_var = carb)
+```
+
+This generalises in a straightforward way if you want to use one user-supplied expression in multiple places:
+```{r}
+my_summarise2 <- function(data, expr) {
+  data %>% summarise(
+    mean = mean({{ expr }}),
+    sum = sum({{ expr }}),
+    n = n()
+  )
+}
+
+my_summarise2(data =mtcars, expr = wt)
+
+```
+If you want the user to provide multiple expressions, embrace each of them:
+
+```{r}
+my_summarise3 <- function(data, mean_var, sd_var) {
+  data %>% 
+    summarise(mean = mean({{ mean_var }}), sd = sd({{ sd_var }}))
+}
+
+my_summarise3(data = mtcars, mean_var = carb, sd_var = hp)
+```
+If you want to use the names of variables in the output, you can use glue syntax in conjunction with :=:
+
+- comment: this could be useful for eepa_hsls when you want the data frame created by these functions to have specific variable names
+```{r}
+my_summarise4 <- function(data, expr) {
+  data %>% summarise(
+    "mean_{{expr}}" := mean({{ expr }}),
+    "sum_{{expr}}" := sum({{ expr }}),
+    "n_{{expr}}" := n()
+  )
+}
+my_summarise4(data =mtcars, expr = wt)
+  # compared to:
+  my_summarise2(data =mtcars, expr = wt)
+
+
+my_summarise5 <- function(data, mean_var, sd_var) {
+  data %>% 
+    summarise(
+      "mean_{{mean_var}}" := mean({{ mean_var }}), 
+      "sd_{{sd_var}}" := sd({{ sd_var }})
+    )
+}
+
+my_summarise5(data = mtcars, mean_var = carb, sd_var = hp)
+  # compared to: 
+  my_summarise3(data = mtcars, mean_var = carb, sd_var = hp)
+```
+
+
+## Any number of user-supplied expressions
+
+"If you want to take an arbitrary number of user supplied expressions, use .... This is most often useful when you want to give the user full control over a single part of the pipeline, like a group_by() or a mutate()."
+
+- COMMENT
+  - note: good to have data input data frame/object to be the first argument of functions you create so that they can be pipeable
+- comment from wickham
+  - "When you use ... in this way, make sure that any other arguments start with . to reduce the chances of argument clashes; see https://design.tidyverse.org/dots-prefix.html for more details."
+  
+```{r}
+my_summarise <- function(.data, ...) {
+  .data %>%
+    group_by(...) %>%
+    summarise(mass = mean(mass, na.rm = TRUE), height = mean(height, na.rm = TRUE))
+}
+
+starwars %>% my_summarise(homeworld)
+
+starwars %>% my_summarise(sex, gender)
+```
+  
+
+## Transforming user-supplied variables
+
+"If you want the user to provide a set of data-variables that are then transformed, use across():"
+
+
+```{r}
+my_summarise <- function(data, summary_vars) {
+  data %>%
+    summarise(across({{ summary_vars }}, ~ mean(., na.rm = TRUE)))
+}
+
+starwars %>% 
+  group_by(species) %>% 
+  my_summarise(c(mass, height))
+```
+You can use this same idea for multiple sets of input data-variables:
+```{r}
+my_summarise <- function(data, group_var, summarise_var) {
+  data %>%
+    group_by(across({{ group_var }})) %>% 
+    summarise(across({{ summarise_var }}, mean))
+}
+
+starwars %>% my_summarise(group_var = species, summarise_var = c(mass, height))
+
+starwars %>% my_summarise(group_var = sex, summarise_var = c(mass, height))
+
+my_summarise <- function(data, group_var, summarise_var) {
+  data %>%
+    group_by(across({{ group_var }})) %>% 
+    summarise(across({{ summarise_var }}, mean, .names = "mean_{.col}"))
+}
+
+starwars %>% my_summarise(group_var = species, summarise_var = c(mass, height))
+```
+
+
+## Loop over multiple variables
+
+If you have a character vector of variable names, and want to operate on them with a for loop, index into the special .data pronoun:
+
+```{r, results = 'hide'}
+for (var in names(mtcars)) {
+  mtcars %>% count(.data[[var]]) %>% print()
+}
+
+```
+This same technique works with for loop alternatives like the base R apply() family and the purrr map() family:
+```{r, results = 'hide'}
+mtcars %>% 
+  names() %>% 
+  purrr::map(~ count(mtcars, .data[[.x]]))
+```
+

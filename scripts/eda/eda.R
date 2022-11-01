@@ -9,7 +9,8 @@
 ### Libraries
 
 library(survey)
-#install.packages('tidymodels')
+library(srvyr)
+#install.packages('srvyr')
 library(tidymodels)
 
 ## -----------------------------------------------
@@ -50,6 +51,26 @@ library(tidymodels)
   # primary sampling unit (psu)
     # psu RESTRICTED
 
+
+
+#using srvyr package
+srvyr_df <- df_stu %>% as_survey(
+  ids = ~stu_id,
+  weight = w3w2stutr,
+  type = 'BRR',
+  repweights = matches('w3w2stutr[0-9]+')
+)
+  # Note that arrange() is not available, because the srvyr object expects to stay in the same order. Nor are two-table verbs such as full_join(), bind_rows(), etc. available to srvyr objects either because they may have implications on the survey design. If you need to use these functions, you should use them earlier in your analysis pipeline, when the objects are still stored as data.frames.
+
+  srvyr_df %>% names()
+  srvyr_df[['variables']] %>% str() # this is the dataframe
+  
+  
+################# 
+################# EXPERIMENTING W/ SURVEY PACKAGE
+####################### 
+################# 
+
 # initial approach
 #svy_df <- svydesign(
 #  ids = ~stu_id, # ~0, # ~stu_id,  
@@ -68,11 +89,6 @@ svy_df <- svydesign(
   repweights = 'w3w2stutr[0-9]+',
   type = 'BRR'
 )
-
-################# 
-################# EXPERIMENTING W/ SURVEY PACKAGE
-####################### 
-################# 
 
 svy_df %>% str()
 summary(svy_df)
