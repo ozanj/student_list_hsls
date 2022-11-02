@@ -60,6 +60,7 @@ srvyr_rep <- df_stu %>% filter(!is.na(s2psatnum01) & !is.na(s2satnum01) & !is.na
     combined_weights = TRUE
   )
 
+srvyr_rep %>% str()
 #srvyr_rep <- df_stu %>% filter(!is.na(s2psatnum01) & !is.na(s2satnum01) & !is.na(s2apexamnum01)) %>% 
 #  as_survey(
 #    #ids = ~stu_id,
