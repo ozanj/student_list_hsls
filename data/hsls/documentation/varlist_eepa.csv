@@ -159,13 +159,13 @@ X1CENDIV,X1 School census geographic division,BY student level composites,0,0,0,
 X1STATESAMPL,X1 State level public school sample membership,BY student level composites,0,0,0,0,BY,X1,1,
 X1STATE,X1 State code for school,BY student level composites,1,0,0,0,BY,X1,1,
 X1GRADESPAN,X1 Grade span of school-administrator questionnaire,BY student level composites,0,0,0,0,BY,X1,1,
-X1FREELUNCH,X1 Grade 9 percent free lunch-categorical,BY student level composites,1,0,0,0,BY,X1,1,
-X1REPEAT9TH,X1 Percent of 9th graders repeating 9th grade,BY student level composites,1,0,0,0,BY,X1,1,
-X1SCHAMIND,X1 Percent of students in school that are American Indian,BY student level composites,1,0,0,0,BY,X1,1,
-X1SCHASIAN,X1 Percent of students in school that are Asian,BY student level composites,1,0,0,0,BY,X1,1,
-X1SCHBLACK,X1 Percent of students in school that are Black,BY student level composites,1,0,0,0,BY,X1,1,
-X1SCHHISP,X1 Percent of students in school that are Hispanic/Latino/Latina,BY student level composites,1,0,0,0,BY,X1,1,
-X1SCHWHITE,X1 Percent of students in school that are White,BY student level composites,1,0,0,0,BY,X1,1,
+X1FREELUNCH,X1 Grade 9 percent free lunch-categorical,BY student level composites,1,0,0,0,BY,X1,1,89
+X1REPEAT9TH,X1 Percent of 9th graders repeating 9th grade,BY student level composites,0,0,0,0,BY,X1,1,
+X1SCHAMIND,X1 Percent of students in school that are American Indian,BY student level composites,1,0,0,0,BY,X1,1,89
+X1SCHASIAN,X1 Percent of students in school that are Asian,BY student level composites,1,0,0,0,BY,X1,1,89
+X1SCHBLACK,X1 Percent of students in school that are Black,BY student level composites,1,0,0,0,BY,X1,1,89
+X1SCHHISP,X1 Percent of students in school that are Hispanic/Latino/Latina,BY student level composites,1,0,0,0,BY,X1,1,89
+X1SCHWHITE,X1 Percent of students in school that are White,BY student level composites,1,0,0,0,BY,X1,1,89
 X1SCHOOLCLI,X1 Scale of administrator's assessment of school climate,BY student level composites,0,0,0,0,BY,X1,0,89
 X1COUPERTEA,X1 Scale of counselor's perceptions of teacher expectations,BY student level composites,0,0,0,0,BY,X1,0,89
 X1COUPERCOU,X1 Scale of counselor's perceptions of counselor expectations,BY student level composites,0,0,0,0,BY,X1,0,89
@@ -299,7 +299,7 @@ X2CONTROL,X2 School control,F1 student level composites,1,1,0,0,F1,X2,0,69
 X2LOCALE,X2 School locale (urbanicity),F1 student level composites,1,1,0,0,F1,X2,0,69
 X2REGION,X2 School geographic region,F1 student level composites,1,1,0,0,F1,X2,0,69
 X2CENDIV,X2 School census geographic division,F1 student level composites,1,0,0,0,F1,X2,0,
-X2STATE,X2 State code for school,F1 student level composites,1,0,0,0,F1,X2,0,
+X2STATE,X2 State code for school,F1 student level composites,1,0,0,0,F1,X2,1,69
 X2FREELUNCH,X2 Grade 11 percent free lunch-categorical,F1 student level composites,1,0,0,0,F1,X2,0,
 X2SCHOOLCLI,X2 Scale of administrator's assessment of school climate,F1 student level composites,0,0,0,0,F1,X2,0,89
 X2AQSTAT,X2 administrator questionnaire status,F1 student level composites,0,0,0,0,F1,X2,0,
@@ -336,7 +336,7 @@ X3GEDPASSED,X3 GED test passed,U13 student level composites,0,0,0,0,U13,X3,0,
 X3GEDDATE,X3 GED test date passed,U13 student level composites,0,0,0,0,U13,X3,0,
 X3GEDSTATE,X3 GED test state taken,U13 student level composites,0,0,0,0,U13,X3,1,
 X3HSCOMPSTAT,X3 High school completion status (transcript and GED source updated),U13 student level composites,0,0,0,0,U13,X3,0,
-X3HSCOMPDATE,X3 High school completion date,U13 student level composites,1,0,0,0,U13,X3,1,
+X3HSCOMPDATE,X3 High school completion date,U13 student level composites,1,0,0,0,U13,X3,1,789
 X3TSTATGR8B,X3 Grade 8 and before transcript availability,HS Transcript student level composites,0,0,0,0,HS,X3,0,
 X3TSTATGR09,X3 Grade 9 transcript availability,HS Transcript student level composites,0,0,0,0,HS,X3,0,
 X3TSTATGR10,X3 Grade 10 transcript availability,HS Transcript student level composites,0,0,0,0,HS,X3,0,
@@ -463,8 +463,8 @@ X3TGPA11TH,X3 GPA: eleventh grade,HS Transcript student level composites,0,0,0,0
 X3TGPA9TH,X3 GPA: ninth grade,HS Transcript student level composites,0,0,0,0,HS,X3,0,
 X3TGPA10TH,X3 GPA: tenth grade,HS Transcript student level composites,0,0,0,0,HS,X3,0,
 X3TGPA12TH,X3 GPA: twelfth grade,HS Transcript student level composites,0,0,0,0,HS,X3,0,
-X3TGPATOT,X3 Overall GPA computed,HS Transcript student level composites,1,0,0,0,HS,X3,0,9
-X3TGPAWGT,"X3 Overall GPA computed, honors-weighted",HS Transcript student level composites,1,0,0,0,HS,X3,0,9
+X3TGPATOT,X3 Overall GPA computed,HS Transcript student level composites,1,0,0,0,HS,X3,0,19
+X3TGPAWGT,"X3 Overall GPA computed, honors-weighted",HS Transcript student level composites,1,0,0,0,HS,X3,0,19
 X3TGPAMTHAP,X3 GPA: AP/IB math courses,HS Transcript student level composites,0,0,0,0,HS,X3,0,
 X3TGPASCIAP,X3 GPA: AP/IB science courses,HS Transcript student level composites,0,0,0,0,HS,X3,0,
 X3TAFGPATOT,"X3 GPA for all academic courses, failed courses excluded",HS Transcript student level composites,0,0,0,0,HS,X3,0,
@@ -481,49 +481,49 @@ X3TCRSES5,X3 4ENG+3SS+3SCI+3MATH+2FL (Flag),HS Transcript student level composit
 X3TACADTRCK,X3 Academic track/concentrator,HS Transcript student level composites,0,0,0,0,HS,X3,0,
 X3TOCCUCON,X3 Occupational concentrator,HS Transcript student level composites,0,0,0,0,HS,X3,0,
 X3TNEWBASIC,X3 New basics requirements,HS Transcript student level composites,0,0,0,0,HS,X3,0,
-X3TXSATMATH,X3 College entrance exam math score in terms of SAT,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXSATREAD,X3 College entrance exam critical reading score in terms of SAT,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXSATCOMP,X3 College entrance exam composite score in terms of SAT,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXACTCOMP,X3 College entrance exam composite score in terms of ACT,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXPSATCOMP,X3 Most recent PSAT composite score,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXPSATMATH,X3 Most recent PSAT mathematics score,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXPSATREAD,X3 Most recent PSAT critical reading score,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXPSATWRIT,X3 Most recent PSAT writing score,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPARTHI,AP exam: Art history,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPMUSIC,AP exam: Music theory,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPART2D,AP exam: Studio art 2-D design,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPART3D,AP exam: Studio art 3-D design,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPARTDR,AP exam: Studio art drawing,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPENGLNG,AP exam: English language and composition,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPENGLIT,AP exam: English literation and composition,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPCMPGOV,AP exam: Comparative government and politics,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPEURO,AP exam: European history,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPHUGEO,AP exam: Human geography,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPMACRO,AP exam: Macroeconomics,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPMICRO,AP exam: Microeconomics,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPPSYCH,AP exam: Psychology,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPUSGOV,AP exam: US government and politics,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPUSHIST,AP exam: US history,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPWOHIST,AP exam: World history,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPMATCOM,AP exam: Mathematics and computer science,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPCALCAB,AP exam: Calculus AB,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPCALCBC,AP exam: Calculus BC,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPCOMSCI,AP exam: Computer science A,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPSTATS,AP exam: Statistics,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPBIO,AP exam: Biology,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPCHEM,AP exam: Chemistry,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPENVSCI,AP exam: Environmental science,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPPHYB,AP exam: Physics B,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPPHYELE,AP exam: Physics C - electricity and magnetism,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPPHYMEC,AP exam: Physics C - mechanics,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPCHI,AP exam: Chinese language and culture,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPFRE,AP exam: French language and culture,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPGER,AP exam: German language and culture,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPITL,AP exam: Italian language and culture,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPJAP,AP exam: Japanese language and culture,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPLAT,AP exam: Latin,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPSPLANG,AP exam: Spanish language and culture,HS Transcript student level composites,1,0,0,0,HS,X3,1,
-X3TXAPSPLIT,AP exam: Spanish literature and culture,HS Transcript student level composites,1,0,0,0,HS,X3,1,
+X3TXSATMATH,X3 College entrance exam math score in terms of SAT,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXSATREAD,X3 College entrance exam critical reading score in terms of SAT,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXSATCOMP,X3 College entrance exam composite score in terms of SAT,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXACTCOMP,X3 College entrance exam composite score in terms of ACT,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXPSATCOMP,X3 Most recent PSAT composite score,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXPSATMATH,X3 Most recent PSAT mathematics score,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXPSATREAD,X3 Most recent PSAT critical reading score,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXPSATWRIT,X3 Most recent PSAT writing score,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPARTHI,AP exam: Art history,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPMUSIC,AP exam: Music theory,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPART2D,AP exam: Studio art 2-D design,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPART3D,AP exam: Studio art 3-D design,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPARTDR,AP exam: Studio art drawing,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPENGLNG,AP exam: English language and composition,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPENGLIT,AP exam: English literation and composition,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPCMPGOV,AP exam: Comparative government and politics,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPEURO,AP exam: European history,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPHUGEO,AP exam: Human geography,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPMACRO,AP exam: Macroeconomics,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPMICRO,AP exam: Microeconomics,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPPSYCH,AP exam: Psychology,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPUSGOV,AP exam: US government and politics,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPUSHIST,AP exam: US history,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPWOHIST,AP exam: World history,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPMATCOM,AP exam: Mathematics and computer science,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPCALCAB,AP exam: Calculus AB,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPCALCBC,AP exam: Calculus BC,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPCOMSCI,AP exam: Computer science A,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPSTATS,AP exam: Statistics,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPBIO,AP exam: Biology,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPCHEM,AP exam: Chemistry,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPENVSCI,AP exam: Environmental science,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPPHYB,AP exam: Physics B,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPPHYELE,AP exam: Physics C - electricity and magnetism,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPPHYMEC,AP exam: Physics C - mechanics,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPCHI,AP exam: Chinese language and culture,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPFRE,AP exam: French language and culture,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPGER,AP exam: German language and culture,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPITL,AP exam: Italian language and culture,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPJAP,AP exam: Japanese language and culture,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPLAT,AP exam: Latin,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPSPLANG,AP exam: Spanish language and culture,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
+X3TXAPSPLIT,AP exam: Spanish literature and culture,HS Transcript student level composites,1,0,0,0,HS,X3,1,9
 X3TXSATLIT,SAT subject test: Literature,HS Transcript student level composites,0,0,0,0,HS,X3,1,
 X3TXSATUSH,SAT subject test: U.S. History,HS Transcript student level composites,0,0,0,0,HS,X3,1,
 X3TXSATWOH,SAT subject test: World History,HS Transcript student level composites,0,0,0,0,HS,X3,1,
@@ -563,10 +563,10 @@ X4EVERDROP,X4 Ever dropped out of high school,F2 student level composites,0,0,0,
 X4EVRTRANSHS,X4 Ever transferred from base year high school,F2 student level composites,0,0,0,0,F2,X4,0,
 X4WHENALG1,X4 When student last took Algebra I,F2 student level composites,0,0,0,0,F2,X4,0,
 X4HSCLGCRED,X4 Ever took courses for college credit in high school,F2 student level composites,0,0,0,0,F2,X4,0,
-X4TXSATMATH,X4 College entrance exam math score in terms of SAT,F2 student level composites,1,0,0,0,F2,X4,1,
-X4TXSATREAD,X4 College entrance exam critical reading score in terms of SAT,F2 student level composites,1,0,0,0,F2,X4,1,
-X4TXSATCOMP,X4 College entrance exam composite score in terms of SAT,F2 student level composites,1,0,0,0,F2,X4,1,
-X4TXACTCOMP,X4 College entrance exam composite score in terms of ACT,F2 student level composites,1,0,0,0,F2,X4,1,
+X4TXSATMATH,X4 College entrance exam math score in terms of SAT,F2 student level composites,1,0,0,0,F2,X4,1,9
+X4TXSATREAD,X4 College entrance exam critical reading score in terms of SAT,F2 student level composites,1,0,0,0,F2,X4,1,9
+X4TXSATCOMP,X4 College entrance exam composite score in terms of SAT,F2 student level composites,1,0,0,0,F2,X4,1,9
+X4TXACTCOMP,X4 College entrance exam composite score in terms of ACT,F2 student level composites,1,0,0,0,F2,X4,1,9
 X4EVERGED,X4 Ever received a GED or equivalent,F2 student level composites,0,0,0,0,F2,X4,0,
 X4GEDPASSED,X4 GED test passed,F2 student level composites,0,0,0,0,F2,X4,0,
 X4GEDDATE,X4 GED test date passed,F2 student level composites,0,0,0,0,F2,X4,1,
