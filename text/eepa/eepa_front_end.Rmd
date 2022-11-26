@@ -280,6 +280,19 @@ Whereas "nonwhiteness" was historically "used as a basis for withholding value b
 Building from these ideas, we expect that filtering for underrepresented students of color in combination with racialized inputs (e.g., AP scores, PSAT scores, affluent zip codes) systematically excludes students of color who live in predominantly non-white communities and attend predominantly non-white schools.
 -->
 
+# Data and Methods
+
+## Data 
+
+We use data from the High School Longitudinal Study of 2009 (HSLS09), which is a nationally representative survey that follows a cohort of more than 20,000 students from 944 schools entering the ninth grade in Fall 2009. Surveys collected during the base year include responses from students' parents, teachers, school administrators, and school counselors. Five subsequent data collection waves capture students' schooling experiences through 11th grade, high school graduation and postsecondary plans, and enrolling in college or entering the labor market. HSLS provides the extensive student-level demographic, geographic, and academic variables needed to create academic and geographic filters used within student list purchases. Moreover, HSLS09's nationally representative sample of high school students allows us to analyze patterns of who is included and excluded in simulated student list purchases as filter combinations and filter thresholds change.
+
+
+Variables for academic filters 
+
+
+Variables for geographic filters 
+
+
 
 # Discussion
 
