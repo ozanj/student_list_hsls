@@ -280,19 +280,79 @@ Whereas "nonwhiteness" was historically "used as a basis for withholding value b
 Building from these ideas, we expect that filtering for underrepresented students of color in combination with racialized inputs (e.g., AP scores, PSAT scores, affluent zip codes) systematically excludes students of color who live in predominantly non-white communities and attend predominantly non-white schools.
 -->
 
-# Data and Methods
+# Methods
 
 ## Data 
 
-We use data from the High School Longitudinal Study of 2009 (HSLS09), which is a nationally representative survey that follows a cohort of more than 20,000 students from 944 schools entering the ninth grade in Fall 2009. Surveys collected during the base year include responses from students' parents, teachers, school administrators, and school counselors. Five subsequent data collection waves capture students' schooling experiences through 11th grade, high school graduation and postsecondary plans, and enrolling in college or entering the labor market. HSLS provides the extensive student-level demographic, geographic, and academic variables needed to create academic and geographic filters used within student list purchases. Moreover, HSLS09's nationally representative sample of high school students allows us to analyze patterns of who is included and excluded in simulated student list purchases as filter combinations and filter thresholds change.
+Analyses utlize two data sources. First, the primary data source is the High School Longitudinal Study of 2009 (HSLS09) conducted by the National Center for Education Statistics (NCES). HSLS09 is a nationally representative survey that follows a cohort of more than 23,000 students from 944 schools entering the ninth grade in Fall 2009. Follow-up surveys were administered to students in Spring 2012 (when most were in 11th grade), in 2013, in 2016, and NCES collected high school transcripts in 2013-14. HSLS provides the extensive student-level demographic, geographic, and academic variables needed to create academic and geographic filters used within student list purchases. 
+
+<!-- cut text, original text from karina
+
+Surveys collected during the base year include responses from students' parents, teachers, school administrators, and school counselors. Five subsequent data collection waves capture students' schooling experiences through 11th grade, high school graduation and postsecondary plans, and enrolling in college or entering the labor market. 
+
+HSLS provides the extensive student-level demographic, geographic, and academic variables needed to create academic and geographic filters used within student list purchases. Moreover, HSLS09's nationally representative sample of high school students allows us to analyze patterns of who is included and excluded in simulated student list purchases as filter combinations and filter thresholds change.
+-->
+
+Our analysis sample includes students who meet all of the following conditions: completed Spring 2012 follow-up 1 survey; completed 2013 update survey; and obtained high school transcript data. Of the 23,503 respondents included in HSLS09, our unweighted analysis sample consists of the 16,525 students who meet all conditions. The survey weight variable `W3W2STUTR` is designed for respondents who meet these conditions. After weighting, these 16,525 students represent the population of approximately 4.187 million U.S. 9th graders in 2009 [STATE 95% CI FOR THIS POINT ESTIMATE?]. The analysis sample is smaller for analyses that utilize variables that have missing values for some respondents. [? SAY MIN ANALYSIS SAMPLE SIZE IS THIS?].
+
+The second data source consists of the "order summaries" of student lists that public universities purchased from College Board. These data are used to inform hypothetical student list purchases in the final set of analyses. As described in @list_empirics, we collected these data by issuing public records requests to all public universities in five states (CA, IL, TX, MN, and one anonymous state) about student lists purchased from 2016-2020. @list_empirics analyzed 804 College Board orders, which yielded XXXX prospect profiles. These orders were placed by 14 public universities. @list_empirics shows that some universities placed many more orders and/or purchased many more prospect profiles than others. Figure \@ref(fig:order-filters-empirical-report) shows the filters utilized in these orders, separately for research universities and ma/doctoral universities.
+
+## Variables 
+
+<!-- 
+We ask, what is the relationship between student list search filters (e.g., test score range, zip code) and the characteristics of students who are included vs. excluded in student lists purchased from College Board?
+X = student list filters
+Y = characteristics of students included in student list filters
+-->
+Our research question is, what is the relationship between student list search filters and the characteristics of students who are included versus excluded from College Board student list purchases? In turn, our dependent variable measures student demographic characteristics and our independent variables are measures of student list filters, which can be utilized in isolation or in combination with one another. Descriptive statistics for analysis variables are shown in Table X [KARINA  NEEDS TO CREATE TABLE].
+
+**Dependent variable**. Following our conceptual framework, this manuscript is primarily concerned with the racial composition of prospects who are included in student list purchases compared to the racial composition of prospects who are excluded. Our primary dependent variable is the student race/ethnicity composite variable `X2RACE`, which includes the following seven categories: American Indian/Alaska Native, non-Hispanic; Asian, non-Hispanic; Black/African-American, non-Hispanic; Hispanic; More than one race, non-Hispanic; Native Hawaiian/Pacific Islander, non-Hispanic; and White, non-Hispanic.^[We collapse the categories "Hispanic, no race specified" and "Hispanic, race specified" into a single category.] We also conducted analyses that utilized parental education (`X2PAREDU`) and family income (`X2FAMINCOME`) as dependent variables, but we exclude these analyses because of manuscript space limits.
+
+**Independent variables**. Independent variables are measures of student list filters. Choices about independent variables were based on our conceptual framework and the set of student list filters observed in our public records request data collection, shown in Figure \@ref(fig:order-filters-empirical-report). Our conceptual framework restricts analytic focus to academic filters and geographic filters, leaving demographic filters and student preferences filters for a future analysis [?EXCEPT INTENDED MAJOR FOR WOMEN IN STEM?]. 
+
+Propositions **P1** and **P2** focus on academic filters. **P1** is concerned about which students take standardized assessments, which determines inclusion in the underlying College Board student list database. **P2** is concerned with test score thresholds utilized to filter prospects. We create. For **P1**, we create dichotomous measures for each of the following assessments (input variables in parentheses) based on test score variables from the high school transcript file: PSAT/PreACT (`X3TXPSATCOMP`); SAT/ACT (`X3TXSATCOMP`); any AP exam (variables with names that start with `X3TXAP`); and any STEM AP exam. For **P2**, we use these same input variables to create test score measures for PSAT/PreACT; SAT/ACT; highest AP exam score; and highest AP STEM exam score. We also create a measure of high school GPA in academic courses (`X3TGPAACAD`), which is a question asked in the pre-test questionnaire of College Board assessments. Consistent with how College Board filters work, **P2** variables are analyzed as categorical rather than continuous variable. To select thresholds for **P2** variables -- for example, an SAT score thresholds of 1000+, 1100+, 1200+, etc. -- we considered what the product allows, what we observed in orders collected via public records requests, and the goal of parsimony.
+
+A limitation of measures created for **P1** and **P2** is that HSLS does have separate measures for SAT and ACT. Instead, SAT and ACT test scores are converted to the same scale, but we do not know which students took which assessments. The same is true for PSAT and PreACT assessment.
+
+Propositions **P3** and **P4** focus on geographic filters filters. Drawing from Figure \@ref(fig:order-filters-empirical-report), we create measures for student home state (`X2GSTATE`), county (`X2GCNTY`), zip code  (`X2GZIPCD`), and CBSA (based on crosswalk with home zip code). Next, we attach income data to localities by merging in data from the American Community Survey (ACS) YYYY 5-year estimates. We do not create independent variables for geomarket filter or geodemograhic segment filter because these filters utilize geographic borders that College Board created using proprietary, historical data about test-takers.
+
+## Analyses
+
+<!-- 
+Analyses utilize simple descriptive statistics, with appropriate statistical tests. Analyses examine who is included when particular filters and/or filter thresholds are utilized to purchase prospect profiles. 
+
+All analyses compare the racial composition of included versus excluded prospects associated with some student list purchase.
+-->
+
+Analyses utilize simple descriptive statistics, with appropriate statistical tests. All analyses compare the racial composition of included versus excluded prospects when particular filters and/or filter thresholds are utilized to purchase prospect profiles.
+
+Consider a hypothetical purchase that that all prospects took an AP STEM exam. Conceptually, two types of comparisons are possible. Comparison type one compares the proportion of students from a particular race/ethnicity group (e.g. Black) who are included to the proportion of students not from that particular race who are included. For example, using unweighted sample sizes, `91/1,655=5.5%` of Black students took an AP STEM exam and `1,712/14,870=11.5%` of non-Black students took an AP STEM exam. The test for difference in proportions compares the 5.5% of Black students who are included to the 11.5% of non-Black students who are included, and this test is run separately for each race/ethnicity group. 
+
+Comparison type two compares the racial composition of the included group to the racial composition of the excluded group. For example, Black students comprise 5.05% (`=91/1803`) of AP STEM test-takers and Black students comprise 10.6% (`=1564/14722`) of students who do not take an AP STEM exam. The test for difference in proportions compares whether the proportion of included prospects who identify are Black differs from the proportion of excluded prospects who identify as Black, and this test is run separately for each race/ethnicity group. 
+
+While the significance tests from comparison type one and comparison type two are mathematically equivalent, the two comparisons differ conceptually. The first comparison analyzes the probability of being targeted from the student perspective; that is, do students who identify as Black have a higher/lower probability of being included than students who do not identify as Black? The second comparison focuses on the racial composition targeting from the university perspective; that is, what is the racial composition of prospects who are targeted by a particular set of filters versus the racial composition of prospects who are excluded by these filters? This manuscript focuses on comparison type two because we are interested in how student list products structure the racial composition of university recruiting efforts.
+
+<!-- 
+# comparison 1
+df_stu %>% filter(x2race == 'black') %>% count(apstem01) %>% mutate(pct = n/sum(n)*100)
+
+df_stu %>% filter(x2race != 'black') %>% count(apstem01) %>% mutate(pct = n/sum(n)*100)
 
 
-Variables for academic filters 
+# comparison 2 = compares the racial composition of the included group to the racial composition of the excluded group
 
+df_stu %>% filter(apstem01 == 'yes') %>% count(re_black) %>% mutate(pct = n/sum(n)*100)
 
-Variables for geographic filters 
+df_stu %>% filter(apstem01 == 'no') %>% count(re_black) %>% mutate(pct = n/sum(n)*100)
+-->
 
+Analyses for propositions P1 through P4 examine purchases that utilize individual filters in isolation. The final set of analyses examine purchases that utilize academic and geographic filters in combination with one another, with choice of filters informed by commonly observed combinations from the public request data and also by theoretical considerations. 
 
+## Limitations
+
+This manuscript uses HSLS09 to recreate the College Board Student Search Service. One limitation is that HSLS variables for SAT test-taking and test scores also include ACT test-takers, with ACT scores converted to the SAT scale. The same is true for the PSAT and PreACT. The Student Search service includes students who take at least one College Board assessment, but we cannot differentiate between College Board and ACT test-takers, so our analyses incorrectly treat ACT test-takers as College Board test-takers. We considered restricting the analysis sample to states where the majority of students take the SAT rather than the ACT. We chose not to take this approach because the ACT "Educational Opportunity Service" student list product -- now, named Encoura -- includes academic and geographic filters that are nearly identical to the College Board filters that are the focus of this manuscript [@schmidt_2019]. Thus, analyses can be interpreted as who would be included/excluded by both College Board and ACT student list products.
+
+Second, test-takers have the opportunity to opt-out of the College Board Student Search Service and the ACT Educational Opportunity Service but HSLS09 has no reasonable proxy for whether students opt-in or opt-out. @RN4752 finds that 86% of ACT test-takers opt-in, but does not investigate the student characteristics associated with opting in. Third, the HSL09 cohort pre-dates the increase in test-optional admissions policies and decline in test-takers which occurred since the onset of Covid. This undermines the external validity of our findings with respect to current cohorts of high school students. That said, several for-profit vendors have developed student list products  (e.g., Intersect by PowerSchool) poised to acquire market share ceded by College Board and ACT, and these products use filters that are similar to College Board and ACT products [@markup_naviance]. Our analysis of structurally racist inputs and exclusion yields insights across student list products. Fourth, we could not make measures for high school class rank, an academic filter, or for geomarket and geodemographic filters, which utilize proprietary College Board data.
 
 # Discussion
 
@@ -303,7 +363,14 @@ Although filtering on specific zip codes may be instrumentally rational from the
 <!--
 TEXT CUT FROM END OF INTRO, SOME OF IT STILL IN INTRO
 
-Our broader contribution is to policy research on college access. Extant research analyzes students, schools, or universities, often in relation to local, state, or federal policies. Although federal higher education policies often focus on for-profit colleges, third-party for-profit vendors now dwarf direct providers. We propose a critical, empirical research program on college access that focuses on organizations and products in the edtech sector. Like student list data, most digital platforms in education are derived from the user-data of students laboring on platforms. What these platforms do with student data is opaque, because obfuscation is a deliberate strategy to avoid regulation [@RN4774]. Scholarship from critical data studies shows that structural racism in digital platforms is "a feature, not a bug" because racial exploitation is the defining feature of capitalism [@RN4775]. As courts challenge progressive college access policies like affirmative action, policy research should go on the offensive by applying theory about structural mechanisms to investigate structural racism by third-party products and vendors. Given the narrow scope of the Department of Education and the Higher Education Act (HEA), this research should target the FTC, the CFPB, and other agencies that serve equality of opportunity for consumers.
+Our broader contribution is to policy research on college access. Extant research analyzes students, schools, or universities, often in relation to local, state, or federal policies. Although federal higher education policies often focus on for-profit colleges, third-party for-profit vendors now dwarf direct providers. We propose a critical, empirical research program on college access that focuses on organizations and products in the edtech sector. Like student list data, most digital platforms in education are derived from the user-data of students laboring on platforms. What these platforms do with student data is opaque, because obfuscation is a deliberate strategy to avoid regulation [@RN4774]. 
+
+Scholarship from critical data studies shows that structural racism in digital platforms is "a feature, not a bug" because racial exploitation is the defining feature of capitalism [@RN4775]. 
+
+As courts challenge progressive college access policies like affirmative action, policy research should go on the offensive by applying theory about structural mechanisms to investigate structural racism by third-party products and vendors. 
+
+Given the narrow scope of the Department of Education and the Higher Education Act (HEA), this research should target the FTC, the CFPB, and other agencies that serve equality of opportunity for consumers.
+
 -->
 
 
@@ -403,7 +470,13 @@ knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
 
 \pagebreak
 
-```{r women-in-stem, echo = FALSE, fig.align = 'center', fig.cap = "Women in STEM purchases compared to metro, average income and racial composition", out.width = "100%"}
+```{r order-filters-empirical-report, echo = FALSE, fig.align = 'center', fig.cap = "Filters used in College Board orders purchased by 14 public universities", out.width = "100%"}
+knitr::include_graphics('./../../outputs/images/order_filters_empirical_report.png')
+#knitr::include_graphics('./../../outputs/figures/enrollment_funnel.png')
+#![The enrollment funnel](assets/images/enrollment_funnel.png)
+```
+
+```{r women-in-stem, eval = FALSE, echo = FALSE, fig.align = 'center', fig.cap = "Women in STEM purchases compared to metro, average income and racial composition", out.width = "100%"}
 knitr::include_graphics('./../../outputs/images/women_in_stem.png')
 #knitr::include_graphics('./../../outputs/figures/enrollment_funnel.png')
 #![The enrollment funnel](assets/images/enrollment_funnel.png)
