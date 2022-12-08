@@ -1,0 +1,171 @@
+---
+title: 'Tables & Figures'
+output:
+  pdf_document: default
+header-includes:
+  - \usepackage[scaled]{helvet}  # https://stackoverflow.com/a/28538633/6373540
+  - \renewcommand{\familydefault}{\sfdefault}
+  - \usepackage[T1]{fontenc}
+  # - \usepackage{booktabs}  # https://tex.stackexchange.com/a/593877/268650
+  # - \setlength\aboverulesep{0ex}
+  # - \setlength\belowrulesep{0ex}
+---
+
+```{r setup, include = F}
+options(knitr.kable.NA = '')
+options(scipen = 999)
+knitr::opts_chunk$set(echo = F, message = F, warning = F)
+# webshot::install_phantomjs()
+
+library(tidyverse)
+library(ggbreak)
+library(gridExtra)
+library(kableExtra)
+library(scales)
+library(usmap)
+
+
+load(url('https://github.com/mpatricia01/public_requests_eda/blob/main/data/tbl_fig_data_final.RData?raw=true'))
+
+theme_set(
+  theme(
+    text = element_text(size = 7, family = 'Helvetica'),
+    panel.background = element_blank(),
+    plot.title = element_text(color = '#444444', size = 7, face = 'bold', hjust = 0.5),
+    axis.ticks = element_blank(),
+    axis.title = element_text(face = 'bold'),
+    legend.title = element_text(face = 'bold', hjust = 0),
+    legend.key.size = unit(0.3, 'cm'),
+    strip.text.x = element_text(size = 7, face = 'bold', hjust = 0.5),
+    strip.background = element_rect(fill = NA, color = NA)
+  )
+)
+
+# color_palette <- c('#bbcfd7', '#d2c8bc', '#ba9a88')
+color_palette <- c('#46a69e', '#7ec7b8', '#b9efe6', '#bf7bb2', '#9e508a', '#537ec4', '#344273', '#fdc3bb', '#fa634b')
+extra_colors <- c('#b5b5b5', '#767676')
+color_text <- 'white'
+
+# https://stackoverflow.com/a/65844319/6373540
+linesep <- function(x, y = character()){
+  if(!length(x))
+    return(y)
+  linesep(x[-length(x)], c(rep('', x[length(x)] - 1), '\\addlinespace', y))  
+}
+```
+
+
+## Figure 5.1: Filters used in order purchases by research vs. ma/doctoral
+
+```{r orders-filters, fig.height = 5}
+orders_filters %>% 
+  filter(is_asu == 'all') %>% 
+  group_by(filters) %>% 
+  summarise(
+    num_total = sum(num_total), 
+    total = sum(total), 
+    pct = sum(num_total) / sum(total)
+  ) %>% 
+  ungroup() %>% 
+  add_row(filters = 'academic', num_total = 0) %>% 
+  add_row(filters = 'geographic', num_total = 0) %>% 
+  add_row(filters = 'demographic', num_total = 0) %>% 
+  add_row(filters = 'student preferences', num_total = 0) %>% 
+  mutate(
+    filters_label = recode_factor(
+      filters,
+      'citizenship' = 'Citizenship',
+      'rotc' = 'ROTC',
+      'financial_aid' = 'Financial aid',
+      'national_recognition_programs' = 'NRP',
+      'edu_aspirations' = 'Education aspirations',
+      'college_setting' = 'College setting',
+      'college_studentbody' = 'College student body',
+      'college_living_plans' = 'College living plans',
+      'college_location' = 'College location',
+      'college_type' = 'College type',
+      'major' = 'Major',
+      'college_size' = 'College size',
+      'student preferences' = '   ',
+      'first_gen_parent' = 'First generation',
+      'low_ses' = 'Low SES',
+      'gender' = 'Gender',
+      'race' = 'Race',
+      'demographic' = '  ',
+      'proximity_search' = 'Proximity search',
+      'county' = 'County',
+      'intl' = 'International',
+      'cbsa' = 'CBSA',
+      'segment' = 'Segment',
+      'geomarket' = 'Geomarket',
+      'zip' = 'Zip code',
+      'states_fil' = 'State',
+      'geographic' = ' ',
+      'hs_math' = 'HS math',
+      'sat_reading_writing' = 'SAT reading/writing',
+      'sat_reading' = 'SAT reading',
+      'sat_writing' = 'SAT writing',
+      'sat_math' = 'SAT math',
+      'ap_score' = 'AP score',
+      'rank' = 'Rank',
+      'psat' = 'PSAT',
+      'sat' = 'SAT',
+      'gpa' = 'GPA',
+      'academic' = '',
+      'hsgrad_class' = 'HS grad class'
+    )
+  ) %>% 
+  filter(!filters %in% c('hs_math', 'proximity_search', 'rotc', 'citizenship')) %>% 
+  ggplot(aes(x = filters_label, y = num_total)) +
+  geom_bar(stat = 'identity', fill = '#7ec7b8') +
+  geom_text(aes(label = if_else(filters %in% c('academic', 'geographic', 'demographic', 'student preferences'), str_c(str_to_sentence(filters), ' filters'), ''), y = 0), hjust = 0, vjust = 0.8, size = 2, fontface = 'bold') +
+  geom_text(aes(y = num_total, label = if_else(!filters %in% c('academic', 'geographic', 'demographic', 'student preferences'), str_c(round(pct * 100), '%'), '')), hjust = -0.1, size = 2) +
+  scale_y_continuous(expand = expansion(mult = c(0.01, 0.1))) +
+  xlab('') + ylab('Number of orders') +
+  guides(fill = guide_legend(reverse = T)) +
+  coord_flip()
+```
+
+
+\pagebreak
+## Table 5.1: Filter combos used in order purchases by research vs. ma/doctoral
+
+```{r orders-filters-combo}
+orders_filters_combo %>% 
+  group_by(filter_combos) %>% 
+  summarise(
+    n = sum(n), 
+    pct = sum(n) / sum((orders_filters %>% select(univ_type, total) %>% distinct())$total)
+  ) %>% 
+  ungroup() %>% 
+  arrange(-pct) %>% 
+  head(20) %>% 
+  kable(
+    booktabs = T, 
+    col.names = c('Filters', 'Count', 'Percent'), 
+    align = c('l', 'c', 'c'),
+    linesep = ''
+  ) %>%
+  row_spec(0, bold = T) %>%
+  kable_styling(position = 'center', latex_options = c('hold_position', 'scale_down'))
+```
+
+
+## Descriptive stats
+
+```{r}
+# Average # of criteria used
+avg_criteria <- mean(rowSums(orders_df %>% select(starts_with('filter_'))))
+
+# Proportion select at least 1 academic + 1 geographic filter
+orders_df_stats <- orders_df %>% 
+  mutate(
+    filter_academic = filter_gpa + filter_sat + filter_psat + filter_rank + filter_ap_score + filter_sat_math + filter_sat_writing + filter_sat_reading + filter_sat_reading_writing,  # filter_hs_math
+    filter_geographic = filter_states_fil + filter_zip + filter_geomarket + filter_segment + filter_cbsa + filter_intl + filter_county,  # filter_proximity_search
+    filter_academic_geographic = (filter_academic > 0) & (filter_geographic > 0)
+  )
+
+pct_purchase <- mean(orders_df_stats$filter_academic_geographic) * 100
+```
+
+Actual student list purchases filter on several criteria rather than one. \@list_empirics analyzed data on 830 student lists purchased by 14 public universities. The average purchase specified `r avg_criteria` criteria and `r pct_purchase`% of purchases simultaneously specified at least one academic and one geographic filter.
