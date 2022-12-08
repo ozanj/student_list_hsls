@@ -135,15 +135,20 @@ orders_filters_combo %>%
   group_by(filter_combos) %>% 
   summarise(
     n = sum(n), 
-    pct = sum(n) / sum((orders_filters %>% select(univ_type, total) %>% distinct())$total)
+    pct = sum(n) / sum((orders_filters %>% select(univ_type, total) %>% distinct())$total)*100
   ) %>% 
   ungroup() %>% 
   arrange(-pct) %>% 
+  mutate(
+    cum_n = cumsum(n),
+    cum_pct = round(cumsum(pct), digits = 1),
+    pct = round(pct, digits = 1)
+  ) %>% 
   head(20) %>% 
   kable(
     booktabs = T, 
-    col.names = c('Filters', 'Count', 'Percent'), 
-    align = c('l', 'c', 'c'),
+    col.names = c('Filters', 'Count', 'Pct', 'Cum count', 'Cum pct'), 
+    align = c('l', 'r', 'r', 'r', 'r'),
     linesep = ''
   ) %>%
   row_spec(0, bold = T) %>%
@@ -160,8 +165,8 @@ avg_criteria <- mean(rowSums(orders_df %>% select(starts_with('filter_'))))
 # Proportion select at least 1 academic + 1 geographic filter
 orders_df_stats <- orders_df %>% 
   mutate(
-    filter_academic = filter_gpa + filter_sat + filter_psat + filter_rank + filter_ap_score + filter_sat_math + filter_sat_writing + filter_sat_reading + filter_sat_reading_writing,  # filter_hs_math
-    filter_geographic = filter_states_fil + filter_zip + filter_geomarket + filter_segment + filter_cbsa + filter_intl + filter_county,  # filter_proximity_search
+    filter_academic = filter_gpa + filter_sat + filter_psat + filter_rank + filter_ap_score + filter_sat_math + filter_sat_writing + filter_sat_reading + filter_sat_reading_writing + filter_hs_math,  # filter_hs_math
+    filter_geographic = filter_states_fil + filter_zip + filter_geomarket + filter_segment + filter_cbsa + filter_intl + filter_county + filter_proximity_search,  # filter_proximity_search
     filter_academic_geographic = (filter_academic > 0) & (filter_geographic > 0)
   )
 

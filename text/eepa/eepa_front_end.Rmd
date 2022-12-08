@@ -20,12 +20,16 @@ fontsize: 12pt
 #      - \usepackage{pdflscape}
 #      - \usepackage{geometry}
 header-includes:
-      - \usepackage{floatrow}
-      - \floatsetup{capposition=top}
-      #- \usepackage{setspace}\doublespacing
-      #- \usepackage{setspace}\onehalfspacing #\doublespacing
-      #- \usepackage{setspace}\setstretch{2.0}
-      - \usepackage{setspace}
+  - \usepackage{floatrow}
+  - \floatsetup{capposition=top}
+  #- \usepackage{setspace}\doublespacing
+  #- \usepackage{setspace}\onehalfspacing #\doublespacing
+  #- \usepackage{setspace}\setstretch{2.0}
+  - \usepackage{setspace}
+  #- \usepackage[scaled]{helvet}  # https://stackoverflow.com/a/28538633/6373540
+  #- \renewcommand{\familydefault}{\sfdefault}
+  #- \usepackage[T1]{fontenc}
+      
       
 ---
 
@@ -54,6 +58,43 @@ theme_set(
     legend.key.size = unit(0.3, 'cm')
   )
 )
+
+
+options(knitr.kable.NA = '')
+options(scipen = 999)
+# webshot::install_phantomjs()
+
+library(ggbreak)
+library(usmap)
+
+
+load(url('https://github.com/mpatricia01/public_requests_eda/blob/main/data/tbl_fig_data_final.RData?raw=true'))
+
+theme_set(
+  theme(
+    text = element_text(size = 7, family = 'Helvetica'),
+    panel.background = element_blank(),
+    plot.title = element_text(color = '#444444', size = 7, face = 'bold', hjust = 0.5),
+    axis.ticks = element_blank(),
+    axis.title = element_text(face = 'bold'),
+    legend.title = element_text(face = 'bold', hjust = 0),
+    legend.key.size = unit(0.3, 'cm'),
+    strip.text.x = element_text(size = 7, face = 'bold', hjust = 0.5),
+    strip.background = element_rect(fill = NA, color = NA)
+  )
+)
+
+# color_palette <- c('#bbcfd7', '#d2c8bc', '#ba9a88')
+color_palette <- c('#46a69e', '#7ec7b8', '#b9efe6', '#bf7bb2', '#9e508a', '#537ec4', '#344273', '#fdc3bb', '#fa634b')
+extra_colors <- c('#b5b5b5', '#767676')
+color_text <- 'white'
+
+# https://stackoverflow.com/a/65844319/6373540
+linesep <- function(x, y = character()){
+  if(!length(x))
+    return(y)
+  linesep(x[-length(x)], c(rep('', x[length(x)] - 1), '\\addlinespace', y))  
+}
 ```
 
 <!--\doublespacing \onehalfspacing  \setstretch{1.5} -->
@@ -68,7 +109,7 @@ Research suggests that student lists are important for college access and degree
 However, a series of _TICAS_ reports argue that student list products systematically exclude underrepresented students in two ways  [@list_biz; @list_empirics; @list_policy]. First, student list products sold by College Board and ACT have historically excluded non test-takers, but rates of test-taking differ by race and class [@RN4859;@RN4860]. Second, several search filters (e.g., AP score, geodemographic segment) used to control which prospect profiles are purchased facilitate the exclusion of students from communities of color and low-income communities. 
 
 
-Prior scholarship on recruiting assumes that recruiting is something done by individual universities [e.g., @RN4758; @RN3519], but university recruiting behavior is structured by third-party products from vendors and consultancies in the enrollment management industry [@list_biz]. The nascent "platform studies in education" literature observes that third-party platforms increasingly perform core functions in education and calls for critical scholarship to inform policy regulations about edtech [@RN4843]. However, the literature has not investigated how third-party platforms structure educational opportunity along the dimensions of race, class, and geography. This study investigates the College Board Student Search Service product. We ask, what is the relationship between student list search filters and the characteristics of students who are included versus excluded in student lists purchased from College Board?
+Prior scholarship on recruiting assumes that recruiting is something done by individual universities [e.g., @RN4758; @RN3519], but university recruiting behavior is structured by third-party products from vendors and consultancies in the enrollment management industry [@list_biz]. The nascent "platform studies in education" literature observes that third-party platforms increasingly perform core functions in education and calls for critical scholarship to inform policy regulations about edtech [@RN4843]. However, the literature has not investigated how third-party platforms structure educational opportunity along the dimensions of race, class, and geography. This study investigates the College Board Student Search Service product. We ask, what is the relationship between student list search filters and the racial composition of students who are included versus excluded in student lists purchased from College Board?
 
 <!-- CUT PARAGRAPH ON CRITICAL DATA STUDIES AND PLATFORM STUDIES IN EDUCATION; DIDN'T FLOW HERE
 Scholarship from critical data studies unpacks the business models and algorithms of digital platforms (e.g., Coursera). "Rentier capitalism" -- as in rent tenants pays a landlord -- generates profit by charging monetary rent and data rent [@RN4829; @RN4799]. Data rent is the "digital traces" created by users interacting with the platform, which often become the basis for new products. Student list data are extracted from user-data created by students laboring on platforms (e.g., taking the SAT, searching for college on Naviance) and these data are packaged to universities for monetary rent. 
@@ -97,8 +138,7 @@ Figure \@ref(fig:em-funnel) depicts the "enrollment funnel," a conceptual model 
 In order to situate student lists within the process of recruiting recruiting, Figure \@ref(fig:em-funnel) depicts the "enrollment funnel," a conceptual model used by enrollment management industry to visualize stages in the recruiting of students (e.g., prospects, leads, inquiries, applicants, admits, and enrolled students). "Prospects" are "all the potential students you would want to attract to your institution" [@RN4322]. We define "leads" as prospects whose contact information has been purchased. "Inquiries" are prospects that contact your institution and consist of two types: first, inquiries who respond to an initial solicitation  (e.g., email) from the university; and second, "student as first contact" inquiries who reach out to the university on their own, for example, by sending ACT scores or by taking a "[virtual tours](https://eab.com/products/virtual-tours/)" that records IP address. Applicants consist of inquiries who apply plus "stealth applicants" who do not contact the university before applying.
 -->
 
-At the top of the enrollment funnel, universities identify leads by buying student lists. The sum of purchased leads plus student-as-first-contact inquiries constitutes the set of all prospects the university has contact information for who may receive targeted recruiting interventions. 
-Based on survey data provided by universities, @RN4741 reported that 28\% of public universities purchased less than 50,000 names annually, 44\% purchased 50,000-100,000 names, 13\% purchased 100,000-150,000 names, and 15\% purchased more than 150,000 names. @RN4402 asked clients to rate different "first contact" interventions (e.g., off-campus recruiting visit) as sources of inquiries and enrolled students. For the median public university, purchased lists accounted for 26\% of inquiries, which ranked \#1, and accounted for 14\% of enrolled students, which ranked fourth after "application as first contact" (19\%), campus visit (17\%), and off-campus visit (16\%).^[For private non-profit institutions, 34\% of private institutions purchased fewer than 50,000 names, 24\% purchased 50,000-100,000 names, 23\% purchased 100,000-150,000 names, and 18\% purchased more than 150,000 names [@RN4741]. Additionally, student list purchases were the highest source of inquiries, accounting for 32\% of inquiries and were tied with off-campus recruiting visits as the highest source of enrolled students, accounting for 18\% of enrolled students [@RN4402].]
+At the top of the enrollment funnel, universities identify leads by buying student lists. The sum of purchased leads plus student-as-first-contact inquiries constitutes the set of all prospects the university has contact information for who may receive targeted recruiting interventions. Based on a survey of their clients, @RN4741 reported that 28\% of public universities purchased less than 50,000 names annually, 44\% purchased 50,000-100,000 names, 13\% purchased 100,000-150,000 names, and 15\% purchased more than 150,000 names. @RN4402 asked clients to rate different "first contact" interventions (e.g., off-campus recruiting visit) as sources of inquiries and enrolled students. For the median public university, purchased lists accounted for 26\% of inquiries, which ranked \#1, and accounted for 14\% of enrolled students, which ranked fourth after "application as first contact" (19\%), campus visit (17\%), and off-campus visit (16\%).^[For private non-profit institutions, 34\% of private institutions purchased fewer than 50,000 names, 24\% purchased 50,000-100,000 names, 23\% purchased 100,000-150,000 names, and 18\% purchased more than 150,000 names [@RN4741]. Additionally, student list purchases were the highest source of inquiries, accounting for 32\% of inquiries and were tied with off-campus recruiting visits as the highest source of enrolled students, accounting for 18\% of enrolled students [@RN4402].]
 
 
 
@@ -293,7 +333,22 @@ University recruiting behavior often targets prospects in particular metropolita
 In addition to filters for known geographic borders, College Board uses data on test-takers from previous admissions cycles to create new geographic borders for the purpose of filtering prospective students. "Geomarkets" divide metropolitan areas into smaller pieces. For example, the San Francisco Bay Area is divided into eight geomarkets, including CA10 the "City of San Jose" and CA11 "Santa Clara County excluding San Jose" [[CITE](https://drive.google.com/drive/u/0/folders/1mqvLpSZZ6k7EWHPh0btt2hWy2J-jXs_y)]. Geodemographic segment filters utilize cluster analysis allocate each high school and each neighborhood (census tract) to a market segment based on based on past college-going behaviors of students from that school or neighborhood [@RN4565]. The resulting classification is highly correlated with race because communities of color that have been historically excluded from higher education are more likely to be lumped together. More generally, we argue that filtering on geographic borders created from past education data is associated with racial exclusion because these borders likely reflect historic disparities in educational opportunity. Further, these filters increase the effects of historic place-based inequality because they enable universities to discriminate between prospects based on previously unknown geographic borders.[BUT CAN'T ANALYZE THESE CUZ WE DON'T HAVE/NEED TO CREATE THE BORDERS]
 -->
 
-**Filtering on academics and geography**. Actual student list purchases filter on several criteria rather than one. @list_empirics analyzed data on 830 student lists purchased by 14 public universities. The average purchase specified X.X criteria and XX% of purchases simultaneously specified at least one academic and one geographic filter. Filtering on multiple search criteria facilitates micro-targeting of desired prospects. The flipside of micro-targeting is exclusion. We suggest that filtering on multiple structurally racist inputs has a compounding effect on racial inequality in which prospects are included versus excluded. To assess this claim, we draw on the @list_empirics sample of orders placed by public research universities and select several orders that utilized common, but potentially problematic filter criteria. We analyze the racial composition of students included versus excluded from these purchases. Next, we simulate marginal changes to order criteria to gain insight about how structurally racist inputs drive exclusion.
+```{r, include = FALSE}
+# Average # of criteria used
+avg_criteria <- mean(rowSums(orders_df %>% select(starts_with('filter_'))))
+
+# Proportion select at least 1 academic + 1 geographic filter
+orders_df_stats <- orders_df %>% 
+  mutate(
+    filter_academic = filter_gpa + filter_sat + filter_psat + filter_rank + filter_ap_score + filter_sat_math + filter_sat_writing + filter_sat_reading + filter_sat_reading_writing + filter_hs_math,  # filter_hs_math
+    filter_geographic = filter_states_fil + filter_zip + filter_geomarket + filter_segment + filter_cbsa + filter_intl + filter_county + filter_proximity_search,  # filter_proximity_search
+    filter_academic_geographic = (filter_academic > 0) & (filter_geographic > 0)
+  )
+
+pct_purchase <- mean(orders_df_stats$filter_academic_geographic) * 100
+```
+
+**Filtering on multiple filters**. Actual student list purchases filter on several criteria rather than one. @list_empirics analyzed data on 830 student lists purchased by 14 public universities. The average purchase specified `r avg_criteria` criteria and `r pct_purchase`% of purchases simultaneously specified at least one academic and one geographic filter. Table  \@ref(tab:orders-filters-combo) shows the top 20 filter combinations. Filtering on multiple search criteria facilitates micro-targeting of desired prospects. The flipside of micro-targeting is exclusion. We suggest that filtering on multiple structurally racist inputs has a compounding effect on racial inequality in which prospects are included versus excluded. To assess this claim, we draw on the @list_empirics sample of orders placed by public universities and select several orders that utilized common, but potentially problematic filter criteria. seeWe analyze the racial composition of students included versus excluded from these purchases. Next, we simulate marginal changes to order criteria to gain insight about how structurally racist inputs drive exclusion.
 
 
 <!--  CUT THIS BECAUSE NOT GOING TO ANALYZE DEMOGRAPHIC FILTERS IN EEPA?
@@ -332,7 +387,7 @@ We ask, what is the relationship between student list search filters (e.g., test
 X = student list filters
 Y = characteristics of students included in student list filters
 -->
-Our research question is, what is the relationship between student list search filters and the characteristics of students who are included versus excluded from College Board student list purchases? In turn, our dependent variable measures student demographic characteristics and our independent variables are measures of student list filters, which can be utilized in isolation or in combination with one another. Descriptive statistics for analysis variables are shown in Table X [KARINA  NEEDS TO CREATE TABLE].
+Our research question is, what is the relationship between student list search filters and the racial composition of students who are included versus excluded from College Board student list purchases? In turn, our dependent variable measures student demographic characteristics and our independent variables are measures of student list filters, which can be utilized in isolation or in combination with one another. Descriptive statistics for analysis variables are shown in Table X [KARINA  NEEDS TO CREATE TABLE].
 
 **Dependent variable**. Following our conceptual framework, this manuscript is primarily concerned with the racial composition of prospects who are included in student list purchases compared to the racial composition of prospects who are excluded. Our primary dependent variable is the student race/ethnicity composite variable `X2RACE`, which includes the following seven categories: American Indian/Alaska Native, non-Hispanic; Asian, non-Hispanic; Black/African-American, non-Hispanic; Hispanic; More than one race, non-Hispanic; Native Hawaiian/Pacific Islander, non-Hispanic; and White, non-Hispanic.^[We collapse the categories "Hispanic, no race specified" and "Hispanic, race specified" into a single category.] We also conducted analyses that utilized parental education (`X2PAREDU`) and family income (`X2FAMINCOME`) as dependent variables, but we exclude these analyses because of manuscript space limits.
 
@@ -403,47 +458,45 @@ Universities identify prospective students by purchasing student lists. College 
 . College Board began selling student lists in 1972 [@belkin2019-studata]
 -->
 
-Prior scholarship on recruiting [e.g., @RN4758] assumes that recruiting is something done by individual colleges and universities. Universities identify prospective students by purchasing student lists, but prior research has not investigated how student list products structure the connection between universities and prospective students. We ask, what is the relationship between student list search filters and the characteristics of students who are included versus excluded in student lists purchased from College Board? We develop a conceptual framework about structural racism in algorithmic products by drawing from sociology and critical data studies. Structurally racist inputs are determinants of a selection device that are correlated with race because historically dominated racial groups have been historically excluded from the input [@RN4778]. We propose that several academic filters and geographic filters are structurally racist inputs. We assess propositions about the relationship between search filters and racial exclusion using a nationally representative sample of 9th graders from 2009.
+Prior scholarship on recruiting [e.g., @RN4758] assumes that recruiting is something done by individual colleges and universities. Universities identify prospective students by purchasing student lists, but prior research has not investigated how student list products structure the connection between universities and prospective students. We ask, what is the relationship between student list search filters and the racial composition of students who are included versus excluded in student lists purchased from College Board? We develop a conceptual framework about structural racism in algorithmic products by drawing from sociology and critical data studies. Structurally racist inputs are determinants of a selection device that are correlated with race because historically dominated racial groups have been historically excluded from the input [@RN4778]. We propose that several academic filters and geographic filters are structurally racist inputs. We assess propositions about the relationship between search filters and racial exclusion using a nationally representative sample of 9th graders from 2009.
 
 Results for proposition **P1** .... [KARINA WRITE HIGH-LEVEL SUMMARY OF RESULTS; ONE OR TWO PARAGRAPHS]
 
-These results have policy implications for federal regulatory agencies concerned with consumer protection and equality of opportunity. Consider zip code filters. Given the history of racial segregation, there is no equality of opportunity rationale for products that enable universities to target particular zip codes. Over the last decade, the Federal Trade Commission (FTC) has become increasingly concerned about algorithmic products that "categorize consumers in ways that can result in exclusion of certain populations" [@RN4743, p. 9]. The FTC enforces the FTC Act, which applies to all organizations engaged in interstate commerce. Section 5 of the FTC Act prohibits "unfair" practices, defined as practices that meet three criteria: (1) causes substantial harm to consumers; (2) harm cannot be reasonably avoided; and (3) harm not outweighed by benefits to other consumers and to competition [@fdic_2018]. Zip code filters may cause substantial harm to consumers (criterion \#1) because students who live in nearby non-targeted zip codes are excluded from college access opportunities. Consumers cannot reasonably avoid the injury (criterion \#2) because they cannot easily move to a different zip code. The benefit to targeted consumers may not outweigh the harm to excluded consumers (criterion \#3). However, other student list filters may satisfy the unfair practices criteria more unequivocally.
+These results have policy implications for federal regulatory agencies concerned with consumer protection and equality of opportunity. Consider zip code filters. Given the history of racial segregation, there is no equality of opportunity rationale for products that enable universities to target particular zip codes. Over the last decade, the Federal Trade Commission (FTC) has become concerned about algorithmic products that "categorize consumers in ways that can result in exclusion of certain populations" [@RN4743, p. 9]. The FTC enforces the FTC Act, which applies to all organizations engaged in interstate commerce. Section 5 of the FTC Act prohibits "unfair" practices, defined as practices that meet three criteria: (1) causes substantial harm to consumers; (2) harm cannot be reasonably avoided; and (3) harm not outweighed by benefits to other consumers and to competition [@fdic_2018]. Zip code filters may cause substantial harm to consumers (criterion \#1) because students who live in nearby non-targeted zip codes are excluded from college access opportunities. Consumers cannot reasonably avoid the injury (criterion \#2) because they cannot easily move to a different zip code. The benefit to targeted consumers may not outweigh the harm to excluded consumers (criterion \#3). 
 
-This manuscript is the first word on student list products, not the last word. Future research should examine filters that utilize predictive analytics, which make predictions about future cases from models of past cases. One example is ACT's "Enrollment Predictor" filter, in which "every student in the Encoura\textregistered Data Cloud is scored on their likelihood to enroll at your institution" [@schmidt_2022]. College Board developed geographic filters that create geographic borders based on historic, proprietary data on college enrollment. The "geomarket" filter carves metropolitan areas into distinct markets. "Geodemographic Segment" filters utilize cluster analysis to allocate individual high schools and individual census tracts into distinct clusters based on historic college-going behavior. The analysis of Moody's city government credit rating algorithm by @RN4786 shows that these filters can be recreated -- or closely approximated -- using publicly available data sources. 
+This manuscript is the first word on student list products, not the last word. Other filters may satisfy the FTC unfair practices criteria more unequivocally than zip code. Future research should examine filters based on predictive analytics, which model past cases to make predictions about future cases. One example is ACT's "Enrollment Predictor" filter, in which "every student in the Encoura\textregistered Data Cloud is scored on their likelihood to enroll at your institution" [@schmidt_2022]. College Board developed several geographic filters that create geographic borders based on historic, proprietary data on college enrollment. The "geomarket" filter carves metropolitan areas into distinct markets. Geodemographic segment filters utilize cluster analysis to allocate individual high schools and individual census tracts into distinct clusters based on historic college-going behavior. The analysis of Moody's city government credit rating algorithm by @RN4786 suggests that these filters can be recreated -- or closely approximated -- using publicly available data sources. 
 
-Another topic for future research is demographic search filters, which allow universities to target prospects by race, ethnicity, gender, and first-generation status. College Board argues that these filters facilitate the recruitment of underrepresented student populations [CITE]. However, analyses by @list_empirics observed that "women in STEM" purchases yielded profound racial and socioeconomic inequality. Additionally, purchases that filtered for underrepresented minority students often disproportionately targeted students from affluent, predominantly white schools and communities.
+Another topic for future research is demographic search filters, which allow universities to target prospects by race, ethnicity, gender, and first-generation status. The equity rationale is that these filters facilitate access for underrepresented populations, particularly in a post affirmative action landscape. However, analyses by @list_empirics found that purchases that filtered for underrepresented racial/ethnic groups often disproportionately targeted students from affluent, predominantly white schools and communities. Additionally, "women in STEM" purchases yielded profound racial and socioeconomic inequality.
 
-In addition to empirical analyses, legal scholarship informs how regulatory agencies interpret the law [e.g., @RN4858]. For example, @berk_law_2021[p. 4] argue that when universities "give advice and assistance to students seeking loans to pay for tuition" -- the activities of financial aid office -- they become "covered persons" under the Consumer Financial Protection Act (CFPA) and may be regulated by the Consumer Financial Protection Bureau (CFPB). Legal scholarship can inform how the FTC and the CFPB intepret regulatory authority over student list vendors and products. Future scholarship should analyze whether and how student list vendors can be regulated as "consumer reporting agencies," which are regulated by the  Fair Credit Reporting Act and the CFPA. A consumer reporting agency is an entity that sells information about prospective consumers that leads to the extension of credit (i.e., loans) ([15 U.S.C \S 1681a ](https://www.law.cornell.edu/uscode/text/15/1681a)). We suggest that student list vendors are consumer reporting agencies because there is a systematic link between student lists and student loans. That is, the first stage of the enrollment funnel is to identify "leads" by purchasing student lists and the last stage is convert admits to enrolled students by offering financial aid packages. 
+In addition to empirical analyses, legal scholarship informs how regulatory agencies interpret the law. For example, @berk_law_2021 argues that the Consumer Financial Protection Bureau (CFPB) has regulatory authority over for-profit colleges because organizations that provide financial advisory services to consumers seeking loans -- the activities of any financial aid office -- are "covered persons" under the Consumer Financial Protection Act (CFPA). Similarly, legal scholarship can inform how the FTC and the CFPB intepret regulatory authority over student list vendors and products. One issue is whether and how student list vendors can be regulated as "consumer reporting agencies," which are regulated by the  Fair Credit Reporting Act and the CFPA. A consumer reporting agency is an entity that sells information about prospective consumers that leads to the extension of credit (i.e., loans) ([15 U.S.C \S 1681a ](https://www.law.cornell.edu/uscode/text/15/1681a)). Student list vendors may  qualify as consumer reporting agencies because of the systematic link between student lists and student loans. That is, the first stage of the enrollment funnel is to identify "leads" by purchasing student lists and the last stage is convert admits to enrolled students by offering financial aid packages.
 
-The broader contribution of this manuscript is to motivate critical education policy research that focuses on third-party products and vendors. The majority of policy research in education analyzes students, schools, or universities, often in relation to federal, state, or local policies. Scholarship from critical data studies shows that structural racism in digital platforms is "a feature, not a bug" [@RN4775; @RN4772] because racial exploitation is the defining feature of capitalism [@RN4773] and the defining feature of platform capitalism [@RN4774]. Drawing from critical data studies, the nascent "platform studies in education" literature urges scholars "to go beyond pedagogical and technical questions toward social, political, and economic critiques" [@RN4844, p. 207]. However, this literature has not investigated how platforms structure educatonal opportunity along racial, class, and geographic dimensions. We propose a critical, empirical literature that bridges education policy and platform studies by utilizing structural theories of inequality to investigate third-party products and vendors in education. Student list products represent a model topic for this literature.
+The broader contribution of this manuscript is to motivate critical education policy research that focuses on third-party products and vendors. The majority of policy research in education analyzes students, schools, or universities, often in relation to federal, state, or local policies. Scholarship from critical data studies and sociology shows that structural racism is "a feature, not a bug" of digital platforms [@RN4775; @RN4862; @RN4772] because racial exploitation is the defining feature of capitalism [@RN4773] and the defining feature of platform capitalism [@RN4774]. By contrast, @RN4843 observes that scholarship on technology and education is dominated by technocratic analyses of instruction and student learning outcomes. The nascent "platform studies in education" literature urges education research to follow the example of critical data studies and "go beyond pedagogical and technical questions toward social, political, and economic critiques" [@RN4844, p. 207]. However, this literature has not yet investigated how platforms structure educational opportunity along racial, class, and geographic dimensions. We propose an empirical literature on third-party products and vendors in education that bridges scholarship on education policy and platform studies. This literature will incorporate structural theories of inequality and theories of organizational behavior from sociology and economics. Student list products represent a model topic for this literature.
 
 <!-- Our analysis of student list products provides a model for this literature 
 @RN1025 describes the process of generating profit from money ($M$) and commodities ($C$) (e.g., raw inputs, machinery, labor)
 
 Student list products are a model topic for this critical, empirical literature because they substantially structure college access and are a source of profit for third-party vendors. 
 -->
-One thread within this critical policy research agenda -- already present in transnational education literatures [e.g., @RN4815; @RN4827] -- should examine the business models of edtech platform capitalism. @RN4799 develops the concept "data as capital," drawing from @RN1025 to describe how platforms monetize user-data, often by becoming the basis for a new product. The formula $M-C-M'$ represents economic capital, whereby money $M$ is invested to produce commodity $C$, which is sold for a larger amount of money $M'$ [@RN1025]. Student list data exemplify this process. Student list data are capital derived from the user-data of students laboring on a platform, whether that be taking a standardized assessment or searching for scholarships on a 'free' college search engine. Processes that profit from student list data follow the general formula for economic capital. College Board uses the cycle $M-C-M'-C-M''$, investing money ($M$) to create tests ($C$), which are sold to households for $M'$ and also yield student list data ($C$), which are sold to universities ($M''$) looking for students. New entrants to the market for student list data (e.g., PowerSchool, EAB) add another link to the cycle. Instead of selling names at a price-per-prospect (e.g., \$0.50) like College Board, they wrap proprietary databases of prospects within software-as-service products that recruit these prospects (e.g., Intersect, Enroll360), which are then sold to universities for an annual subscription.
+One thread within this research agenda examines the business models of edtech platform capitalism [e.g., @RN4815; @RN4827]. "Data rent" refers to "digital traces" created by users interacting with a platform [@RN4829], which often become the basis for new products. Drawing from @RN1025, @RN4799 develops the concept "data as capital" to describe how platforms monetize user-data. The formula $M-C-M'$ represents economic capital, whereby money $M$ is invested to produce commodity $C$, which is sold for a larger amount of money $M'$ [@RN1025]. Student list products exemplify this process. Student list data are derived from the user-data of students laboring on a platform, whether that be taking a standardized assessment or searching for scholarships on a free college search engine. Processes that profit from student list data follow the formula for economic capital. College Board uses the cycle $M-C-M'-C-M''$, investing money ($M$) to create tests ($C$), which are sold to households for $M'$ and also yield student list data ($C$), which are sold to universities ($M''$) looking for students. New entrants to the market for student list data (e.g., PowerSchool, EAB) add another link to the cycle. Instead of selling names at a price-per-prospect (e.g., \$0.50) like College Board, they wrap proprietary databases of prospects within software-as-service products that recruit these prospects (e.g., Intersect, Enroll360), which are then sold to universities for an annual subscription.
 
-Future research should examine how college access is structured by vendors and consultancies in the broader enrollment management industry. Many universities depend on enrollment management consulting firms to develop and implement recruiting campaigns. In our data collection, roughly half the public universities outsourced student list buys to consulting firms [@list_empirics], and these universities tended to be uninformed about who they were recruiting. Several enrollment management consultancies sell algorithmic products designed to make recommendations about list buys [@fire_engine_red_search_modeling; @ruffalo_noel_levitz_2021]. For example, Ruffalo Noel Levitz offers an algorithm that tells universities how many names to buy from each zip code [CITE]. Beyond name buys, consultancies develop and implement strategy about digital advertising, direct mail, which high schools to visit, and tuition pricing and financial aid. To the extent that unviersities outsource enrollment management to consultancies, these consultancies substantially structure college access, but scholarship on college access assumes that universities perform these functions in-house.
+Future critical policy research should also examine how college access is structured by vendors and consultancies in the broader enrollment management industry. Many universities depend on enrollment management consulting firms to recruit students [@list_biz]. In our public records data collection, roughly half the public universities outsourced student list buys to consulting firms [@list_empirics]. These universities tended to be uninformed about who they were recruiting. Several enrollment management consultancies sell algorithmic products designed to make recommendations about list buys [@fire_engine_red_search_modeling; @ruffalo_noel_levitz_2021]. For example, Ruffalo Noel Levitz offers an algorithm that tells universities how many names to buy from each zip code [@jmu_rnl]. Beyond name buys, consultancies develop and implement strategy about digital advertising, direct mail, which high schools to visit, and tuition pricing and financial aid. To the extent that unviersities outsource enrollment management to consultancies, these consultancies substantially structure college access. However, extant scholarship on college access assumes that universities perform these functions in-house.
 
-The enrollment management industry also structures "student success" in higher education and k-12. For example, EAB's Starfish student success software that incorporates university administrative data, issues notifications when students get "off-track," promising to "make student intervention easy and integrated" [@eab_starfish]. A growing number of scholars are harnessing advances in machine learning to assess the fairness of alternative predictive models of student success [CITE STUFF LIKE THIS](https://mobile.twitter.com/MIE_UIC/status/1499130022078078990). Commercial student success products also utilize machine learning, but scholarship has not investigated the fairness of third-party predictive models sold to universities. Do these models use race/ethicity as an input? Do commercial student success platforms achieve higher graduation rates by pushing students out of certain majors?
-
-Difficulty obtaining data has been a fundamental barrier to empirical scholarship on third-party vendors and products. @RN4842[. 6] observes that "deconstructing the black boxes of Big Data isn’t easy" because platform capitalism creates intentional barriers to inspection. @RN4842 explores strategies for keeping black boxes closed, including legal secrecy, which "obliges those privy to certain information to keep it secret" and obfuscation, which "involves deliberate attemps at concealment." The end goal of secrecy and obfuscation is opacity. @RN4774[p. 443] argues that "administrative opacity is a deliberate strategy to manage regulatory environments. It shields organizations, both public and private, from democratic appeals for access and equity."
-
-Student list products exemplify this opacity. College Board began selling student lists in 1972 [@belkin2019-studata], but prior scholarship failed to investigate student list products because few people know they exist and because of difficulty obtaining the data. In order to write @list_empirics, we spent three years -- years we would like back! -- attempting to collect data about student list products via public records requests to public universities. We gained traction only after obtaining pro bono representation from four multinational law firms. 
-
-However, this manuscript suggests that investigating third-party products need not be so laborious. @list_empirics believed (incorrectly) that in order to analyze College Board student list products, we needed to obtain (1) the order summary (i.e., filter criteria) and (2) de-identified prospect-level student list data for each purchase. This manuscript shows that quantitative analyses of student list products depends on (1) knowledge of product specifications and (2) NCES longitudinal survey data, which contains the variables necessary to recreate these product specifications. Additionally, the analyses presented here benefited from data on order summaries collected via public records requests, but this is not so tall a task as obtaining both the order summary and associated prospect-level student list data.
-
-Future research can investigate third-party products by combining rich NCES longitudinal survey data with methods from investigative journalism. Consider commercial "student success" products like EAB's Starfish. Scholars can learn about product specifications by attending trade shows (e.g., NACAC) where vendors peddle their wares. State contract databases, for example the [Illinois Procurement Bulletin](https://www.procure.stateuniv.state.il.us/search.cfm), show which public universities purchased Starfish. Additional information about product specifications can be obtained by issuing public records requests to universities that purchased a Starfish contract (the best use of public records requests is obtaining contracts and product documentation). Next, researchers use NCES longtitudinal data to recreate -- or approximate -- the input measures utilized by the product. Finally, researchers can recreate the predictive analytic approaches utilized by the product in order to identify potential biases. 
-
-The policy payoff for developing a critical literature on third-party vendors/products is great, and so is the cost of inaction. Third-party providers do not want to be the subject of academic research because scrutiny from scholars will lead to scrutiny from regulators, which may disrupt profitable practices. However, third-party providers increasingly perform core functions of schools and universities [@RN4843; @RN4815]. If education researchers continues to ignore these products, then policy research will have diminishing influence on core functions of schools and universities. Thus, as conservative courts challenge progressive education policies like affirmative action, policy research should go on the offensive by applying theory about structural mechanisms to investigate structural racism by third-party products and vendors.
-
-In federal higher education policy, the Higher Education Act (HEA) -- enforced by the US Department of Education -- is concerned about regulating for-profit Title IV institutions, but remains agnostic about "third-party servicers" (with the exception of lenders and guaranty agencies) even though third-party providers now dwarf the market for for-profit direct providers. For example, in response to policy concerns about incentive-based compensation for online program management (OPM) companies, the @usde2011 argues that tuition sharing with third-party vendors is not problematic because enrollment goals are determined by the institution rather than the vendor.^[@usde2011[p. 11] states that, "the independence of the third party (both as a corporate matter and as a decision-maker) from the institution that provides the actual teaching and educational services is a significant safeguard against the abuses the Department has seen heretofore. When the institution determines the number of enrollments and hires an unaffiliated third party to provide bundled services that include recruitment, payment based on the amount of tuition generated does not incentivize the recruiting as it does when the recruiter is determining the enrollment numbers."]
+The enrollment management industry also structures "student success" in higher education and k-12. For example, EAB's Starfish student success software incorporates university administrative data, predicts student outcomes using past data, issues notifications when students get "off-track," and "make[s] student intervention easy and integrated" [@eab_starfish]. A growing number of scholars are harnessing advances in machine learning to predict student success [e.g., @RN4863]. Commercial student success products also utilize machine learning, but scholarship has not investigated the fairness of third-party predictive models sold to universities. Do these models use race/ethicity as an input? Do commercial student success platforms achieve higher graduation rates by pushing students out of certain majors?
 
 
+Difficulty obtaining data is an obstacle to empirical scholarship on third-party vendors and products. @RN4842[. 6] notes that "deconstructing the black boxes of Big Data isn’t easy" because platform capitalism creates intentional barriers to inspection. <!--@RN4842 explores strategies for keeping black boxes closed, including legal secrecy, which "obliges those privy to certain information to keep it secret" and obfuscation, which "involves deliberate attemps at concealment." The end goal of secrecy and obfuscation is opacity.--> @RN4774[p. 443] argues that "administrative opacity is a deliberate strategy to manage regulatory environments. It shields organizations, both public and private, from democratic appeals for access and equity."
 
+Student list products exemplify this opacity. College Board began selling student lists in 1972 [@belkin2019-studata], but prior research never investigated student list products because few people know they exist and because of difficulty obtaining the data. We spent three years -- years we would like back! -- attempting to collect data about student list products by issuing public records requests to public universities [@list_empirics]. We gained traction only after obtaining pro bono representation from four multinational law firms. 
 
-Therefore, developing a critical literature on third-party vendors and products demands that policy researchers be "price-makers" rather than "price-takers" when it comes to which issues demand policy attention. Instead of doing research that fits within the constraints of federal education policy, do research on pressing problems that shifts the focus of federal policy. Given the narrow focus of the HEA and the Department of Education, this research agenda should target the Federal Trade Commission, the Consumer Finance Protection Bureau and other agencies that enforce laws concerned with equality of opportunity for consumers.  This shift in target audience will require researchers to learn more about these regulatory agencies, the laws they enforce, and to develop relationships with regulatory staff. This new research focus is represents a "paradigm shift" in education policy research, as opposed to "normal science" [@RN924]. This is a heavy lift, but will be well remunerated with policy impact and scholarly productivity.
+This manuscript suggests that investigating third-party products need not be so laborious. @list_empirics assumed that quantitative analysis of College Board student list products required (1) order summary data (i.e., filter criteria) and (2) prospect-level student list data for each purchase. By contrast, this manuscript shows that analyses of student list products require (1) knowledge of product specifications and (2) student-level survey data containing variables necessary to recreate these product specifications. The analyses presented here additionally utilized order summaries collected via public records requests. However, obtaining order summaries is less daunting than obtaining both the order summary and the associated prospect-level data for each purchase.
+
+Future research can investigate third-party products by combining rich NCES longitudinal survey data with methods from investigative journalism [e.g., @markup_naviance]. Consider commercial "student success" products like EAB's Starfish. First, researchers can learn about product specifications from internet searches by attending trade shows (e.g., NACAC) where vendors peddle their wares. State contract databases, for example the [Illinois Procurement Bulletin](https://www.procure.stateuniv.state.il.us/search.cfm), show which public universities purchased Starfish. Additional information about product specifications can be obtained by issuing public records requests to universities that purchased a Starfish contract (the best use of public records requests is obtaining contracts and product documentation). Second, use NCES survey data to recreate -- or approximate -- the input measures utilized by the product. Third, recreate the analytic approaches utilized by the product. One caution, algorithimic products often facilitate targeting by geographic locality, but NCES survey sample sizes are often too small for analyses of particular states or metropolitan areas.
+
+The payoff for developing this critical policy literature is great, and so is the cost of inaction. Third-party providers do not want to be the object of research because scrutiny from scholars will lead to scrutiny from regulators, which may disrupt profitable practices [@RN4774]. Increasingly, third-party providers perform core functions of schools and universities [@RN4843; @RN4815]. If researchers continues to ignore these products, then policy research will have diminishing influence on core functions of schools and universities. As conservative courts challenge progressive education policies like affirmative action, policy research should go on the offensive by applying theory about structural mechanisms to investigate structural racism by third-party products and vendors.
+
+In higher education, third-party providers now dwarf the for-profit college market. Nevertheless, the Higher Education Act (HEA) -- enforced by the US Department of Education -- regulates for-profit Title IV institutions, but remains agnostic about "third-party servicers" (aside from lenders and guaranty agencies). For example, responding to concerns about incentive-based compensation for online program management (OPM) companies, the Department of Education [-@usde2011] argued that tuition sharing with third-party vendors is not problematic because enrollment goals are determined by the institution, not the vendor.^[@usde2011[p. 11] states that, "the independence of the third party (both as a corporate matter and as a decision-maker) from the institution that provides the actual teaching and educational services is a significant safeguard against the abuses the Department has seen heretofore. When the institution determines the number of enrollments and hires an unaffiliated third party to provide bundled services that include recruitment, payment based on the amount of tuition generated does not incentivize the recruiting as it does when the recruiter is determining the enrollment numbers."]
+
+Therefore, developing a critical policy literature on third-party vendors/products demands that researchers be "price-makers" rather than "price-takers" when it comes to which issues demand policy attention. Instead of doing research that fits within the constraints of federal education policy, do research that shifts the focus of federal policy. Given the narrow focus of the HEA and the Department of Education, this research agenda should target the Federal Trade Commission, the Consumer Finance Protection Bureau and other agencies that enforce laws concerned with equality of opportunity for consumers. This shift in target audience requires researchers to learn more about these regulatory agencies, the laws they enforce, and to develop relationships with key staff. This new research focus is represents a "paradigm shift" in education policy research, as opposed to "normal science" [@RN924]. This paradigm shift will be well remunerated with policy impact and scholarly productivity.
 
 
 <!--
@@ -559,14 +612,99 @@ knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
 
 \pagebreak
 
-```{r order-filters-empirical-report, echo = FALSE, fig.align = 'center', fig.cap = "Filters used in College Board orders purchased by 14 public universities", out.width = "100%"}
-knitr::include_graphics('./../../outputs/images/order_filters_empirical_report.png')
-#knitr::include_graphics('./../../outputs/figures/enrollment_funnel.png')
-#![The enrollment funnel](assets/images/enrollment_funnel.png)
+```{r order-filters-empirical-report, fig.height = 5, fig.cap = "Filters used in College Board orders purchased by 14 public universities"}
+orders_filters %>% 
+  filter(is_asu == 'all') %>% 
+  group_by(filters) %>% 
+  summarise(
+    num_total = sum(num_total), 
+    total = sum(total), 
+    pct = sum(num_total) / sum(total)
+  ) %>% 
+  ungroup() %>% 
+  add_row(filters = 'academic', num_total = 0) %>% 
+  add_row(filters = 'geographic', num_total = 0) %>% 
+  add_row(filters = 'demographic', num_total = 0) %>% 
+  add_row(filters = 'student preferences', num_total = 0) %>% 
+  mutate(
+    filters_label = recode_factor(
+      filters,
+      'citizenship' = 'Citizenship',
+      'rotc' = 'ROTC',
+      'financial_aid' = 'Financial aid',
+      'national_recognition_programs' = 'NRP',
+      'edu_aspirations' = 'Education aspirations',
+      'college_setting' = 'College setting',
+      'college_studentbody' = 'College student body',
+      'college_living_plans' = 'College living plans',
+      'college_location' = 'College location',
+      'college_type' = 'College type',
+      'major' = 'Major',
+      'college_size' = 'College size',
+      'student preferences' = '   ',
+      'first_gen_parent' = 'First generation',
+      'low_ses' = 'Low SES',
+      'gender' = 'Gender',
+      'race' = 'Race',
+      'demographic' = '  ',
+      'proximity_search' = 'Proximity search',
+      'county' = 'County',
+      'intl' = 'International',
+      'cbsa' = 'CBSA',
+      'segment' = 'Segment',
+      'geomarket' = 'Geomarket',
+      'zip' = 'Zip code',
+      'states_fil' = 'State',
+      'geographic' = ' ',
+      'hs_math' = 'HS math',
+      'sat_reading_writing' = 'SAT reading/writing',
+      'sat_reading' = 'SAT reading',
+      'sat_writing' = 'SAT writing',
+      'sat_math' = 'SAT math',
+      'ap_score' = 'AP score',
+      'rank' = 'Rank',
+      'psat' = 'PSAT',
+      'sat' = 'SAT',
+      'gpa' = 'GPA',
+      'academic' = '',
+      'hsgrad_class' = 'HS grad class'
+    )
+  ) %>% 
+  filter(!filters %in% c('hs_math', 'proximity_search', 'rotc', 'citizenship')) %>% 
+  ggplot(aes(x = filters_label, y = num_total)) +
+  geom_bar(stat = 'identity', fill = '#7ec7b8') +
+  geom_text(aes(label = if_else(filters %in% c('academic', 'geographic', 'demographic', 'student preferences'), str_c(str_to_sentence(filters), ' filters'), ''), y = 0), hjust = 0, vjust = 0.8, size = 2, fontface = 'bold') +
+  geom_text(aes(y = num_total, label = if_else(!filters %in% c('academic', 'geographic', 'demographic', 'student preferences'), str_c(round(pct * 100), '%'), '')), hjust = -0.1, size = 2) +
+  scale_y_continuous(expand = expansion(mult = c(0.01, 0.1))) +
+  xlab('') + ylab('Number of orders') +
+  guides(fill = guide_legend(reverse = T)) +
+  coord_flip()
 ```
 
-```{r women-in-stem, eval = FALSE, echo = FALSE, fig.align = 'center', fig.cap = "Women in STEM purchases compared to metro, average income and racial composition", out.width = "100%"}
-knitr::include_graphics('./../../outputs/images/women_in_stem.png')
-#knitr::include_graphics('./../../outputs/figures/enrollment_funnel.png')
-#![The enrollment funnel](assets/images/enrollment_funnel.png)
+\pagebreak
+
+```{r orders-filters-combo}
+orders_filters_combo %>% 
+  group_by(filter_combos) %>% 
+  summarise(
+    n = sum(n), 
+    pct = sum(n) / sum((orders_filters %>% select(univ_type, total) %>% distinct())$total)*100
+  ) %>% 
+  ungroup() %>% 
+  arrange(-pct) %>% 
+  mutate(
+    cum_n = cumsum(n),
+    cum_pct = round(cumsum(pct), digits = 1),
+    pct = round(pct, digits = 1)
+  ) %>% 
+  head(20) %>% 
+  kable(
+    booktabs = T, 
+    col.names = c('Filters', 'Count', 'Pct', 'Cum count', 'Cum pct'), 
+    align = c('l', 'r', 'r', 'r', 'r'),
+    linesep = '',
+    caption = "Top filter combinations used in College Board orders purchased purchased by 14 public universities"
+  ) %>%
+  row_spec(0, bold = T) %>%
+  kable_styling(position = 'center', latex_options = c('hold_position', 'scale_down'))
 ```
