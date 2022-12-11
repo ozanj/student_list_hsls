@@ -758,7 +758,7 @@ knitr::include_graphics(c("./../../outputs/figures/p1_psat.png","./../../outputs
 ```{r thresholds-tests, echo = FALSE, fig.align = 'center', fig.cap = "SAT and PSAT Filters Across Thresholds", out.width = "49%", fig.show='hold'}
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
 knitr::include_graphics(c("./../../outputs/figures/p2_sat_inc.png","./../../outputs/figures/p2_psat_inc.png"))
-knitr::include_graphics(c("./../../outputs/figures/p2_sat_exc.png","./../../outputs/figures/p2_psat_inc.png"))
+knitr::include_graphics(c("./../../outputs/figures/p2_sat_exc.png","./../../outputs/figures/p2_psat_exc.png"))
 
 ```
 
@@ -766,7 +766,7 @@ knitr::include_graphics(c("./../../outputs/figures/p2_sat_exc.png","./../../outp
 ```{r thresholds-tests-ap, echo = FALSE, fig.align = 'center', fig.cap = "AP Filter Across Thresholds", out.width = "49%", fig.show='hold'}
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
 knitr::include_graphics(c("./../../outputs/figures/p2_ap_inc.png","./../../outputs/figures/p2_apstem_inc.png"))
-knitr::include_graphics(c("./../../outputs/figures/p2_ap_exc.png","./../../outputs/figures/p2_apstem_inc.png"))
+knitr::include_graphics(c("./../../outputs/figures/p2_ap_exc.png","./../../outputs/figures/p2_apstem_exc.png"))
 
 ```
 
