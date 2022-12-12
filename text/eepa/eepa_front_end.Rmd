@@ -576,6 +576,66 @@ Given the narrow scope of the Department of Education and the Higher Education A
 
 <div id="refs"></div>
 
+
+
+\newpage
+
+# Tables
+
+```{r orders-filters-combo}
+orders_filters_combo %>% 
+  group_by(filter_combos) %>% 
+  summarise(
+    n = sum(n), 
+    pct = sum(n) / sum((orders_filters %>% select(univ_type, total) %>% distinct())$total)*100
+  ) %>% 
+  ungroup() %>% 
+  arrange(-pct) %>% 
+  mutate(
+    cum_n = cumsum(n),
+    cum_pct = round(cumsum(pct), digits = 1),
+    pct = round(pct, digits = 1)
+  ) %>% 
+  head(20) %>% 
+  kable(
+    booktabs = T, 
+    col.names = c('Filters', 'Count', 'Pct', 'Cum count', 'Cum pct'), 
+    align = c('l', 'r', 'r', 'r', 'r'),
+    linesep = '',
+    caption = "Top filter combinations used in College Board orders purchased purchased by 14 public universities"
+  ) %>%
+  row_spec(0, bold = T) %>%
+  kable_styling(position = 'center', latex_options = c('hold_position', 'scale_down'), )
+```
+
+```{r descriptives}
+df <- data.frame(
+  category = c("Race/Ethnicity", "White", "Asian", "Hisp", "Black", "Multi", "NH/PI", "AI/AN", " ", "Academic Filters",  "SAT Test-Taker", "SAT Non-Test-Taker", " ","PSAT Test-Taker", "PSAT Non-Test-Taker", " ","AP test-taker (any)", "AP non-test-taker (any)", " ","AP test-taker (STEM)", "AP non-test-taker (STEM)", " ","Academic GPA", "Missing Academic GPA"),
+  unweight = c("", "9,387", "1,372", "2,519", "1,655", "1,408", "74", "110", " ", " ", "7,911", "8,614", " ","4,778",  "11,747", " ","2,991", "13,534", " ","1,803" , "14,722" , " ", "16,483", 
+ "42"),
+  n = c("", "2,163,043", "150,222", "920,384", "574,370", "332,043", "18,784", "28,519", " ", " ", "1,860,677", "2,326,689", " ","3,086,739",  "1,100,627", " ","694,359" , "3,493,007", " ","383,669" , "3,803,697", " ","4,177,402" , "9,964"),
+  se = c("", "45,293", "15,373", "41,451", "36,346", "12,921", "5,241", "6,288", " ", " ", "54,277", "54,249", " ","51,247",  "51,417", " ","33,918", "34,022", " ","23,721", "23,893", " ","6,863", "6,562"),
+  pct = c("", "51.7", "3.6", "22.0", "13.7", "7.9", "0.4", "0.7", " ", " ", "55.6", "44.4", " ","73.7", "26.3", " ","16.6", "83.4", " ","9.2", "90.8", " ","99.8", "0.2")
+)
+
+df %>%
+  kable(
+    booktabs = T, 
+    col.names = c(' ', 'Unweighted', 'N', 'SE', 'Pct'), 
+    align = c('l', 'r', 'r', 'r', 'r'),
+    linesep = '',
+    caption = "Descriptive Statistics"
+  ) %>%
+  row_spec(0, bold = T) %>%
+  row_spec(1, bold=T, italic = T) %>%
+  row_spec(10,bold=T, italic = T) %>%
+  kable_styling(position = 'center', latex_options = c('hold_position', 'scale_down'), font_size = 7)
+```
+
+
+
+\newpage
+
 \pagebreak
 
 # Figures
@@ -734,33 +794,6 @@ orders_filters %>%
   coord_flip()
 ```
 
-\pagebreak
-
-```{r orders-filters-combo}
-orders_filters_combo %>% 
-  group_by(filter_combos) %>% 
-  summarise(
-    n = sum(n), 
-    pct = sum(n) / sum((orders_filters %>% select(univ_type, total) %>% distinct())$total)*100
-  ) %>% 
-  ungroup() %>% 
-  arrange(-pct) %>% 
-  mutate(
-    cum_n = cumsum(n),
-    cum_pct = round(cumsum(pct), digits = 1),
-    pct = round(pct, digits = 1)
-  ) %>% 
-  head(20) %>% 
-  kable(
-    booktabs = T, 
-    col.names = c('Filters', 'Count', 'Pct', 'Cum count', 'Cum pct'), 
-    align = c('l', 'r', 'r', 'r', 'r'),
-    linesep = '',
-    caption = "Top filter combinations used in College Board orders purchased purchased by 14 public universities"
-  ) %>%
-  row_spec(0, bold = T) %>%
-  kable_styling(position = 'center', latex_options = c('hold_position', 'scale_down'))
-```
 
 
 ```{r test-takers, echo = FALSE, fig.align = 'center', fig.cap = "Test Takers Across SAT, PSAT, and AP Assessments", out.width = "49%", fig.show='hold'}
@@ -838,5 +871,9 @@ knitr::include_graphics(c("./../../outputs/figures/combo3_inc_ap.png"))
 knitr::include_graphics(c("./../../outputs/figures/combo3_inc_apstem.png"))
 
 ```
+
+
+
+
 
 
