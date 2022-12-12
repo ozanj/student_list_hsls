@@ -1,0 +1,115 @@
+---
+title: "Online Appendices"
+author: ""
+date: ""
+#classoption: landscape
+output: pdf_document
+---
+
+
+```{r setup, include= FALSE}
+library(knitr)
+library(bookdown)
+
+# https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_pdf.pdf
+library(kableExtra)
+library(tidyverse)
+library(gridExtra)
+library(scales)
+
+knitr::opts_chunk$set(echo = F, message = F, warning = F)
+
+knitr::knit_hooks$set(inline = function(x) {   if(!is.numeric(x)){     x   }else{    prettyNum(round(x,2), big.mark=",")    } })
+
+theme_set(
+  theme(
+    text = element_text(size = 7),
+    panel.background = element_blank(),
+    plot.title = element_text(color = '#444444', size = 7, hjust = 0.5, face = 'bold'),
+    axis.ticks = element_blank(),
+    axis.title = element_text(face = 'bold'),
+    legend.title = element_text(face = 'bold'),
+    legend.key.size = unit(0.3, 'cm')
+  )
+)
+
+
+options(knitr.kable.NA = '')
+options(scipen = 999)
+# webshot::install_phantomjs()
+
+library(ggbreak)
+library(usmap)
+
+
+load(url('https://github.com/mpatricia01/public_requests_eda/blob/main/data/tbl_fig_data_final.RData?raw=true'))
+
+#load in table data
+load("./../../outputs/tables/p1_table.Rda")
+load("./../../outputs/tables/p2_table.Rda")
+
+
+theme_set(
+  theme(
+    text = element_text(size = 7, family = 'Helvetica'),
+    panel.background = element_blank(),
+    plot.title = element_text(color = '#444444', size = 7, face = 'bold', hjust = 0.5),
+    axis.ticks = element_blank(),
+    axis.title = element_text(face = 'bold'),
+    legend.title = element_text(face = 'bold', hjust = 0),
+    legend.key.size = unit(0.3, 'cm'),
+    strip.text.x = element_text(size = 7, face = 'bold', hjust = 0.5),
+    strip.background = element_rect(fill = NA, color = NA)
+  )
+)
+
+# color_palette <- c('#bbcfd7', '#d2c8bc', '#ba9a88')
+color_palette <- c('#46a69e', '#7ec7b8', '#b9efe6', '#bf7bb2', '#9e508a', '#537ec4', '#344273', '#fdc3bb', '#fa634b')
+extra_colors <- c('#b5b5b5', '#767676')
+color_text <- 'white'
+
+# https://stackoverflow.com/a/65844319/6373540
+linesep <- function(x, y = character()){
+  if(!length(x))
+    return(y)
+  linesep(x[-length(x)], c(rep('', x[length(x)] - 1), '\\addlinespace', y))  
+}
+```
+
+
+
+```{r p2table}
+
+# df1 <- data.frame(
+#   cat = p1_table$x2race,
+#   prop1 = p1_table$testtaker_estimate,
+#   prop2 = p1_table$nontesttaker_estimate,
+#   diff = round(as.numeric(p1_table$nontesttaker_estimate) - as.numeric(p1_table$nontesttaker_estimate), digits=3 ),
+#   pval= p1_table$pval
+# )
+
+p2_table %>% 
+  kable(
+    format = "latex", booktabs = TRUE,
+    #longtable = T,
+    col.names = c(' ', 'White', 'Asian', 'Hisp', "Black", "Multi", "NH/PI", "AI/AN"), 
+    align = c('l', 'r', 'r', 'r', 'r','r', 'r','r'),
+    linesep = '',
+    caption = "Score Threshold Differences in Proportion across Race/Ethnicity",
+  ) %>%
+  row_spec(0, bold = T, font_size=2) %>%
+  pack_rows("SAT", 1, 5) %>%
+  pack_rows("PSAT", 6, 10) %>%
+  pack_rows("AP", 11, 15) %>%
+  pack_rows("AP STEM", 16, 20) %>%
+  pack_rows("GPA", 21, 25) %>%
+
+
+  #row_spec(1, bold=T, italic = T, font_size=2) %>%
+  #row_spec(9,bold=T, italic = T, font_size=2) %>%
+  #row_spec(17,bold=T, italic = T, font_size=2) %>%
+  #row_spec(25,bold=T, italic = T, font_size=2) %>%
+
+  kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
+                    full_width = FALSE), font_size = 2.5)
+```
