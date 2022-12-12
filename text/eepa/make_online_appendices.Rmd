@@ -47,6 +47,7 @@ load(url('https://github.com/mpatricia01/public_requests_eda/blob/main/data/tbl_
 #load in table data
 load("./../../outputs/tables/p1_table.Rda")
 load("./../../outputs/tables/p2_table.Rda")
+load("./../../outputs/tables/p3_table.Rda")
 load("./../../outputs/tables/p4_table.Rda")
 
 
@@ -96,9 +97,9 @@ p2_table %>%
     col.names = c(' ', 'White', 'Asian', 'Hisp', "Black", "Multi", "NH/PI", "AI/AN"), 
     align = c('l', 'r', 'r', 'r', 'r','r', 'r','r'),
     linesep = '',
-    caption = "Score Threshold Differences in Proportion across Race/Ethnicity",
+    caption = "Score Threshold Proportion Differences in Included vs. Excluded across Race/Ethnicity",
   ) %>%
-  row_spec(0, bold = T, font_size=2) %>%
+  row_spec(0, bold = T, font_size=6) %>%
   pack_rows("SAT", 1, 5) %>%
   pack_rows("PSAT", 6, 10) %>%
   pack_rows("AP", 11, 15) %>%
@@ -112,11 +113,41 @@ p2_table %>%
   #row_spec(25,bold=T, italic = T, font_size=2) %>%
 
   kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
-                    full_width = FALSE), font_size = 2.5)
+                    full_width = FALSE), font_size = 4)
 ```
 
 
+```{r p3table}
 
+# df1 <- data.frame(
+#   cat = p1_table$x2race,
+#   prop1 = p1_table$testtaker_estimate,
+#   prop2 = p1_table$nontesttaker_estimate,
+#   diff = round(as.numeric(p1_table$nontesttaker_estimate) - as.numeric(p1_table$nontesttaker_estimate), digits=3 ),
+#   pval= p1_table$pval
+# )
+
+p3_table %>% 
+  kable(
+    format = "latex", booktabs = TRUE,
+    #longtable = T,
+    col.names = c(' ', 'White', 'Asian', 'Hisp', "Black", "Multi", "NH/PI", "AI/AN"), 
+    align = c('l', 'r', 'r', 'r', 'r','r', 'r','r'),
+    linesep = '',
+    caption = "Zip Affluence Proportion Differences in Included vs. Excluded across Race/Ethnicity",
+  ) %>%
+  row_spec(0, bold = T, font_size=6) %>%
+  pack_rows("Affluence Percentile", 1, 6) %>%
+
+
+  #row_spec(1, bold=T, italic = T, font_size=2) %>%
+  #row_spec(9,bold=T, italic = T, font_size=2) %>%
+  #row_spec(17,bold=T, italic = T, font_size=2) %>%
+  #row_spec(25,bold=T, italic = T, font_size=2) %>%
+
+  kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
+                    full_width = FALSE), font_size = 4)
+```
 
 
 ```{r p4table}
@@ -136,9 +167,9 @@ p4_table %>%
     col.names = c(' ', 'White', 'Asian', 'Hisp', "Black", "Multi", "NH/PI", "AI/AN"), 
     align = c('l', 'r', 'r', 'r', 'r','r', 'r','r'),
     linesep = '',
-    caption = "Zip and County Threshold Differences in Proportion across Race/Ethnicity",
+    caption = "Zip and County Proportion Differences in Included vs. Excluded across Race/Ethnicity",
   ) %>%
-  row_spec(0, bold = T, font_size=2) %>%
+  row_spec(0, bold = T, font_size=6) %>%
   pack_rows("Zip", 1, 3) %>%
   pack_rows("County", 4, 6) %>%
 
@@ -149,5 +180,5 @@ p4_table %>%
   #row_spec(25,bold=T, italic = T, font_size=2) %>%
 
   kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
-                    full_width = FALSE), font_size = 2.5)
+                    full_width = FALSE), font_size = 4)
 ```
