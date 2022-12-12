@@ -27,9 +27,11 @@ header-includes:
   #- \usepackage{setspace}\setstretch{2.0}
   - \usepackage{setspace}
   - \usepackage{fancyhdr}
+  - \usepackage{titlesec}
   #- \usepackage[scaled]{helvet}  # https://stackoverflow.com/a/28538633/6373540
   #- \renewcommand{\familydefault}{\sfdefault}
   #- \usepackage[T1]{fontenc}
+  - \usepackage{geometry}
       
       
 ---
@@ -127,9 +129,16 @@ linesep <- function(x, y = character()){
 
 -->
 
+
+<!--Control vertical spacinf before/after sections and subsections -->
+
+\titlespacing{\section}{0pt}{0pc}{0pc}
+\titlespacing{\subsection}{0pt}{0pc}{0pc}
+ 
+
 ABSTRACT
 
-Universities identify prospective students by purchasing “student lists.” Student list products are algorithmic selection devices that use search filters (e.g., test score, zip code) to select prospective students. We ask, what is the relationship between search filters and the racial composition of students who are included versus excluded? We develop propositions using concepts from the sociology of race. Structurally racist inputs are determinants of a selection device that are correlated with race because historically dominated groups have been excluded from the input. We assess propositions on a nationally representative sample of high school students. Several academic and geographic search filters systematically exclude Black and Latinx students. We motivate critical policy research on third-party products and vendors in education.
+Universities identify prospective students by purchasing “student lists.” Student list products are algorithmic selection devices that use search filters (e.g., test score, zip code) to select prospective students. We ask, what is the relationship between search filters and the racial composition of included versus excluded students? Drawing from the sociology of race, we conceptualize certain search filters as structurally racist inputs. Structurally racist inputs are determinants of selection devices that are correlated with race because some groups have been historically excluded from the input.  We test propositions using a nationally representative sample of high school students. Several academic and geographic filters systematically exclude Black and Latinx students. We motivate critical policy research on third-party products and vendors in education.
 
 \pagenumbering{roman}
 \newpage
@@ -711,14 +720,15 @@ p1_table %>%
 
 \clearpage
 
+
 # Figures
 
 
-
+<!-- \begin{landscape}-->
 <!-- \pagebreak -->
 
 
-```{r cb-fig, fig.height = 5, out.width = '85%', fig.cap = 'Student Search Service and four-year college enrollment/completion'}
+```{r cb-fig, fig.height = 5, fig.cap = 'Student Search Service and four-year college enrollment/completion'}
 
 create_cb_figure <- function(categories, values, plot_title) {
   cb_fig_df <- data.frame(
@@ -789,6 +799,7 @@ _Notes: AI/AN = American Indian or Alaska Native. HI/PI = Hawaiian or Pacific Is
 
 
 \pagebreak
+
 
 ```{r em-funnel, echo = FALSE, fig.align = 'center', fig.cap = "The enrollment funnel", out.width = "45%"}
 knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
@@ -869,6 +880,8 @@ orders_filters %>%
 
 
 \pagebreak
+\begin{landscape}
+
 
 ```{r test-takers, echo = FALSE, fig.align = 'center', fig.cap = "Test Takers Across SAT, PSAT, and AP Assessments", out.width = "49%", fig.show='hold'}
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
@@ -900,10 +913,12 @@ knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 
 
 ```
+\end{landscape}
+\restoregeometry
 
 \pagebreak
 
-```{r thresholds-gpa, echo = FALSE, fig.align = 'center', fig.cap = "GPA Filter Across Thresholds", out.width = "51%", fig.show='hold'}
+```{r thresholds-gpa, echo = FALSE, fig.align = 'center', fig.cap = "GPA Filter Across Thresholds", out.width = "90%", fig.show='hold'}
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
 knitr::include_graphics(c("./../../outputs/figures/p2_gpa_inc.png"))
 knitr::include_graphics(c("./../../outputs/figures/p2_gpa_exc.png"))
@@ -914,7 +929,7 @@ knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 
 \pagebreak
 
-```{r zipcode-affluence, echo = FALSE, fig.align = 'center', fig.cap = "Zip Code Filter Across Affluence Percentiles", out.width = "51%", fig.show='hold'}
+```{r zipcode-affluence, echo = FALSE, fig.align = 'center', fig.cap = "Zip Code Filter Across Affluence Percentiles", out.width = "90%", fig.show='hold'}
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
 knitr::include_graphics(c("./../../outputs/figures/p3_zip_inc.png"))
 knitr::include_graphics(c("./../../outputs/figures/p3_zip_exc.png"))
@@ -924,6 +939,7 @@ knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 ```
 
 \pagebreak
+\begin{landscape}
 
 ```{r zipcode-affluence-metros, echo = FALSE, fig.align = 'center', fig.cap = "Zip Code Filter Across Affluence Percentiles for Los Angeles and New York", out.width = "49%", fig.show='hold'}
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
@@ -944,12 +960,14 @@ knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 
 
 ```
+\end{landscape}
+\restoregeometry
 
 \pagebreak
 
 
 
-```{r gpa-sat-psat, echo = FALSE, fig.align = 'center', fig.cap = "Academic and Geographic Combination: GPA (3.0+) and SAT or PSAT (across score thresholds)", out.width = "61%", fig.show='hold'}
+```{r gpa-sat-psat, echo = FALSE, fig.align = 'center', fig.cap = "Academic and Geographic Combination: GPA (3.0+) and SAT or PSAT (across score thresholds)", out.width = "90%", fig.show='hold'}
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
 knitr::include_graphics(c("./../../outputs/figures/combo1_inc_sat.png"))
 knitr::include_graphics(c("./../../outputs/figures/combo1_inc_psat.png"))
@@ -960,7 +978,7 @@ knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 
 \pagebreak
 
-```{r gpa-sat-psat-zip, echo = FALSE, fig.align = 'center', fig.cap = "Academic and Geographic Combination: GPA (3.0+), PSAT (150+) or SAT (1050+), and Zip (across income thresholds)", out.width = "61%", fig.show='hold'}
+```{r gpa-sat-psat-zip, echo = FALSE, fig.align = 'center', fig.cap = "Academic and Geographic Combination: GPA (3.0+), PSAT (150+) or SAT (1050+), and Zip (across income thresholds)", out.width = "90%", fig.show='hold'}
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
 knitr::include_graphics(c("./../../outputs/figures/combo2_inc_sat.png"))
 knitr::include_graphics(c("./../../outputs/figures/combo2_inc_psat.png"))
@@ -971,7 +989,7 @@ knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 
 \pagebreak
 
-```{r gpa-ap, echo = FALSE, fig.align = 'center', fig.cap = "Academic and Geographic Combination: GPA (3.0+) and AP (acrossscore thresholds)", out.width = "61%", fig.show='hold'}
+```{r gpa-ap, echo = FALSE, fig.align = 'center', fig.cap = "Academic and Geographic Combination: GPA (3.0+) and AP (acrossscore thresholds)", out.width = "90%", fig.show='hold'}
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
 knitr::include_graphics(c("./../../outputs/figures/combo3_inc_ap.png"))
 knitr::include_graphics(c("./../../outputs/figures/combo3_inc_apstem.png"))
@@ -979,6 +997,12 @@ knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 
 
 ```
+
+<!-- 
+\end{landscape}
+
+\restoregeometry
+-->
 
 \clearpage
 \newpage

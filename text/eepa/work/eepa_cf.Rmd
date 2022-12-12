@@ -4,7 +4,7 @@ subtitle: ""
 author: 
   - Ozan Jaquette
   - Karina Salazar
-bibliography: ../bib/eepa_student_list.bib
+bibliography: ../../../assets/bib/eepa_student_list.bib
 citeproc: no
 output: 
   #bookdown::word_document2:    
@@ -13,18 +13,22 @@ output:
     pandoc_args: !expr rmdfiltr::add_wordcount_filter(rmdfiltr::add_citeproc_filter(args = NULL))
 eoutput: pdf_document
 always_allow_html: true
-csl: ../bib/apa.csl
+csl: ../../../assets/bib/apa.csl
 urlcolor: blue
 fontsize: 12pt
 #header-includes:
 #      - \usepackage{pdflscape}
 #      - \usepackage{geometry}
 header-includes:
-      - \usepackage{floatrow}
-      - \floatsetup{capposition=top}
-      - \usepackage{setspace}\onehalfspacing #\doublespacing
+  - \usepackage{floatrow}
+  - \floatsetup{capposition=top}
+  - \usepackage{setspace}\onehalfspacing #\doublespacing
+  - \usepackage{fancyhdr}
+  - \usepackage{titlesec}      
 ---
 
+\titlespacing{\section}{0pt}{0pc}{0pc}
+\titlespacing{\subsection}{0pt}{0pc}{0pc}
 
 <!-- 
 
@@ -71,9 +75,15 @@ Whereas vendors historically capitalized by selling student list data at a price
 
 -->
 
+The sociology of race draws on historical scholarship from @RN4781;@RN4782 and @RN4773, which reveals the fundamental relationship between capitalism and race. 
+
 # Theoretical Framework
 
+The sociology of race draws on historical scholarship from @RN4781;@RN4782 and @RN4773, which reveals the fundamental relationship between capitalism and race. 
+
 ## The Sociology of Race
+
+The sociology of race draws on historical scholarship from @RN4781;@RN4782 and @RN4773, which reveals the fundamental relationship between capitalism and race. 
 
 ### Structural Racism
 
