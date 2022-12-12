@@ -73,6 +73,12 @@ load(url('https://github.com/mpatricia01/public_requests_eda/blob/main/data/tbl_
 
 #load in table data
 load("./../../outputs/tables/p1_table.Rda")
+load("./../../outputs/tables/p2_table.Rda")
+load("./../../outputs/tables/p3_table.Rda")
+load("./../../outputs/tables/p4_table.Rda")
+load("./../../outputs/tables/c1_table.Rda")
+load("./../../outputs/tables/c2_table.Rda")
+load("./../../outputs/tables/c3_table.Rda")
 
 
 theme_set(
@@ -489,18 +495,18 @@ We begin by describing the racial characteristics of prospects who completed sta
 
 Other standardized assessments resulted in similar included prospects that were on average made up of larger proportions of White and Asian students and smaller proportions of Hispanic, Black, and American Indian/Alaska Native students than excluded groups, lending support for Proposition P1. For example, Figure \@ref(fig:test-takers) also shows the composition of included versus excluded prospects by AP exam completion in any subject on the top right panel. Similar to SAT, White (54% versus 51% White) and Asian students (8% versus 3%) make up statistically significant (p<0.000) larger proportions of included prospects. While an equal proportion of included and excluded students are Hispanic (22%), Black students make up a smaller share (p<0.000) of included prospects (8%) than excluded prospects (15%). When inclusion versus exclusion is determined by completing an AP exam in a STEM subject, total included students declines to nearly half (383,669) of those included via completing any AP exam. Moreover, Black (7% versus 14%), Hispanic (19% versus 22%), Multiracial (7% versus 14%), and American Indian/Alaska Native (0.2% versus 0.7%) students make up smaller statistically significant proportions of the included prospects relative to excluded prospects based on completion of an AP STEM exam. 
 
-Proposition P2 suggests the proportion of underrepresented minority students included in student lists decline relative to the proportion who are excluded as assessment score thresholds increase. In order to test this proposition, we analyze the racial composition of included versus excluded students at minimum score thresholds commonly used across student list purchase orders for SAT, PSAT, and AP exams. For example, Figure \@ref(fig:thresholds-tests) presents these results for SAT (left panel) and PSAT assessments (right panel). For the top left panel, each bar represents the racial composition of included prospects who completed the SAT exam and scored at the minimum threshold indicated. On the bottom left panel of Figure \@ref(fig:thresholds-tests), each bar represents the racial composition of excluded prospects who did not complete the SAT exam in addition to students who did complete the exam but did not meet the minimum score threshold indicated. Statistical tests for differences in proportion for Figure \@ref(fig:thresholds-tests) are reported in online Appendix A for space considerations.
+Proposition P2 suggests the proportion of underrepresented minority students included in student lists decline relative to the proportion who are excluded as assessment score thresholds increase. In order to test this proposition, we analyze the racial composition of included versus excluded students at minimum score thresholds commonly used across student list purchase orders for SAT, PSAT, and AP exams. For example, Figure \@ref(fig:thresholds-tests) presents these results for SAT (left panel) and PSAT assessments (right panel). For the top left panel, each bar represents the racial composition of included prospects who completed the SAT exam and scored at the minimum threshold indicated. On the bottom left panel of Figure \@ref(fig:thresholds-tests), each bar represents the racial composition of excluded prospects who did not complete the SAT exam in addition to students who did complete the exam but did not meet the minimum score threshold indicated. Statistical tests for differences in proportion for Figure \@ref(fig:thresholds-tests) are reported in online appendices for space considerations.
 
-As SAT score thresholds increase from less than 1000 to greater than 1400 in Figure \@ref(fig:thresholds-tests), proportions of included White and Asian students increase while proportions of included Hispanic and Black students decrease. For example, White students make up a statistically significant (p<0.000) smaller share of included (47%) than excluded (53%) prospects scoring less than 1000 on the SAT, which results in an equal share of Hispanic students (22%) and a greater share of included Black students (19% versus 12%) relative to excluded prospects at this score threshold. However, Hispanic student proportions in included versus excluded prospects decrease to 12% versus 25% at scores greater than 1000, 9% versus 23% at scores greater than 1200, and down to 5% versus 22% at scores greater than 1400. Similarly, Black student proportions in included versus excluded prospects decrease to 6% versus 16% at scores greater than 1000, 4% versus 14% at scores greater than 1200, 2% versus 14% at scores greater than 1300, and down to making up 0% of included prospects at scores greater than 1400. These proportional differences across score thresholds are statistically significant (p<0.05) for both Hispanic and Black students (online Appendix A).
+As SAT score thresholds increase from less than 1000 to greater than 1400 in Figure \@ref(fig:thresholds-tests), proportions of included White and Asian students increase while proportions of included Hispanic and Black students decrease. For example, White students make up a statistically significant (p<0.000) smaller share of included (47%) than excluded (53%) prospects scoring less than 1000 on the SAT, which results in an equal share of Hispanic students (22%) and a greater share of included Black students (19% versus 12%) relative to excluded prospects at this score threshold. However, Hispanic student proportions in included versus excluded prospects decrease to 12% versus 25% at scores greater than 1000, 9% versus 23% at scores greater than 1200, and down to 5% versus 22% at scores greater than 1400. Similarly, Black student proportions in included versus excluded prospects decrease to 6% versus 16% at scores greater than 1000, 4% versus 14% at scores greater than 1200, 2% versus 14% at scores greater than 1300, and down to making up 0% of included prospects at scores greater than 1400. These proportional differences across score thresholds are statistically significant (p<0.05) for both Hispanic and Black students (online appendix).
 
 While making up relatively small proportions of the overall sample, declines in proportions of American Indian/Alaska Native students and Native Hawaiian/Pacific Islander students within included versus excluded prospect groups are statistically significant as score thresholds increase (online Appendix A). In order to more equitably capture these differences, we report the number of students rather than their overall representational proportion within included versus excluded groups. For instance, more than 7,600 American Indian/Alaska Native students and nearly 2,500 Native Hawaiian/Pacific Islander students are represented in the included prospects relative to the more than 20,800 and 16,300 represented in the excluded prospects at SAT scores less than 1000, respectively. However, American Indian/Alaska Native students decline to zero and Hawaiian/Pacific Islander students decline to 435 students in the included prospects group by the 1300 or greater SAT score threshold.
 
 
-PSAT results are also shown in Figure \@ref(fig:thresholds-tests) for composite scores that range from 60 to 240. ^[PSAT exams taken 2014 or before receive composite scores that range from from 60 to 240. PSAT exams taken 2015 or later are scored via a range from 320 to 1520. Our lower bound PSAT composite score thresholds of 120, 170, 200, and 220 for HSLS students who completed the exam prior to 2014 equate to minimum score thresholds of 890, 1220, 1410, and 1510 on the 2015 or later PSAT scale, respectively. [CITE](https://satsuite.collegeboard.org/media/pdf/2015-psat-nmsqt-concordance-tables.pdf)] Similar to SAT, as PSAT composite score thresholds increase from less than 120 to greater than 220, proportions of included White and Asian students increase while proportions of included Hispanic and Black students decrease relative to excluded prospects. Online Appendix B shows all comparisons between included and excluded students across PSAT score thresholds are statistically significant at the p<0.000 level, with the exception of multiracial students at the 220 or greater minimum score threshold. 
+PSAT results are also shown in Figure \@ref(fig:thresholds-tests) for composite scores that range from 60 to 240. ^[PSAT exams taken 2014 or before receive composite scores that range from from 60 to 240. PSAT exams taken 2015 or later are scored via a range from 320 to 1520. Our lower bound PSAT composite score thresholds of 120, 170, 200, and 220 for HSLS students who completed the exam prior to 2014 equate to minimum score thresholds of 890, 1220, 1410, and 1510 on the 2015 or later PSAT scale, respectively. [CITE](https://satsuite.collegeboard.org/media/pdf/2015-psat-nmsqt-concordance-tables.pdf)] Similar to SAT, as PSAT composite score thresholds increase from less than 120 to greater than 220, proportions of included White and Asian students increase while proportions of included Hispanic and Black students decrease relative to excluded prospects. Online appendices show all comparisons between included and excluded students across PSAT score thresholds are statistically significant at the p<0.000 level, with the exception of multiracial students at the 220 or greater minimum score threshold. 
 
 <!-- The right panels of Figure 2 show results for SAT score, which ranges from 400 to 1600, across minimum score thresholds of 1000, 1200, 1300, and 1400. Similar patterns to PSAT occur as SAT score thresholds increase. For example, White and Asian included student proportions increase from 47% and 3% at scores less than 1000 to 69% and 19% at scores greater than 1400, respectively. On the other hand, Hispanic and Black included student proportions decrease from 22% and 19% at scores less than 1000 to 5% and less than 1% at scores greater than 1400, respectively. Multiracial students make up a nearly equal proportions of the included and excluded groups at the lowest and highest score thresholds. Similar to PSAT, the more than 2,000 American Indian/Alaska Native students and 3,300 Native Hawaiian/Pacific Islander students included in the 1000 or greater score threshold decline to zero and 435 students by the 1300 or greater score threshold, respectively.  -->
 
-We find similar racial disparities in included versus excluded prospects across AP exam score thresholds, providing strong support for Proposition P2. Figure \@ref(fig:thresholds-tests-ap) shows similar results as Figure \@ref(fig:thresholds-tests) for AP exams. As AP score thresholds for any subject exam (left panel) increase from one to five, proportions of included White and Asian students increase while proportions of included Hispanic, Black, Multiracial, American Indian/Alaska Native, and Native Hawaiian/Pacific Islander decrease relative to excluded prospects. For example, the 110,360 included prospects (relative to excluded prospects) who had a score of one on any subject AP exam were on average 38% White (52% excluded), 6% Asian (4% excluded), 27% Hispanic (22% excluded), and 21% Black (14% excluded). By an AP score threshold of four or greater, included prospect proportions shift (relative to excluded) to 60% White (51% excluded), 10% Asian (3% excluded), 20% Hispanic (22% excluded), and 4% Black (4% excluded).^[Proportional differences for these specific racial/ethnic categories at reported score thresholds are statistically significant at the p<0.000 level and reported in online Appendix B] Similar patterns are evident for AP STEM exam completion (right panel). 
+We find similar racial disparities in included versus excluded prospects across AP exam score thresholds, providing strong support for Proposition P2. Figure \@ref(fig:thresholds-tests-ap) shows similar results as Figure \@ref(fig:thresholds-tests) for AP exams. As AP score thresholds for any subject exam (left panel) increase from one to five, proportions of included White and Asian students increase while proportions of included Hispanic, Black, Multiracial, American Indian/Alaska Native, and Native Hawaiian/Pacific Islander decrease relative to excluded prospects. For example, the 110,360 included prospects (relative to excluded prospects) who had a score of one on any subject AP exam were on average 38% White (52% excluded), 6% Asian (4% excluded), 27% Hispanic (22% excluded), and 21% Black (14% excluded). By an AP score threshold of four or greater, included prospect proportions shift (relative to excluded) to 60% White (51% excluded), 10% Asian (3% excluded), 20% Hispanic (22% excluded), and 4% Black (4% excluded).^[Proportional differences for these specific racial/ethnic categories at reported score thresholds are statistically significant at the p<0.000 level and reported in online appendices] Similar patterns are evident for AP STEM exam completion (right panel). 
 
 Given differences in completion rates for standardized assessments by race, our conceptual framework outlines an interest in whether using GPA filters leads to greater racial parity between included versus excluded students relative to standardized assessments as thresholds increase. We therefore analyze the racial composition of included versus excluded students at minimum thresholds commonly used across student list purchase orders for high school GPA. Figure \@ref(fig:thresholds-gpa) shows the racial composition of included (top panel) and excluded (bottom panel) students across less than 2.0, 2.0 or greater, 3.0 or greater, and 3.5 or greater thresholds of GPA. Similar to standardized assessments, Figure \@ref(fig:thresholds-gpa) suggests proportions of included prospects increase for White students and Asian students (although modestly) while proportions of included prospects decrease for Hispanic and Black students as GPA thresholds increase. For instance, White student proportions increase from 37% (relative to 57% excluded, p<0.000) at GPA less than 2.0 to 71% (relative to 57% excluded, p<0.000) at GPA 3.5 or greater. On the other hand, Hispanic and Black included student proportions (relative to excluded proportions) decrease from 30% (19% excluded, p<0.000) and 22% (11% excluded, p<0.000) at GPA less than 2.0 to 11% (24% excluded, p<0.000) and 4% (15% excluded, p<0.000) at GPA 4.0 or greater, respectively. The 12,591 American Indian/Alaska Native students included at GPA less than 2.0 (15,928 excluded, p<0.000) also decline to 1,304 (27,216 excluded, p<0.000) at GPA 3.5 or greater score threshold. 
 
@@ -510,7 +516,7 @@ However, Figure \@ref(fig:thresholds-gpa) shows that GPA filters at "middle" thr
 
 Proposition P3 and Proposition P4 conceptualize how the use of geographic filters may result in greater racial disparities in proportions of included prospects relative to excluded prospects. For instance, Proposition P3 suggests as purchases filter on higher levels of zip code affluence, the proportion of underrepresented minority students included in student lists will decline relative to the proportion who are excluded. In order to test this proposition, we analyze the racial composition of included versus excluded students when filtering by zip code median household income. In order to deal with median household incomes varying widely across the U.S., we categorized all zip codes into percentiles based on levels of median household income within their respective Core Based Statistical Areas (CBSA). For example, median household income percentiles based on the 378 zip codes within the Los Angeles metropolitan area are \$55,256 at the 20th percentile, \$70,804 at the 40th percentile, \$89,709 at the 60th percentile, and \$108,316 at the 80th percentile (in 2022 CPI). So the Los Angeles zip code 92649, which captures parts of the Huntington Beach area, with a median household income of \$109,159 (in 2022 CPI) would be categorized as zip code in the 80th percentile of affluence within CBSA. This approach also aligns with common ways in which student list orders purchase prospect's contact information by filtering on zip codes within specific CBSAs. 
 
-Figure \@ref(fig:zipcode-affluence) presents the racial composition of zip codes that included (top panel) versus excluded prospects (bottom panel) when filtering based on percentile of affluence within CBSA. The figure suggests that as zip code affluence increases, included prospects have larger proportions of White students and smaller proportions of Hispanic and Black students relative to excluded prospects. For example, Hispanic and Black students make up 30% and 27% of included prospects and 20% and 11% of excluded prospects at zip codes below the 20th percentile of affluence, respectively. The proportions of Hispanic and Black students within included prospects decline as zip code affluence increases up though the 89th percentile. For zip codes in 90th percentile or higher of affluence within CBSA, the proportions of Hispanic students within included prospects declines to 11% relative to making up 23% of excluded prospects (p<0.000). Similarly, Black students make up 9% of included prospects relative to making up 14% of excluded prospects (p<0.000) within the most affluent zip codes. ^[Online Appendix C reports statistical tests for proportions between included and excluded students by race/ethnicity for zip code affluence.] 
+Figure \@ref(fig:zipcode-affluence) presents the racial composition of zip codes that included (top panel) versus excluded prospects (bottom panel) when filtering based on percentile of affluence within CBSA. The figure suggests that as zip code affluence increases, included prospects have larger proportions of White students and smaller proportions of Hispanic and Black students relative to excluded prospects. For example, Hispanic and Black students make up 30% and 27% of included prospects and 20% and 11% of excluded prospects at zip codes below the 20th percentile of affluence, respectively. The proportions of Hispanic and Black students within included prospects decline as zip code affluence increases up though the 89th percentile. For zip codes in 90th percentile or higher of affluence within CBSA, the proportions of Hispanic students within included prospects declines to 11% relative to making up 23% of excluded prospects (p<0.000). Similarly, Black students make up 9% of included prospects relative to making up 14% of excluded prospects (p<0.000) within the most affluent zip codes. ^[Online appendices report statistical tests for proportions between included and excluded students by race/ethnicity for zip code affluence.] 
 
 To contextualize these findings, Figure \@ref(fig:zipcode-affluence-metros) presents similar results as Figure \@ref(fig:zipcode-affluence) for two specific CBSAs: Los Angeles and New York. The left panel of Figure 6 shows the racial composition of included (top) and excluded (bottom) students across percentiles of zip code affluence for Los Angeles. Similar to results across all CBSAs in Figure \@ref(fig:zipcode-affluence), proportions of included prospects relative to excluded prospects increase for White students while proportions decline for Hispanic and Black students as zip codes become more affluent. For instance, White student proportions increase from 5% (relative to 17% excluded, p<0.000) at the 20th percentile, to 28% (relative to 12% excluded, p<0.000) at 50th-79th percentiles, and up to making up 76% of included prospects (relative to 12% excluded, p<0.000) for zip codes at the 90th percentile or higher of affluence. On the other hand, Hispanic and Black included student proportions (relative to excluded proportions) decrease from 73% (54% excluded, p<0.000) and 14% (7% excluded, p<0.000) at zip codes in the lower 20th percentiles of affluence to 4% (60% excluded, p<0.000) and 3% (9% excluded, p<0.000) at the 90th percentile or higher of affluence, respectively. While New York provides a different racial composition of students than Los Angeles, similar and statistically significant patterns persist.
 
@@ -986,11 +992,213 @@ knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 \pagestyle{fancy}
 \setlength{\headheight}{15pt}
 
-TEXT TEXT
 
 
-\pagebreak
+```{r p2table}
 
-TEXT TEXT
+# df1 <- data.frame(
+#   cat = p1_table$x2race,
+#   prop1 = p1_table$testtaker_estimate,
+#   prop2 = p1_table$nontesttaker_estimate,
+#   diff = round(as.numeric(p1_table$nontesttaker_estimate) - as.numeric(p1_table$nontesttaker_estimate), digits=3 ),
+#   pval= p1_table$pval
+# )
+
+p2_table %>% 
+  kable(
+    format = "latex", booktabs = TRUE,
+    #longtable = T,
+    col.names = c(' ', 'White', 'Asian', 'Hisp', "Black", "Multi", "NH/PI", "AI/AN"), 
+    align = c('l', 'r', 'r', 'r', 'r','r', 'r','r'),
+    linesep = '',
+    caption = "Score Threshold Proportion Differences in Included vs. Excluded across Race/Ethnicity",
+  ) %>%
+  row_spec(0, bold = T, font_size=6) %>%
+  pack_rows("SAT", 1, 5) %>%
+  pack_rows("PSAT", 6, 10) %>%
+  pack_rows("AP", 11, 15) %>%
+  pack_rows("AP STEM", 16, 20) %>%
+  pack_rows("GPA", 21, 25) %>%
+
+
+  #row_spec(1, bold=T, italic = T, font_size=2) %>%
+  #row_spec(9,bold=T, italic = T, font_size=2) %>%
+  #row_spec(17,bold=T, italic = T, font_size=2) %>%
+  #row_spec(25,bold=T, italic = T, font_size=2) %>%
+
+  kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
+                    full_width = FALSE), font_size = 4)
+```
+
+
+```{r p3table}
+
+# df1 <- data.frame(
+#   cat = p1_table$x2race,
+#   prop1 = p1_table$testtaker_estimate,
+#   prop2 = p1_table$nontesttaker_estimate,
+#   diff = round(as.numeric(p1_table$nontesttaker_estimate) - as.numeric(p1_table$nontesttaker_estimate), digits=3 ),
+#   pval= p1_table$pval
+# )
+
+p3_table %>% 
+  kable(
+    format = "latex", booktabs = TRUE,
+    #longtable = T,
+    col.names = c(' ', 'White', 'Asian', 'Hisp', "Black", "Multi", "NH/PI", "AI/AN"), 
+    align = c('l', 'r', 'r', 'r', 'r','r', 'r','r'),
+    linesep = '',
+    caption = "Zip Affluence Proportion Differences in Included vs. Excluded across Race/Ethnicity",
+  ) %>%
+  row_spec(0, bold = T, font_size=6) %>%
+  pack_rows("Affluence Percentile", 1, 6) %>%
+
+
+  #row_spec(1, bold=T, italic = T, font_size=2) %>%
+  #row_spec(9,bold=T, italic = T, font_size=2) %>%
+  #row_spec(17,bold=T, italic = T, font_size=2) %>%
+  #row_spec(25,bold=T, italic = T, font_size=2) %>%
+
+  kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
+                    full_width = FALSE), font_size = 4)
+```
+
+
+```{r p4table}
+
+# df1 <- data.frame(
+#   cat = p1_table$x2race,
+#   prop1 = p1_table$testtaker_estimate,
+#   prop2 = p1_table$nontesttaker_estimate,
+#   diff = round(as.numeric(p1_table$nontesttaker_estimate) - as.numeric(p1_table$nontesttaker_estimate), digits=3 ),
+#   pval= p1_table$pval
+# )
+
+p4_table %>% 
+  kable(
+    format = "latex", booktabs = TRUE,
+    #longtable = T,
+    col.names = c(' ', 'White', 'Asian', 'Hisp', "Black", "Multi", "NH/PI", "AI/AN"), 
+    align = c('l', 'r', 'r', 'r', 'r','r', 'r','r'),
+    linesep = '',
+    caption = "Zip and County Proportion Differences in Included vs. Excluded across Race/Ethnicity",
+  ) %>%
+  row_spec(0, bold = T, font_size=6) %>%
+  pack_rows("Zip", 1, 3) %>%
+  pack_rows("County", 4, 6) %>%
+
+
+  #row_spec(1, bold=T, italic = T, font_size=2) %>%
+  #row_spec(9,bold=T, italic = T, font_size=2) %>%
+  #row_spec(17,bold=T, italic = T, font_size=2) %>%
+  #row_spec(25,bold=T, italic = T, font_size=2) %>%
+
+  kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
+                    full_width = FALSE), font_size = 4)
+```
+
+
+
+```{r c1table}
+
+# df1 <- data.frame(
+#   cat = p1_table$x2race,
+#   prop1 = p1_table$testtaker_estimate,
+#   prop2 = p1_table$nontesttaker_estimate,
+#   diff = round(as.numeric(p1_table$nontesttaker_estimate) - as.numeric(p1_table$nontesttaker_estimate), digits=3 ),
+#   pval= p1_table$pval
+# )
+
+c1_table %>% 
+  kable(
+    format = "latex", booktabs = TRUE,
+    #longtable = T,
+    col.names = c(' ', 'White', 'Asian', 'Hisp', "Black", "Multi", "NH/PI", "AI/AN"), 
+    align = c('l', 'r', 'r', 'r', 'r','r', 'r','r'),
+    linesep = '',
+    caption = "GPA and PSAT/SAT Score Threshold Proportion Differences in Included vs. Excluded across Race/Ethnicity",
+  ) %>%
+  row_spec(0, bold = T, font_size=6) %>%
+  pack_rows("SAT", 1, 3) %>%
+  pack_rows("PSAT", 4, 9) %>%
+
+
+  #row_spec(1, bold=T, italic = T, font_size=2) %>%
+  #row_spec(9,bold=T, italic = T, font_size=2) %>%
+  #row_spec(17,bold=T, italic = T, font_size=2) %>%
+  #row_spec(25,bold=T, italic = T, font_size=2) %>%
+
+  kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
+                    full_width = FALSE), font_size = 4)
+```
+
+
+```{r c2table}
+
+# df1 <- data.frame(
+#   cat = p1_table$x2race,
+#   prop1 = p1_table$testtaker_estimate,
+#   prop2 = p1_table$nontesttaker_estimate,
+#   diff = round(as.numeric(p1_table$nontesttaker_estimate) - as.numeric(p1_table$nontesttaker_estimate), digits=3 ),
+#   pval= p1_table$pval
+# )
+
+c2_table %>% 
+  kable(
+    format = "latex", booktabs = TRUE,
+    #longtable = T,
+    col.names = c(' ', 'White', 'Asian', 'Hisp', "Black", "Multi", "NH/PI", "AI/AN"), 
+    align = c('l', 'r', 'r', 'r', 'r','r', 'r','r'),
+    linesep = '',
+    caption = "GPA, PSAT/SAT, and Zip Code Proportion Differences in Included vs. Excluded across Race/Ethnicity",
+  ) %>%
+  row_spec(0, bold = T, font_size=6) %>%
+  pack_rows("SAT (1050+)", 1, 6) %>%
+  pack_rows("PSAT (150+)", 7, 12) %>%
+
+
+  #row_spec(1, bold=T, italic = T, font_size=2) %>%
+  #row_spec(9,bold=T, italic = T, font_size=2) %>%
+  #row_spec(17,bold=T, italic = T, font_size=2) %>%
+  #row_spec(25,bold=T, italic = T, font_size=2) %>%
+
+  kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
+                    full_width = FALSE), font_size = 4)
+```
+
+
+
+```{r c3table}
+
+# df1 <- data.frame(
+#   cat = p1_table$x2race,
+#   prop1 = p1_table$testtaker_estimate,
+#   prop2 = p1_table$nontesttaker_estimate,
+#   diff = round(as.numeric(p1_table$nontesttaker_estimate) - as.numeric(p1_table$nontesttaker_estimate), digits=3 ),
+#   pval= p1_table$pval
+# )
+
+c3_table %>% 
+  kable(
+    format = "latex", booktabs = TRUE,
+    #longtable = T,
+    col.names = c(' ', 'White', 'Asian', 'Hisp', "Black", "Multi", "NH/PI", "AI/AN"), 
+    align = c('l', 'r', 'r', 'r', 'r','r', 'r','r'),
+    linesep = '',
+    caption = "GPA and AP Proportion Differences in Included vs. Excluded across Race/Ethnicity",
+  ) %>%
+  row_spec(0, bold = T, font_size=6) %>%
+  pack_rows("AP", 1, 5) %>%
+  pack_rows("AP STEM", 6, 10) %>%
+
+
+  #row_spec(1, bold=T, italic = T, font_size=2) %>%
+  #row_spec(9,bold=T, italic = T, font_size=2) %>%
+  #row_spec(17,bold=T, italic = T, font_size=2) %>%
+  #row_spec(25,bold=T, italic = T, font_size=2) %>%
+
+  kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
+                    full_width = FALSE), font_size = 4)
+```
 
 
