@@ -70,6 +70,10 @@ library(usmap)
 
 load(url('https://github.com/mpatricia01/public_requests_eda/blob/main/data/tbl_fig_data_final.RData?raw=true'))
 
+#load in table data
+load("./../../outputs/tables/p1_table.Rda")
+
+
 theme_set(
   theme(
     text = element_text(size = 7, family = 'Helvetica'),
@@ -632,6 +636,37 @@ df1 %>%
 ```
 
 
+\clearpage
+
+
+```{r p1table}
+
+# df1 <- data.frame(
+#   cat = p1_table$x2race,
+#   prop1 = p1_table$testtaker_estimate,
+#   prop2 = p1_table$nontesttaker_estimate,
+#   diff = round(as.numeric(p1_table$nontesttaker_estimate) - as.numeric(p1_table$nontesttaker_estimate), digits=3 ),
+#   pval= p1_table$pval
+# )
+
+p1_table %>%
+  kable(
+    format = "latex", booktabs = TRUE,
+    #longtable = T,
+    col.names = c(' ', 'Included', 'Excluded', 'Pval'), 
+    align = c('l', 'r', 'r', 'r'),
+    linesep = '',
+    caption = "Test Taker Differences in Proportion"
+  ) %>%
+  row_spec(0, bold = T, font_size=2) %>%
+  row_spec(1, bold=T, italic = T, font_size=2) %>%
+  row_spec(9,bold=T, italic = T, font_size=2) %>%
+  row_spec(17,bold=T, italic = T, font_size=2) %>%
+  row_spec(25,bold=T, italic = T, font_size=2) %>%
+
+  kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
+                    full_width = FALSE), font_size = 1.5)
+```
 
 \clearpage
 
