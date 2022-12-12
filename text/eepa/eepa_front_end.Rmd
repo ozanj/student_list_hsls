@@ -797,6 +797,8 @@ orders_filters %>%
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
 knitr::include_graphics(c("./../../outputs/figures/p1_sat.png","./../../outputs/figures/p1_ap.png"))
 knitr::include_graphics(c("./../../outputs/figures/p1_psat.png","./../../outputs/figures/p1_apstem.png"))
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+
 
 ```
 
@@ -804,6 +806,8 @@ knitr::include_graphics(c("./../../outputs/figures/p1_psat.png","./../../outputs
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
 knitr::include_graphics(c("./../../outputs/figures/p2_sat_inc.png","./../../outputs/figures/p2_psat_inc.png"))
 knitr::include_graphics(c("./../../outputs/figures/p2_sat_exc.png","./../../outputs/figures/p2_psat_exc.png"))
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+
 
 ```
 
@@ -812,6 +816,8 @@ knitr::include_graphics(c("./../../outputs/figures/p2_sat_exc.png","./../../outp
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
 knitr::include_graphics(c("./../../outputs/figures/p2_ap_inc.png","./../../outputs/figures/p2_apstem_inc.png"))
 knitr::include_graphics(c("./../../outputs/figures/p2_ap_exc.png","./../../outputs/figures/p2_apstem_exc.png"))
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+
 
 ```
 
@@ -819,6 +825,8 @@ knitr::include_graphics(c("./../../outputs/figures/p2_ap_exc.png","./../../outpu
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
 knitr::include_graphics(c("./../../outputs/figures/p2_gpa_inc.png"))
 knitr::include_graphics(c("./../../outputs/figures/p2_gpa_exc.png"))
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+
 
 ```
 
@@ -827,6 +835,8 @@ knitr::include_graphics(c("./../../outputs/figures/p2_gpa_exc.png"))
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
 knitr::include_graphics(c("./../../outputs/figures/p3_zip_inc.png"))
 knitr::include_graphics(c("./../../outputs/figures/p3_zip_exc.png"))
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+
 
 ```
 
@@ -834,6 +844,8 @@ knitr::include_graphics(c("./../../outputs/figures/p3_zip_exc.png"))
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
 knitr::include_graphics(c("./../../outputs/figures/p3_zip_inc_la.png", "./../../outputs/figures/p3_zip_inc_ny.png"))
 knitr::include_graphics(c("./../../outputs/figures/p3_zip_exc_la.png", "./../../outputs/figures/p3_zip_exc_ny.png"))
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+
 
 ```
 
@@ -842,6 +854,8 @@ knitr::include_graphics(c("./../../outputs/figures/p3_zip_exc_la.png", "./../../
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
 knitr::include_graphics(c("./../../outputs/figures/p4_zip_income_inc.png", "./../../outputs/figures/p4_county_income_inc.png"))
 knitr::include_graphics(c("./../../outputs/figures/p4_zip_income_exc.png", "./../../outputs/figures/p4_county_income_exc.png"))
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+
 
 ```
 
@@ -850,6 +864,8 @@ knitr::include_graphics(c("./../../outputs/figures/p4_zip_income_exc.png", "./..
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
 knitr::include_graphics(c("./../../outputs/figures/combo1_inc_sat.png"))
 knitr::include_graphics(c("./../../outputs/figures/combo1_inc_psat.png"))
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+
 
 ```
 
@@ -858,6 +874,8 @@ knitr::include_graphics(c("./../../outputs/figures/combo1_inc_psat.png"))
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
 knitr::include_graphics(c("./../../outputs/figures/combo2_inc_sat.png"))
 knitr::include_graphics(c("./../../outputs/figures/combo2_inc_psat.png"))
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+
 
 ```
 
@@ -866,6 +884,8 @@ knitr::include_graphics(c("./../../outputs/figures/combo2_inc_psat.png"))
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
 knitr::include_graphics(c("./../../outputs/figures/combo3_inc_ap.png"))
 knitr::include_graphics(c("./../../outputs/figures/combo3_inc_apstem.png"))
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+
 
 ```
 
