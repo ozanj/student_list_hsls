@@ -649,20 +649,26 @@ df1 %>%
 #   pval= p1_table$pval
 # )
 
-p1_table %>%
+p1_table %>% select(-cat, -diff, -pval) %>%
   kable(
     format = "latex", booktabs = TRUE,
     #longtable = T,
-    col.names = c(' ', 'Included', 'Excluded', 'Pval'), 
-    align = c('l', 'r', 'r', 'r'),
+    col.names = c(' ', 'Included', 'Excluded', 'Difference'), 
+    align = c('l', 'r', 'r', 'l'),
     linesep = '',
-    caption = "Test Taker Differences in Proportion"
+    caption = "Test Taker Differences in Proportion",
   ) %>%
   row_spec(0, bold = T, font_size=2) %>%
-  row_spec(1, bold=T, italic = T, font_size=2) %>%
-  row_spec(9,bold=T, italic = T, font_size=2) %>%
-  row_spec(17,bold=T, italic = T, font_size=2) %>%
-  row_spec(25,bold=T, italic = T, font_size=2) %>%
+  pack_rows("SAT", 1, 7) %>%
+  pack_rows("PSAT", 8, 14) %>%
+  pack_rows("AP", 15, 21) %>%
+  pack_rows("AP STEM", 22, 28) %>%
+
+
+  #row_spec(1, bold=T, italic = T, font_size=2) %>%
+  #row_spec(9,bold=T, italic = T, font_size=2) %>%
+  #row_spec(17,bold=T, italic = T, font_size=2) %>%
+  #row_spec(25,bold=T, italic = T, font_size=2) %>%
 
   kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
                     full_width = FALSE), font_size = 1.5)
