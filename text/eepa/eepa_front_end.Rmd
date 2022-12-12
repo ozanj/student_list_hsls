@@ -653,7 +653,7 @@ p1_table %>%
   kable(
     format = "latex", booktabs = TRUE,
     #longtable = T,
-    col.names = c(' ', 'Included', 'Excluded', 'Difference', "Upper CI", "Lower CI"), 
+    col.names = c(' ', 'Included', 'Excluded', 'Difference', "Lower CI", "Upper CI"), 
     align = c('l', 'r', 'r', 'r', 'r','r'),
     linesep = '',
     caption = "Test Taker Differences in Proportion",
@@ -671,7 +671,7 @@ p1_table %>%
   #row_spec(25,bold=T, italic = T, font_size=2) %>%
 
   kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
-                    full_width = FALSE), font_size = 1.5)
+                    full_width = FALSE), font_size = 2.5)
 ```
 
 \clearpage
