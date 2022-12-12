@@ -649,12 +649,12 @@ df1 %>%
 #   pval= p1_table$pval
 # )
 
-p1_table %>% select(-cat, -diff, -pval) %>%
+p1_table %>% 
   kable(
     format = "latex", booktabs = TRUE,
     #longtable = T,
-    col.names = c(' ', 'Included', 'Excluded', 'Difference'), 
-    align = c('l', 'r', 'r', 'l'),
+    col.names = c(' ', 'Included', 'Excluded', 'Difference', "Upper CI", "Lower CI"), 
+    align = c('l', 'r', 'r', 'r', 'r','r'),
     linesep = '',
     caption = "Test Taker Differences in Proportion",
   ) %>%
