@@ -140,6 +140,8 @@ ABSTRACT
 
 Universities identify prospective students by purchasing “student lists.” Student list products are algorithmic selection devices that use search filters (e.g., test score, zip code) to select prospective students. We ask, what is the relationship between search filters and the racial composition of included versus excluded students? Drawing from the sociology of race, we conceptualize certain search filters as structurally racist inputs. Structurally racist inputs are determinants of selection devices that are correlated with race because some groups have been historically excluded from the input.  We test propositions using a nationally representative sample of high school students. Several academic and geographic filters systematically exclude Black and Latinx students. We motivate critical policy research on third-party products and vendors in education.
 
+THIS MANUSCRIPT ROCKS!
+
 \pagenumbering{roman}
 \newpage
 \pagenumbering{gobble}
