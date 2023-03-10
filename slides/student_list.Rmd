@@ -13,7 +13,7 @@ revealjs:
 #csl: '../assets/bib/apa.csl'
 bibliography: '../../public_requests_eda/text/bib/eepa_student_list.bib'
 csl: '../../public_requests_eda/text/bib/apa.csl'
---- 
+--- #title
 
 
 ```{r, include = F}
@@ -425,7 +425,7 @@ poc_income_2564 <- poc_income %>%
   <div><p>Patrica Martín</p><span class='affiliation'>UCLA</span></div>
 </div>
 
-<a class="link" href="https://ozanj.github.io/student_list_policy/slides/student_list_cshpe.html" target="_blank">ozanj.github.io/student_list_policy/slides/student_list_cshpe.html</a>
+<a class="link" href="https://ozanj.github.io/student_list_hsls/slides/student_list.html" target="_blank">ozanj.github.io/student_list_hsls/slides/student_list.html</a>
 
 
 --- .section
