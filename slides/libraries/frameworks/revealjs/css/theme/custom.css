@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap');
+
+@font-face {
+    font-family: 'Compagnon';
+    src: url('../../../../../../../assets/fonts/compagnon/Compagnon-Medium.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Gill Sans';
+    src: url('../../../../../../../assets/fonts/gillsans/GillSans-Light.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Franklin Gothic';
+    src: url('../../../../../../../assets/fonts/franklingothic/FranklinGothic-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Georgia';
+    src: url('../../../../../../../assets/fonts/georgia/Georgia-Regular.ttf') format('truetype');
+}
+
+/* Main */
+
+body {
+  font-family: 'Georgia', 'EB Garamond', sans-serif;
+  font-size: 18px; /* default is: font-size: 15px; */  /* if I want text size that grows/shrinks with size of screen choose em rather than xp, eg: font-size: 1.9em; */ 
+  font-weight: 400;
+  line-height: 1.7em; /* tweak with this too default is line-height: 1.9em; */
+  color: #444;
+  background-color: #f0f0f0;
+}
+
+.reveal .slides {
+  text-align: left;
+  width: 850px !important;
+}
+
+.reveal strong {
+  font-weight: 600;
+  color: #111;
+}
+
+.reveal em {
+  font-style: italic;
+}
+
+.reveal section img {
+  display: block;
+  margin: 5px auto;
+}
+
+.reveal hr {
+  transform: translateY(20px);
+  border: none;
+  border-top: 1px dashed #46a69e;
+  color: #f0f0f0;
+  background-color: #f0f0f0;
+  height: 1px;
+}
+
+.reveal .slide h1 {
+  font-family: 'Franklin Gothic Medium', 'Compagnon';
+  color: black;
+  font-weight: 500;
+  letter-spacing: 0px;
+  font-size: 37px;
+  margin: 10px 0 30px;
+}
+
+.reveal .slide h2 {
+  font-family: 'Georgia', 'Gill Sans';
+  font-style: italic;
+  color: #73c0af;
+  font-size: 28px;
+  letter-spacing: 1px;
+  margin: -26px 0 30px;
+  font-weight: 300;
+}
+
+.reveal p {
+  font-weight: 400;
+  color: #333;
+}
+
+/* Lists */
+
+#univ_options {
+  columns: 2;
+  margin: 10px 0 0 25px;
+}
+
+.reveal ul, .reveal ol {
+  padding: 0;
+  margin-left: 2em;
+  font-weight: 400;
+  list-style-position: outside;
+}
+
+.reveal ul li {
+  list-style-type: none;
+}
+
+.reveal section > ul > li,
+.reveal .left > ul > li, 
+.reveal .right > ul > li {
+  list-style-type: circle;
+}
+
+.reveal ol > li {
+  list-style-type: decimal;
+}
+
+.reveal ol ul li:before,
+.reveal ul ul li:before {
+  content: '-';
+  font-weight: 400;
+  margin-left: -1em;
+  position: absolute;
+}
+
+.reveal ul ul ul li:before {
+  content: '\00B7';
+}
+
+/* Tables */
+
+.table-wrapper {
+  height: 500px;
+}
+
+.reveal table {
+  width: 100%;
+  /*text-align: center;*/
+  line-height: 1.6em;
+  font-size: 13px;
+  border-spacing: 0;
+}
+
+/*
+.reveal th, .reveal td {
+  background-color: rgb(247, 254, 255);
+}
+
+.reveal table tr td:nth-of-type(1) {
+  text-align: left;
+  padding-right: 8px;
+}
+
+.reveal table thead tr:last-child th {
+  border-bottom: 1px solid #444;
+}
+
+.table-wrapper > table tbody tr:last-child td {
+  border-bottom: 1px solid #444;
+}
+
+.reveal table .bold {
+  font-weight: 700;
+}
+
+.reveal table .blank {
+  pointer-events: none;
+}
+
+.reveal table .indent {
+  padding-left: 6px;
+}
+
+.reveal table td:empty:after{
+  content: "\00a0";
+}
+*/
+
+/* Links */
+
+.reveal a {
+  cursor: pointer;
+  color: #73c0af;
+  transition: color 0.1s;
+  text-decoration: none;
+}
+
+.reveal a:hover {
+  color: #46a69e;
+}
+
+.reveal .btn {
+  top: 10px;
+  border: rgb(231, 103, 97) 1.5px dashed;
+  color: rgb(231, 103, 97);
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 6px;
+}
+
+.reveal .btn:hover {
+  border: gray 1.5px solid;
+  color: gray;
+  text-decoration: none;
+}
+
+/* Text */
+
+.reveal span.univ-name {
+  font-family: 'Gill Sans';
+  float: right;
+  font-size: 20px;
+  margin: 10px 0;
+  color: #444;
+}
+
+.reveal .logo {
+  font-family: 'Gill Sans';
+  float: right;
+  font-size: 18px;
+  font-weight: 300;
+  margin: 5px 0;
+}
+
+/* PDF */
+
+@media print {
+  .backgrounds {
+    background-color: rgb(247, 254, 255);
+  }
+}
