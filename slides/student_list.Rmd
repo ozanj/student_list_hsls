@@ -15,6 +15,7 @@ bibliography: '../../public_requests_eda/text/bib/eepa_student_list.bib'
 csl: '../../public_requests_eda/text/bib/apa.csl'
 --- 
 
+
 ```{r, include = F}
 #setwd('../public_requests_eda')
 #getwd()
@@ -56,8 +57,8 @@ library(servr)
 library(knitcitations)
 
 cleanbib()
-bib <- read.bibtex('C:/Users/ozanj/Documents/public_requests_eda/text/bib/eepa_student_list.bib')
-#bib <- read.bibtex('../../public_requests_eda/text/bib/eepa_student_list.bib')
+#bib <- read.bibtex('C:/Users/ozanj/Documents/public_requests_eda/text/bib/eepa_student_list.bib')
+bib <- read.bibtex('../../public_requests_eda/text/bib/eepa_student_list.bib')
 #bib <- read.bibtex('../assets/bib/student_list_policy.bib')
 #bib <- read.bibtex('../assets/bib/eepa_student_list.bib')
 
@@ -156,172 +157,172 @@ orders_filters_totals <- orders_filters %>%
   deframe()
 
 # RQ2
-rq2_race_research_outofstate <- rq2_race %>% 
-  filter(univ_type == 'research', region == 'domestic', locale == 'outofstate') %>%
-  mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-  select(race, pct) %>% 
-  deframe()
-
-rq2_race_research_outofstate_full <- rq2_race_full %>% 
-  filter(univ_type == 'research', region == 'domestic', locale == 'outofstate') %>%
-  mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-  select(race, pct) %>% 
-  deframe()
-
-rq2_race_research_instate <- rq2_race %>% 
-  filter(univ_type == 'research', region == 'domestic', locale == 'instate') %>%
-  mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-  select(race, pct) %>% 
-  deframe()
-
-rq2_race_research_instate_full <- rq2_race_full %>% 
-  filter(univ_type == 'research', region == 'domestic', locale == 'instate') %>%
-  mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-  select(race, pct) %>% 
-  deframe()
-
-rq2_race_regional_instate <- rq2_race %>% 
-  filter(univ_type == 'regional', region == 'domestic', locale == 'instate') %>%
-  mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-  select(race, pct) %>% 
-  deframe()
-
-rq2_race_regional_instate_full <- rq2_race_full %>% 
-  filter(univ_type == 'regional', region == 'domestic', locale == 'instate') %>%
-  mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-  select(race, pct) %>% 
-  deframe()
-
-rq2_locale_research_outofstate <- rq2_locale %>% 
-  filter(univ_type == 'research', region == 'domestic', locale == 'outofstate') %>%
-  mutate(pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-  select(locale_text, pct) %>% 
-  deframe()
-
-rq2_locale_research_instate <- rq2_locale %>% 
-  filter(univ_type == 'research', region == 'domestic', locale == 'instate') %>%
-  mutate(pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-  select(locale_text, pct) %>% 
-  deframe()
-
-rq2_locale_regional_instate <- rq2_locale %>% 
-  filter(univ_type == 'regional', region == 'domestic', locale == 'instate') %>%
-  mutate(pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-  select(locale_text, pct) %>% 
-  deframe()
+# rq2_race_research_outofstate <- rq2_race %>% 
+#   filter(univ_type == 'research', region == 'domestic', locale == 'outofstate') %>%
+#   mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
+#   select(race, pct) %>% 
+#   deframe()
+# 
+# rq2_race_research_outofstate_full <- rq2_race_full %>% 
+#   filter(univ_type == 'research', region == 'domestic', locale == 'outofstate') %>%
+#   mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
+#   select(race, pct) %>% 
+#   deframe()
+# 
+# rq2_race_research_instate <- rq2_race %>% 
+#   filter(univ_type == 'research', region == 'domestic', locale == 'instate') %>%
+#   mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
+#   select(race, pct) %>% 
+#   deframe()
+# 
+# rq2_race_research_instate_full <- rq2_race_full %>% 
+#   filter(univ_type == 'research', region == 'domestic', locale == 'instate') %>%
+#   mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
+#   select(race, pct) %>% 
+#   deframe()
+# 
+# rq2_race_regional_instate <- rq2_race %>% 
+#   filter(univ_type == 'regional', region == 'domestic', locale == 'instate') %>%
+#   mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
+#   select(race, pct) %>% 
+#   deframe()
+# 
+# rq2_race_regional_instate_full <- rq2_race_full %>% 
+#   filter(univ_type == 'regional', region == 'domestic', locale == 'instate') %>%
+#   mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
+#   select(race, pct) %>% 
+#   deframe()
+# 
+# rq2_locale_research_outofstate <- rq2_locale %>% 
+#   filter(univ_type == 'research', region == 'domestic', locale == 'outofstate') %>%
+#   mutate(pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
+#   select(locale_text, pct) %>% 
+#   deframe()
+# 
+# rq2_locale_research_instate <- rq2_locale %>% 
+#   filter(univ_type == 'research', region == 'domestic', locale == 'instate') %>%
+#   mutate(pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
+#   select(locale_text, pct) %>% 
+#   deframe()
+# 
+# rq2_locale_regional_instate <- rq2_locale %>% 
+#   filter(univ_type == 'regional', region == 'domestic', locale == 'instate') %>%
+#   mutate(pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
+#   select(locale_text, pct) %>% 
+#   deframe()
 
 # RQ3
-rq3_poc <- round(rq3 %>% filter(row_subj %in% c('pct_black', 'pct_latinx', 'pct_aian')) %>% select(-row_subj) %>% colSums() * 100)
-
-rq3_income <- prettyNum(round(rq3 %>% filter(row_subj == 'med_income') %>% select(-row_subj) / 1e3) * 1e3, ',')
-
-rq3_instate <- round(rq3 %>% filter(row_subj == 'pct_instate') %>% select(-row_subj) * 100)
-rq3_outofstate <- round(rq3 %>% filter(row_subj == 'pct_outofstate') %>% select(-row_subj) * 100)
-
-asu_la_totals <- asu_la_full %>%
-  group_by(ord_type, in_zip_top10pct) %>% 
-  summarise(count = sum(count)) %>% 
-  ungroup() %>% 
-  mutate(category = str_c(ord_type, if_else(in_zip_top10pct == 1, 'top10', 'bottom90'), sep = '_')) %>% 
-  select(category, count) %>% 
-  deframe()
-
-asu_la_psat_high_top10 <- asu_la %>% 
-  filter(ord_type == 'psat_high', in_zip_top10pct == 1) %>%
-  mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-  select(race, pct) %>% 
-  deframe()
-
-asu_la_psat_high_top10_full <- asu_la_full %>% 
-  filter(ord_type == 'psat_high', in_zip_top10pct == 1) %>%
-  mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-  select(race, pct) %>% 
-  deframe()
-
-asu_la_psat_high_bottom90 <- asu_la %>% 
-  filter(ord_type == 'psat_high', in_zip_top10pct == 0) %>%
-  mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-  select(race, pct) %>% 
-  deframe()
-
-asu_la_psat_high_bottom90_full <- asu_la_full %>% 
-  filter(ord_type == 'psat_high', in_zip_top10pct == 0) %>%
-  mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-  select(race, pct) %>% 
-  deframe()
-
-asu_la_psat_med_top10 <- asu_la %>% 
-  filter(ord_type == 'psat_med', in_zip_top10pct == 1) %>%
-  mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-  select(race, pct) %>% 
-  deframe()
-
-asu_la_psat_med_top10_full <- asu_la_full %>% 
-  filter(ord_type == 'psat_med', in_zip_top10pct == 1) %>%
-  mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-  select(race, pct) %>% 
-  deframe()
-
-asu_la_psat_med_bottom90 <- asu_la %>% 
-  filter(ord_type == 'psat_med', in_zip_top10pct == 0) %>%
-  mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-  select(race, pct) %>% 
-  deframe()
-
-asu_la_psat_med_bottom90_full <- asu_la_full %>% 
-  filter(ord_type == 'psat_med', in_zip_top10pct == 0) %>%
-  mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-  select(race, pct) %>% 
-  deframe()
-
-asu_la_psat_low_top10 <- asu_la %>% 
-  filter(ord_type == 'psat_low', in_zip_top10pct == 1) %>%
-  mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-  select(race, pct) %>% 
-  deframe()
-
-asu_la_psat_low_top10_full <- asu_la_full %>% 
-  filter(ord_type == 'psat_low', in_zip_top10pct == 1) %>%
-  mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-  select(race, pct) %>% 
-  deframe()
-
-asu_la_psat_low_bottom90 <- asu_la %>% 
-  filter(ord_type == 'psat_low', in_zip_top10pct == 0) %>%
-  mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-  select(race, pct) %>% 
-  deframe()
-
-asu_la_psat_low_bottom90_full <- asu_la_full %>% 
-  filter(ord_type == 'psat_low', in_zip_top10pct == 0) %>%
-  mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-  select(race, pct) %>% 
-  deframe()
-
-asu_la_sat_med_top10 <- asu_la %>% 
-  filter(ord_type == 'sat_med', in_zip_top10pct == 1) %>%
-  mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-  select(race, pct) %>% 
-  deframe()
-
-asu_la_sat_med_top10_full <- asu_la_full %>% 
-  filter(ord_type == 'sat_med', in_zip_top10pct == 1) %>%
-  mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-  select(race, pct) %>% 
-  add_row(race = 'unknown', pct = 0) %>%
-  deframe()
-
-asu_la_sat_med_bottom90 <- asu_la %>% 
-  filter(ord_type == 'sat_med', in_zip_top10pct == 0) %>%
-  mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-  select(race, pct) %>% 
-  deframe()
-
-asu_la_sat_med_bottom90_full <- asu_la_full %>% 
-  filter(ord_type == 'sat_med', in_zip_top10pct == 0) %>%
-  mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-  select(race, pct) %>% 
-  deframe()
+# rq3_poc <- round(rq3 %>% filter(row_subj %in% c('pct_black', 'pct_latinx', 'pct_aian')) %>% select(-row_subj) %>% colSums() * 100)
+# 
+# rq3_income <- prettyNum(round(rq3 %>% filter(row_subj == 'med_income') %>% select(-row_subj) / 1e3) * 1e3, ',')
+# 
+# rq3_instate <- round(rq3 %>% filter(row_subj == 'pct_instate') %>% select(-row_subj) * 100)
+# rq3_outofstate <- round(rq3 %>% filter(row_subj == 'pct_outofstate') %>% select(-row_subj) * 100)
+# 
+# asu_la_totals <- asu_la_full %>%
+#   group_by(ord_type, in_zip_top10pct) %>% 
+#   summarise(count = sum(count)) %>% 
+#   ungroup() %>% 
+#   mutate(category = str_c(ord_type, if_else(in_zip_top10pct == 1, 'top10', 'bottom90'), sep = '_')) %>% 
+#   select(category, count) %>% 
+#   deframe()
+# 
+# asu_la_psat_high_top10 <- asu_la %>% 
+#   filter(ord_type == 'psat_high', in_zip_top10pct == 1) %>%
+#   mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
+#   select(race, pct) %>% 
+#   deframe()
+# 
+# asu_la_psat_high_top10_full <- asu_la_full %>% 
+#   filter(ord_type == 'psat_high', in_zip_top10pct == 1) %>%
+#   mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
+#   select(race, pct) %>% 
+#   deframe()
+# 
+# asu_la_psat_high_bottom90 <- asu_la %>% 
+#   filter(ord_type == 'psat_high', in_zip_top10pct == 0) %>%
+#   mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
+#   select(race, pct) %>% 
+#   deframe()
+# 
+# asu_la_psat_high_bottom90_full <- asu_la_full %>% 
+#   filter(ord_type == 'psat_high', in_zip_top10pct == 0) %>%
+#   mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
+#   select(race, pct) %>% 
+#   deframe()
+# 
+# asu_la_psat_med_top10 <- asu_la %>% 
+#   filter(ord_type == 'psat_med', in_zip_top10pct == 1) %>%
+#   mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
+#   select(race, pct) %>% 
+#   deframe()
+# 
+# asu_la_psat_med_top10_full <- asu_la_full %>% 
+#   filter(ord_type == 'psat_med', in_zip_top10pct == 1) %>%
+#   mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
+#   select(race, pct) %>% 
+#   deframe()
+# 
+# asu_la_psat_med_bottom90 <- asu_la %>% 
+#   filter(ord_type == 'psat_med', in_zip_top10pct == 0) %>%
+#   mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
+#   select(race, pct) %>% 
+#   deframe()
+# 
+# asu_la_psat_med_bottom90_full <- asu_la_full %>% 
+#   filter(ord_type == 'psat_med', in_zip_top10pct == 0) %>%
+#   mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
+#   select(race, pct) %>% 
+#   deframe()
+# 
+# asu_la_psat_low_top10 <- asu_la %>% 
+#   filter(ord_type == 'psat_low', in_zip_top10pct == 1) %>%
+#   mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
+#   select(race, pct) %>% 
+#   deframe()
+# 
+# asu_la_psat_low_top10_full <- asu_la_full %>% 
+#   filter(ord_type == 'psat_low', in_zip_top10pct == 1) %>%
+#   mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
+#   select(race, pct) %>% 
+#   deframe()
+# 
+# asu_la_psat_low_bottom90 <- asu_la %>% 
+#   filter(ord_type == 'psat_low', in_zip_top10pct == 0) %>%
+#   mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
+#   select(race, pct) %>% 
+#   deframe()
+# 
+# asu_la_psat_low_bottom90_full <- asu_la_full %>% 
+#   filter(ord_type == 'psat_low', in_zip_top10pct == 0) %>%
+#   mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
+#   select(race, pct) %>% 
+#   deframe()
+# 
+# asu_la_sat_med_top10 <- asu_la %>% 
+#   filter(ord_type == 'sat_med', in_zip_top10pct == 1) %>%
+#   mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
+#   select(race, pct) %>% 
+#   deframe()
+# 
+# asu_la_sat_med_top10_full <- asu_la_full %>% 
+#   filter(ord_type == 'sat_med', in_zip_top10pct == 1) %>%
+#   mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
+#   select(race, pct) %>% 
+#   add_row(race = 'unknown', pct = 0) %>%
+#   deframe()
+# 
+# asu_la_sat_med_bottom90 <- asu_la %>% 
+#   filter(ord_type == 'sat_med', in_zip_top10pct == 0) %>%
+#   mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
+#   select(race, pct) %>% 
+#   deframe()
+# 
+# asu_la_sat_med_bottom90_full <- asu_la_full %>% 
+#   filter(ord_type == 'sat_med', in_zip_top10pct == 0) %>%
+#   mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
+#   select(race, pct) %>% 
+#   deframe()
 
 uiuc_totals <- uiuc_race_full %>%
   filter(ord_type == 'prospect') %>% 
@@ -628,7 +629,7 @@ Interventions along the funnel
 
 <br>
 
-<img src="../assets/images/enrollment_funnel.png" alt="Enrollment Funnel" style="width:80%;margin:0 auto;">
+<img src="../outputs/images/enrollment_funnel.png" alt="Enrollment Funnel" style="width:80%;margin:0 auto;">
 
 Source: [pngwing.com](https://www.pngwing.com/en/free-png-krrpy)
 
