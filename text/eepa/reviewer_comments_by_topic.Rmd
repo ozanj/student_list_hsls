@@ -1,0 +1,370 @@
+---
+title: "reviewer_comments"
+author: "Ozan Jaquette and Karina Salazar"
+date: "`r Sys.Date()`"
+urlcolor: blue
+output: 
+  html_document:
+    toc: true
+    toc_depth: 3
+    number_sections: true
+    fig_caption: true 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Positive
+
+Editor
+
+> The reviewers agree that the piece has the potential to make a significant contribution to the policy sphere, particularly the focus on anunderstudied part of the college admissions process. This piece has the potential to expand our understanding of the (racialized) tools used bycolleges to create their incoming classes in ways that help illuminate equity concerns and lay out guidelines for future scholarship.
+
+Reviewer1
+
+> Overall, I applaud the work the authors have done to obtain information about the student list requests submitted by public colleges. I agree withthem that this part of the college recruitment process is under-studied and under-scrutinized—there are almost certainly problematic aspects ofthe construction and use of student lists. The argument overall was thought provoking--reviewing this manuscript made me think deeply aboutmy own biases related to parts of the admissions process I largely take as given.
+
+Reviewer2
+
+> The paper is an important and critical look at an understudied area of college access and admissions literature—the recruiting process. Theauthors draw on nationally representative data paired with actual criteria used by colleges to generate and purchase student lists to demonstratethe racialized process through which colleges recruit prospective students. It’s a fascinating inside view of how common admissions practicesthat draw on racialized inputs result in inequities in college recruiting (and subsequently, college access). I appreciate the care the authors tookin collecting the data (3 years!) and creativity in applying the filters commonly used by colleges to nationally representative data. The results aresadly not surprising and offer clear evidence in support of the authors’ propositions
+
+# What is problem: products or university preferences/behaviors
+
+Editor
+
+> First, Reviewer 1 and 2 note that several of the arguments made in the paper are not necessarily about college lists, but instead about theadmissions priorities of each institution. We believe it would be useful to tease this out more in the paper. We also believe it would be helpful toprovide some (masked) information about the 14 institutions. This could be rounded enrollment numbers (in bands) or Carnegie Classification orsomething else. But it feels like as the argument is strengthened on why this might be about the admissions priorities of institutions, the readerwould benefit from better understanding the contexts of the 14 institutions.
+
+Reviewer1
+
+> I start with some of the big questions I have, which suggest broad areas where the authors may want to push their (or, clarify my) thinking, andthen move on to more specific thoughts and opportunities to improve. 
+
+> Where does the problem lie? The manuscript, in large part, seems inspired by the earlier FOIA request of student list purchases and the filters that determined the content ofthose requests. This is a cool FOIA request to think to make, and obviously a lot of work. The nature of the request made me think we’re dealing with how universities use student list requests either implicitly or explicitly to privilege certain groups in the search and recruitment process.
+
+> This understanding of the purpose of the manuscript is dismissed a few times, however, in part by the assertion that universities, despite priorassumptions, do not do recruiting “individually,” but rather alongside third party enrollment management consultants. Here I wondered whetherthese third-party businesses would be the focus of the work, but these organizations largely stay on the periphery of the argument. In the end,I’m confused how much independence these businesses have from universities—don’t they act on behalf of the university’s stated enrollmentpreferences (which would still make me think that universities are independent when determining recruitment priorities)? Or is the idea that theyengage in student list filtering in a way that is more nuanced than what universities would do on their own and that universities may notunderstand the students who are excluded by these filters? Either way, we do not observe any actions by third-parties in this research (whichmakes me question whether they need as many words devoted to them as they do). The manuscript returns to third parties in the conclusion,specifically by citing that the US Department of Education thinks that the third party enrollment goals are determined by institutions—theimplication is that this may not be the case, but no evidence is presented to support this.
+
+> Instead, the manuscript turns to algorithmic customer selection tools. A lot of baggage is placed on the word “algorithm,” but I worry about thisbecause its definition and application to the student list purchasing process is a bit of a moving target. Initially, algorithms are simply anycomputer executed code. This definition doesn’t seem all that analytically interesting, but then the manuscript layers on actuarial practices wherewe try to use past behavior to predict future behavior. This does seem problematic in the case of college admissions because if we assumestudents always behave as they have in the past, then clearly we can’t use these algorithms to include previously excluded groups. Where I gethung up is that I don’t see this level of prediction in the student list filters, but maybe it just needs to be made more explicit for me. I certainly seeit, for example, in the College Board’s geodemographic segments that can filter on past college-going behaviors, but again we don’t observeeither that prediction or even those filters in this research.
+
+> The ultimate question appears to focus just on whether the filters themselves are structurally problematic. I think this may be a reasonablequestion, except that we don’t need the research here to know the answer—even before the analysis, the manuscript cites literature that showsthat gaps in test taking and scores by student background characteristics which necessarily suggests that filters using those criteria wouldexclude certain groups. Is there doubt that these patterns have persisted since that research was produced?
+
+# Research question
+
+Reviewer1
+
+> I might work to refine the research question on p. 2., which asks “what is the relationship between student list search filters and the racialcomposition of students who are included versus excluded in student lists purchased from College Board?” I don’t think the data can answer thisquestion (particularly since you don’t appear to have data on specifically how the filters are used in the requests from the College Board).
+
+
+# Analyses
+
+## Analyses do not make contribution
+
+Editor
+
+> Second, Reviewer 1 notes that the current analysis does not provide a substantial contribution to our understanding of admissions recruitment.The reviewer provides suggestions of ways the authors could expand the analysis to provide substantial insight into recruitment. We are notbeing prescriptive to say that the authors must follow Reviewer 1’s guidance. However, there needs to be more done. The current findingsgenerally appear to align with what we already know about who takes college entrance exams or has higher academic GPAs. The current testsof proportions are not that revelatory given that the appendix tables show that almost every estimate is statistically significant (likely partially dueto Type I error but also because these are large samples that will find practically insignificant differences statistically significant). More interestingare the findings that combining these elements creates a substantially more exclusive prospect pool (more could be done to explicitly tease thisout).
+
+Reviewer1
+
+> I also want to push the authors to find ways to makethe analysis feel more substantial. As I outline below, the bold setup for the paper left me underwhelmed by some of the findings, which felt attimes already well known or poorly motivated.
+
+## How are geographic filters used
+
+Reviewer1
+
+> How are geographic filters used? My impression here has always been that a university could say, “I want students from these states/counties/zip codes…[and then list them].” Iimagine this option is available for public universities to target students in their home (or neighboring) state or within certain catchment areas (likethe Cal State campuses have), or for private universities to recruit knowing that students tend to like attending college close to home. It would behelpful to confirm (and maybe you have) that selecting geographic areas by income characteristics is even an option (though I suppose it’spossible a university could find those zip codes on their own and then ask for them specifically in their list).
+
+> Even if it is a common way of conducing geographic searches, I’m a little incredulous that a university would specifically search on geographicarea income levels. I know that Author XXXX(d, e and f?) found that off-campus recruiting tended to focus on wealthier schools in largermetropolitan and suburban neighborhoods, but I don’t think its safe to assume that schools would pursue the same recruitment strategy in boththe student list development and their off-campus recruiting, or that this focus is the only recruitment priority of universities in their recruitment. Asthe manuscript notes, off-campus recruiting is often used to maintain relationships with certain high schools—something that being in personfacilitates. Given the well-worn path to reaching students in these schools, it doesn’t make sense for universities to duplicate that effort whenbuying student lists. Maybe they do it in some cases, but it seems like a lot to base a whole section of analysis on speculation that colleges“may” do something.
+
+Reviewer1
+
+> p. 30 (and other places) I think there’s a substantive difference between filtering by zip code (e.g., “we want students in these zip codes in thecatchment area for CSU Long Beach”) and filtering on zip code affluence, but often filtering on affluence is referred to a simply filtering by zipcode, which I find confusing at best. Keep the distinction clear.
+
+## geographic filters and representative sample
+
+Editor
+
+> Seventh, we have concerns about the geographic analysis. HSLS is a dataset that is representative at the national level and at the regional level.It is not representative at the city or zipcode level. That means that, even with weighting, all the geographic analysis is on a unique sample (thatdoes aggregate up to being regionally and nationally representative but is not reflective of these smaller geographic zones). While we’re notsaying these analyses must be removed, the authors need to seriously grapple with what the geographic analyses can provide evidence for. Ifthe authors decide to leave this analysis in, there must be significant justification for its inclusion and discussion of just what these random datapoints can tell the reader about their underlying geographic areas.
+
+## When does the student list fail to create access?
+
+> When does the student list fail to create access? I certainly agree that structurally racist systems should not deny any student the opportunity to pursue a postsecondary degree. Thus, the factthat the filters that generate lists used in college recruitment include fundamental racial bias is a problem. However, I think it’s fair to say that theinclusion of, for example, academic filters in search criteria exist because of the centrality these academic factors have in admissions decisionsthemselves. Neither students nor universities benefit if a university put resources into recruiting students who are unlikely to be admitted to thatuniversity. Thus, it may be worth exploring whether student list generation is the problem, or the priorities of the admissions system in general. Itis also possible that universities don’t cast as wide a net as they should—if you know the admissions statistics of the universities that you FOIA’s,as well as the thresholds those universities use in their search criteria, you could figure out whether universities were genuinely trying to captureall reasonable applicants (I’d hope for searching for students at their 25th SAT percentile or lower), or if they set their thresholds too high to bemaximally inclusive.
+
+> This also makes me wonder whether “all other students” is the right comparison for included students. Regardless of their qualifications forselective admissions, not all students have an interest or desire in attending college. We obviously want to maximize the group who does what togo to college to attend, but I worry about whether you stack the deck too much in favor of your argument by including everyone in the excludedgroup descriptions. At the very least, I’m curious the extent to which students eligible to show up in a College Board search—they have a PSAT,SAT, or AP score—look like the population of students who enroll in college at all (I think it might be interesting here to think about both four-yearcollege enrollment, and any postsecondary enrollment). If the college population is more diverse, it tells us that colleges are able to find morediverse students than they would if they relied on lists alone and that lists would fall short in helping universities identify appropriate applicants. Ifthe list-eligible students are more diverse, it emphasizes the problematic elements of college recruiting in admissions processes.
+
+> Perhaps adding columns to the existing results that describes the composition of excluded students who ultimately enroll in a four-year college orany college at all would add strength to the analysis. I recognize the problem of assuming the demographics of the contemporary college-enrolled population as the “right” composition to strive for, but I suspect the list criteria would still have a hard time meeting this benchmark as a **minimum**.
+
+## Analysis sample
+
+Reviewer1
+
+> p.23 Would the College Board have GPAs for anyone who didn’t take the PSAT, SAT, or an AP exam? Is that exercise in the analysis just aquestion of “who took any of those exams?”
+
+# Description/analysis of purchased lists
+
+Reviewer1
+
+> p. 17 Can you describe the 830 College Board orders in more depth? I’m still not sure what data you actually have here—is it what filters wereused (broad categories) or what levels of those filters (e.g., SAT scores above 1200…). How do these data enter the analysis?
+
+# Limitations
+
+## Opt in/out of student lists
+
+> p. 1 How much weight should we put in the study about students opting in/out of the College Board’s search tool? Aren’t students taking prettyclear stances on their orientation to college enrollment here? From the description in the manuscript, it sounds like this is a descriptive study withsome pretty big omitted variable bias…
+
+
+# Context about access/recruitment
+
+own: not sure if this should be addressed in backround, literature review, or introduction; reviewer 3 seems to suggest introduction
+
+Editor
+
+> Third, Reviewer 2 and 3 both seek more of an overview in the paper on college admission and recruitment broadly. We understand that this is asociological analysis, but it does feel like somewhere in the introduction or literature review, it would be helpful to include some space devoted toan overall overview that cites interdisciplinary research on college recruitment. Given that EEPA covers all levels of education and all disciplines,it would be useful to ensure that readers who are not experts in this individual area can have strong grounding in how college recruitment works.
+
+Reviewer 3
+
+> I would suggest the authors consider situating this study in a broader literature around college access. There is one paragraph in the beginningthat discusses the probability of enrollment for students opting into the College Board Search Service, but I think there is more that could andshould be said about existing racial inequities in college enrollment. What are current figures on the representation of students in publicuniversities, for example? Have these numbers changed in recent years? Are they likely to worsen given affirmative action legislation or improvegiven the movement toward test-optional policies? In short, a brief discussion on the current representation of underrepresented groups in highereducation helps to contextualize the broader impacts and implications of student lists and situate the magnitude of the problem that the study is illuminating. In essence, the so what? Likewise, the paper should end by coming back to this point about equitable access and opportunity tocollege for students from minoritized backgrounds.
+
+Reviewer2
+
+> I offer a few suggestions that I think would help clarify the importance of this study. The first is to step back a bit and provide a description of college recruitment more broadly: what colleges participate in recruiting? What is themotivation for colleges to recruit students and how does this differ depending on the type of college (e.g., public versus private, highly rejectiveversus open access)?
+
+> Related, I think it would help to specify just how important student lists are to colleges. Perhaps this could be accomplished by clarifying whatcolleges use student lists (is this mostly highly rejectives or are regional comprehensives, community colleges, and other less rejectiveinstitutions using student lists to recruit?) – this helps identify the particular colleges that are more or less likely to engage in this process and theextent to which student lists are used in recruitment. Additionally, perhaps some of the authors’ prior work highlight just how important these listsare to colleges? For example, are they the primary way colleges identify a pool of students to recruit (versus looking at feeder high schools andprior year stats?)? I think it would help to discuss just how important these lists are or are not and to what institutions.
+
+# How lists used by universities
+
+Own: not sure if comments below addressed in "background" or a more substantive section
+
+## University usage/purpose of lists
+
+Reviewer1
+
+> I reached out to my own admissions office and they use their student list purchases for two purposes. First, they use it to find first-generation,rural, and racially minoritized students they don’t find through other modes of outreach. Second, they use it to complete details about students(e.g., their high school) who they may have met at a college fair for whom they might only have a name and address. I know a former institution of mine similarly uses search to find students of color, and first-gen students. I’m not sure either of these admission offices would recognize thesort of searches you suggest with respect to looking for high income zip codes, though this is obviously based on anecdata with an n of 2. Eitherway, this part of the analysis feels unsubstantiated.
+
+## selecting filters on admissions criteria
+
+Reviewer2
+
+> One point that seems to be missing in the discussion is that the reason colleges select on filters in the first place is that they are often selectingon the same set of filters that they use to evaluate admissions applications. As a result, we could (and should, as the authors clearly show)change the way colleges recruit students, but absent additional overhauls to admissions criteria (and financial aid, college culture, etc.), thesame outcomes are likely. Maybe some way to build this into the discussion is to highlight whether implications from this study for recruitingcould similarly be used to rethink admissions criteria. I defer to the authors for how they want to address this, but it seems important to note thatthe entire system (K12 education, college admissions and aid) is designed to produce these inequitable outcomes, so changing recruitingpractices is one lever, but other levers similarly need to be pulled to produce different outcomes.
+
+## Background info about student lists
+
+Reviewer1
+
+> Do we have any sense of what percentage of postsecondary institutions buy student lists? Is it prevalent everywhere? Just four-year colleges?Just selective colleges?
+
+Reviewer1
+
+> How should a reader think about the timing of student list purchases? For example, purchases based on PSAT score allows universities to reachout to students much earlier in their college search process, potentially allowing them to shape not just the students’ preferences for college, buthow they prepare. Purchases based on AP scores or SATs likely can only sway marginal preferences for where students apply.
+
+Reviewer2
+
+> The second paragraph notes that student lists are important for degree completion – it wasn’t immediately clear to me what the connection here is, so making it explicit could help.
+
+
+Reviewer2
+
+> The authors note how much colleges pay per name, but it might help to provide an overall amount some colleges spend on student lists, just togive the reader a sense of the importance these lists play in recruitment
+
+Reviewer2
+
+> Page 5 – authors mention ACT and College Board offer clients information about prospects that are not included in student lists – what type ofinformation is this? [own: maybe move to future research part of discussion]
+
+
+# Literature review
+
+Reviewer2
+
+> The authors mention “platform studies in higher education” a few times in the manuscript – it’d be helpful to define this at first mention and discuss what some of these platforms are and the role they play for universities
+
+Reviewer2
+
+> In section 3 that starts on page 6, the authors mention prior scholarship that focuses on the later stages of the enrollment funnel – perhaps citesome of this literature?
+
+Reviewer2
+
+> “Blind spot” on page 6 – consider changing the language to remove the word blind
+
+
+# Introduction
+
+
+Reviewer2
+
+> The first full paragraph on page 2 offers a lot of key definitions for the paper one after another – it’s easy to get a little lost in this paragraph, somaybe it would help to offer more transitions or descriptions of each key term and clarify how it connects to others
+
+
+
+
+
+> Round sample sizes to nearest 10 for HLS09 data reporting throughout
+
+Reviewer2
+
+> In discussing the 2 data sources on pages 16-17, can you clarify which data are used to investigate each proposition?
+
+Reviewer2
+
+> Are both Table 1 and Figure 3 necessary? It might be possible to just have one of these given the number of tables and figures
+
+Reviewer2
+
+> Page 9 – what is the connection between actuarial methods and selection devices? I think making this explicit would be helpful for the reader
+
+Reviewer2
+
+> In 6.3 starting on page 27, it might be useful to reference back to table 1 or figure 3 to note how these combined filters were selected (i.e., basedon common search filters)
+
+
+
+# Tighten/revise conceptual framework
+
+Editor
+
+> Fifth, while well written, the conceptual framework seeks to cover several different areas of scholarship. In line with trimming some of the frontmatter of the paper to fit page limits and to provide a more coherent narrative, it would be useful if the authors selected one to two of the theoriescurrently described. For example, the authors might focus on critical data studies to examine how algorithms are constructed/trained and theways institutions might wish to use them for good but could ultimately create more harm. This shift would allow more space to provide theadditional justification for the authors’ arguments.
+
+## What are structurally racist inputs
+
+Editor
+
+> This also applies more specifically to the discussion section. Arguments are put forward that “several academic filters and geographic filters arestructurally racist inputs” yet there is no clear explanation of when an academic filter would be a structurally racist input and when one would notbe. For example, if an institution actually did use GPA and zipcode to expand the diversity of the prospect pool, is that a structurally racist input?If so, can structurally racist inputs be used for good? These are the more interesting, and challenging questions, that the paper could engage in.This would then also allow the authors to provide clearer policy recommendations.
+Reviewer1
+
+Reviewer2
+
+> The conceptual framework is well-written and does a good job connecting search filters used by colleges to structurally racist inputs. One thingthat I think would strengthen this section is to offer a more detailed discussion of how these inputs come to be racialized. For example, theauthors note that zip codes are racialized but do not offer citations or a deeper discussion of this. Offering examples of policies and practices thathave led zip codes to become a racist input would help strengthen the paper’s contribution. Similarly, the authors note factors that contribute toinequities in test scores by race, but this discussion, I think, is fairly surface level and doesn’t fully engage with the extent to which resourceshave been extended to some, primarily White schools, and denied to other schools in ways that create different educational opportunities. Theauthors start to do this (e.g., on page #), but I think a more detailed discussion would be helpful in establishing just the extent to which theseinputs are likely to be racialized. I could see this being a great piece to cite in the broader admissions and financial aid literature (regardingracialized evaluation metrics), so more developed connections in the conceptual framework would be useful.
+
+## other
+
+Reviewer1 
+
+> p. 11 In the first full paragraph, the manuscripts indicates that it is important to understand why “birds of a feather flock together” as the CollegeBoard states. It would be good to finish this thought and say why. If colleges are looking for diversity (which, maybe I naively think some of themare—at least a few of them seem to want to continue to use race conscious affirmative action, for example), and demographic sorting allowsthem to do it, explain why the cause of the sorting matters from the perspective of a diversity-seeking college. I’m not sure all readers will getthere themselves. The manuscript returns to this idea on p. 15 and I’m not sure a reader would follow the logic any easier there.
+
+Reviewer1
+
+> p. 12 Be careful with your argument about the critique that “classifications systems are developed to optimize profit.” That may be true in thebusiness world, but I think many readers would argue that colleges don’t set out to optimize other things than (at least immediate) profit. Doesthat change the conclusions we draw from this claim?
+
+Reviewer2
+
+> On page 8, the authors mention critical geography, but I think this is one of the first times it is mentioned in the manuscript – maybe mention thisin the introduction and offer a brief description of how it informs the study
+
+Reviewer2
+
+> In section 4.2.1, the authors posit two broad sources of structural inequality – might be worth noting that these two sources are deeply connected– i.e., the input itself determines who is included/excluded in the underlying data while the search filters further exacerbate these differences in who is included/excluded
+
+Reviewer3
+
+> The systematic exclusion of applicants of color is a key argument in the paper. As such, the authors might consider discussing the Hirschmanand Bosk piece in more detail. It is cited throughout and seems to provide critical support for the authors’ claims. Is the current conceptualframework an extension of or a response to Hirschman and Bosk’s work?
+
+
+Reviewer 3
+
+> I was unclear/a bit confused by section 4.2 of the manuscript. It seems to repeat the preceding discussion of algorithmic selection devices. Is thisthe start of the conceptual framework? Should these mechanisms be collapsed in or incorporated into section 4.1 which discusses them as well(although using examples from outside of education)? In section 4.2.1., there is a sentence, “Drawing from theory…” I would just add in theory for a better description. For example, sociological theory.
+
+# Incorporate critical quant work on data collection and variable creation
+
+> The mention of micro-targeting and market segmentation made me think about critical quant studies in education policy research and the work ofscholars (e.g., Samantha Viano and Dominique Baker) raising questions about the construction of large-scale datasets such as what are thetypes of variables that are being included. How are race and class conceptualized? How are other critical variables operationalized? It seemsthis literature is quite relevant to the paper and I would encourage the authors to consider featuring it more prominently or at least citing it in thediscussion of critical data studies.
+
+
+# Improve ties to education policy
+
+Editor
+
+> Sixth, based on our read of the article, the ties to education policy need to be made clearer. We appreciate the discussion of implications onfederal regulations. To create a stronger connection with policy, we recommend the authors look at the feedback from Reviewer 1. We also notedthat the discussion of policy relevance solely focuses on the federal government. Yet, these are all public institution student lists. It seems thatmore attention needs to be given to the role that state policy actors have in ensuring institutions are using these lists in an accountable way. Thiswould likely necessitate a bit more attention to the fact that these institutions are public which likely means they also have higher acceptancerates than their private peers and different ways of marketing & evaluating applicants. For example, the last sentence on page 6 notes the privateschool counselors can do a lot to get students into “top colleges” by communicating that they will definitely enroll at that institution. Yet, this typeof demonstrated interest is frequently not used at public institutions. It would also be helpful to say more about whether states or the federalgovernment have considered any policies or new regulations about these lists.
+
+Reviewer1
+
+> How should we think about inclusion and exclusion based on SAT scores in a world where more states and localities are now requiring highschools to take the SAT/ACT?
+
+Reviewer1
+
+> Products like the College Board’s search tool are blunt and imperfect and, as you demonstrate, likely problematic and exclusionary. But therearen’t many alternatives. What would an ideal tool look like that allows colleges to find students (affluent and otherwise) that have a reasonablelikelihood of being admitted to the institution?
+
+# Tighten/revise discussion section
+
+Reviewer 3
+
+> I would encourage more organization of section 7, the discussion of the paper. At times, this section is a bit wandering and repetitive. Consideradding subsections for “Implications for Research” as well as subheadings to organize the various implications/future directions for research. And as stated above, I would circle back to the broader implications of this work for college access.
+
+# Add citation/evidence for claims
+
+Editor
+
+> Fourth, we agree with Reviewer 1 that it would be helpful to include citations or peer-reviewed references to justify assertions throughout thepaper. We can certainly see why some statements are likely to be true, but the paper needs to provide clear textual citations that provide theevidence behind the statements. As an example, across pages 5 and 6, there’s a statement about the test-optional movement being anexistential crisis for the College Board. Yet, the College Board makes the majority of its funding from administering the AP program (and hasexpanded its revenue streams by contracting with states to provide the SAT as a high school exit exam). If the authors want to make thatargument, there needs to be a clear explanation of the evidence that drives the argument. Another example is that the authors repeatedly arguethat micro-targeting is used for harm but, as Reviewer 1 notes, there needs to be justification for this argument included in the paper (this tiesinto the next point on the conceptual framework). These types of statements can be found throughout the paper. Therefore, a thorough revisionof the entire paper attending to ensuring there’s justification for statements of fact would be beneficial.
+
+Reviewer1
+
+> p. 6. In the sentence about off campus visits and enrollment priorities, be clear about whose enrollment priorities. Also, is there another citation touse here? It’s a big claim and it would be good if someone other than you sees this link.
+
+> p.7 Is there a citation for the claim that universities are uninformed about which students they target? (last paragraph of the page)
+
+> p.23 Don’t forget your CITE in the footnote.
+
+Reviewer2
+
+> Is there a citation for Figure 1? Or does it draw on previous literature to identify the funnel?
+
+
+# Cut unneccessary/distracting content
+
+Editor
+
+> Finally, we recognize we have requested several spaces where the paper needs to engage more on topics. Given the page length concerns, itfeels necessary for the literature review and discussion sections to be streamlined a bit more (the reviewers provide some suggestions forreorganization and trimming) and it also feels that Figure 1 (which is a reproduction of other scholars’ work), Figure 9, and Figure 10 could be cutor moved to the appendix. We agree with the reviewers that the authors may not have the legal expertise to provide some of the suggestionsthey do so it would likely make sense to remove the top paragraph on page 32. The first full paragraph on page 33 can likely be removed as wellsince it gets very detailed on certain parts of platform that are more ancillary to the larger point of the paper (it also includes a sentence thatappears to be the same as a different sentence in the introduction). Several paragraphs on page 34 can likely be trimmed to a single sentence.These are just some suggestions for spaces but the entire manuscript should be evaluated to see where the narrative can be made tighter.
+
+## cut subsection on EM industry dynamics
+
+Reviewer1
+
+> p. 5 I’m not sure I fully followed, or found much value in the timeline of search firms—a lot of the names, for example, won’t mean much to theaverage reader. I also had trouble following where the competition and concentration was in that paragraph. Revisit this section to see how much is necessary for the overall argument
+
+Reviewer2
+
+> The authors mention a period of vertical acquisitions in the enrollment management industry, but I’m not sure I saw a discussion of these verticalacquisitions in the text that follows
+
+
+## Cut legal analysis
+
+> Finally, I’d strongly caution against the legal speculation here—it rests on quite a set of logical chains that I don’t think have much legal basis. Idon’t think it is necessary for the manuscript to go in this direction.
+
+Reviewer2
+
+> The end of the introduction methods unfair practices criteria under the FTC Act, but this is the first time it’s mentioned, so it would help to clarifywhat the authors mean by this and how it relates to the student lists (the authors are clear about it in the discussion, but the first mention doesn’thave much context)
+
+
+
+# Minor
+
+## unclear text
+
+Reviewer1
+
+> p. 4 I have a hard time parsing the final sentence before section 2.2. breaking it up in two sentences may be helpful. Also, if footnote 2 providesresults for private institutions, what universities are included in the main text?
+
+## Data/variables
+
+Editor
+
+> Eighth, given that the SAT and PSAT variables are actually measures of SAT/ACT (in SAT units) and PSAT/preACT (in PSAT units), it might behelpful to name those something like “college entrance exam” or “pre college exam” or something when talking about those thresholds. Ascurrently written, the paper can be confusing to the reader about what those variables actually mean.
+
+Reviewer1
+
+> p. 18 Explain whether X3TGPAACAD is weighted or not and how this aligns with what students might report to the College Board.
+
+
+
+## Tables
+
+Editor
+
+> Ninth, Table 1 would benefit from a note that details the data (e.g., the fact that it covers multiple years, what a geomarket and segment is).
+
+Reviewer1
+
+> Throughout the results: I don’t know what p < 0.000 is as a significance level. Is this just a rounding/significant digit thing based on your statisticalsoftware? If so, report the lowest reasonable p-value that this rounding infers (I’m guessing p < 0.001)
+
+
+
+## Requirements for all authors
+
+Editor
+
+> In recognition of the aim of this special issue to further conversation, understanding about, and attention to critical approaches to policy analysisin education, we are also requesting that all authors attend to a few additional points. Terminology varies across fields and terms common in onearea may seem like “jargon” to others. Please take care to define key terms and unpack theories for this generalist audience. Provide detail onyour data and methods, including explanation and justification of your analytic choices and processes (e.g. provide examples of codes),especially for qualitative and discourse methods that are less common in this journal. Address the implications of this work for policy and/orresearch. We hope that readers will use this special issue to reflect back on their own work, even if it is not in the same substantive domain ofpolicy research. We believe that these measures will help strengthen the special issue and the role it can play in the broader field of educationpolicy research; we appreciate your help in accomplishing these aims.
+
