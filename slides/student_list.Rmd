@@ -11,12 +11,15 @@ revealjs:
 #bibliography: '../assets/bib/student_list_policy.bib'
 #bibliography: '../assets/bib/eepa_student_list.bib'
 #csl: '../assets/bib/apa.csl'
-bibliography: '../../public_requests_eda/text/bib/eepa_student_list.bib'
-csl: '../../public_requests_eda/text/bib/apa.csl'
+#bibliography: '../../public_requests_eda/text/bib/eepa_student_list.bib'
+bibliography: './assets/bib/eepa_student_list.bib'
+csl: './assets/bib/apa.csl'
 --- #title
 
 
 ```{r, include = F}
+#getwd()
+#list.files(path = 'assets/bib')
 #setwd('../public_requests_eda')
 #getwd()
 #list.files('../public_requests_eda/text/bib')
@@ -25,6 +28,8 @@ csl: '../../public_requests_eda/text/bib/apa.csl'
 
 ```{r, include = F}
 knitr::opts_chunk$set(echo = F, message = F, warning = F, out.width = '90%', dpi = 300)
+
+#rm(list = ls())
 
 # font size question about slidify
   # https://github.com/ramnathv/slidify/issues/456
@@ -40,6 +45,7 @@ library(slidify)
 library(slidifyLibraries)
 # slidify('slides/student_list_dognpony.Rmd')
 # slidify('slides/student_list_cshpe.Rmd')
+# slidify('slides/student_list.Rmd')
 
 library(servr)
 # Start server: servr::httd()
@@ -58,7 +64,7 @@ library(knitcitations)
 
 cleanbib()
 #bib <- read.bibtex('C:/Users/ozanj/Documents/public_requests_eda/text/bib/eepa_student_list.bib')
-bib <- read.bibtex('../../public_requests_eda/text/bib/eepa_student_list.bib')
+bib <- read.bibtex('../assets/bib/eepa_student_list.bib')
 #bib <- read.bibtex('../assets/bib/student_list_policy.bib')
 #bib <- read.bibtex('../assets/bib/eepa_student_list.bib')
 
@@ -435,163 +441,114 @@ poc_income_2564 <- poc_income %>%
 
 ---
 
-# College Board Search and student outcomes
-## `r citet(bib['RN4739'])`
+## The market for college access
 
-```{r cb-fig, fig.height = 5}
-create_cb_figure <- function(categories, values, plot_title, fill_values = rev(color_palette[1:2])) {
-  cb_fig_df <- data.frame(
-    category = rep(categories, each = 2),
-    subcategory = rep(c('Not Licensed', 'Gain from being Licensed'), length(categories)), 
-    value = values
-  )
-  
-  cb_fig_df$category <- factor(cb_fig_df$category, levels = categories)
-  
-  cb_fig_df %>%
-    left_join(
-      cb_fig_df %>%
-        pivot_wider(id_cols = category, names_from = subcategory, values_from = value) %>%
-        mutate(
-          total = `Not Licensed` + `Gain from being Licensed`,
-          pct_change = `Gain from being Licensed` / `Not Licensed` * 100
-        ),
-      by = 'category') %>% 
-    ggplot(aes(x = category, y = value, fill = subcategory, width = 0.6)) +
-    geom_bar(position = 'stack', stat = 'identity') +
-    geom_text(aes(y = value, label = if_else(subcategory == 'Not Licensed', str_c(sprintf('%.1f', value), '%'), '')), color = color_text, size = 2, position = position_stack(vjust = 0.5)) +
-    geom_text(aes(y = total + 3, label = if_else(subcategory == 'Not Licensed', str_c('(', sprintf('%.1f', pct_change), '%)'), '')), color = '#444444', size = 2) +
-    geom_text(aes(y = total + 7, label = if_else(subcategory == 'Not Licensed', str_c(sprintf('%.1f', `Gain from being Licensed`), 'pp'), '')), color = '#444444', size = 2) +
-    ggtitle(plot_title) +
-    xlab('') + ylab('') + 
-    scale_y_continuous(expand = expansion(mult = c(0, 0.05)), limits = c(0, 80)) +
-    scale_fill_manual(values = fill_values) +
-    theme(
-        plot.margin = margin(t = 0.6, unit = 'cm'),
-        panel.grid.major.y = element_line(size = 0.1, color = 'gray'),
-        legend.title = element_blank(),
-        legend.position = 'bottom',
-        legend.margin = margin(t = -0.5, unit = 'cm'),
-        legend.text = element_text(margin = margin(r = 0.2, unit = 'cm'))
-      ) +
-      guides(fill = guide_legend(reverse = T))
-}
+A two-sided matching problem in which market allocates students to colleges (Hoxby 1997, 2009)
 
-grid.arrange(
-  create_cb_figure(
-    c('Overall', 'Asian', 'Black', 'Hispanic', 'AI/AN', 'HI/PI', 'White'),
-    c(32.8, 8.3, 37.5, 5.7, 31.8, 7.8, 24.1, 8.3, 26.5, 6.3, 22.2, 5.8, 44.4, 9.6),
-    'Enrollment'
-  ),
-  create_cb_figure(
-    c('Overall', 'Asian', 'Black', 'Hispanic', 'AI/AN', 'White'),
-    c(15.7, 4.9, 17.7, 5.0, 7.2, 2.9, 6.7, 2.9, 8.7, 4.2, 24.0, 6.7),
-    'BA Completion within 4 Years'
-  ),
-  create_cb_figure(
-    c('Overall', 'No College', 'College,\nNo BA', 'College,\nBA or Higher'),
-    c(32.8, 8.3, 24.9, 10.1, 36.5, 11.0, 53.4, 10.1),
-    'Enrollment'
-  ),
-  create_cb_figure(
-    c('Overall', 'No College', 'College,\nNo BA', 'College,\nBA or Higher'),
-    c(15.7, 4.9, 13.6, 6.8, 21.3, 8.5, 39.9, 10.1),
-    'BA Completion within 4 Years'
-  ),
-  ncol = 2
-)
-```
+-   Barriers to efficient market:
+    -   transportation costs; information costs
+-   Students
+    -   Goal: want to attend college
+    -   Information problem: Don't know where they will be admitted, how much it will cost
+-   Colleges want to enroll students
+    -   Enrollment goals: academic profile; revenue; diversity; internal constituents
+    -   Information problem: Don't know who/where the "good" students are, how to contact them
+
+<br>
+
+Matchmaking
+
+-   "Inquiries" (student as first contact)
+    -   Students send test scores or fill out inquiry form
+    -   Enrollment problem: Cannot survive/thrive solely from students who reach out on their own
 
 
 ---
 
-## Scholarship on college access
 
-Extant literatures, not mutually exclusive
+## Student lists products
 
-- Student behavior
-- Behavior of schools and postsecondary institutions (PSIs)
-  - Scholarship on enrollment management fits here
-      - Scholarship on admissions fits here
-- Effects of federal, state, and local policies
+"Student list" products: a matchmaking intermediary that connects institutions to prospects
+
+-   Third-party vendors obtain data and contact info about prospecs (e.g., Testing orgs, search engines)
+-   Sell contact information of prospects to colleges looking for students
+    -   Colleges choose prospect profiles by filtering on search filters (e.g., zip code, test score)
+
+<br>
+
+Policy concerns about student list products
+
+-   Problem with student list products
+    -   Search filters incorporate "racialized inputs" `r citep(bib[c('RN4786')])` that systematically disadvantage underrepresented students of color
+-   Problem with utilization of student list products by administrators
+    -   May choose combinations of search filters that results in racial exclusion
 
 <br>
 
-Third-party providers; the other for-profit industry in education
+Research questions
 
-- Schools and PSIs outsource functions to vendors and consultancies `r citep(bib[c('list_biz','RN4793', 'RN4815')])`
-- Scholars have not investigated how third-party produces and services structure college access
-
-<br>
-Developing a literature about algorithmic products
-
-- Literature at the intersections of access, enrollment management, and edtech
-- Analyze products purchased by schools and PSIs
-- Analyze the organizations that sell these products
-
-
+1.  What is the relationship between search filters and the racial composition of included versus excluded students?
+2.  To what extent do we observe patterns of student list purchases that utilize racialized inputs in concert with other search filters?
+3.  What is observed racial composition of student list purchases that utilize racialized inputs in concert with other search filters?
 
 ---
 
-## Structural racism in algorithmic products
+## Research overview
 
-Structural racism
-
-- Processes -- often viewed as neutral or common-sense -- that systematically advantage dominant groups and disadvantage marginalized groups
+Research questions
 
 <br>
-Critical turn in higher education research
-- Experiences of individual people provide insight about structural racism
 
+1.  What is the relationship between search filters and the racial composition of included versus excluded students?
+    - Reconstruct College Board student list product using nationally representative sample of 9th graders from 2009 (NCES HSLS data)
+    - Simulate which students are included versus excluded when certain search filters are utilized
 <br>
-Critical data studies `r cite(bib[c('RN4775','RN4772')])` and sociology of race `r cite(bib[c('RN4774','RN4786')])` finds algorithmic reproduce/increase racial inequality
-- *Structurally racist inputs*: Seemingly neutral inputs that correlate with race because of historical exclusion from this input (e.g., zip code, AP exam scores)
 
-
+2.  To what extent do we observe patterns of student list purchases that utilize racialized inputs in concert with other search filters?
+    - Analyze 830 student lists purchased by 14 public universities, collected via public records requests
 <br>
-**RQ**: What is the relationship between student list search filters (e.g., test score range, zip code) and the characteristics of students who are included vs. excluded by student list purchases?
-- Analyze student lists purchased from College Board
-- Focus on race and class inequality in which prospects are included/excluded by student list purchases
 
+3.  What is observed racial composition of student list purchases that utilize racialized inputs in concert with other search filters?
+    - Analyze targeted student list purchases, where we obtained both the order details and deidentified prospect-level data
 
 --- .section
 
-# Background on student Lists
+# Literature Review
 
+--- 
 
---- .subsection
+## Sociological scholarship on recruiting
 
-# Lists vis-a-vis recruiting
+Enrollment funnel: prospects, leads, inquires, applicants, admits, enrolled
 
----
+- Most scholarship focuses on latter stages (e.g., which applicants get admitted)
+- Growing body of research analyzes recruiting "in the wild"
+    
+<br>
+Recruiting from perspective of high school students `r citep(bib[c('RN4324')])`
 
-## The US market for higher education
-
-
-A national voucher system
-- Tuition revenue: household savings; grants and loans from federal, state, and private sources
-- Tuition revenue follows students to Title IV institutions
+- Underrepresented students sensitive to feeling "wanted" by colleges
 
 <br>
-Students
-- Goal: want to attend college
-- Problem: don't know all options, where they would be admitted, how much it will cost
+Connections between (fancy) high schools and (fancy) colleges from an orgs perspective
+
+- Off-campus recruiting visits indicate a network tie and enrollment priorities
+- recruiting from perspective of: private college `r citep(bib[c('RN3519')])`; private HS counselors `r citep(bib[c('RN4407')])`
+- Recruiting visits by public research universities   `r cite(bib[c('RN4758','RN4759')])`
 
 <br>
-Universities
-- Goal: enroll students to survive and other enrollment goals
-- Problem: can't rely solely on students who reach out on their own; don't know the prospects or how to contact them
+Recruiting at open-access PSIs for adults  `r cite(bib[c('cottom2017lower','RN4520')])`
 
+- For-profits have demand in Black/Latinx communities **because** traditional colleges ignore them
 
 <br>
+Hook
+- Scholarship assumes that recruiting is something done by colleges
+- Ignores products and consultancies that structure recruiting
 
-Student lists
-- A matchmaking intermediary that connects institutions to prospects
-- "lead generation"
-  - Student lists are an example of list-based leads, based on direct mail
-  - As opposed to behavioral-based leads (e.g., ads from Google Search)
+--- .section
 
-
+# Background
 
 --- &twocol
 
@@ -665,196 +622,98 @@ Buying student lists
     - e.g., "geodemographic" filters target prospects based on past behavior of nearby students
 
 
---- .subsection
+---
 
-# EM Market dynamics
+# College Board Search and student outcomes
+## `r citet(bib['RN4739'])`
 
-
---- 
-
-## Dynamics shaping the market for student list data
-
-
-From [The Student List Business: Primer and market dynamics](https://ticas.org/wp-content/uploads/2022/09/The-Student-List-Business_-Primer-and-Market-Dynamics.pdf) `r citep(bib[c('list_biz')])`:
-
-
-1. **Centrality of enrollment management (EM) consulting firms**
-  - Purchase student lists on behalf of universities
-  - Names are input to firm predictive models and recruiting interventions
-<br>
-
-1. **Competition in the 2000s**
-  - Technology >> new sources of student list data (e.g., college search engines; software used by high schools) >> entry by new vendors (e.g., Zinch)
-  - *Note*: all student list data is derived from user-data from students on platforms
-<br>
+```{r cb-fig, fig.height = 5}
+create_cb_figure <- function(categories, values, plot_title, fill_values = rev(color_palette[1:2])) {
+  cb_fig_df <- data.frame(
+    category = rep(categories, each = 2),
+    subcategory = rep(c('Not Licensed', 'Gain from being Licensed'), length(categories)), 
+    value = values
+  )
   
-1. **Concentration in the 2010s**
-  - Horizontal acquisitions in EM consulting industry (e.g., RuffaloCODY acquires Noel-Levitz)
-  - Vertical acquisitions transform market for student list data (e.g., PowerSchool acquires Naviance/Intersect from Hobsons; EAB acquires Cappex)
-      - Leverage control over pool of names to sell software-as-service products
-<br>
+  cb_fig_df$category <- factor(cb_fig_df$category, levels = categories)
+  
+  cb_fig_df %>%
+    left_join(
+      cb_fig_df %>%
+        pivot_wider(id_cols = category, names_from = subcategory, values_from = value) %>%
+        mutate(
+          total = `Not Licensed` + `Gain from being Licensed`,
+          pct_change = `Gain from being Licensed` / `Not Licensed` * 100
+        ),
+      by = 'category') %>% 
+    ggplot(aes(x = category, y = value, fill = subcategory, width = 0.6)) +
+    geom_bar(position = 'stack', stat = 'identity') +
+    geom_text(aes(y = value, label = if_else(subcategory == 'Not Licensed', str_c(sprintf('%.1f', value), '%'), '')), color = color_text, size = 2, position = position_stack(vjust = 0.5)) +
+    geom_text(aes(y = total + 3, label = if_else(subcategory == 'Not Licensed', str_c('(', sprintf('%.1f', pct_change), '%)'), '')), color = '#444444', size = 2) +
+    geom_text(aes(y = total + 7, label = if_else(subcategory == 'Not Licensed', str_c(sprintf('%.1f', `Gain from being Licensed`), 'pp'), '')), color = '#444444', size = 2) +
+    ggtitle(plot_title) +
+    xlab('') + ylab('') + 
+    scale_y_continuous(expand = expansion(mult = c(0, 0.05)), limits = c(0, 80)) +
+    scale_fill_manual(values = fill_values) +
+    theme(
+        plot.margin = margin(t = 0.6, unit = 'cm'),
+        panel.grid.major.y = element_line(size = 0.1, color = 'gray'),
+        legend.title = element_blank(),
+        legend.position = 'bottom',
+        legend.margin = margin(t = -0.5, unit = 'cm'),
+        legend.text = element_text(margin = margin(r = 0.2, unit = 'cm'))
+      ) +
+      guides(fill = guide_legend(reverse = T))
+}
 
-1. **Incumbents College Board and ACT evolve amidst threat from test-optional**
-  - Create new search filters that aid micro-targeting of prospects
-  - Leverage names database to sell EM consulting
-  - Create/buy college search engines
-
-
-
---- .section
-
-# Literature Review
-
---- .subsection
-
-# Recruiting
-
---- 
-
-## Sociological scholarship on recruiting
-
-Enrollment funnel: prospects, leads, inquires, applicants, admits, enrolled
-- Most scholarship focuses on latter stages (e.g., which applicants get admitted)
-- Growing body of research analyzes recruiting "in the wild"
-    
-<br>
-Recruiting from perspective of high school students `r citep(bib[c('RN4324')])`
-- Underrepresented students sensitive to feeling "wanted" by colleges
-
-<br>
-Connections between (fancy) high schools and (fancy) colleges from an orgs perspective
-- Off-campus recruiting visits indicate a network tie and enrollment priorities
-- recruiting from perspective of: private college `r citep(bib[c('RN3519')])`; private HS counselors `r citep(bib[c('RN4407')])`
-- Recruiting visits by public research universities   `r cite(bib[c('RN4758','RN4759')])`
-
-<br>
-Recruiting at open-access PSIs for adults  `r cite(bib[c('cottom2017lower','RN4520')])`
-- For-profits have demand in Black/Latinx communities **because** traditional colleges ignore them
-
-<br>
-Hook
-- Scholarship assumes that recruiting is something done by colleges
-- Ignores products and consultancies that structure recruiting
-
---- .subsection
-
-# Sociology of race
-
---- 
-
-## Racialized social systems and structural racism
-
-Most social sciences define racism as ideology held by individuals (e.g., explicit or implicit racial bias)
-- Measures societal racism by examining the attitudes of individuals
-- Excludes the possibility that institutions can be racist
+grid.arrange(
+  create_cb_figure(
+    c('Overall', 'Asian', 'Black', 'Hispanic', 'AI/AN', 'HI/PI', 'White'),
+    c(32.8, 8.3, 37.5, 5.7, 31.8, 7.8, 24.1, 8.3, 26.5, 6.3, 22.2, 5.8, 44.4, 9.6),
+    'Enrollment'
+  ),
+  create_cb_figure(
+    c('Overall', 'Asian', 'Black', 'Hispanic', 'AI/AN', 'White'),
+    c(15.7, 4.9, 17.7, 5.0, 7.2, 2.9, 6.7, 2.9, 8.7, 4.2, 24.0, 6.7),
+    'BA Completion within 4 Years'
+  ),
+  create_cb_figure(
+    c('Overall', 'No College', 'College,\nNo BA', 'College,\nBA or Higher'),
+    c(32.8, 8.3, 24.9, 10.1, 36.5, 11.0, 53.4, 10.1),
+    'Enrollment'
+  ),
+  create_cb_figure(
+    c('Overall', 'No College', 'College,\nNo BA', 'College,\nBA or Higher'),
+    c(15.7, 4.9, 13.6, 6.8, 21.3, 8.5, 39.9, 10.1),
+    'BA Completion within 4 Years'
+  ),
+  ncol = 2
+)
+```
 
 
-<br>
 
-`r citet(bib[c('RN4814')])`: focus on underlying social structure instead of individual ideology
-
-- *Racialized social systems*: “societies that allocate differential economic, political, social, and even psychological rewards to groups along racial lines” (p. 474)
-- Racial groups are a social construction of a racialized social system
-  - Institutions allocate benefits to racial groups based on socially constructed racial hierarchy
-- “Only way to ‘cure’ society of racism is by eliminating its systemic roots” (p. 476) within institutions
-
-
-<br>
-Structural racism
-
-- “systematic racial bias embedded in the ‘normal’ functions of laws and social relations” `r cite(bib['RN4760'], eg = F, suffix = 'p. 1143')`; processes viewed as neutral systematically advantage dominant groups.
-
-<br>
-Race is fundamental to capitalism (racial capitalism)
-
-- Source of profit is exploitation based on construction of race `r citep(bib[c('RN4782','RN4773')])`
-- Analyses can focus on production (labor) or consumer (e.g., credit, housing) side of economy
-
---- 
-
-## Algorithms and actuarialism
-
-Algorithms
-
-- "sets of instructions written as code and run on computers" `r cite(bib[c('RN4794')], eg = F, suffix = 'p. 215')`
-
-<br>
-Algorithmic products utilize actuarial methods and logic
-
-- _Actuarial methods_ proceed in two steps `r citep(bib[c('RN4778')])`
-    1. Model previous cases in order to identify determinants of an outcome
-    1. Apply these results to future cases in order to make predictions and assign risk levels
-- _Acturarialism_ `r citep(bib[c('RN4835')])`
-    - ideology that equates fairness with risk, as determined by predicted probabilities
-    - e.g., businesses that have characteristics associated with default should pay higher interest rates
-
-<br>
-
-Actuarialism and standardization
-
-- Actuarial products remove individual judgment from decision-making
-- Reduces racial inequity due to prejudice of individual decision-makers `r citep(bib[c('RN4778')])`
-
---- 
-
-## Actuarial methods reproduce structural racism
-
-Classification situations `r citep(bib[c('RN4810')])`
-
-- Defined as use of actuarial techniques by orgs to categorize consumers into different groups
-- Binary classifications: loans offered to consumers with "good" credit, but not bad credit
-- Advances in data analytics >> categorize customers into many groups
-    - Tiered products with costs and benefits tied to level of risk (e.g., payday loan)
-- Predatory inclusion `r citep(bib[c('RN4841','RN4774')])`
-  - Target marginalized consumers for "democratizing mobility schemes on extractive terms” 
-
-
-<br>
-Structurally racist inputs
-
-- Actuarial products predict future outcome by modeling determinants using historical data
-    - “Predicting the future on the basis of the past threatens to reify and reproduce existing inequalities of treatment by institutions” `r cite(bib[c('RN4794')], eg = F, suffix = 'p. 224')`.
-- Structurally racist input: determinant correlated with race because people of color have been historically excluded `r cite(bib[c('doi1011')])`
-- Structural racism in Moody's credit rating algorithm for city governments `r citep(bib[c('RN4786')])`
-  - %Black negatively associated with city rating until control for median household income
-  - Median household income is a "racialized input": 
-      - Seemingly neutral, structurally racist input that masks structural racism of algorithm
-
-
---- 
-
-## Micro-targeting and market segments
-
-- *Micro-targeting*: identify granular segments of society with great precision
-- *Market segmentation*: categorize customers into groups for advertisers (e.g., "married sophisticates")
-
-<br>
-
-Racial exclusion is consequence of micro-targeting, market segmentation `r citep(bib[c('RN4775','RN4772')])`
-
-- These technologies *could* be used to target marginalized groups, but in practice they are not
-- When developing classification systems, developer bias and structurally racist inputs enter algorithm
-- Classification systems designed for profit, do not create audience segments not valued by advertisers
-
-
-<br>
-
-Micro-targeting and segmentation by Facebook `r cite(bib[c('RN4795')], eg = F, suffix = 'p. 1')`
-
-- "Driven not by a goal of making all users available to advertisers, but of making the ‘right’ individuals"
-- Tells advertisers choose "‘targeting strategy that focuses on reach and precision and eliminates waste'"
-
-<br>
-Student list products
-- College Board Student Search: “create a real pipeline of best-fit prospects” `r citep(bib[c('RN1623')])`
-- `r citet(bib[c('ruffalo_noel_levitz_2021')])`: “target the right students in the right markets” by making “the most efficient name purchases using predictive modeling”
-
-<br>
-Hook: Sociology of race has not studied products that help orgs identify customers (I think)
 
 --- .section
 
 # Conceptual Framework
+
+--- 
+
+## Sociology of race
+
+
+Selection devices: procedures/routines for allocating individuals to categories based on set of input factors `r citep(bib[c('RN4778')])`
+
+- Descretionary selection devices
+  - Decisions incorporate judgment of individual evaluators (e.g., holistic admissions)
+- Standardized selection devices
+  - decisions based on a mathematical function in which value of input variables determines value of outcome
+  - "actuarial" selection devices: predictions based on analysis of past cases
+  - non-actuarial (e.g., U. Michigan admissions pre-2003)
+
+
+<br>
 
 --- 
 
@@ -942,6 +801,7 @@ Empirical research questions
 1. What are the characteristics of prospects included in student lists purchases?
 1. **What is the relationship between student list filter criteria and the characteristics of
 purchased prospects?**
+
 
 
 ---
