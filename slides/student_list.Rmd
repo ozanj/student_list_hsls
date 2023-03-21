@@ -427,8 +427,6 @@ poc_income_2564 <- poc_income %>%
 <div id='authors'>
   <div><p>Ozan Jaquette</p><span class='affiliation'>UCLA</span></div>
   <div><p>Karina Salazar</p><span class='affiliation'>University of Arizona</span></div>
-  <div><p>Crystal Han</p><span class='affiliation'>Stanford</span></div>
-  <div><p>Patrica Martín</p><span class='affiliation'>UCLA</span></div>
 </div>
 
 <a class="link" href="https://ozanj.github.io/student_list_hsls/slides/student_list.html" target="_blank">ozanj.github.io/student_list_hsls/slides/student_list.html</a>
