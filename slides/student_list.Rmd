@@ -73,6 +73,8 @@ library(tidyverse)
 library(ggbreak)
 library(scales)
 library(usmap)
+library(extrafont)
+loadfonts() #KS added to run theme_set
 
 # Function for parenthetical citation needing `e.g.,` or have no year (ie. forthcoming)
 # b: citation(s)
