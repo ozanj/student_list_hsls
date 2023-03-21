@@ -163,172 +163,172 @@ orders_filters_totals <- orders_filters %>%
   deframe()
 
 # RQ2
-# rq2_race_research_outofstate <- rq2_race %>% 
-#   filter(univ_type == 'research', region == 'domestic', locale == 'outofstate') %>%
-#   mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-#   select(race, pct) %>% 
-#   deframe()
-# 
-# rq2_race_research_outofstate_full <- rq2_race_full %>% 
-#   filter(univ_type == 'research', region == 'domestic', locale == 'outofstate') %>%
-#   mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-#   select(race, pct) %>% 
-#   deframe()
-# 
-# rq2_race_research_instate <- rq2_race %>% 
-#   filter(univ_type == 'research', region == 'domestic', locale == 'instate') %>%
-#   mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-#   select(race, pct) %>% 
-#   deframe()
-# 
-# rq2_race_research_instate_full <- rq2_race_full %>% 
-#   filter(univ_type == 'research', region == 'domestic', locale == 'instate') %>%
-#   mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-#   select(race, pct) %>% 
-#   deframe()
-# 
-# rq2_race_regional_instate <- rq2_race %>% 
-#   filter(univ_type == 'regional', region == 'domestic', locale == 'instate') %>%
-#   mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-#   select(race, pct) %>% 
-#   deframe()
-# 
-# rq2_race_regional_instate_full <- rq2_race_full %>% 
-#   filter(univ_type == 'regional', region == 'domestic', locale == 'instate') %>%
-#   mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-#   select(race, pct) %>% 
-#   deframe()
-# 
-# rq2_locale_research_outofstate <- rq2_locale %>% 
-#   filter(univ_type == 'research', region == 'domestic', locale == 'outofstate') %>%
-#   mutate(pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-#   select(locale_text, pct) %>% 
-#   deframe()
-# 
-# rq2_locale_research_instate <- rq2_locale %>% 
-#   filter(univ_type == 'research', region == 'domestic', locale == 'instate') %>%
-#   mutate(pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-#   select(locale_text, pct) %>% 
-#   deframe()
-# 
-# rq2_locale_regional_instate <- rq2_locale %>% 
-#   filter(univ_type == 'regional', region == 'domestic', locale == 'instate') %>%
-#   mutate(pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-#   select(locale_text, pct) %>% 
-#   deframe()
+rq2_race_research_outofstate <- rq2_race %>%
+  filter(univ_type == 'research', region == 'domestic', locale == 'outofstate') %>%
+  mutate(race = as.factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>%
+  select(race, pct) %>%
+  deframe()
+
+rq2_race_research_outofstate_full <- rq2_race_full %>%
+  filter(univ_type == 'research', region == 'domestic', locale == 'outofstate') %>%
+  mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as.factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>%
+  select(race, pct) %>%
+  deframe()
+
+rq2_race_research_instate <- rq2_race %>%
+  filter(univ_type == 'research', region == 'domestic', locale == 'instate') %>%
+  mutate(race = as.factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>%
+  select(race, pct) %>%
+  deframe()
+
+rq2_race_research_instate_full <- rq2_race_full %>%
+  filter(univ_type == 'research', region == 'domestic', locale == 'instate') %>%
+  mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as.factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>%
+  select(race, pct) %>%
+  deframe()
+
+rq2_race_regional_instate <- rq2_race %>%
+  filter(univ_type == 'regional', region == 'domestic', locale == 'instate') %>%
+  mutate(race = as.factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>%
+  select(race, pct) %>%
+  deframe()
+
+rq2_race_regional_instate_full <- rq2_race_full %>%
+  filter(univ_type == 'regional', region == 'domestic', locale == 'instate') %>%
+  mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as.factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>%
+  select(race, pct) %>%
+  deframe()
+
+rq2_locale_research_outofstate <- rq2_locale %>%
+  filter(univ_type == 'research', region == 'domestic', locale == 'outofstate') %>%
+  mutate(pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>%
+  select(locale_text, pct) %>%
+  deframe()
+
+rq2_locale_research_instate <- rq2_locale %>%
+  filter(univ_type == 'research', region == 'domestic', locale == 'instate') %>%
+  mutate(pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>%
+  select(locale_text, pct) %>%
+  deframe()
+
+rq2_locale_regional_instate <- rq2_locale %>%
+  filter(univ_type == 'regional', region == 'domestic', locale == 'instate') %>%
+  mutate(pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>%
+  select(locale_text, pct) %>%
+  deframe()
 
 # RQ3
-# rq3_poc <- round(rq3 %>% filter(row_subj %in% c('pct_black', 'pct_latinx', 'pct_aian')) %>% select(-row_subj) %>% colSums() * 100)
-# 
-# rq3_income <- prettyNum(round(rq3 %>% filter(row_subj == 'med_income') %>% select(-row_subj) / 1e3) * 1e3, ',')
-# 
-# rq3_instate <- round(rq3 %>% filter(row_subj == 'pct_instate') %>% select(-row_subj) * 100)
-# rq3_outofstate <- round(rq3 %>% filter(row_subj == 'pct_outofstate') %>% select(-row_subj) * 100)
-# 
-# asu_la_totals <- asu_la_full %>%
-#   group_by(ord_type, in_zip_top10pct) %>% 
-#   summarise(count = sum(count)) %>% 
-#   ungroup() %>% 
-#   mutate(category = str_c(ord_type, if_else(in_zip_top10pct == 1, 'top10', 'bottom90'), sep = '_')) %>% 
-#   select(category, count) %>% 
-#   deframe()
-# 
-# asu_la_psat_high_top10 <- asu_la %>% 
-#   filter(ord_type == 'psat_high', in_zip_top10pct == 1) %>%
-#   mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-#   select(race, pct) %>% 
-#   deframe()
-# 
-# asu_la_psat_high_top10_full <- asu_la_full %>% 
-#   filter(ord_type == 'psat_high', in_zip_top10pct == 1) %>%
-#   mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-#   select(race, pct) %>% 
-#   deframe()
-# 
-# asu_la_psat_high_bottom90 <- asu_la %>% 
-#   filter(ord_type == 'psat_high', in_zip_top10pct == 0) %>%
-#   mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-#   select(race, pct) %>% 
-#   deframe()
-# 
-# asu_la_psat_high_bottom90_full <- asu_la_full %>% 
-#   filter(ord_type == 'psat_high', in_zip_top10pct == 0) %>%
-#   mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-#   select(race, pct) %>% 
-#   deframe()
-# 
-# asu_la_psat_med_top10 <- asu_la %>% 
-#   filter(ord_type == 'psat_med', in_zip_top10pct == 1) %>%
-#   mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-#   select(race, pct) %>% 
-#   deframe()
-# 
-# asu_la_psat_med_top10_full <- asu_la_full %>% 
-#   filter(ord_type == 'psat_med', in_zip_top10pct == 1) %>%
-#   mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-#   select(race, pct) %>% 
-#   deframe()
-# 
-# asu_la_psat_med_bottom90 <- asu_la %>% 
-#   filter(ord_type == 'psat_med', in_zip_top10pct == 0) %>%
-#   mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-#   select(race, pct) %>% 
-#   deframe()
-# 
-# asu_la_psat_med_bottom90_full <- asu_la_full %>% 
-#   filter(ord_type == 'psat_med', in_zip_top10pct == 0) %>%
-#   mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-#   select(race, pct) %>% 
-#   deframe()
-# 
-# asu_la_psat_low_top10 <- asu_la %>% 
-#   filter(ord_type == 'psat_low', in_zip_top10pct == 1) %>%
-#   mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-#   select(race, pct) %>% 
-#   deframe()
-# 
-# asu_la_psat_low_top10_full <- asu_la_full %>% 
-#   filter(ord_type == 'psat_low', in_zip_top10pct == 1) %>%
-#   mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-#   select(race, pct) %>% 
-#   deframe()
-# 
-# asu_la_psat_low_bottom90 <- asu_la %>% 
-#   filter(ord_type == 'psat_low', in_zip_top10pct == 0) %>%
-#   mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-#   select(race, pct) %>% 
-#   deframe()
-# 
-# asu_la_psat_low_bottom90_full <- asu_la_full %>% 
-#   filter(ord_type == 'psat_low', in_zip_top10pct == 0) %>%
-#   mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-#   select(race, pct) %>% 
-#   deframe()
-# 
-# asu_la_sat_med_top10 <- asu_la %>% 
-#   filter(ord_type == 'sat_med', in_zip_top10pct == 1) %>%
-#   mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-#   select(race, pct) %>% 
-#   deframe()
-# 
-# asu_la_sat_med_top10_full <- asu_la_full %>% 
-#   filter(ord_type == 'sat_med', in_zip_top10pct == 1) %>%
-#   mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-#   select(race, pct) %>% 
-#   add_row(race = 'unknown', pct = 0) %>%
-#   deframe()
-# 
-# asu_la_sat_med_bottom90 <- asu_la %>% 
-#   filter(ord_type == 'sat_med', in_zip_top10pct == 0) %>%
-#   mutate(race = as_factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-#   select(race, pct) %>% 
-#   deframe()
-# 
-# asu_la_sat_med_bottom90_full <- asu_la_full %>% 
-#   filter(ord_type == 'sat_med', in_zip_top10pct == 0) %>%
-#   mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as_factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>% 
-#   select(race, pct) %>% 
-#   deframe()
+rq3_poc <- round(rq3 %>% filter(row_subj %in% c('pct_black', 'pct_latinx', 'pct_aian')) %>% select(-row_subj) %>% colSums() * 100)
+
+rq3_income <- prettyNum(round(rq3 %>% filter(row_subj == 'med_income') %>% select(-row_subj) / 1e3) * 1e3, ',')
+
+rq3_instate <- round(rq3 %>% filter(row_subj == 'pct_instate') %>% select(-row_subj) * 100)
+rq3_outofstate <- round(rq3 %>% filter(row_subj == 'pct_outofstate') %>% select(-row_subj) * 100)
+
+asu_la_totals <- asu_la_full %>%
+  group_by(ord_type, in_zip_top10pct) %>%
+  summarise(count = sum(count)) %>%
+  ungroup() %>%
+  mutate(category = str_c(ord_type, if_else(in_zip_top10pct == 1, 'top10', 'bottom90'), sep = '_')) %>%
+  select(category, count) %>%
+  deframe()
+
+asu_la_psat_high_top10 <- asu_la %>%
+  filter(ord_type == 'psat_high', in_zip_top10pct == 1) %>%
+  mutate(race = as.factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>%
+  select(race, pct) %>%
+  deframe()
+
+asu_la_psat_high_top10_full <- asu_la_full %>%
+  filter(ord_type == 'psat_high', in_zip_top10pct == 1) %>%
+  mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as.factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>%
+  select(race, pct) %>%
+  deframe()
+
+asu_la_psat_high_bottom90 <- asu_la %>%
+  filter(ord_type == 'psat_high', in_zip_top10pct == 0) %>%
+  mutate(race = as.factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>%
+  select(race, pct) %>%
+  deframe()
+
+asu_la_psat_high_bottom90_full <- asu_la_full %>%
+  filter(ord_type == 'psat_high', in_zip_top10pct == 0) %>%
+  mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as.factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>%
+  select(race, pct) %>%
+  deframe()
+
+asu_la_psat_med_top10 <- asu_la %>%
+  filter(ord_type == 'psat_med', in_zip_top10pct == 1) %>%
+  mutate(race = as.factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>%
+  select(race, pct) %>%
+  deframe()
+
+asu_la_psat_med_top10_full <- asu_la_full %>%
+  filter(ord_type == 'psat_med', in_zip_top10pct == 1) %>%
+  mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as.factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>%
+  select(race, pct) %>%
+  deframe()
+
+asu_la_psat_med_bottom90 <- asu_la %>%
+  filter(ord_type == 'psat_med', in_zip_top10pct == 0) %>%
+  mutate(race = as.factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>%
+  select(race, pct) %>%
+  deframe()
+
+asu_la_psat_med_bottom90_full <- asu_la_full %>%
+  filter(ord_type == 'psat_med', in_zip_top10pct == 0) %>%
+  mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as.factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>%
+  select(race, pct) %>%
+  deframe()
+
+asu_la_psat_low_top10 <- asu_la %>%
+  filter(ord_type == 'psat_low', in_zip_top10pct == 1) %>%
+  mutate(race = as.factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>%
+  select(race, pct) %>%
+  deframe()
+
+asu_la_psat_low_top10_full <- asu_la_full %>%
+  filter(ord_type == 'psat_low', in_zip_top10pct == 1) %>%
+  mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as.factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>%
+  select(race, pct) %>%
+  deframe()
+
+asu_la_psat_low_bottom90 <- asu_la %>%
+  filter(ord_type == 'psat_low', in_zip_top10pct == 0) %>%
+  mutate(race = as.factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>%
+  select(race, pct) %>%
+  deframe()
+
+asu_la_psat_low_bottom90_full <- asu_la_full %>%
+  filter(ord_type == 'psat_low', in_zip_top10pct == 0) %>%
+  mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as.factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>%
+  select(race, pct) %>%
+  deframe()
+
+asu_la_sat_med_top10 <- asu_la %>%
+  filter(ord_type == 'sat_med', in_zip_top10pct == 1) %>%
+  mutate(race = as.factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>%
+  select(race, pct) %>%
+  deframe()
+
+asu_la_sat_med_top10_full <- asu_la_full %>%
+  filter(ord_type == 'sat_med', in_zip_top10pct == 1) %>%
+  mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as.factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>%
+  select(race, pct) %>%
+  add_row(race = 'unknown', pct = 0) %>%
+  deframe()
+
+asu_la_sat_med_bottom90 <- asu_la %>%
+  filter(ord_type == 'sat_med', in_zip_top10pct == 0) %>%
+  mutate(race = as.factor(stu_race_cb), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>%
+  select(race, pct) %>%
+  deframe()
+
+asu_la_sat_med_bottom90_full <- asu_la_full %>%
+  filter(ord_type == 'sat_med', in_zip_top10pct == 0) %>%
+  mutate(race = if_else(is.na(stu_race_cb), 'unknown', as.character(as.factor(stu_race_cb))), pct = if_else(pct < 0.01, round(pct * 100, 1), round(pct * 100))) %>%
+  select(race, pct) %>%
+  deframe()
 
 uiuc_totals <- uiuc_race_full %>%
   filter(ord_type == 'prospect') %>% 
@@ -439,6 +439,7 @@ poc_income_2564 <- poc_income %>%
 
 ---
 
+
 ## The market for college access
 
 A two-sided matching problem in which market allocates students to colleges (Hoxby 1997, 2009)
@@ -462,7 +463,6 @@ Matchmaking
 
 
 ---
-
 
 ## Student lists products
 
@@ -690,8 +690,6 @@ grid.arrange(
 ```
 
 
-
-
 --- .section
 
 # Conceptual Framework
@@ -772,34 +770,29 @@ Expected results
 
 --- .subsection
 
-# Data collection
+# Data 
 
 ---
 
-## Data collection overview
+## HSLS09 & Student List Project
 
-Data collection
+High School Longitudinal Study of 2009 (HSLS09)
 
-- Issued public records requests to all public universities in four states (CA, IL, MN, TX)
+
+-  Unweighted analysis sample (n=16,530) 
+  - Includes students who completed 2012/2013 survey follow-ups and obtained high school transcript data
+- Weighted analysis sample represent approximately 4.2 million U.S. 9th graders in 2009
+
+<br>
+
+Student List Project
+
+
+- Issued public records requests for student list data (2016-2020) to all public universities in four states (CA, IL, MN, TX)
 - Target student list vendors: College Board, ACT
-- Data collection began February 2020, sought purchases from 2016-2020
-
-<br>
-
-For each purchased list, sought two pieces of data
-
-1. "Order summary" specifying search filter criteria ([LINK](https://drive.google.com/file/d/1gPZ-WWw0gdFT7VtzBN3hKLnj2DzoaqnY/view))
-1. De-identified prospect-level student list ([LINK](https://drive.google.com/file/d/1Qvc_QRi9izEF1W78Lh4nNi5NsXjCZqUE/view))
-
-<br>
-
-Empirical research questions
-
-1. Which filter criteria were selected in student lists purchases?
-1. What are the characteristics of prospects included in student lists purchases?
-1. **What is the relationship between student list filter criteria and the characteristics of
-purchased prospects?**
-
+- For each purchased list, sought two pieces of data
+  - "Order summary" specifying search filter criteria ([LINK](https://drive.google.com/file/d/1gPZ-WWw0gdFT7VtzBN3hKLnj2DzoaqnY/view))
+  - De-identified prospect-level student list ([LINK](https://drive.google.com/file/d/1Qvc_QRi9izEF1W78Lh4nNi5NsXjCZqUE/view))
 
 
 ---
@@ -861,49 +854,256 @@ orders_prospects_purchased %>%
 
 --- 
 
-## Summary of orders and prospects
+## Variables & Analyses
 
-```{r purchased-data, results = 'asis', echo = F, message = F}
-data.frame(
-  orders_total = num_orders,
-  orders_with_list = num_orders_w_list,
-  prospects_total = prettyNum(num_prospects, ','),
-  prospects_with_order = prettyNum(num_prospects_w_order, ',')
-) %>% 
-  xtable(align = rep('c', 5), display = rep('d', 5)) %>% 
-  print(add.to.row = list(pos = list(0), command = c('<tr style="text-align:center;"><th style="border-bottom:none;">RQ1</th><th style="border-bottom:none;">RQ3</th><th style="border-bottom:none;">RQ2</th><th style="border-bottom:none;">RQ3</th></tr><tr style="text-align:center;"><th># orders total</th><th># orders with list</th><th># prospects total</th><th># prospects with order</th></tr>')), include.colnames = F)
-```
+RQ1: What is the relationship between student list search filters and the
+racial composition of students who are included versus excluded from College Board student list purchases?
 
 <br>
 
-Empirical research questions
-
-1. Which filter criteria were selected in student lists purchases?
-  - Unit of analysis = order; 830 orders (by 14 universities)
-1. What are the characteristics of prospects included in student lists purchases?
-  - unit of analysis = university-prospect; 3,663,257 prospects (by 14 universities)
-1. **What is relationship between filter criteria and characteristics of purchased prospects?**
-  - Unit of analysis = order-prospect; 414 orders associated with 2,548,085 prospects
+RQ2: 
 
 <br>
-Case study research design because non-random sample
 
-- RQ1 and RQ2
-  - Internal validity: are orders/prospects representative of behavior of 14 universities in sample?
-  - External validity: cannot make inferences about population of public univs
-- RQ3
-  - Ixternal validity: set of search criteria yield same prospects regardless of which univ purchases
-  - Analyses focus on "deep dives" of conceptually important order combinations
+- Dependent Variable: student race/ethnicity
+- Independent Variables: measures of student list academic and geographic filters
+  - Dichotomous measures of SAT, PSAT, AP completion 
+  - Threshold measures of highest SAT, PSAT, AP scores, and GPA 
+  - Economic measures of students' zipcode, county, CBSA from ACS
+- Analyses: descriptive statistics
+  - All analyses compare the racial composition of included versus excluded prospects when particular filters and/or filter thresholds are utilized to purchase prospect profiles
+  
+
+<!-- ## Summary of orders and prospects -->
+
+<!-- ```{r purchased-data, results = 'asis', echo = F, message = F} -->
+<!-- data.frame( -->
+<!--   orders_total = num_orders, -->
+<!--   orders_with_list = num_orders_w_list, -->
+<!--   prospects_total = prettyNum(num_prospects, ','), -->
+<!--   prospects_with_order = prettyNum(num_prospects_w_order, ',') -->
+<!-- ) %>%  -->
+<!--   xtable(align = rep('c', 5), display = rep('d', 5)) %>%  -->
+<!--   print(add.to.row = list(pos = list(0), command = c('<tr style="text-align:center;"><th style="border-bottom:none;">RQ1</th><th style="border-bottom:none;">RQ3</th><th style="border-bottom:none;">RQ2</th><th style="border-bottom:none;">RQ3</th></tr><tr style="text-align:center;"><th># orders total</th><th># orders with list</th><th># prospects total</th><th># prospects with order</th></tr>')), include.colnames = F) -->
+<!-- ``` -->
+
+<!-- <br> -->
+
+<!-- Empirical research questions -->
+
+<!-- 1. Which filter criteria were selected in student lists purchases? -->
+<!--   - Unit of analysis = order; 830 orders (by 14 universities) -->
+<!-- 1. What are the characteristics of prospects included in student lists purchases? -->
+<!--   - unit of analysis = university-prospect; 3,663,257 prospects (by 14 universities) -->
+<!-- 1. **What is relationship between filter criteria and characteristics of purchased prospects?** -->
+<!--   - Unit of analysis = order-prospect; 414 orders associated with 2,548,085 prospects -->
+
+<!-- <br> -->
+<!-- Case study research design because non-random sample -->
+
+<!-- - RQ1 and RQ2 -->
+<!--   - Internal validity: are orders/prospects representative of behavior of 14 universities in sample? -->
+<!--   - External validity: cannot make inferences about population of public univs -->
+<!-- - RQ3 -->
+<!--   - Ixternal validity: set of search criteria yield same prospects regardless of which univ purchases -->
+<!--   - Analyses focus on "deep dives" of conceptually important order combinations -->
 
 
 --- .section
 
 # Results
 
-
 --- .subsection
 
 # RQ1
+
+
+--- &twocol .subsubsection
+
+# Test Takers
+## SAT, PSAT, AP
+
+<img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
+
+*** =left 
+
+<div class="row">
+  <div class="column">
+    <img src="../outputs/figures/p1_sat.png" alt="Snow" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="../outputs/figures/p1_psat.png" alt="Forest" style="width:100%">
+  </div>
+</div>
+
+*** =right 
+
+<div class="row">
+  <div class="column">
+    <img src="../outputs/figures/p1_ap.png" alt="Snow" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="../outputs/figures/p1_apstem.png" alt="Forest" style="width:100%">
+  </div>
+</div>
+
+
+--- &twocol .subsubsection
+
+# Test Thresholds
+## SAT, PSAT
+
+<img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
+
+*** =left 
+
+<div class="row">
+  <div class="column">
+    <img src="../outputs/figures/p2_sat_inc.png" alt="P2SAT_inc" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="../outputs/figures/p2_sat_exc.png" alt="P2SAT_exc" style="width:100%">
+  </div>
+</div>
+
+*** =right 
+
+<div class="row">
+  <div class="column">
+    <img src="../outputs/figures/p2_psat_inc.png" alt="P2PSAT_inc" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="../outputs/figures/p2_psat_exc.png" alt="P2PSAT_exc" style="width:100%">
+  </div>
+</div>
+
+
+--- &twocol
+
+# Test Thresholds
+## AP, AP STEM
+
+<img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
+
+*** =left 
+
+<div class="row">
+  <div class="column">
+    <img src="../outputs/figures/p2_ap_inc.png" alt="P2AP_inc" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="../outputs/figures/p2_ap_exc.png" alt="P2AP_exc" style="width:100%">
+  </div>
+</div>
+
+*** =right 
+
+<div class="row">
+  <div class="column">
+    <img src="../outputs/figures/p2_apstem_inc.png" alt="P2APstem_inc" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="../outputs/figures/p2_apstem_exc.png" alt="P2APstem_exc" style="width:100%">
+  </div>
+</div>
+
+---
+
+# Test Thresholds
+## GPA
+
+<img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
+
+<div class="row">
+  <div class="column">
+    <img src="../outputs/figures/p2_gpa_inc.png" alt="P2GPA_inc" style="width:50%">
+  </div>
+  <div class="column">
+    <img src="../outputs/figures/p2_gpa_exc.png" alt="P2GPA_exc" style="width:50%">
+  </div>
+</div>
+
+--- .subsubsection
+
+# Zip by Income
+## Affluence Percentiles within CBSA
+
+<img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
+
+<div class="row">
+  <div class="column">
+    <img src="../outputs/figures/p3_zip_inc.png" alt="P3zip_inc" style="width:50%">
+  </div>
+  <div class="column">
+    <img src="../outputs/figures/p3_zip_exc.png" alt="P3zip_exc" style="width:50%">
+  </div>
+</div>
+
+
+--- &twocol
+
+# Zip by Income
+## Affluence Percentiles within CBSA
+
+<img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
+
+*** =left 
+
+<div class="row">
+  <div class="column">
+    <img src="../outputs/figures/p3_zip_inc_la.png" alt="P3zipla_inc" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="../outputs/figures/p3_zip_exc_la.png" alt="P3zipla_exc" style="width:100%">
+  </div>
+</div>
+
+*** =right 
+
+<div class="row">
+  <div class="column">
+    <img src="../outputs/figures/p3_zip_inc_ny.png" alt="P3zipny_inc" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="../outputs/figures/p3_zip_exc_ny.png" alt="P3zipny_enc" style="width:100%">
+  </div>
+</div>
+
+
+--- &twocol .subsubsection
+
+# Zip vs County
+## Affluence Percentiles within CBSA
+
+<img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
+
+*** =left 
+
+<div class="row">
+  <div class="column">
+    <img src="../outputs/figures/p4_zip_income_inc.png" alt="P4zip_inc" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="../outputs/figures/p4_zip_income_exc.png" alt="P4zip_exc" style="width:100%">
+  </div>
+</div>
+
+*** =right 
+
+<div class="row">
+  <div class="column">
+    <img src="../outputs/figures/p4_county_income_inc.png" alt="P4county_inc" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="../outputs/figures/p4_county_income_exc.png" alt="P4county_exc" style="width:100%">
+  </div>
+</div>
+
+
+
+--- .subsection
+
+# RQ2
 
 
 --- .subsubsection
@@ -1194,263 +1394,61 @@ bind_cols(
 
 --- .subsection
 
-# RQ2
-
-
----
-
-# Characteristics of Prospects
-## Number of prospects by university type and location
-
-```{r rq2-counts, fig.height = 3}
-rq2_counts %>% 
-  mutate(
-    region = recode_factor(
-      region,
-      'international' = 'International',
-      'domestic' = 'Domesetic'
-    ),
-    count_type = str_c(univ_type, locale, sep = '_'),
-    count_type = recode_factor(
-      count_type,
-      'regional_outofstate' = 'MA/doctoral (out-of-state)',
-      'regional_instate' = 'MA/doctoral (in-state)',
-      'research_outofstate' = 'Research (out-of-state)',
-      'research_instate' = 'Research (in-state)'
-    )
-  ) %>% 
-  ggplot(aes(y = count_type, x = n, fill = region)) + 
-  geom_bar(position = 'stack', stat = 'identity') + 
-  geom_text(mapping = aes(label = if_else(univ_type == 'regional' & locale == 'outofstate', '', if_else(n < 1000000, str_c(round(n / 1000), 'K'), str_c(round(n / 1000000, 1), 'M')))), size = 2, position = position_stack(vjust = 0.5)) +
-  geom_text(mapping = aes(label = if_else(univ_type == 'regional' & region == 'Domesetic' & locale == 'outofstate', str_c(round(n / 1000), 'K (300 international)'), ''), x = 30e3), hjust = 0, size = 2) +
-  scale_fill_manual(values = rev(color_palette[1:2]), name = '') +
-  scale_x_continuous(expand = expansion(mult = c(0, 0.04)), labels = function(n) if_else(n < 1000000, str_c(n / 1000, 'K'), str_c(n / 1000000, 'M'))) +
-  xlab('Number of prospects') + ylab('') +
-  guides(fill = guide_legend(reverse = T)) +
-  theme(
-    axis.text.y = element_text(color = '#444444', size = 7, face = 'bold', hjust = 1)
-  )
-```
-
+# RQ3
 
 
 --- .subsubsection
 
-# Public research universities 
-## Racial composition of prospects in lists purchased
+# Academic & Geographic Combos
+## GPA (3.0+) and SAT or PSAT (across score thresholds)
 
-```{r rq2-race-research, fig.height = 2}
-rq2_race %>% 
-  filter(univ_type == 'research', region != 'international') %>% 
-  mutate(
-    stu_race_cb = if_else(is.na(stu_race_cb), 999, unclass(stu_race_cb)),
-    race = recode_factor(
-      stu_race_cb,
-      `999` = 'Missing',
-      `0` = 'No response',
-      `10` = 'Other',
-      `12` = 'Multiracial',
-      `8` = 'NH/PI',
-      `1` = 'AI/AN',
-      `4` = 'Latinx',
-      `3` = 'Black',
-      `2` = 'Asian',
-      `9` = 'White'
-    ),
-    count_type = str_c(univ_type, locale, sep = '_'),
-    count_type = recode_factor(
-      count_type,
-      'research_outofstate' = 'Research (out-of-state)',
-      'research_instate' = 'Research (in-state)'
-    )
-  ) %>% 
-  filter(race != 'Missing') %>% 
-  ggplot(aes(y = count_type, x = pct, fill = race)) + 
-  geom_bar(position = 'stack', stat = 'identity') + 
-  geom_text(mapping = aes(label = if_else(pct > 0.02, as.character(round(pct * 100)), '')), size = 2, position = position_stack(vjust = 0.5), color = color_text) +
-  # scale_fill_brewer(palette = 'BrBG', direction = -1, name = 'Race') +
-  scale_fill_manual(values = rev(color_palette), name = 'Race') +
-  scale_x_continuous(expand = expansion(mult = c(0, 0.04))) +
-  scale_y_discrete(expand = expansion(mult = c(0.01, 0.1))) +
-  xlab('Percent of prospects') + ylab('') +
-  guides(fill = guide_legend(reverse = T)) +
-  theme(
-    axis.text.x = element_blank(),
-    axis.text.y = element_text(color = '#444444', size = 7, face = 'bold', hjust = 1)
-  )
-```
+<img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
 
+<div class="row">
+  <div class="column">
+    <img src="../outputs/figures/combo1_inc_sat.png" alt="combo1_sat" style="width:50%">
+  </div>
+  <div class="column">
+    <img src="../outputs/figures/combo1_inc_psat.png" alt="combo1_psat" style="width:50%">
+  </div>
+</div>
 
 ---
 
-## Median household income of prospects in lists purchased
+# Academic & Geographic Combos
+## GPA (3.0+), PSAT (150+) or SAT (1050+), and Zip (across income thresholds)
 
-```{r rq2-income-research, fig.height = 1.5}
-rq2_income %>% 
-  filter(univ_type == 'research', region != 'international') %>% 
-  mutate(
-    count_type = str_c(univ_type, locale, sep = '_'),
-    count_type = recode_factor(
-      count_type,
-      'research_outofstate' = 'Research (out-of-state)',
-      'research_instate' = 'Research (in-state)'
-    )
-  ) %>% 
-  ggplot(aes(y = count_type, x = income_2564)) + 
-  geom_bar(stat = 'identity', fill = color_palette[[1]]) + 
-  geom_text(mapping = aes(label = str_c('$', round(income_2564 / 1000), 'K')), size = 2, hjust = -0.1) +
-  scale_x_continuous(expand = expansion(mult = c(0, 0.04)), limits = c(0, 115000)) +
-  scale_y_discrete(expand = expansion(mult = c(0.01, 0.1))) +
-  xlab('') + ylab('') +
-  guides(fill = guide_legend(reverse = T)) +
-  theme(
-    axis.text.x = element_blank(),
-    axis.text.y = element_text(color = '#444444', size = 7, face = 'bold', hjust = 1)
-  )
-```
+<img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
 
+<div class="row">
+  <div class="column">
+    <img src="../outputs/figures/combo2_inc_sat.png" alt="combo2_sat" style="width:50%">
+  </div>
+  <div class="column">
+    <img src="../outputs/figures/combo2_inc_psat.png" alt="combo2_psat" style="width:50%">
+  </div>
+</div>
 
 ---
 
-## Locale of prospects in lists purchased
+# Academic & Geographic Combos
+## GPA (3.0+) and AP (across score thresholds)
 
-```{r rq2-locale-research, fig.height = 2}
-rq2_locale %>% 
-  filter(univ_type == 'research', region != 'international') %>% 
-  mutate(
-    count_type = str_c(univ_type, locale, sep = '_'),
-    count_type = recode_factor(
-      count_type,
-      'research_outofstate' = 'Research (out-of-state)',
-      'research_instate' = 'Research (in-state)'
-    )
-  ) %>% 
-  ggplot(aes(y = count_type, x = pct, fill = locale_text)) + 
-  geom_bar(position = 'stack', stat = 'identity') + 
-  geom_text(mapping = aes(label = if_else(pct > 0.02, as.character(round(pct * 100)), '')), size = 2, position = position_stack(vjust = 0.5), color = color_text) +
-  # scale_fill_brewer(palette = 'BrBG', direction = -1, name = 'Locale') +
-  scale_fill_manual(values = rev(color_palette[c(1:5, 7)]), name = 'Locale') +
-  scale_x_continuous(expand = expansion(mult = c(0, 0.04))) +
-  scale_y_discrete(expand = expansion(mult = c(0.01, 0.1))) +
-  xlab('Percent of prospects') + ylab('') +
-  guides(fill = guide_legend(reverse = T)) +
-  theme(
-    axis.text.x = element_blank(),
-    axis.text.y = element_text(color = '#444444', size = 7, face = 'bold', hjust = 1)
-  )
-```
+<img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
 
-
---- .subsubsection
-
-# Public ma/doctoral universities
-## Racial composition of prospects in lists purchased
-
-```{r rq2-race-regional, fig.height = 2}
-rq2_race %>% 
-  filter(locale == 'instate', region != 'international') %>% 
-  mutate(
-    stu_race_cb = if_else(is.na(stu_race_cb), 999, unclass(stu_race_cb)),
-    race = recode_factor(
-      stu_race_cb,
-      `999` = 'Missing',
-      `0` = 'No response',
-      `10` = 'Other',
-      `12` = 'Multiracial',
-      `8` = 'NH/PI',
-      `1` = 'AI/AN',
-      `4` = 'Latinx',
-      `3` = 'Black',
-      `2` = 'Asian',
-      `9` = 'White'
-    ),
-    count_type = str_c(univ_type, locale, sep = '_'),
-    count_type = recode_factor(
-      count_type,
-      'research_instate' = 'Research (in-state)',
-      'regional_instate' = 'MA/doctoral (in-state)'
-    )
-  ) %>% 
-  filter(race != 'Missing') %>% 
-  ggplot(aes(y = count_type, x = pct, fill = race)) + 
-  geom_bar(position = 'stack', stat = 'identity') + 
-  geom_text(mapping = aes(label = if_else(pct > 0.02, as.character(round(pct * 100)), '')), size = 2, position = position_stack(vjust = 0.5), color = color_text) +
-  # scale_fill_brewer(palette = 'BrBG', direction = -1, name = 'Race') +
-  scale_fill_manual(values = rev(color_palette), name = 'Race') +
-  scale_x_continuous(expand = expansion(mult = c(0, 0.04))) +
-  scale_y_discrete(expand = expansion(mult = c(0.01, 0.1))) +
-  xlab('Percent of prospects') + ylab('') +
-  guides(fill = guide_legend(reverse = T)) +
-  theme(
-    axis.text.x = element_blank(),
-    axis.text.y = element_text(color = '#444444', size = 7, face = 'bold', hjust = 1)
-  )
-```
-
-
----
-
-## Median household income of prospects purchased
-
-```{r rq2-income-regional, fig.height = 2}
-rq2_income %>% 
-  filter(locale == 'instate', region != 'international') %>% 
-  mutate(
-    count_type = str_c(univ_type, locale, sep = '_'),
-    count_type = recode_factor(
-      count_type,
-      'research_instate' = 'Research (in-state)',
-      'regional_instate' = 'MA/doctoral (in-state)'
-    )
-  ) %>% 
-  ggplot(aes(y = count_type, x = income_2564)) + 
-  geom_bar(stat = 'identity', fill = color_palette[[1]]) + 
-  geom_text(mapping = aes(label = str_c('$', round(income_2564 / 1000), 'K')), size = 2, hjust = -0.1) +
-  scale_x_continuous(expand = expansion(mult = c(0, 0.04)), limits = c(0, 105000)) +
-  scale_y_discrete(expand = expansion(mult = c(0.01, 0.1))) +
-  xlab('') + ylab('') +
-  guides(fill = guide_legend(reverse = T)) +
-  theme(
-    axis.text.x = element_blank(),
-    axis.text.y = element_text(color = '#444444', size = 7, face = 'bold', hjust = 1)
-  )
-```
-
-
----
-
-## Locale of prospects in lists purchased
-
-```{r rq2-locale-regional, fig.height = 2}
-rq2_locale %>% 
-  filter(locale == 'instate', region != 'international') %>% 
-  mutate(
-    count_type = str_c(univ_type, locale, sep = '_'),
-    count_type = recode_factor(
-      count_type,
-      'research_instate' = 'Research (in-state)',
-      'regional_instate' = 'MA/doctoral (in-state)'
-    )
-  ) %>% 
-  ggplot(aes(y = count_type, x = pct, fill = locale_text)) + 
-  geom_bar(position = 'stack', stat = 'identity') + 
-  geom_text(mapping = aes(label = if_else(pct > 0.02, as.character(round(pct * 100)), '')), size = 2, position = position_stack(vjust = 0.5), color = color_text) +
-  # scale_fill_brewer(palette = 'BrBG', direction = -1, name = 'Locale') +
-  scale_fill_manual(values = rev(color_palette[c(1:5, 7)]), name = 'Locale') +
-  scale_x_continuous(expand = expansion(mult = c(0, 0.04))) +
-  scale_y_discrete(expand = expansion(mult = c(0.01, 0.1))) +
-  xlab('Percent of prospects') + ylab('') +
-  guides(fill = guide_legend(reverse = T)) +
-  theme(
-    axis.text.x = element_blank(),
-    axis.text.y = element_text(color = '#444444', size = 7, face = 'bold', hjust = 1)
-  )
-```
+<div class="row">
+  <div class="column">
+    <img src="../outputs/figures/combo3_inc_ap.png" alt="combo3_ap" style="width:50%">
+  </div>
+  <div class="column">
+    <img src="../outputs/figures/combo3_inc_apstem.png" alt="combo3_apstem" style="width:50%">
+  </div>
+</div>
 
 
 --- .subsection
 
-# RQ3
+# RQ3 [CARRYOVER FROM REPORTS]
 
 
 --- .subsubsection
