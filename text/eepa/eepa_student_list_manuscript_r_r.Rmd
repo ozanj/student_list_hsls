@@ -150,6 +150,26 @@ Universities identify prospective students by purchasing “student lists.” St
  
 # Introduction
 
+REVISED INTRO
+
+- THE MARKET FOR COLLEGE ACCESS BY HOXBY
+  - INFORMATION ASSYMETRY; COLLEGES DON'T KNOW WHO THE DESIRABLE STUDENTS ARE, WHERE THEY ARE, OR HOW TO CONTACT THEM
+  - COLLEGES CAN'T SURVIVE/THRIVE BASED SOLELY ON INQUIRIES/APPLICANTS THAT REACH OUT ON THEIR OWN
+  - HOXBY SAID THAT SAT CREATES A NATIONAL HIGHER EDUCATION MARKET BY LOWERING COST OF INFORMATION ABOUT STUDENTS (THEIR ACHIEVEMENT/APTITUDE)
+  - STUDENTS COULD SEND SCORES TO SCHOOLS THEY WERE INTERESTED IN
+  - IN 1972, CB BEGAN CB SEARCH PRODUCT THAT ENABLES COLLEGES TO PURCHASE CONTACT INFO OF STUDENTS THAT MEET DESIRED CRITERIA, PARTICULARLY TEST SCORE RANGES
+- ORIGINS OF CONSUMER REPORTS HAVE STRIKING SIMILARITIES
+  - SMALL BANKS BECOME LARGER BANKS; WANT TO GO FROM A MODEL OF PASSIVELY EVALUATING CUSTOMERS TO ACTIVELY TARGETING DESIRABLE OF PRE-APPROVED CUSTOMERS
+  
+- BUT WHILE CONSUMER REPORTS REGULATED BY CFRA AND CFPB, STUDENT LISTS NOT
+  - CONSUMER REPORTS MUST SHOW THAT THEY DO NOT DO X ABOUT RACE
+- SO STUDENT LISTS PRODUCTSW ARE UNREGULATED
+  - AND TRANSITION TO THE IDEA THAT THEY USE INPUTS CORRELATED WITH RACE SO THEY MAY BE SYSTEMATICALLY LOWERING OPPORTUNITY FOR STUDENTS FROM COMMUNITIES OF COLOR RELATIVE TO OTHERS
+  - AND SAY THAT THEY ARE LIKELY TO BE USED IN WAYS THAT CAUSE HARM
+  - MOTIVATE ANALYSES AND BOOM!
+  
+
+
 Colleges and universities (herein universities) identify prospective students by purchasing "student lists" from College Board, ACT, and other vendors. A student list contains the contact information of prospective students who meet the search filter criteria (e.g., test score range, high school GPA, zip codes) specified by the university. Purchased lists are a fundamental input for undergraduate recruiting campaigns [@RN4728], which target individual prospects by mail, email, and on social media.
 
 Research suggests that student lists are important for college access and degree completion for millions of students each year. Howell et al. [-@RN4739] compared SAT test-takers who opted into the College Board Student Search Service -- allowing accredited institutions to "licence" their contact information -- to those who opted out.^[For a similar analysis of ACT's Educational Opportunity Service see @RN4752.] Figure \@ref(fig:cb-fig) reproduces the main results. After controlling for covariates (e.g., SAT score, parental education), 41.1\% of students who participated in Search attended a 4-year college compared to 32.8\% of students who opted out, an 8.3 percentage point difference and a 25.3 (`(41.1-32.8)/32.8`) percent change in the relative probability. Participating in Search was associated with a larger change in the relative probability of attending a 4-year college for Black students (24.5\%) and Hispanic student (34.4\%) than White students (21.6\%), and a larger change for students whose parents did not attend college (40.6\%) than those whose parents had a BA (18.9\%).
@@ -278,7 +298,7 @@ INTRO PARAGRAPH
 
 ## Selection Devices
 
-Many literatures in sociology are concerned with selection decisions, in individuals are allocated to categories based on some set of input factors. Examples include college admissions, hiring, applications for credit, and prison sentencing. Selection devices are procedures or routines for making selection decisions [@RN4778]. Selection devices differ along several dimensions. One dimension is individual administrative discretion versus standardization. Discretionary selection processes rely on the judgment of individual evaluators. In professional domains (e.g., psychiatric treatment, holistic admissions), evaluators exercise judgment about cases based on professional norms about how to evaluate inputs. By contrast, "standardized selection devices" make decisions based on a mathematical function in which the value of input variables determines the value of the outcome [@RN4861], for example a public university that admits applicants based on a function of ACT score and GPA.
+The sociology of race is concerned with selection processes that allocate individuals to categories based on some set of input factors. Examples include college admissions, hiring, applications for credit, and prison sentencing. Selection devices are procedures or routines for making selection decisions [@RN4778]. Selection devices differ along several dimensions. One dimension is individual administrative discretion versus standardization. Discretionary selection processes rely on the judgment of individual evaluators. In professional domains (e.g., psychiatric treatment, holistic admissions), evaluators exercise judgment about cases based on professional norms about how to evaluate inputs. By contrast, "standardized selection devices" make decisions based on a mathematical function in which the value of input variables determines the value of the outcome [@RN4861], for example a public university that admits applicants based on a function of ACT score and GPA.
 
 Scholarship on algorithmic bias [e.g., ][@RN4772; @RN4849; @RN4786; @RN4794] tends to focus on "actuarial selection devices," which are standardized selection devices that utilize predictive analytics. The @RN4743[p. 4] distinguishes descriptive analytics, which seek to “uncover and summarize patterns or features that exist in data sets” (p. 4), from predictive analytics, which “refers to the use of statistical models to generate new data” (pp. 4–5). Products that utilize predictive analytics apply statistical models to previous cases and apply the results of these analyses (e.g., regression coefficients) to predict outcomes for future cases.  In child welfare, for example, the "Structured Decision Making Model" (SDM) is an actuarial selection device that yields recommendations about whether children should be placed in protective care based on a standardized survey instrument designed to discern the likelihood of future abuse or neglect [@RN4778].
  <!-- In nonactuarial standardized selection devices, the formula which assigns weights to each input is not determined by statistical analyses of past cases. Prior to 2003, the University of Michigan evaluated applications by assigning points to characteristics (e.g., GPA, ACT/SAT score, alumni, underrepresented racial/ethnic minority) and admitting applicants above 100 points. However, decisions about the number of points to assign each characteristics were based on considerations of organizational mission -- including the goal of reducing racial inequality -- rather than regression coefficients from past analyses of student success.-->

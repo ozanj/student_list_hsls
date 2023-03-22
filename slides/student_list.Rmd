@@ -43,9 +43,10 @@ options(scipen = 999, xtable.type = 'html', xtable.include.rownames = F)
 
 library(slidify)
 library(slidifyLibraries)
-# slidify('slides/student_list_dognpony.Rmd')
 # slidify('slides/student_list_cshpe.Rmd')
 # slidify('slides/student_list.Rmd')
+  # delete "cache" in order for figures to display properly
+    # C:\Users\ozanj\Documents\student_list_hsls\slides\.cache
 
 library(servr)
 # Start server: servr::httd()
@@ -514,7 +515,50 @@ Research questions
 
 --- .section
 
-# Literature Review
+# Background & Literature
+
+--- &twocol
+
+## How student lists fit into recruiting undergraduates
+
+*** =left
+
+Prospects
+
+- Population of desirable potential students
+
+Leads
+
+- Prospects with contact info
+
+Inquiries
+
+- Prospects who have contacted the institution
+  - Institution as first contact (leads)
+  - Student as first contact
+
+<br>
+Interventions along the funnel
+
+- **Convert prospects to leads**
+  - **purchase student lists**
+    - **list-based lead generation**
+    - **based on direct mail model**
+- Convert leads/inquiries to applicants
+  - Email, mail, targeted social media
+- Convert admits to enrolles
+  - Financial aid packages
+
+*** =right
+
+<center>**The enrollment funnel**</center>
+
+<br>
+
+<img src="../outputs/images/enrollment_funnel.png" alt="Enrollment Funnel" style="width:80%;margin:0 auto;">
+
+Source: [pngwing.com](https://www.pngwing.com/en/free-png-krrpy)
+
 
 --- 
 
@@ -548,50 +592,6 @@ Scholarship assumes that recruiting is something done wholly done by individual 
 - Third-party products and vendors structure recruiting behavior by colleges
 - How do products incorporate structural inequality? How are they utilized by colleges?
 
---- .section
-
-# Background
-
---- &twocol
-
-## Where do student lists fit in recruiting
-
-*** =left
-
-Prospects
-
-- Population of desirable potential students
-
-Leads
-
-- Prospects whose contact info has been obtained
-
-Inquiries
-
-- Prospects who have contacted the institution
-  - Institution as first contact (leads)
-  - Student as first contact
-
-<br>
-Interventions along the funnel
-
-- Convert prospects to leads
-  - purchase student lists
-- Convert leads/inquiries to applicants
-  - Email, mail, targeted social media
-- Convert admits to enrolles
-  - Financial aid packages
-
-*** =right
-
-<center>**The enrollment funnel**</center>
-
-<br>
-
-<img src="../outputs/images/enrollment_funnel.png" alt="Enrollment Funnel" style="width:80%;margin:0 auto;">
-
-Source: [pngwing.com](https://www.pngwing.com/en/free-png-krrpy)
-
 --- 
 
 ## College Board and ACT student list products
@@ -603,8 +603,8 @@ Sources of student list data
 - Students can opt in or out
 
 <br>
-What information does a list contain ([College Board template](https://drive.google.com/file/d/1Qvc_QRi9izEF1W78Lh4nNi5NsXjCZqUE))
 
+What information does a list contain ([College Board template](https://drive.google.com/file/d/1Qvc_QRi9izEF1W78Lh4nNi5NsXjCZqUE/view)) 
 - Contact, demographic, college preferences, limited academic achievement
 
 <br>
@@ -701,7 +701,7 @@ orders_filters %>%
 
 ---
 
-# College Board Search and student outcomes
+# College Board lists and student outcomes
 ## `r citet(bib['RN4739'])`
 
 ```{r cb-fig, fig.height = 4.5}
@@ -783,12 +783,12 @@ also see: `r citet(bib['RN4894'])` for effect of university purchasing profile o
 
 Selection devices allocate individuals to categories based on input factors `r citep(bib[c('RN4778')])`
 
-- Discretionary selection devices
-  - Decisions incorporate judgment of individual evaluators (e.g., holistic admissions)
 - Standardized selection devices
   - decisions based on mathematical function in which input values determine outcome value
   - "actuarial" selection devices predict outcomes based on analysis of past cases
-- Student list products are discretionary selection devices
+- Discretionary selection devices
+  - Decisions incorporate judgment of individual evaluators (e.g., holistic admissions)
+  - Student list products are discretionary selection devices
 
 <br>
 
@@ -796,12 +796,11 @@ Standardized selection devices and racial inequality
   - May reduce racial inequality if source of inequality is bias from individual decision-maker
   - Do not reduce inequality due to structural racism `r citep(bib[c('RN4814')])`
     - Structural racism is “systematic racial bias embedded in the ‘normal’ functions of laws and social relations,” whereby processes viewed as neutral or common-sense systematically disadvantage marginalized groups `r cite(bib['RN4760'], eg = F, suffix = 'p. 1143')`
-    - "colorblind" selection devices reproduce inequality by utilizing inputs related to race BECAUSE MARGINALIZED GROUPS HAVE BEEN HISTORICALLY EXCLUDED FROM INPUT
-    
-<br>    
-Discretionary selection devices
 
-- Sensitive to bias from decision-makers and inputs related to race
+<br>    
+Discretionary selection devices and racial inequality
+
+- Sensitive to individual bias from decision-makers and inputs related to race
 
 
 --- 
@@ -809,24 +808,26 @@ Discretionary selection devices
 ## Racialized inputs
 
 <br>
-Racialized inputs `r citep(bib[c('RN4786')])`
+`r citet(bib[c('RN4786')])`
 
-- Inputs that are "theoretically and empirically correlated with historical racial disadvantage" (p. 5)
 - reconstructs inputs used by Moody’s city government credit rating algorithm
-- SOME QUOTE HERE FROM NORRIS LIKE COLORBLIND ONE
+- Racialized inputs: "theoretically and empirically correlated with historical racial disadvantage" (p. 5)
+- "colorblind" selection devices reproduce racial inequality by using seemingly neutral inputs that are systematically related to race because marginalized groups have been historically excluded from input
+
 <br>
 Geography inputs
 
 - US racially segregated due to historic and current laws/policies/practices
 - Zip code an input in algorithm that predicts crime recidivism `r citep(bib[c(c('RN4849','RN4775'))])`
   - Zip code a search filter on CB/ACT student list products
+  - Ruffalo Noel Levitz algorithm recommends which zip codes to buy names
 - Geodemographic classifications classify localities by consumer behavior `r citep(bib[c('RN4880')])`
   - CB Geodemographic filters classify census tracts by past college enrollment `r citep(bib[c('RN4565')])`
 
 <br>
 Inputs based on predictive analytics
 
-- Analyze determinants of an outcome in past cases, use results as an input to select future cases (e.g., ACT probability of enrollment filter)
+- Analyze determinants of an outcome in past cases, use results as an input to select future cases (e.g., ACT "enrollment predictor" filter)
 
 --- 
 
@@ -834,10 +835,8 @@ Inputs based on predictive analytics
 
 Standardized college entrance exams and AP exams as racialized inputs
 
-- Differences in test-taking and scores by race a function of historic/contemporary school segregation, differences in school funding and access to curricula `r cite(bib[c(c('RN4893','RN4853'))])`
-- Concerns about bias in question items `r cite(bib[c(c('RN6012', 'RN6011'))])`
-
-
+- Racial/ethnic differences in test-taking and test scores a function of historic/contemporary school segregation, differences in school funding and access to curricula `r cite(bib[c(c('RN4893','RN4853'))])`
+<!-- - Concerns about bias in question items `r cite(bib[c(c('RN6012', 'RN6011'))])` -->
 
 
 <br>
@@ -846,11 +845,15 @@ Standardized college entrance exams and AP exams as racialized inputs
 
 <br>
 
-**P2**: As test score threshold increases, the proportion of underrepresented minority students included in student lists declines relative to the proportion who are excluded.
+**P2**: As test score threshold increases, proportion of underrepresented minority students included in student lists declines relative to proportion who are excluded.
 
 <br>
 
-**P3**. As purchases filter on more affluent geographic localities (e.g., zip codes), the proportion of underrepresented minority students included in student lists declines relative to the proportion who are excluded.
+**P3**. As purchases filter on more affluent zip codes, the proportion of underrepresented minority students included in student lists declines relative to proportion excluded.
+
+<br>
+
+**P4**. Filtering on smaller geographic localities is associated with greater racial disparities in included vs. excluded than filtering on larger geographic localities.
 
 <br>
 
@@ -867,79 +870,41 @@ Filtering on multiple racialized inputs has compounding effect on racial inequal
 
 ---
 
+## PRESENTATION STUFF TO DO
+
+- background section; 
+  - replace current enrollment funnel w/ the one from here (might ask crystal to do this): https://ticas.org/wp-content/uploads/2022/09/Geodemographics-of-Student-List-Purchases_A-First-Look.pdf 
+- on results slides, for RQ1
+  - look to see if slide title and sub-title makes sense
+    - like I tried to indicate in slide titles which proposition being tested
+  - modify some graphs to make sure they pit on page
+  - I may have fucked up a couple of slide titles/contents somehow. my bad homie...
+- results slides for RQ3
+  - for the four deep dive purchases
+    - add text at bottom of slide that indicates the filters specified in the orders being analyzed (e.g., the segment one currently just says "Segment" but we should show that it is segment used in concert w/ these other filters)
+    
+
+---
+
 ## HSLS09 & Student List Project
 
 High School Longitudinal Study of 2009 (HSLS09)
 
+- Students who completed 2012/2013 survey follow-ups and obtained high school transcript data
+  - Unweighted analysis sample (n=16,530) 
+  - Weighted analysis sample represent approximately 4.2 million U.S. 9th graders in 2009
 
--  Unweighted analysis sample (n=16,530) 
-  - Includes students who completed 2012/2013 survey follow-ups and obtained high school transcript data
-- Weighted analysis sample represent approximately 4.2 million U.S. 9th graders in 2009
-
+<br>
 <br>
 
 Student List Project
-
 
 - Issued public records requests for student list data (2016-2020) to all public universities in four states (CA, IL, MN, TX)
 - Target student list vendors: College Board, ACT
 - For each purchased list, sought two pieces of data
   - "Order summary" specifying search filter criteria ([LINK](https://drive.google.com/file/d/1gPZ-WWw0gdFT7VtzBN3hKLnj2DzoaqnY/view))
   - De-identified prospect-level student list ([LINK](https://drive.google.com/file/d/1Qvc_QRi9izEF1W78Lh4nNi5NsXjCZqUE/view))
-
-
----
-
-## Summary of data received
-
-```{r received-data, results = 'asis', echo = F, message = F}
-univ_status %>% 
-  filter(state_code != 'MN') %>% 
-  mutate(
-    not_received_orders = if_else(received_cb_orders == 'N' & received_act_orders == 'N' & received_nrccua_orders == 'N' & received_encoura_orders == 'N', 1, 0), 
-    received_orders = if_else(not_received_orders == 1, 0, 1),
-    not_received_lists = if_else(received_cb_lists == 'N' & received_act_lists == 'N' & received_nrccua_lists == 'N' & received_encoura_lists == 'N', 1, 0), 
-    received_lists = if_else(not_received_lists == 1, 0, 1),
-    received_both = if_else(received_orders == 1 & received_lists == 1, 1, 0),
-    not_received_both = if_else(received_both == 1, 0, 1)
-  ) %>% 
-  group_by(state_code) %>% 
-  summarise(
-    not_received_orders = sum(not_received_orders),
-    received_orders = sum(received_orders),
-    not_received_lists = sum(not_received_lists),
-    received_lists = sum(received_lists),
-    received_both = sum(received_both),
-    not_received_both = sum(not_received_both)
-  ) %>% 
-  ungroup() %>% 
-  select(state_code, received_orders, not_received_orders, received_lists, not_received_lists, received_both, not_received_both) %>% 
-  xtable(align = rep('c', 8), display = c('d', 's', rep('d', 6))) %>% 
-  print(add.to.row = list(pos = list(0), command = c('<tr style="text-align:center;"><th>State</th><th># received order summary</th><th># no order summary</th><th># received list</th><th># no list</th><th># received both</th><th># did not receive both</th></tr>')), include.colnames = F)
-```
-
-
-
----
-
-## Orders and prospects purchased
-
-```{r orders-prospects-purchased, fig.height = 3.5}
-orders_prospects_purchased %>% 
-  ggplot(aes(x = total_students, y = reorder(univ_id, total_students), fill = univ_label)) +
-  geom_bar(stat = 'identity') +
-  geom_text(aes(label = str_c(total_orders, if_else(total_orders == 1, ' order', ' orders'))), hjust = -0.1, size = 2) +
-  scale_x_continuous(labels = function(n) if_else(n < 1000000, str_c(n / 1000, 'K'), str_c(n / 1000000, 'M')), breaks = seq(0, 2.6e6, 2e5), expand = expansion(mult = c(0.01, 0.1)), limits = c(0, 2.7e6)) +
-  scale_x_break(c(5e5, 2.2e6)) +
-  scale_fill_manual(values = color_palette[1:2], name = 'University type') +
-  xlab('Number of prospects') + ylab('') +
-  theme(
-    axis.ticks.y = element_blank(),
-    axis.text.y = element_blank(),
-    axis.ticks.x.top = element_blank(),
-    axis.text.x.top = element_blank()
-  )
-```
+- Funded by Joyce Foundation and Kresge Foundation
 
 --- .subsection
 
@@ -949,23 +914,31 @@ orders_prospects_purchased %>%
 
 ## Variables & Analyses
 
-RQ1: What is the relationship between student list search filters and the
-racial composition of students who are included versus excluded from College Board student list purchases?
+**RQ1**. What is relationship between search filters and racial composition of included vs excluded students?
 
-<br>
-
-RQ2: 
-
-<br>
-
+- Data: HSLS09
 - Dependent Variable: student race/ethnicity
 - Independent Variables: measures of student list academic and geographic filters
-  - Dichotomous measures of SAT, PSAT, AP completion 
-  - Threshold measures of highest SAT, PSAT, AP scores, and GPA 
+  - Dichotomous and score threshold measures of SAT, PSAT, AP (and GPA)
+    - Note: HSLS measures for SAT includes ACT, and PSAT includes PreACT
   - Economic measures of students' zipcode, county, CBSA from ACS
-- Analyses: descriptive statistics
-  - All analyses compare the racial composition of included versus excluded prospects when particular filters and/or filter thresholds are utilized to purchase prospect profiles
+- Analyses: inferential descriptive statistics (comparing two propoportions)
+  - Racial composition of included vs excluded prospects when particular filters utilized
+
+<br>
+
   
+**RQ2**. How do public universities use racialized search filters in concert with other search filters when purchasing student lists?
+
+- Data: order summaries from 830 College Board student lists purchased by 14 public universities
+- Analyses: descriptive statistics of search filters specified in orders
+
+**RQ3**. What is observed racial composition of student list purchases that utilize racialized search filters in concert with other search filters?
+
+- Data: de-identified prospect-level student list data; incorporate ACS data for comparisons
+- Analyses: descriptive statistics of targeted student list purchases
+
+
 
 <!-- ## Summary of orders and prospects -->
 
@@ -1202,8 +1175,6 @@ RQ2:
 --- .subsection
 
 # RQ2
-
-
 
 --- .subsubsection
 
@@ -1948,32 +1919,33 @@ asu_la %>%
 
 --- 
 
-## Data as capital, obfuscation, and policy research
+## Future research on student list products
 
-Student list data derived from user-data of students laboring on platforms
+Improve this paper enough to get published
 
-- `r citet(bib['RN1025'])`: formula for economic capital is $M - C - M'$
-    - money ($M$); commodities ($C$)
-- Data as capital `r citep(bib['RN4799'])`
-    - Data an input into production commodities (e.g., software predicting hospital staff needs)
-    - Data are a commodity extracted from labor of people using digital platforms
-- College Board follows $M - C - M'-C-M''$: Invest money ($M$) to develop tests ($C$); sold to households ($M'$) yielding student list data ($C$); sold to universities ($M''$)
-- Emerging trend: wrap student list data within a software-as-service recruiting product
-
+- How to motivate targeted analyses about how universities utilize student list products
 
 <br>
-Obfuscation `r citep(bib['RN4774','RN4842'])`
+Papers on College Board filters that create geographic borders from analyses of past college enrollment
 
-- Opacity of digital platforms is deliberate strategy to manage regulatory environments
-- **Really** hard to collect data about student list products or "student success" products
+- Geomarket filters slice metropolitan areas into several education markets
+- Geodemography filters categorize neighborhoods and high schools into clusters
 
 <br>
-Policy
+Explore link between student list products and extension of credit
 
-- Policy should regulate products sold to schools, universities, and students
-- Developing regulations requires on a body of research
-- Education researchers must interrogate third-party products and vendors
-    - Focus on structural inequality embedded in product design
+- Parallel origins of consumer credit reports and student lists `r citep(bib[c('RN2247','RN4880')])`
+  - Reduce information assymetry by providing businesses information about customers
+  - Business model moves from evaluation of applicants to active courtship of desired customers
+- Consumer credit reports regulated under Fair Credit Reporting Act and Consumer Finance Protection Act because they lead to extension of credit
+- Student list products systematically lead to student loans
+
+<br>
+Regulatory policy
+
+- Students list products are powerful tools, can be used for good or bad
+- Should policymakers continue tolerating products likely to do harm because they also do good?
+
 
 --- #references
 
@@ -2012,6 +1984,62 @@ bibliography('html')
 --- .subsection
 
 # RQ2
+
+--- .subsubsection
+
+# Data collection
+## Summary of data received
+
+```{r received-data, results = 'asis', echo = F, message = F}
+univ_status %>% 
+  filter(state_code != 'MN') %>% 
+  mutate(
+    not_received_orders = if_else(received_cb_orders == 'N' & received_act_orders == 'N' & received_nrccua_orders == 'N' & received_encoura_orders == 'N', 1, 0), 
+    received_orders = if_else(not_received_orders == 1, 0, 1),
+    not_received_lists = if_else(received_cb_lists == 'N' & received_act_lists == 'N' & received_nrccua_lists == 'N' & received_encoura_lists == 'N', 1, 0), 
+    received_lists = if_else(not_received_lists == 1, 0, 1),
+    received_both = if_else(received_orders == 1 & received_lists == 1, 1, 0),
+    not_received_both = if_else(received_both == 1, 0, 1)
+  ) %>% 
+  group_by(state_code) %>% 
+  summarise(
+    not_received_orders = sum(not_received_orders),
+    received_orders = sum(received_orders),
+    not_received_lists = sum(not_received_lists),
+    received_lists = sum(received_lists),
+    received_both = sum(received_both),
+    not_received_both = sum(not_received_both)
+  ) %>% 
+  ungroup() %>% 
+  select(state_code, received_orders, not_received_orders, received_lists, not_received_lists, received_both, not_received_both) %>% 
+  xtable(align = rep('c', 8), display = c('d', 's', rep('d', 6))) %>% 
+  print(add.to.row = list(pos = list(0), command = c('<tr style="text-align:center;"><th>State</th><th># received order summary</th><th># no order summary</th><th># received list</th><th># no list</th><th># received both</th><th># did not receive both</th></tr>')), include.colnames = F)
+```
+
+
+
+---
+
+## Orders and prospects purchased
+
+```{r orders-prospects-purchased, fig.height = 3.5}
+orders_prospects_purchased %>% 
+  ggplot(aes(x = total_students, y = reorder(univ_id, total_students), fill = univ_label)) +
+  geom_bar(stat = 'identity') +
+  geom_text(aes(label = str_c(total_orders, if_else(total_orders == 1, ' order', ' orders'))), hjust = -0.1, size = 2) +
+  scale_x_continuous(labels = function(n) if_else(n < 1000000, str_c(n / 1000, 'K'), str_c(n / 1000000, 'M')), breaks = seq(0, 2.6e6, 2e5), expand = expansion(mult = c(0.01, 0.1)), limits = c(0, 2.7e6)) +
+  scale_x_break(c(5e5, 2.2e6)) +
+  scale_fill_manual(values = color_palette[1:2], name = 'University type') +
+  xlab('Number of prospects') + ylab('') +
+  theme(
+    axis.ticks.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.x.top = element_blank(),
+    axis.text.x.top = element_blank()
+  )
+```
+
+--- .subsection
 
 --- .subsubsection
 
