@@ -444,7 +444,7 @@ poc_income_2564 <- poc_income %>%
 
 ## The market for college access
 
-A two-sided matching problem in which market allocates students to colleges (Hoxby 1997, 2009)
+A two-sided matching problem in which market allocates students to colleges `r citep(bib[c('RN2133','RN2247')])`
 
 -   Barriers to efficient market:
     -   transportation costs; information costs
@@ -460,36 +460,37 @@ A two-sided matching problem in which market allocates students to colleges (Hox
 Matchmaking
 
 -   "Inquiries" (student as first contact)
-    -   Students send test scores or fill out inquiry form
-    -   Enrollment problem: Cannot survive/thrive solely from students who reach out on their own
-
+  -   Students send test scores or fill out inquiry form
+-   The enrollment problem
+    - Most colleges cannot survive/thrive solely from students who reach out on their own
+    - Must find desirable prospects who can be convinced to apply/enroll
 
 ---
 
 ## Student lists products
 
-"Student list" products: a matchmaking intermediary that connects institutions to prospects
+"Student list" products are a matchmaking intermediary that connects colleges to prospects
 
 -   Third-party vendors obtain data and contact info about prospecs (e.g., Testing orgs, search engines)
--   Sell contact information of prospects to colleges looking for students
-    -   Colleges choose prospect profiles by filtering on search filters (e.g., zip code, test score)
+-   Vendors sell contact information of prospects to colleges looking for students
+    - Colleges choose prospect profiles by filtering on search filters (e.g., zip code, test score)
 
 <br>
 
 Policy concerns about student list products
 
--   Problem with student list products
-    -   Search filters incorporate "racialized inputs" `r citep(bib[c('RN4786')])` that systematically disadvantage underrepresented students of color
--   Problem with utilization of student list products by administrators
-    -   May choose combinations of search filters that results in racial exclusion
+- Problem with underlying products
+  - Search filters incorporate "racialized inputs" `r citep(bib[c('RN4786')])` that systematically disadvantage underrepresented students of color
+- Problem with utilization of products
+  - University administrators may choose combinations of search filters that result in racial exclusion
 
 <br>
 
 Research questions
 
-1.  What is the relationship between search filters and the racial composition of included versus excluded students?
-2.  To what extent do we observe patterns of student list purchases that utilize racialized inputs in concert with other search filters?
-3.  What is observed racial composition of student list purchases that utilize racialized inputs in concert with other search filters?
+1. What is relationship between search filters and racial composition of included vs excluded students?
+1. How do public universities use racialized search filters in concert with other search filters when purchasing student lists?
+3. What is observed racial composition of student list purchases that utilize racialized search filters in concert with other search filters?
 
 ---
 
@@ -499,16 +500,16 @@ Research questions
 
 <br>
 
-1.  What is the relationship between search filters and the racial composition of included versus excluded students?
-    - Reconstruct College Board student list product using nationally representative sample of 9th graders from 2009 (NCES HSLS data)
+1.  **What is relationship between search filters and racial composition of included vs excluded students?**
+    - Reconstruct College Board student list product using nationally representative sample of 9th graders from 2009 (NCES High School Longitudinal Survey)
     - Simulate which students are included versus excluded when certain search filters are utilized
 <br>
 
-2.  To what extent do we observe patterns of student list purchases that utilize racialized inputs in concert with other search filters?
+2.  **How do public universities use racialized search filters in concert with other search filters when purchasing student lists?**
     - Analyze 830 student lists purchased by 14 public universities, collected via public records requests
 <br>
 
-3.  What is observed racial composition of student list purchases that utilize racialized inputs in concert with other search filters?
+3.  **What is observed racial composition of student list purchases that utilize racialized search filters in concert with other search filters?**
     - Analyze targeted student list purchases, where we obtained both the order details and deidentified prospect-level data
 
 --- .section
@@ -517,12 +518,12 @@ Research questions
 
 --- 
 
-## Sociological scholarship on recruiting
+## Scholarship on recruiting from sociology
 
-Enrollment funnel: prospects, leads, inquires, applicants, admits, enrolled
+Enrollment funnel: prospects >> leads >> inquires >> applicants >> admits >> enrolled
 
-- Most scholarship focuses on latter stages (e.g., which applicants get admitted)
-- Growing body of research analyzes recruiting "in the wild"
+- Most scholarship on enrollment management focuses on latter stages (admissions, financial aid)
+- Body of research in sociology that analyzes recruiting "in the wild"
     
 <br>
 Recruiting from perspective of high school students `r citep(bib[c('RN4324')])`
@@ -530,21 +531,22 @@ Recruiting from perspective of high school students `r citep(bib[c('RN4324')])`
 - Underrepresented students sensitive to feeling "wanted" by colleges
 
 <br>
-Connections between (fancy) high schools and (fancy) colleges from an orgs perspective
+Connections between high schools and colleges from organizational behavior perspective
 
 - Off-campus recruiting visits indicate a network tie and enrollment priorities
-- recruiting from perspective of: private college `r citep(bib[c('RN3519')])`; private HS counselors `r citep(bib[c('RN4407')])`
-- Recruiting visits by public research universities   `r cite(bib[c('RN4758','RN4759')])`
+- recruiting from perspective of private college `r citep(bib[c('RN3519')])`, private HS counselors `r citep(bib[c('RN4407')])`
+- Recruiting visits by public research univs   `r cite(bib[c('RN4758','RN4759')])`
 
 <br>
 Recruiting at open-access PSIs for adults  `r cite(bib[c('cottom2017lower','RN4520')])`
 
-- For-profits have demand in Black/Latinx communities **because** traditional colleges ignore them
+- For-profits have demand in Black/Latinx communities because traditional colleges ignore them
 
 <br>
-Hook
-- Scholarship assumes that recruiting is something done by colleges
-- Ignores products and consultancies that structure recruiting
+Scholarship assumes that recruiting is something done wholly done by individual colleges
+
+- Third-party products and vendors structure recruiting behavior by colleges
+- How do products incorporate structural inequality? How are they utilized by colleges?
 
 --- .section
 
@@ -552,7 +554,7 @@ Hook
 
 --- &twocol
 
-## The enrollment funnel
+## Where do student lists fit in recruiting
 
 *** =left
 
@@ -601,25 +603,100 @@ Sources of student list data
 - Students can opt in or out
 
 <br>
-What information does a list contain ([College Board template](https://drive.google.com/file/d/1Qvc_QRi9izEF1W78Lh4nNi5NsXjCZqUE/view))
+What information does a list contain ([College Board template](https://drive.google.com/file/d/1Qvc_QRi9izEF1W78Lh4nNi5NsXjCZqUE))
+
 - Contact, demographic, college preferences, limited academic achievement
 
 <br>
 Pricing
 
-- Historically, a price-per-prospect model (e.g., \$0.50 per name)
-- ACT and College Board moving to subscription model
+- Historically, price-per-prospect (e.g., \$0.50 per name); now a subscription model
 
 
 <br>
 
-Buying student lists
+Buying lists: "search filters" control which prospects included in purchase
 
-- "Search filters" control which prospects included/excluded from a purchase
 - Commonly used search filters ([Link to ACT filters](https://helpcenter.encoura.org/hc/en-us/articles/360035260452-Prospect-Search-Filters-))
-  - Graduation year, HS GPA, test score range, gender, race/ethnicity, geography (e.g., zip-code)
-- New filters based on predictive analytics to facilitate micro-targeting
-    - e.g., "geodemographic" filters target prospects based on past behavior of nearby students
+  - e.g., HS GPA, test score range, gender, race, geography (e.g., state), enrollment probability
+- `r citet(bib[c('list_empirics')])` categorizes College Board search filters into four buckets:
+  - Geographic
+  - Academic
+  - Demographic
+  - Student preferences
+
+---
+
+## Filters used in 830 lists purchased by 14 public universities
+
+```{r orders-filters-combined, fig.height = 5}
+orders_filters %>% 
+  filter(is_asu == 'all') %>% 
+  group_by(filters) %>% 
+  summarise(
+    num_total = sum(num_total), 
+    total = sum(total), 
+    pct = sum(num_total) / sum(total)
+  ) %>% 
+  ungroup() %>% 
+  add_row(filters = 'academic', num_total = 0) %>% 
+  add_row(filters = 'geographic', num_total = 0) %>% 
+  add_row(filters = 'demographic', num_total = 0) %>% 
+  add_row(filters = 'student preferences', num_total = 0) %>% 
+  mutate(
+    filters_label = recode_factor(
+      filters,
+      'citizenship' = 'Citizenship',
+      'rotc' = 'ROTC',
+      'financial_aid' = 'Financial aid',
+      'national_recognition_programs' = 'NRP',
+      'edu_aspirations' = 'Education aspirations',
+      'college_setting' = 'College setting',
+      'college_studentbody' = 'College student body',
+      'college_living_plans' = 'College living plans',
+      'college_location' = 'College location',
+      'college_type' = 'College type',
+      'major' = 'Major',
+      'college_size' = 'College size',
+      'student preferences' = '   ',
+      'first_gen_parent' = 'First generation',
+      'low_ses' = 'Low SES',
+      'gender' = 'Gender',
+      'race' = 'Race',
+      'demographic' = '  ',
+      'proximity_search' = 'Proximity search',
+      'county' = 'County',
+      'intl' = 'International',
+      'cbsa' = 'CBSA',
+      'segment' = 'Segment',
+      'geomarket' = 'Geomarket',
+      'zip' = 'Zip code',
+      'states_fil' = 'State',
+      'geographic' = ' ',
+      'hs_math' = 'HS math',
+      'sat_reading_writing' = 'SAT reading/writing',
+      'sat_reading' = 'SAT reading',
+      'sat_writing' = 'SAT writing',
+      'sat_math' = 'SAT math',
+      'ap_score' = 'AP score',
+      'rank' = 'Rank',
+      'psat' = 'PSAT',
+      'sat' = 'SAT',
+      'gpa' = 'GPA',
+      'academic' = '',
+      'hsgrad_class' = 'HS grad class'
+    )
+  ) %>% 
+  filter(!filters %in% c('hs_math', 'proximity_search', 'rotc', 'citizenship')) %>% 
+  ggplot(aes(x = filters_label, y = num_total)) +
+  geom_bar(stat = 'identity', fill = '#7ec7b8') +
+  geom_text(aes(label = if_else(filters %in% c('academic', 'geographic', 'demographic', 'student preferences'), str_c(str_to_sentence(filters), ' filters'), ''), y = 0), hjust = 0, vjust = 0.8, size = 2, fontface = 'bold') +
+  geom_text(aes(y = num_total, label = if_else(!filters %in% c('academic', 'geographic', 'demographic', 'student preferences'), str_c(round(pct * 100), '%'), '')), hjust = -0.1, size = 2) +
+  scale_y_continuous(expand = expansion(mult = c(0.01, 0.1))) +
+  xlab('') + ylab('Number of orders') +
+  guides(fill = guide_legend(reverse = T)) +
+  coord_flip()
+```
 
 
 ---
@@ -627,7 +704,7 @@ Buying student lists
 # College Board Search and student outcomes
 ## `r citet(bib['RN4739'])`
 
-```{r cb-fig, fig.height = 5}
+```{r cb-fig, fig.height = 4.5}
 create_cb_figure <- function(categories, values, plot_title, fill_values = rev(color_palette[1:2])) {
   cb_fig_df <- data.frame(
     category = rep(categories, each = 2),
@@ -691,6 +768,9 @@ grid.arrange(
 )
 ```
 
+<br>
+also see: `r citet(bib['RN4894'])` for effect of university purchasing profile on college choice
+
 
 --- .section
 
@@ -701,70 +781,84 @@ grid.arrange(
 ## Sociology of race
 
 
-Selection devices: procedures/routines for allocating individuals to categories based on set of input factors `r citep(bib[c('RN4778')])`
+Selection devices allocate individuals to categories based on input factors `r citep(bib[c('RN4778')])`
 
-- Descretionary selection devices
+- Discretionary selection devices
   - Decisions incorporate judgment of individual evaluators (e.g., holistic admissions)
 - Standardized selection devices
-  - decisions based on a mathematical function in which value of input variables determines value of outcome
-  - "actuarial" selection devices: predictions based on analysis of past cases
-  - non-actuarial (e.g., U. Michigan admissions pre-2003)
-
+  - decisions based on mathematical function in which input values determine outcome value
+  - "actuarial" selection devices predict outcomes based on analysis of past cases
+- Student list products are discretionary selection devices
+  - administrator chooses prospects by selecting search filters (inputs)
+  - inputs factors include descriptive characteristics and predictive analytics
 
 <br>
+Selection devices and racial inequality
+
+- Standardized selection devices
+  - May reduce racial inequality if source of inequality is bias from individual decision-maker
+  - Do not reduce inequality due to structural racism `r citep(bib[c('RN4814')])`
+    - "colorblind" selection devices reproduce inequality by utilizing inputs related to race
+- Discretionary selection devices
+  - Sensitive to bias from decision-makers and inputs related to race
+
 
 --- 
 
-## Conceptual Framework
+## Racialized inputs
 
-Primary research question:
+Structural racism `r cite(bib['RN4760'], eg = F, suffix = 'p. 1143')`
 
-- What is the relationship between student list search filters (e.g., test score range, zip code) and the characteristics of students who are included vs. excluded in student lists purchased from College Board?
-
-<br>
-
-Two mechanisms of racial and socioeconomic exclusion in student list products  `r citep(bib[c('list_empirics')])`:
-
-1. Who is included in the underlying database
-1. Structurally racist and classist search filters
+- “systematic racial bias embedded in the ‘normal’ functions of laws and social relations,” whereby processes viewed as neutral or common-sense systematically disadvantage marginalized groups
 
 <br>
+Racialized inputs `r citep(bib[c('RN4786')])`
 
-`r citet(bib[c('list_empirics')])` categorizes College Board search filters into four buckets:
-
-- Geographic
-- Academic
-- Demographic
-- Student preferences
+- Inputs that are "theoretically and empirically correlated with historical racial disadvantage" (p. 5)
+- reconstructs inputs used by Moody’s city government credit rating algorithm
 
 <br>
-Drawing largely from the sociology of race, we develop expectations about which filters are associated with problematic exclusion
+Geography inputs
+
+- US racially segregated due to historic and current laws/policies/practices
+- Zip code an input in algorithm that predicts crime recidivism `r citep(bib[c(c('RN4849','RN4775'))])`
+  - Zip code a search filter on CB/ACT student list products
+- Geodemographic classifications classify localities by consumer behavior `r citep(bib[c('RN4880')])`
+  - CB Geodemographic filters classify census tracts by past college enrollment `r citep(bib[c('RN4565')])`
+
+<br>
+Inputs based on predictive analytics
+
+- Analyze determinants of an outcome in past cases, use results as an input to select future cases (e.g., ACT probability of enrollment filter)
 
 --- 
 
-## Geographic filters
+## RQ1: relationship between filters and racial composition
 
-Geographic search filters enable universities to target prospects based on where they live
+Standardized college entrance exams and AP exams as racialized inputs
 
-- e.g., state, zip code, CBSA, "geomarket," geodemographic market segment)
+- Differences in test-taking and scores by race a function of historic/contemporary school segregation, differences in school funding and access to curricula `r cite(bib[c(c('RN4893','RN4853'))])`
+- Concerns about bias in question items `r cite(bib[c(c('RN6012', 'RN6011'))])`
+
+
+
+
+<br>
+
+**P1**: The condition of taking standardized assessments is associated with racial disparities in who is included versus excluded in student list products.
 
 <br>
 
-Critical geography and whiteness as property `r citet(bib[c('RN4551','RN4759')])` 
-
-- Residential segregation a function of historic and contemporary laws/policies/practicies
-- Geographic filters are built on the back of racial segregation
-- Targeting prospects based on location (space) without considering history of segregation (place) reinforces race-based inequality
+**P2**: As test score threshold increases, the proportion of underrepresented minority students included in student lists declines relative to the proportion who are excluded.
 
 <br>
-Expected results
 
-- Small geographic filters (e.g., zip code vs. metro) >> racial disparities because segregation granular
-    - Targeting affluent communities >> racial exclusion because POC historically excluded
-- Filters that create new borders based on historic education data >> racial disparities because borders reflect historic disparities in educational opportunities
-    - "Geographic education market" filters: geomarket, geodemographic segment
-    - These filters increases the effects of historic place-based inequality
-        - Discriminate between prospects based on previously unknown geographic borders
+**P3**. As purchases filter on more affluent geographic localities (e.g., zip codes), the proportion of underrepresented minority students included in student lists declines relative to the proportion who are excluded.
+
+<br>
+
+Filtering on multiple racialized inputs has compounding effect on racial inequality
+
 
 --- .section
 
@@ -923,7 +1017,9 @@ RQ2:
 --- &twocol .subsubsection
 
 # Test Takers
-## SAT, PSAT, AP
+## **P1**: Racial disparities in test-taking
+
+
 
 <img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
 
@@ -952,8 +1048,9 @@ RQ2:
 
 --- &twocol .subsubsection
 
-# Test Thresholds
-## SAT, PSAT
+# Test thresholds
+## **P2**: SAT, PSAT score thresholds and racial composition
+
 
 <img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
 
@@ -982,8 +1079,8 @@ RQ2:
 
 --- &twocol
 
-# Test Thresholds
-## AP, AP STEM
+# Test thresholds
+## **P2**: AP sScore thresholds and racial composition
 
 <img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
 
@@ -1009,26 +1106,10 @@ RQ2:
   </div>
 </div>
 
----
-
-# Test Thresholds
-## GPA
-
-<img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
-
-<div class="row">
-  <div class="column">
-    <img src="../outputs/figures/p2_gpa_inc.png" alt="P2GPA_inc" style="width:50%">
-  </div>
-  <div class="column">
-    <img src="../outputs/figures/p2_gpa_exc.png" alt="P2GPA_exc" style="width:50%">
-  </div>
-</div>
-
 --- .subsubsection
 
-# Zip by Income
-## Affluence Percentiles within CBSA
+# Geography
+## **P3**: Zip code affluence and racial composition
 
 <img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
 
@@ -1041,41 +1122,10 @@ RQ2:
   </div>
 </div>
 
+--- 
 
---- &twocol
-
-# Zip by Income
-## Affluence Percentiles within CBSA
-
-<img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
-
-*** =left 
-
-<div class="row">
-  <div class="column">
-    <img src="../outputs/figures/p3_zip_inc_la.png" alt="P3zipla_inc" style="width:100%">
-  </div>
-  <div class="column">
-    <img src="../outputs/figures/p3_zip_exc_la.png" alt="P3zipla_exc" style="width:100%">
-  </div>
-</div>
-
-*** =right 
-
-<div class="row">
-  <div class="column">
-    <img src="../outputs/figures/p3_zip_inc_ny.png" alt="P3zipny_inc" style="width:100%">
-  </div>
-  <div class="column">
-    <img src="../outputs/figures/p3_zip_exc_ny.png" alt="P3zipny_enc" style="width:100%">
-  </div>
-</div>
-
-
---- &twocol .subsubsection
-
-# Zip vs County
-## Affluence Percentiles within CBSA
+# Geography
+## Zip vs county, affluence percentiles within CBSA
 
 <img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
 
@@ -1101,11 +1151,61 @@ RQ2:
   </div>
 </div>
 
+--- .subsubsection
+
+# Academic & Geographic
+## GPA (3.0+) and SAT or PSAT (across score thresholds)
+
+<img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
+
+<div class="row">
+  <div class="column">
+    <img src="../outputs/figures/combo1_inc_sat.png" alt="combo1_sat" style="width:50%">
+  </div>
+  <div class="column">
+    <img src="../outputs/figures/combo1_inc_psat.png" alt="combo1_psat" style="width:50%">
+  </div>
+</div>
+
+---
+
+# Academic & Geographic
+## GPA (3.0+), PSAT (150+) or SAT (1050+), and Zip (across income thresholds)
+
+<img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
+
+<div class="row">
+  <div class="column">
+    <img src="../outputs/figures/combo2_inc_sat.png" alt="combo2_sat" style="width:50%">
+  </div>
+  <div class="column">
+    <img src="../outputs/figures/combo2_inc_psat.png" alt="combo2_psat" style="width:50%">
+  </div>
+</div>
+
+---
+
+# Academic & Geographic
+## GPA (3.0+) and AP (across score thresholds)
+
+<img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
+
+<div class="row">
+  <div class="column">
+    <img src="../outputs/figures/combo3_inc_ap.png" alt="combo3_ap" style="width:50%">
+  </div>
+  <div class="column">
+    <img src="../outputs/figures/combo3_inc_apstem.png" alt="combo3_apstem" style="width:50%">
+  </div>
+</div>
+
+
 
 
 --- .subsection
 
 # RQ2
+
 
 
 --- .subsubsection
@@ -1184,192 +1284,6 @@ orders_filters %>%
 ```
 
 
---- .subsubsection
-
-# Academic filters
-## GPA filter used
-
-```{r orders-gpa, fig.height = 3}
-orders_gpa_total <- orders_gpa %>% 
-  group_by(univ_type) %>% 
-  summarise(
-    num_orders = sum(n_low)
-  ) %>% 
-  pull(num_orders, univ_type)
-
-orders_gpa %>% 
-  mutate(
-    univ_label = recode_factor(
-      univ_type,
-      'research' = str_c('Research (N=', orders_gpa_total[['research']], ')'),
-      'regional' = str_c('MA/doctoral (N=', orders_gpa_total[['regional']], ')')
-    )
-  ) %>% 
-  ggplot(aes(x = factor(gpa_low, levels = c('A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-')), y = pct_low, fill = univ_label)) +
-  geom_bar(position = 'dodge', stat = 'identity') +
-  geom_text(aes(label = n_low), hjust = 0.5, vjust = 0, size = 2, position = position_dodge(0.9)) +
-  scale_y_continuous(labels = label_percent(accuracy = 1)) +
-  scale_fill_manual(values = color_palette, name = 'University type') +
-  xlab('') + ylab('% of orders in university type')
-```
-
-
----
-
-## SAT filter used
-
-
-```{r orders-sat, fig.height = 4}
-orders_sat_total <- orders_sat %>% 
-  filter(test_range == 'sat_min') %>% 
-  group_by(univ_type) %>% 
-  summarise(
-    num_orders = sum(num)
-  ) %>% 
-  pull(num_orders, univ_type)
-
-orders_sat %>% 
-  mutate(
-    range_label = recode_factor(
-      test_range,
-      'sat_min' = 'Minimum',
-      'sat_max' = 'Maximum'
-    ),
-    univ_label = recode_factor(
-      univ_type,
-      'research' = str_c('Research (N=', orders_sat_total[['research']], ')'),
-      'regional' = str_c('MA/doctoral (N=', orders_sat_total[['regional']], ')')
-    )
-  ) %>% 
-  ggplot(aes(x = brks, y = pct, fill = univ_label)) +
-  geom_bar(position = position_dodge2(reverse = T, padding = 0), stat = 'identity') +
-  geom_text(aes(label = num), hjust = -0.1, size = 2, position = position_dodge2(0.9, reverse = T, padding = 0)) +
-  scale_y_continuous(expand = expansion(mult = c(0.01, 0.1)), labels = label_percent(accuracy = 1)) +
-  scale_fill_manual(values = color_palette, name = 'University type') +
-  xlab('') + ylab('% of orders in university type') +
-  facet_wrap(~ range_label) +
-  coord_flip()
-```
-
-
----
-
-## PSAT filter used
-
-```{r orders-psat, fig.height = 4}
-orders_psat_total <- orders_psat %>% 
-  filter(test_range == 'psat_min') %>% 
-  group_by(univ_type) %>% 
-  summarise(
-    num_orders = sum(num)
-  ) %>% 
-  pull(num_orders, univ_type)
-
-orders_psat %>% 
-  mutate(
-    range_label = recode_factor(
-      test_range,
-      'psat_min' = 'Minimum',
-      'psat_max' = 'Maximum'
-    ),
-    univ_label = recode_factor(
-      univ_type,
-      'research' = str_c('Research (N=', orders_psat_total[['research']], ')'),
-      'regional' = str_c('MA/doctoral (N=', orders_psat_total[['regional']], ')')
-    )
-  ) %>% 
-  ggplot(aes(x = brks, y = pct, fill = univ_label)) +
-  geom_bar(position = position_dodge2(reverse = T, padding = 0), stat = 'identity') +
-  geom_text(aes(label = num), hjust = -0.1, size = 2, position = position_dodge2(0.9, reverse = T, padding = 0)) +
-  scale_y_continuous(expand = expansion(mult = c(0.01, 0.1)), labels = label_percent(accuracy = 1)) +
-  scale_fill_manual(values = color_palette, name = 'University type') +
-  xlab('') + ylab('% of orders in university type') +
-  facet_wrap(~ range_label) +
-  coord_flip()
-```
-
-
-
---- .subsubsection
-
-#  Geographic filters
-## State filter used by research universities, out-of-state
-
-```{r orders-state-research-outofstate, fig.height = 2.8, fig.width = 5}
-# Out-of-state
-plot_usmap(
-  regions = 'states',
-  data = orders_state_research %>% filter(locale == 'outofstate'),
-  values = 'frequency'
-) +
-  scale_fill_gradient2(
-    low = 'white',
-    mid = '#ededed',
-    high = color_palette[[1]], 
-    midpoint = 35,
-    name = 'Number of orders',
-    label = label_number(accuracy = 1),
-    limits = c(0, 120)
-  ) + 
-  # labs(title = 'State filter used by research universities (out-of-state)') +
-  theme(
-    text = element_text(size = 7), 
-    panel.background = element_rect(fill = '#f0f0f0', color = NA),
-    plot.background = element_rect(fill = '#f0f0f0', color = NA),
-    plot.title = element_text(color = '#444444', hjust = 0.5, face = 'bold'), 
-    legend.background = element_rect(fill = '#f0f0f0', color = NA),
-    legend.title = element_text(face = 'bold'),
-    legend.position = 'right'
-  )
-```
-
----
-
-## State filter used by research universities, in-state
-
-```{r orders-state-research-instate, fig.height = 2.8, fig.width = 5}
-# In-state
-plot_usmap(
-  regions = 'states',
-  data = orders_state_research %>% filter(locale == 'instate'),
-  values = 'frequency'
-) +
-  scale_fill_continuous(
-    low = '#ededed',
-    high = color_palette[[1]], 
-    name = 'Number of orders',
-    label = label_number(accuracy = 1),
-    limits = c(0, 10)
-  ) + 
-  # labs(title = 'State filter used by research universities (in-state)') +
-  theme(
-    text = element_text(size = 7), 
-    panel.background = element_rect(fill = '#f0f0f0', color = NA),
-    plot.background = element_rect(fill = '#f0f0f0', color = NA),
-    plot.title = element_text(color = '#444444', hjust = 0.5, face = 'bold'), 
-    legend.background = element_rect(fill = '#f0f0f0', color = NA),
-    legend.title = element_text(face = 'bold'),
-    legend.position = 'right'
-  )
-```
-
-
---- .subsubsection
-
-# Demographic filters
-## Race filter
-
-```{r orders-race, fig.height = 3}
-orders_race %>% 
-  ggplot(aes(fill = univ_label, y = count, x = reorder(race_ethnicity_group, count))) + 
-  geom_bar(position = 'stack', stat = 'identity') +
-  geom_text(aes(label = count), hjust = -0.1, size = 2) +
-  scale_fill_manual(values = color_palette, name = 'University type') +
-  scale_y_continuous(expand = expansion(mult = c(0.01, 0.1))) +
-  xlab('') + ylab('Number of orders') +
-  coord_flip()
-```
-
 
 --- .subsubsection
 
@@ -1396,61 +1310,7 @@ bind_cols(
 
 --- .subsection
 
-# RQ3
-
-
---- .subsubsection
-
-# Academic & Geographic Combos
-## GPA (3.0+) and SAT or PSAT (across score thresholds)
-
-<img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
-
-<div class="row">
-  <div class="column">
-    <img src="../outputs/figures/combo1_inc_sat.png" alt="combo1_sat" style="width:50%">
-  </div>
-  <div class="column">
-    <img src="../outputs/figures/combo1_inc_psat.png" alt="combo1_psat" style="width:50%">
-  </div>
-</div>
-
----
-
-# Academic & Geographic Combos
-## GPA (3.0+), PSAT (150+) or SAT (1050+), and Zip (across income thresholds)
-
-<img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
-
-<div class="row">
-  <div class="column">
-    <img src="../outputs/figures/combo2_inc_sat.png" alt="combo2_sat" style="width:50%">
-  </div>
-  <div class="column">
-    <img src="../outputs/figures/combo2_inc_psat.png" alt="combo2_psat" style="width:50%">
-  </div>
-</div>
-
----
-
-# Academic & Geographic Combos
-## GPA (3.0+) and AP (across score thresholds)
-
-<img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
-
-<div class="row">
-  <div class="column">
-    <img src="../outputs/figures/combo3_inc_ap.png" alt="combo3_ap" style="width:50%">
-  </div>
-  <div class="column">
-    <img src="../outputs/figures/combo3_inc_apstem.png" alt="combo3_apstem" style="width:50%">
-  </div>
-</div>
-
-
---- .subsection
-
-# RQ3 [CARRYOVER FROM REPORTS]
+# RQ3 
 
 
 --- .subsubsection
@@ -1504,81 +1364,6 @@ rq3 %>%
       command = c('<tr style="text-align: center;"><th colspan="3" style="border-bottom: none;"></th><th colspan="5">Academic</th><th style="border-bottom: none;"><th colspan="5">Geographic</th><th style="border-bottom: none;"></th><th colspan="2">Demographic</th></tr><tr style="text-align:center;"><th width="15px;"></th><th></th><th>All domestic</th><th>GPA</th><th>PSAT</th><th>SAT</th><th>HS rank</th><th>AP score</th><th width="5px;"></th><th>Zip code</th><th>State</th><th>Geomarket</th><th>Segment</th><th>CBSA</th><th width="5px;"></th><th>Race</th><th>Gender</th></tr>', '<tr style="font-weight:900"><td colspan="2">Location</td></tr>', '<tr style="font-weight:900"><td colspan="2">Race/ethnicity</td></tr>', '<tr style="font-weight:900"><td colspan="2">Gender</td></tr>', '<tr style="font-weight:900"><td colspan="2">Household income</td></tr>', '<tr style="font-weight:900"><td colspan="2">Locale</td></tr>')
     ),
     include.colnames = F
-  )
-```
-
-
---- .subsubsection
-
-# Zip code & test score filters
-## Los Angeles prospects from top income decile zip codes
-
-```{r asu-la-deep-dive, fig.height = 3}
-asu_la_figure_totals <- asu_la_full %>% 
-  mutate(
-    count_type = recode_factor(
-      in_zip_top10pct,
-      `0` = 'Rest',
-      `1` = 'Top 10%'
-    ),
-    ord_type = recode_factor(
-      ord_type,
-      'psat_high' = 'High PSAT order (1270-1520)',
-      'psat_med' = 'Medium PSAT order (1190-1260)',
-      'psat_low' = 'Low PSAT order (1110-1210)',
-      'sat_med' = 'Medium SAT order (1140-1260)'
-    )
-  ) %>% 
-  group_by(ord_type, count_type) %>% 
-  summarise(
-    count = sum(count)
-  ) %>% 
-  ungroup()
-
-asu_la %>% 
-  mutate(
-    stu_race_cb = if_else(is.na(stu_race_cb), 999, unclass(stu_race_cb)),
-    race = recode_factor(
-      stu_race_cb,
-      `999` = 'Missing',
-      `0` = 'No response',
-      `10` = 'Other',
-      `12` = 'Multiracial',
-      `8` = 'NH/PI',
-      `1` = 'AI/AN',
-      `4` = 'Latinx',
-      `3` = 'Black',
-      `2` = 'Asian',
-      `9` = 'White'
-    ),
-    count_type = recode_factor(
-      in_zip_top10pct,
-      `0` = 'Rest',
-      `1` = 'Top 10%'
-    ),
-    ord_type = recode_factor(
-      ord_type,
-      'psat_high' = 'High PSAT order (1270-1520)',
-      'psat_med' = 'Medium PSAT order (1190-1260)',
-      'psat_low' = 'Low PSAT order (1110-1210)',
-      'sat_med' = 'Medium SAT order (1140-1260)'
-    )
-  ) %>% 
-  filter(!race %in% c('Missing', 'No response')) %>% 
-  ggplot(aes(y = count_type, x = pct, fill = race)) + 
-  geom_bar(position = 'stack', stat = 'identity') + 
-  geom_text(mapping = aes(label = if_else(pct > 0.02, as.character(round(pct * 100)), '')), size = 2, position = position_stack(vjust = 0.5), color = color_text) +
-  geom_text(data = asu_la_figure_totals, mapping = aes(x = 1, fill = NULL, label = str_c('N=', prettyNum(count, ','))), size = 2, hjust = -0.1) +
-  # scale_fill_brewer(palette = 'BrBG', direction = -1, name = 'Race') +
-  scale_fill_manual(values = rev(color_palette[1:7]), name = 'Race') +
-  scale_x_continuous(expand = expansion(mult = c(0, 0.04)), limits = c(0, 1.15)) +
-  scale_y_discrete(expand = expansion(mult = c(0.01, 0.1))) +
-  xlab('Percent of prospects') + ylab('') +
-  facet_wrap(~ ord_type) +
-  guides(fill = guide_legend(reverse = T)) +
-  theme(
-    axis.text.x = element_blank(),
-    axis.text.y = element_text(color = '#444444', size = 6, face = 'bold', hjust = 1)
   )
 ```
 
@@ -2083,6 +1868,81 @@ grid.arrange(
 
 
 
+--- .subsubsection
+
+# Zip code & test score filters
+## Los Angeles prospects from top income decile zip codes
+
+```{r asu-la-deep-dive, fig.height = 3}
+asu_la_figure_totals <- asu_la_full %>% 
+  mutate(
+    count_type = recode_factor(
+      in_zip_top10pct,
+      `0` = 'Rest',
+      `1` = 'Top 10%'
+    ),
+    ord_type = recode_factor(
+      ord_type,
+      'psat_high' = 'High PSAT order (1270-1520)',
+      'psat_med' = 'Medium PSAT order (1190-1260)',
+      'psat_low' = 'Low PSAT order (1110-1210)',
+      'sat_med' = 'Medium SAT order (1140-1260)'
+    )
+  ) %>% 
+  group_by(ord_type, count_type) %>% 
+  summarise(
+    count = sum(count)
+  ) %>% 
+  ungroup()
+
+asu_la %>% 
+  mutate(
+    stu_race_cb = if_else(is.na(stu_race_cb), 999, unclass(stu_race_cb)),
+    race = recode_factor(
+      stu_race_cb,
+      `999` = 'Missing',
+      `0` = 'No response',
+      `10` = 'Other',
+      `12` = 'Multiracial',
+      `8` = 'NH/PI',
+      `1` = 'AI/AN',
+      `4` = 'Latinx',
+      `3` = 'Black',
+      `2` = 'Asian',
+      `9` = 'White'
+    ),
+    count_type = recode_factor(
+      in_zip_top10pct,
+      `0` = 'Rest',
+      `1` = 'Top 10%'
+    ),
+    ord_type = recode_factor(
+      ord_type,
+      'psat_high' = 'High PSAT order (1270-1520)',
+      'psat_med' = 'Medium PSAT order (1190-1260)',
+      'psat_low' = 'Low PSAT order (1110-1210)',
+      'sat_med' = 'Medium SAT order (1140-1260)'
+    )
+  ) %>% 
+  filter(!race %in% c('Missing', 'No response')) %>% 
+  ggplot(aes(y = count_type, x = pct, fill = race)) + 
+  geom_bar(position = 'stack', stat = 'identity') + 
+  geom_text(mapping = aes(label = if_else(pct > 0.02, as.character(round(pct * 100)), '')), size = 2, position = position_stack(vjust = 0.5), color = color_text) +
+  geom_text(data = asu_la_figure_totals, mapping = aes(x = 1, fill = NULL, label = str_c('N=', prettyNum(count, ','))), size = 2, hjust = -0.1) +
+  # scale_fill_brewer(palette = 'BrBG', direction = -1, name = 'Race') +
+  scale_fill_manual(values = rev(color_palette[1:7]), name = 'Race') +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.04)), limits = c(0, 1.15)) +
+  scale_y_discrete(expand = expansion(mult = c(0.01, 0.1))) +
+  xlab('Percent of prospects') + ylab('') +
+  facet_wrap(~ ord_type) +
+  guides(fill = guide_legend(reverse = T)) +
+  theme(
+    axis.text.x = element_blank(),
+    axis.text.y = element_text(color = '#444444', size = 6, face = 'bold', hjust = 1)
+  )
+```
+
+
 
 
 --- .section
@@ -2128,3 +1988,217 @@ Policy
 bibliography('html')
 ```
 </div>
+
+--- .section
+
+# Appendix
+
+--- .subsection
+
+# RQ1
+
+# Test Thresholds
+## GPA
+
+<img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
+
+<div class="row">
+  <div class="column">
+    <img src="../outputs/figures/p2_gpa_inc.png" alt="P2GPA_inc" style="width:50%">
+  </div>
+  <div class="column">
+    <img src="../outputs/figures/p2_gpa_exc.png" alt="P2GPA_exc" style="width:50%">
+  </div>
+</div>
+
+
+--- .subsection
+
+# RQ2
+
+--- .subsubsection
+
+# Academic filters
+## GPA filter used
+
+```{r orders-gpa, fig.height = 3}
+orders_gpa_total <- orders_gpa %>% 
+  group_by(univ_type) %>% 
+  summarise(
+    num_orders = sum(n_low)
+  ) %>% 
+  pull(num_orders, univ_type)
+
+orders_gpa %>% 
+  mutate(
+    univ_label = recode_factor(
+      univ_type,
+      'research' = str_c('Research (N=', orders_gpa_total[['research']], ')'),
+      'regional' = str_c('MA/doctoral (N=', orders_gpa_total[['regional']], ')')
+    )
+  ) %>% 
+  ggplot(aes(x = factor(gpa_low, levels = c('A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-')), y = pct_low, fill = univ_label)) +
+  geom_bar(position = 'dodge', stat = 'identity') +
+  geom_text(aes(label = n_low), hjust = 0.5, vjust = 0, size = 2, position = position_dodge(0.9)) +
+  scale_y_continuous(labels = label_percent(accuracy = 1)) +
+  scale_fill_manual(values = color_palette, name = 'University type') +
+  xlab('') + ylab('% of orders in university type')
+```
+
+
+---
+
+## SAT filter used
+
+
+```{r orders-sat, fig.height = 4}
+orders_sat_total <- orders_sat %>% 
+  filter(test_range == 'sat_min') %>% 
+  group_by(univ_type) %>% 
+  summarise(
+    num_orders = sum(num)
+  ) %>% 
+  pull(num_orders, univ_type)
+
+orders_sat %>% 
+  mutate(
+    range_label = recode_factor(
+      test_range,
+      'sat_min' = 'Minimum',
+      'sat_max' = 'Maximum'
+    ),
+    univ_label = recode_factor(
+      univ_type,
+      'research' = str_c('Research (N=', orders_sat_total[['research']], ')'),
+      'regional' = str_c('MA/doctoral (N=', orders_sat_total[['regional']], ')')
+    )
+  ) %>% 
+  ggplot(aes(x = brks, y = pct, fill = univ_label)) +
+  geom_bar(position = position_dodge2(reverse = T, padding = 0), stat = 'identity') +
+  geom_text(aes(label = num), hjust = -0.1, size = 2, position = position_dodge2(0.9, reverse = T, padding = 0)) +
+  scale_y_continuous(expand = expansion(mult = c(0.01, 0.1)), labels = label_percent(accuracy = 1)) +
+  scale_fill_manual(values = color_palette, name = 'University type') +
+  xlab('') + ylab('% of orders in university type') +
+  facet_wrap(~ range_label) +
+  coord_flip()
+```
+
+
+---
+
+## PSAT filter used
+
+```{r orders-psat, fig.height = 4}
+orders_psat_total <- orders_psat %>% 
+  filter(test_range == 'psat_min') %>% 
+  group_by(univ_type) %>% 
+  summarise(
+    num_orders = sum(num)
+  ) %>% 
+  pull(num_orders, univ_type)
+
+orders_psat %>% 
+  mutate(
+    range_label = recode_factor(
+      test_range,
+      'psat_min' = 'Minimum',
+      'psat_max' = 'Maximum'
+    ),
+    univ_label = recode_factor(
+      univ_type,
+      'research' = str_c('Research (N=', orders_psat_total[['research']], ')'),
+      'regional' = str_c('MA/doctoral (N=', orders_psat_total[['regional']], ')')
+    )
+  ) %>% 
+  ggplot(aes(x = brks, y = pct, fill = univ_label)) +
+  geom_bar(position = position_dodge2(reverse = T, padding = 0), stat = 'identity') +
+  geom_text(aes(label = num), hjust = -0.1, size = 2, position = position_dodge2(0.9, reverse = T, padding = 0)) +
+  scale_y_continuous(expand = expansion(mult = c(0.01, 0.1)), labels = label_percent(accuracy = 1)) +
+  scale_fill_manual(values = color_palette, name = 'University type') +
+  xlab('') + ylab('% of orders in university type') +
+  facet_wrap(~ range_label) +
+  coord_flip()
+```
+
+
+
+--- .subsubsection
+
+#  Geographic filters
+## State filter used by research universities, out-of-state
+
+```{r orders-state-research-outofstate, fig.height = 2.8, fig.width = 5}
+# Out-of-state
+plot_usmap(
+  regions = 'states',
+  data = orders_state_research %>% filter(locale == 'outofstate'),
+  values = 'frequency'
+) +
+  scale_fill_gradient2(
+    low = 'white',
+    mid = '#ededed',
+    high = color_palette[[1]], 
+    midpoint = 35,
+    name = 'Number of orders',
+    label = label_number(accuracy = 1),
+    limits = c(0, 120)
+  ) + 
+  # labs(title = 'State filter used by research universities (out-of-state)') +
+  theme(
+    text = element_text(size = 7), 
+    panel.background = element_rect(fill = '#f0f0f0', color = NA),
+    plot.background = element_rect(fill = '#f0f0f0', color = NA),
+    plot.title = element_text(color = '#444444', hjust = 0.5, face = 'bold'), 
+    legend.background = element_rect(fill = '#f0f0f0', color = NA),
+    legend.title = element_text(face = 'bold'),
+    legend.position = 'right'
+  )
+```
+
+---
+
+## State filter used by research universities, in-state
+
+```{r orders-state-research-instate, fig.height = 2.8, fig.width = 5}
+# In-state
+plot_usmap(
+  regions = 'states',
+  data = orders_state_research %>% filter(locale == 'instate'),
+  values = 'frequency'
+) +
+  scale_fill_continuous(
+    low = '#ededed',
+    high = color_palette[[1]], 
+    name = 'Number of orders',
+    label = label_number(accuracy = 1),
+    limits = c(0, 10)
+  ) + 
+  # labs(title = 'State filter used by research universities (in-state)') +
+  theme(
+    text = element_text(size = 7), 
+    panel.background = element_rect(fill = '#f0f0f0', color = NA),
+    plot.background = element_rect(fill = '#f0f0f0', color = NA),
+    plot.title = element_text(color = '#444444', hjust = 0.5, face = 'bold'), 
+    legend.background = element_rect(fill = '#f0f0f0', color = NA),
+    legend.title = element_text(face = 'bold'),
+    legend.position = 'right'
+  )
+```
+
+
+--- .subsubsection
+
+# Demographic filters
+## Race filter
+
+```{r orders-race, fig.height = 3}
+orders_race %>% 
+  ggplot(aes(fill = univ_label, y = count, x = reorder(race_ethnicity_group, count))) + 
+  geom_bar(position = 'stack', stat = 'identity') +
+  geom_text(aes(label = count), hjust = -0.1, size = 2) +
+  scale_fill_manual(values = color_palette, name = 'University type') +
+  scale_y_continuous(expand = expansion(mult = c(0.01, 0.1))) +
+  xlab('') + ylab('Number of orders') +
+  coord_flip()
+```
+
