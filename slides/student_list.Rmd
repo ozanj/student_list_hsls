@@ -789,34 +789,31 @@ Selection devices allocate individuals to categories based on input factors `r c
   - decisions based on mathematical function in which input values determine outcome value
   - "actuarial" selection devices predict outcomes based on analysis of past cases
 - Student list products are discretionary selection devices
-  - administrator chooses prospects by selecting search filters (inputs)
-  - inputs factors include descriptive characteristics and predictive analytics
 
 <br>
-Selection devices and racial inequality
 
-- Standardized selection devices
+Standardized selection devices and racial inequality
   - May reduce racial inequality if source of inequality is bias from individual decision-maker
   - Do not reduce inequality due to structural racism `r citep(bib[c('RN4814')])`
-    - "colorblind" selection devices reproduce inequality by utilizing inputs related to race
-- Discretionary selection devices
-  - Sensitive to bias from decision-makers and inputs related to race
+    - Structural racism is “systematic racial bias embedded in the ‘normal’ functions of laws and social relations,” whereby processes viewed as neutral or common-sense systematically disadvantage marginalized groups `r cite(bib['RN4760'], eg = F, suffix = 'p. 1143')`
+    - "colorblind" selection devices reproduce inequality by utilizing inputs related to race BECAUSE MARGINALIZED GROUPS HAVE BEEN HISTORICALLY EXCLUDED FROM INPUT
+    
+<br>    
+Discretionary selection devices
+
+- Sensitive to bias from decision-makers and inputs related to race
 
 
 --- 
 
 ## Racialized inputs
 
-Structural racism `r cite(bib['RN4760'], eg = F, suffix = 'p. 1143')`
-
-- “systematic racial bias embedded in the ‘normal’ functions of laws and social relations,” whereby processes viewed as neutral or common-sense systematically disadvantage marginalized groups
-
 <br>
 Racialized inputs `r citep(bib[c('RN4786')])`
 
 - Inputs that are "theoretically and empirically correlated with historical racial disadvantage" (p. 5)
 - reconstructs inputs used by Moody’s city government credit rating algorithm
-
+- SOME QUOTE HERE FROM NORRIS LIKE COLORBLIND ONE
 <br>
 Geography inputs
 
