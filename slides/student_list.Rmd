@@ -77,6 +77,10 @@ library(usmap)
 library(extrafont)
 loadfonts() #KS added to run theme_set
 
+#KS issues with font
+# library(sysfonts)
+#font_add("Helvetica", regular = "/Users/karinasalazar/Downloads/Helvetica.ttf")
+
 # Function for parenthetical citation needing `e.g.,` or have no year (ie. forthcoming)
 # b: citation(s)
 # eg: T/F - whether or not to include `e.g.,` in citation
@@ -870,38 +874,22 @@ Filtering on multiple racialized inputs has compounding effect on racial inequal
 
 ---
 
-## PRESENTATION STUFF TO DO
-
-- background section; 
-  - [DONE] replace current enrollment funnel w/ the one from here (might ask crystal to do this): https://ticas.org/wp-content/uploads/2022/09/Geodemographics-of-Student-List-Purchases_A-First-Look.pdf 
-- on results slides, for RQ1
-  - look to see if slide title and sub-title makes sense
-    - like I tried to indicate in slide titles which proposition being tested
-  - modify some graphs to make sure they pit on page
-  - I may have fucked up a couple of slide titles/contents somehow. my bad homie...
-- results slides for RQ3
-  - for the four deep dive purchases
-    - add text at bottom of slide that indicates the filters specified in the orders being analyzed (e.g., the segment one currently just says "Segment" but we should show that it is segment used in concert w/ these other filters)
-    
-
----
-
 ## HSLS09 & Student List Project
 
-High School Longitudinal Study of 2009 (HSLS09)
-
-- Students who completed 2012/2013 survey follow-ups and obtained high school transcript data
-  - Unweighted analysis sample (n=16,530) 
-  - Weighted analysis sample represent approximately 4.2 million U.S. 9th graders in 2009
+__High School Longitudinal Study of 2009 (HSLS09)__
+- Nationally representative survey of 23,000 students from 944 schools entering 9th grade in Fall 2009
+- Follow up surveys: Spring 2012 (11th grade), 2013 (HS graduation/transcripts), 2016 (postsecondary)
+- Sample: Students who completed 2012/2013 survey follow-ups
+  - Unweighted: N=16,530
+  - Weighted analysis sample: N=4.2 Million
 
 <br>
 <br>
 
-Student List Project
-
+__Student List Project__
 - Issued public records requests for student list data (2016-2020) to all public universities in four states (CA, IL, MN, TX)
 - Target student list vendors: College Board, ACT
-- For each purchased list, sought two pieces of data
+- Data collected for each purchased list:
   - "Order summary" specifying search filter criteria ([LINK](https://drive.google.com/file/d/1gPZ-WWw0gdFT7VtzBN3hKLnj2DzoaqnY/view))
   - De-identified prospect-level student list ([LINK](https://drive.google.com/file/d/1Qvc_QRi9izEF1W78Lh4nNi5NsXjCZqUE/view))
 - Funded by Joyce Foundation and Kresge Foundation
@@ -932,6 +920,8 @@ Student List Project
 
 - Data: order summaries from 830 College Board student lists purchased by 14 public universities
 - Analyses: descriptive statistics of search filters specified in orders
+
+<br>
 
 **RQ3**. What is observed racial composition of student list purchases that utilize racialized search filters in concert with other search filters?
 
@@ -1018,7 +1008,7 @@ Student List Project
 
 --- &twocol .subsubsection
 
-# Test thresholds
+# Test Thresholds
 ## **P2**: SAT, PSAT score thresholds and racial composition
 
 
@@ -1049,8 +1039,8 @@ Student List Project
 
 --- &twocol
 
-# Test thresholds
-## **P2**: AP sScore thresholds and racial composition
+# Test Thresholds
+## **P2**: AP score thresholds and racial composition
 
 <img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
 
@@ -1079,7 +1069,7 @@ Student List Project
 --- .subsubsection
 
 # Geography
-## **P3**: Zip code affluence and racial composition
+## **P3**: Zip code affluence and racial composition, within CBSA
 
 <img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
 
@@ -1092,10 +1082,10 @@ Student List Project
   </div>
 </div>
 
---- 
+--- &twocol
 
 # Geography
-## Zip vs county, affluence percentiles within CBSA
+## **P4**: Zip vs County, affluence percentiles within CBSA
 
 <img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
 
@@ -1123,49 +1113,49 @@ Student List Project
 
 --- .subsubsection
 
-# Academic & Geographic
+# Compounding Effects
 ## GPA (3.0+) and SAT or PSAT (across score thresholds)
 
 <img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
 
 <div class="row">
   <div class="column">
-    <img src="../outputs/figures/combo1_inc_sat.png" alt="combo1_sat" style="width:50%">
+    <img src="../outputs/figures/combo1_inc_sat.png" alt="combo1_sat" style="width:45%">
   </div>
   <div class="column">
-    <img src="../outputs/figures/combo1_inc_psat.png" alt="combo1_psat" style="width:50%">
+    <img src="../outputs/figures/combo1_inc_psat.png" alt="combo1_psat" style="width:45%">
   </div>
 </div>
 
 ---
 
-# Academic & Geographic
-## GPA (3.0+), PSAT (150+) or SAT (1050+), and Zip (across income thresholds)
+# Compounding Effects
+## GPA (3.0+), PSAT (150+), SAT (1050+), and Zip (by income)
 
 <img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
 
 <div class="row">
   <div class="column">
-    <img src="../outputs/figures/combo2_inc_sat.png" alt="combo2_sat" style="width:50%">
+    <img src="../outputs/figures/combo2_inc_sat.png" alt="combo2_sat" style="width:45%">
   </div>
   <div class="column">
-    <img src="../outputs/figures/combo2_inc_psat.png" alt="combo2_psat" style="width:50%">
+    <img src="../outputs/figures/combo2_inc_psat.png" alt="combo2_psat" style="width:45%">
   </div>
 </div>
 
 ---
 
-# Academic & Geographic
+# Compounding Effects
 ## GPA (3.0+) and AP (across score thresholds)
 
 <img src="../outputs/figures/legend_horizontal.png" alt="Enrollment Funnel" style="width:50%;margin:0 auto;">
 
 <div class="row">
   <div class="column">
-    <img src="../outputs/figures/combo3_inc_ap.png" alt="combo3_ap" style="width:50%">
+    <img src="../outputs/figures/combo3_inc_ap.png" alt="combo3_ap" style="width:45%">
   </div>
   <div class="column">
-    <img src="../outputs/figures/combo3_inc_apstem.png" alt="combo3_apstem" style="width:50%">
+    <img src="../outputs/figures/combo3_inc_apstem.png" alt="combo3_apstem" style="width:45%">
   </div>
 </div>
 
@@ -1492,6 +1482,8 @@ grid.arrange(
 )
 ```
 
+Filters: HS Class, Segment, GPA (B-A+), PSAT/SAT (1220-1450); State/CBSAs
+
 
 ---
 
@@ -1602,6 +1594,8 @@ grid.arrange(
 ```
 
 
+Filters: HS Class, AP STEM (3 min for in-state; 4 min for out-of-state) _or_ SAT (1200 minimum for in-state; 1300 minimum for out-of-state) with STEM major interest, GPA (B-A+), State (in-state vs. out-of-state)
+
 --- .subsubsection
 
 # Targeting URM students
@@ -1675,6 +1669,8 @@ poc_common_figure <- poc_common %>%
 poc_cb_figure + poc_common_figure + plot_annotation(title = 'Aggregate race/ethnicity variable                                                                        Multiple races and ethnicities', theme = theme(plot.title = element_text(size = 7, color = 'black')))
 ```
 
+
+Filters: HS Class, SAT (1200-1380), GPA (B-A+), Race (Latinx, Black, AIAN), State
 
 ---
 
@@ -1910,7 +1906,7 @@ asu_la %>%
   )
 ```
 
-
+Filters: HS Class, PSAT (high/low) or SAT (high/low), Zip Code (by affluence)
 
 
 --- .section
