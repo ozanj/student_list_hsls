@@ -839,7 +839,7 @@ Inputs based on predictive analytics
 
 Standardized college entrance exams and AP exams as racialized inputs
 
-- Racial/ethnic differences in test-taking and test scores a function of historic/contemporary school segregation, differences in school funding and access to curricula `r cite(bib[c(c('RN4893','RN4853'))])`
+- Racial/ethnic differences in test-taking and test scores a function of historic/contemporary school segregation, differences in school funding, differences in access to curricula `r cite(bib[c(c('RN4893','RN4853'))])`
 <!-- - Concerns about bias in question items `r cite(bib[c(c('RN6012', 'RN6011'))])` -->
 
 
@@ -879,7 +879,7 @@ Filtering on multiple racialized inputs has compounding effect on racial inequal
 __High School Longitudinal Study of 2009 (HSLS09)__
 - Nationally representative survey of 23,000 students from 944 schools entering 9th grade in Fall 2009
 - Follow up surveys: Spring 2012 (11th grade), 2013 (HS graduation/transcripts), 2016 (postsecondary)
-- Sample: Students who completed 2012/2013 survey follow-ups
+- Sample: Students who completed 2012/2013 survey follow-ups + HS transcripts
   - Unweighted: N=16,530
   - Weighted analysis sample: N=4.2 Million
 
