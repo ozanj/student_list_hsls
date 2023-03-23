@@ -304,7 +304,7 @@ Inputs based on predictive analytics
 
 Standardized college entrance exams and AP exams as racialized inputs
 
-- Racial/ethnic differences in test-taking and test scores a function of historic/contemporary school segregation, differences in school funding and access to curricula (e.g., Reardon, Kalogrides, and Shores, 2019; Rodriguez and Hernandez-Hamed, 2020)
+- Racial/ethnic differences in test-taking and test scores a function of historic/contemporary school segregation, differences in school funding, differences in access to curricula (e.g., Reardon, Kalogrides, and Shores, 2019; Rodriguez and Hernandez-Hamed, 2020)
 <!-- - Concerns about bias in question items (e.g., and Freedle, 2003; Santelices and Wilson, 2010) -->
 
 
@@ -344,7 +344,7 @@ Filtering on multiple racialized inputs has compounding effect on racial inequal
 __High School Longitudinal Study of 2009 (HSLS09)__
 - Nationally representative survey of 23,000 students from 944 schools entering 9th grade in Fall 2009
 - Follow up surveys: Spring 2012 (11th grade), 2013 (HS graduation/transcripts), 2016 (postsecondary)
-- Sample: Students who completed 2012/2013 survey follow-ups
+- Sample: Students who completed 2012/2013 survey follow-ups + HS transcripts
   - Unweighted: N=16,530
   - Weighted analysis sample: N=4.2 Million
 
@@ -646,7 +646,7 @@ __Student List Project__
 ## Filter combos used in order purchases
 
 <!-- html table generated in R 4.2.1 by xtable 1.8-4 package -->
-<!-- Thu Mar 23 12:39:35 2023 -->
+<!-- Thu Mar 23 13:25:37 2023 -->
 <table border=1>
   <tr><th colspan="3" style="text-align:center;">Research</th><th colspan="3" style="text-align:center;">MA/doctoral</th></tr><tr><th>Filters</th><th>Count</th><th>Percent</th><th>Filters</th><th>Count</th><th>Percent</th></tr> <tr> <td> HS grad class, GPA, SAT, PSAT, Rank, State, Race </td> <td align="center">  39 </td> <td align="center"> 10% </td> <td> HS grad class, GPA, SAT, Zip code </td> <td align="center"> 206 </td> <td align="center"> 45% </td> </tr>
   <tr> <td> HS grad class, PSAT, State </td> <td align="center">  27 </td> <td align="center"> 7% </td> <td> HS grad class, GPA, PSAT, Zip code </td> <td align="center"> 145 </td> <td align="center"> 32% </td> </tr>
@@ -672,7 +672,7 @@ __Student List Project__
 ## Prospect characteristics across individual filter criteria
 
 <!-- html table generated in R 4.2.1 by xtable 1.8-4 package -->
-<!-- Thu Mar 23 12:39:35 2023 -->
+<!-- Thu Mar 23 13:25:38 2023 -->
 <table style="font-size:11px;">
   <tr style="text-align: center;"><th colspan="3" style="border-bottom: none;"></th><th colspan="5">Academic</th><th style="border-bottom: none;"><th colspan="5">Geographic</th><th style="border-bottom: none;"></th><th colspan="2">Demographic</th></tr><tr style="text-align:center;"><th width="15px;"></th><th></th><th>All domestic</th><th>GPA</th><th>PSAT</th><th>SAT</th><th>HS rank</th><th>AP score</th><th width="5px;"></th><th>Zip code</th><th>State</th><th>Geomarket</th><th>Segment</th><th>CBSA</th><th width="5px;"></th><th>Race</th><th>Gender</th></tr> <tr> <td> Total </td> <td>   </td> <td align="center"> 3,547,620 </td> <td align="center"> 1,101,266 </td> <td align="center"> 1,812,447 </td> <td align="center"> 971,237 </td> <td align="center"> 146,660 </td> <td align="center"> 75,479 </td> <td align="center">   </td> <td align="center"> 165,924 </td> <td align="center"> 1,173,678 </td> <td align="center"> 1,056,951 </td> <td align="center"> 186,519 </td> <td align="center"> 146,313 </td> <td align="center">   </td> <td align="center"> 279,626 </td> <td align="center"> 39,546 </td> </tr>
    <tr style="font-weight:900"><td colspan="2">Location</td></tr><tr> <td>   </td> <td> % In-state </td> <td align="center"> 38 </td> <td align="center"> 62 </td> <td align="center"> 30 </td> <td align="center"> 54 </td> <td align="center"> 83 </td> <td align="center"> 42 </td> <td align="center">   </td> <td align="center"> 98 </td> <td align="center"> 48 </td> <td align="center"> 17 </td> <td align="center"> 15 </td> <td align="center"> 4 </td> <td align="center">   </td> <td align="center"> 59 </td> <td align="center"> 6 </td> </tr>
@@ -708,7 +708,7 @@ __Student List Project__
 ## Filter by neighborhood segments
 
 <!-- html table generated in R 4.2.1 by xtable 1.8-4 package -->
-<!-- Thu Mar 23 12:39:35 2023 -->
+<!-- Thu Mar 23 13:25:38 2023 -->
 <table style="font-size:10px;" id="cluster-en">
   <tr style="text-align:center;"><th style="text-align:left;">2011 D+ Cluster</th><th>SAT Math</th><th>SAT CR</th><th>Going Out of State</th><th>Percent NonWhite</th><th>Need Financial Aid</th><th>Med Income</th></tr> <tr> <td> 51 </td> <td align="center"> 546.00 </td> <td align="center"> 533.00 </td> <td align="center"> 32% </td> <td align="center"> 30% </td> <td align="center"> 57% </td> <td align="center"> $95,432 </td> </tr>
   <tr> <td> 52 </td> <td align="center"> 480.00 </td> <td align="center"> 470.00 </td> <td align="center"> 30% </td> <td align="center"> 58% </td> <td align="center"> 71% </td> <td align="center"> $63,578 </td> </tr>
@@ -752,7 +752,7 @@ __Student List Project__
 ## Filter by high school segments
 
 <!-- html table generated in R 4.2.1 by xtable 1.8-4 package -->
-<!-- Thu Mar 23 12:39:35 2023 -->
+<!-- Thu Mar 23 13:25:38 2023 -->
 <table style="font-size:10px;" id="cluster-hs">
   <tr style="text-align:center;"><th style="text-align:left;">2011 D+ Cluster</th><th>SAT Math</th><th>SAT CR</th><th>Going Out of State</th><th>Percent NonWhite</th><th>Need Financial Aid</th><th>Med Income</th></tr> <tr> <td> 51 </td> <td align="center"> 462.00 </td> <td align="center"> 457.00 </td> <td align="center"> 14% </td> <td align="center"> 33% </td> <td align="center"> 68% </td> <td align="center"> $40,918 </td> </tr>
   <tr> <td> 52 </td> <td align="center"> 489.00 </td> <td align="center"> 496.00 </td> <td align="center"> 81% </td> <td align="center"> 99% </td> <td align="center"> 77% </td> <td align="center"> $64,730 </td> </tr>
@@ -1091,7 +1091,7 @@ DOI: <a href="https://doi.org/10.7326/m21-0369%20%25m%2034058105%7D%7B10.7326/m2
 ## Summary of data received
 
 <!-- html table generated in R 4.2.1 by xtable 1.8-4 package -->
-<!-- Thu Mar 23 12:40:21 2023 -->
+<!-- Thu Mar 23 13:26:17 2023 -->
 <table border=1>
   <tr style="text-align:center;"><th>State</th><th># received order summary</th><th># no order summary</th><th># received list</th><th># no list</th><th># received both</th><th># did not receive both</th></tr> <tr> <td align="center"> CA </td> <td align="center">   9 </td> <td align="center">  23 </td> <td align="center">  13 </td> <td align="center">  19 </td> <td align="center">   9 </td> <td align="center">  23 </td> </tr>
   <tr> <td align="center"> IL </td> <td align="center">   9 </td> <td align="center">   3 </td> <td align="center">   9 </td> <td align="center">   3 </td> <td align="center">   8 </td> <td align="center">   4 </td> </tr>
