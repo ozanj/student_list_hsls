@@ -555,7 +555,7 @@ Interventions along the funnel
 
 <br>
 
-<img src="../outputs/images/enrollment_funnel.png" alt="Enrollment Funnel" style="width:80%;margin:0 auto;">
+<img src="assets/fig/enroll_funnelv2.png" alt="Enrollment Funnel" style="width:70%;margin:0 auto;">
 
 Source: [pngwing.com](https://www.pngwing.com/en/free-png-krrpy)
 
@@ -873,7 +873,7 @@ Filtering on multiple racialized inputs has compounding effect on racial inequal
 ## PRESENTATION STUFF TO DO
 
 - background section; 
-  - replace current enrollment funnel w/ the one from here (might ask crystal to do this): https://ticas.org/wp-content/uploads/2022/09/Geodemographics-of-Student-List-Purchases_A-First-Look.pdf 
+  - [DONE] replace current enrollment funnel w/ the one from here (might ask crystal to do this): https://ticas.org/wp-content/uploads/2022/09/Geodemographics-of-Student-List-Purchases_A-First-Look.pdf 
 - on results slides, for RQ1
   - look to see if slide title and sub-title makes sense
     - like I tried to indicate in slide titles which proposition being tested
