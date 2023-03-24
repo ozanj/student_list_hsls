@@ -1489,8 +1489,11 @@ Filters: HS Class, Segment, GPA (B-A+), PSAT/SAT (1220-1450); State/CBSAs
 
 ## Segment filter prospects interactive map
 
-<iframe src="https://mpatricia01.github.io/public_requests_eda/outputs/maps/map_segment_green.html" id="uiuc-deep-dive-map" width=100% height=100% allowtransparency="true"></iframe>
+<iframe src="https://mpatricia01.github.io/public_requests_eda/outputs/maps/map_segment_green.html" id="uiuc-deep-dive-map" width=100% height=90% allowtransparency="true"></iframe>
 
+<br> 
+
+> "Basic tenet of geodemography is people with similar cultural backgrounds, means, and perspectives naturally gravitate to one another or form relatively homogeneous communities" (College Board, 2011)
 
 --- .subsubsection
 
