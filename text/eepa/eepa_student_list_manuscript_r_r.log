@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.3.14)  10 APR 2023 15:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.3.14)  11 APR 2023 11:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -655,7 +655,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 187.
 [6] [7] [8] [9] [10] [11] [12]
-Underfull \hbox (badness 1721) in paragraph at lines 234--235
+Underfull \hbox (badness 1721) in paragraph at lines 232--233
 []\T1/lmr/m/n/12 Scholarship ex-am-ines whether dis-cre-tionary and stan-dard-ized se-lec-tion de-vices pro-
  []
 
@@ -668,72 +668,72 @@ Underfull \hbox (badness 1168) in paragraph at lines 389--392
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 411.
 (c:/Users/ozanj/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [36] [37] [38] [39] [40] [41] [42] [43] [44]
-Underfull \hbox (badness 10000) in paragraph at lines 553--555
+) [36] [37] [38] [39] [40] [41] [42]
+Underfull \hbox (badness 10000) in paragraph at lines 547--549
 \T1/lmr/m/n/12 DATA -[] VISUAL / yxmvjjgojvr / https : / / themarkup . org / machine -[] learning / 2022 / 01 / 13 /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 556--558
+Underfull \hbox (badness 10000) in paragraph at lines 550--552
 \T1/lmr/m/n/12 documents / reports / data -[] brokers -[] call -[] transparency -[] accountability -[] report -[] federal -[] trade -[]
  []
 
-
-Underfull \hbox (badness 1596) in paragraph at lines 559--561
+[43]
+Underfull \hbox (badness 1596) in paragraph at lines 553--555
 []\T1/lmr/m/n/12 Federal Trade Com-mis-sion. (2016a). \T1/lmr/m/it/12 Big data: A tool for in-clu-sion or ex-clu-
  []
 
 
-Underfull \hbox (badness 1194) in paragraph at lines 559--561
+Underfull \hbox (badness 1194) in paragraph at lines 553--555
 \T1/lmr/m/it/12 sion? Un-der-stand-ing the is-sues\T1/lmr/m/n/12 . Fed-eral Trade Com-mis-sion. Re-trieved from
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 559--561
+Underfull \hbox (badness 10000) in paragraph at lines 553--555
 [][]$\T1/lmr/m/n/12 https : / / www . ftc . gov / system / ^^\les / documents / reports / big -[] data -[] tool -[] inclusion -[] or -[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 562--564
+Underfull \hbox (badness 10000) in paragraph at lines 556--558
 [][]$\T1/lmr/m/n/12 http : / / www . ftc . gov / system / ^^\les / documents / reports / sta^^[ -[] perspective -[] follow -[] lead /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 595--597
+Underfull \hbox (badness 10000) in paragraph at lines 589--591
 \T1/lmr/m/n/12 Re-trieved from [][]$https : / / cbsearch . collegeboard . org / pdf / college -[] outreach -[] and -[] student -[]
  []
 
-[45]
-Underfull \hbox (badness 1817) in paragraph at lines 616--618
+[44]
+Underfull \hbox (badness 1817) in paragraph at lines 610--612
 []\T1/lmr/m/n/12 Jaquette, O., Salazar, K. G., & Mar-tin, P. (2022). \T1/lmr/m/it/12 The stu-dent list busi-ness:
  []
 
 
-Underfull \hbox (badness 1178) in paragraph at lines 616--618
+Underfull \hbox (badness 1178) in paragraph at lines 610--612
 \T1/lmr/m/it/12 Primer and mar-ket dy-nam-ics\T1/lmr/m/n/12 . wash-ing-ton, DC: TICAS. Re-trieved from [][]$https :
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 616--618
+Underfull \hbox (badness 10000) in paragraph at lines 610--612
 \T1/lmr/m/n/12 / / ticas . org / wp -[] content / uploads / 2022 / 09 / The -[] Student -[] List -[] Business_ -[] Primer -[] and -[]
  []
 
-[46] [47]
-Underfull \hbox (badness 10000) in paragraph at lines 739--741
+[45] [46]
+Underfull \hbox (badness 10000) in paragraph at lines 736--738
 \T1/lmr/m/n/12 / / www . ru^^[alonl . com / enrollment -[] management -[] solutions / building -[] demand / student -[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 745--747
+Underfull \hbox (badness 10000) in paragraph at lines 742--744
 \T1/lmr/m/n/12 / / www . ru^^[alonl . com / enrollment -[] management -[] solutions / building -[] demand / student -[]
  []
 
-[48]
-Underfull \hbox (badness 10000) in paragraph at lines 751--753
+
+Underfull \hbox (badness 10000) in paragraph at lines 748--750
 \T1/lmr/m/n/12 research -[] higher -[] education -[] fundraising / marketing -[] and -[] recruitment -[] practices -[] for -[]
  []
 
-[49] [50] [51]
+[47] [48] [49] [50]
 LaTeX Font Info:    Calculating math sizes for size <2.5> on input line 929.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <2.5> on input line 929.
@@ -741,70 +741,70 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <1.74998> on input line 929.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <1.25> on input line 929.
-[52
+[51
 
 ]
-<eepa_student_list_manuscript_r_r_files/figure-latex/cb-fig-1.pdf, id=717, 469.755pt x 361.35pt>
+<eepa_student_list_manuscript_r_r_files/figure-latex/cb-fig-1.pdf, id=713, 469.755pt x 361.35pt>
 File: eepa_student_list_manuscript_r_r_files/figure-latex/cb-fig-1.pdf Graphic file (type pdf)
 <use eepa_student_list_manuscript_r_r_files/figure-latex/cb-fig-1.pdf>
 Package pdftex.def Info: eepa_student_list_manuscript_r_r_files/figure-latex/cb-fig-1.pdf  used on input line 939.
 (pdftex.def)             Requested size: 469.75386pt x 361.34912pt.
-[53
+[52
 
  <./eepa_student_list_manuscript_r_r_files/figure-latex/cb-fig-1.pdf>]
-<./../../outputs/images/enrollment_funnel.png, id=732, 496.85625pt x 651.18282pt>
+<./../../outputs/images/enrollment_funnel.png, id=728, 496.85625pt x 651.18282pt>
 File: ./../../outputs/images/enrollment_funnel.png Graphic file (type png)
 <use ./../../outputs/images/enrollment_funnel.png>
 Package pdftex.def Info: ./../../outputs/images/enrollment_funnel.png  used on input line 952.
 (pdftex.def)             Requested size: 211.39233pt x 277.0521pt.
-[54 <./../../outputs/images/enrollment_funnel.png>]
-<eepa_student_list_manuscript_r_r_files/figure-latex/order-filters-empirical-report-1.pdf, id=740, 469.755pt x 361.35pt>
+[53 <./../../outputs/images/enrollment_funnel.png>]
+<eepa_student_list_manuscript_r_r_files/figure-latex/order-filters-empirical-report-1.pdf, id=735, 469.755pt x 361.35pt>
 File: eepa_student_list_manuscript_r_r_files/figure-latex/order-filters-empirical-report-1.pdf Graphic file (type pdf)
 <use eepa_student_list_manuscript_r_r_files/figure-latex/order-filters-empirical-report-1.pdf>
 Package pdftex.def Info: eepa_student_list_manuscript_r_r_files/figure-latex/order-filters-empirical-report-1.pdf  used on input line 963.
 (pdftex.def)             Requested size: 469.75386pt x 361.34912pt.
-[55 <./eepa_student_list_manuscript_r_r_files/figure-latex/order-filters-empirical-report-1.pdf>]
-<./../../outputs/figures/p1_sat.png, id=751, 2131.965pt x 1246.6575pt>
+[54 <./eepa_student_list_manuscript_r_r_files/figure-latex/order-filters-empirical-report-1.pdf>]
+<./../../outputs/figures/p1_sat.png, id=747, 2131.965pt x 1246.6575pt>
 File: ./../../outputs/figures/p1_sat.png Graphic file (type png)
 <use ./../../outputs/figures/p1_sat.png>
 Package pdftex.def Info: ./../../outputs/figures/p1_sat.png  used on input line 973.
 (pdftex.def)             Requested size: 318.70743pt x 186.36281pt.
-<./../../outputs/figures/p1_ap.png, id=752, 2131.965pt x 1246.6575pt>
+<./../../outputs/figures/p1_ap.png, id=748, 2131.965pt x 1246.6575pt>
 File: ./../../outputs/figures/p1_ap.png Graphic file (type png)
 <use ./../../outputs/figures/p1_ap.png>
 Package pdftex.def Info: ./../../outputs/figures/p1_ap.png  used on input line 973.
 (pdftex.def)             Requested size: 318.70743pt x 186.36281pt.
-<./../../outputs/figures/p1_psat.png, id=753, 2131.965pt x 1246.6575pt>
+<./../../outputs/figures/p1_psat.png, id=749, 2131.965pt x 1246.6575pt>
 File: ./../../outputs/figures/p1_psat.png Graphic file (type png)
 <use ./../../outputs/figures/p1_psat.png>
 Package pdftex.def Info: ./../../outputs/figures/p1_psat.png  used on input line 973.
 (pdftex.def)             Requested size: 318.70743pt x 186.36281pt.
-<./../../outputs/figures/p1_apstem.png, id=754, 2131.965pt x 1246.6575pt>
+<./../../outputs/figures/p1_apstem.png, id=750, 2131.965pt x 1246.6575pt>
 File: ./../../outputs/figures/p1_apstem.png Graphic file (type png)
 <use ./../../outputs/figures/p1_apstem.png>
 Package pdftex.def Info: ./../../outputs/figures/p1_apstem.png  used on input line 973.
 (pdftex.def)             Requested size: 318.70743pt x 186.36281pt.
-<./../../outputs/figures/legend_horizontal.png, id=755, 670.505pt x 60.225pt>
+<./../../outputs/figures/legend_horizontal.png, id=751, 670.505pt x 60.225pt>
 File: ./../../outputs/figures/legend_horizontal.png Graphic file (type png)
 <use ./../../outputs/figures/legend_horizontal.png>
 Package pdftex.def Info: ./../../outputs/figures/legend_horizontal.png  used on input line 973.
 (pdftex.def)             Requested size: 318.70804pt x 28.62645pt.
-<./../../outputs/figures/p2_sat_inc.png, id=756, 1854.93pt x 1093.08376pt>
+<./../../outputs/figures/p2_sat_inc.png, id=752, 1854.93pt x 1093.08376pt>
 File: ./../../outputs/figures/p2_sat_inc.png Graphic file (type png)
 <use ./../../outputs/figures/p2_sat_inc.png>
 Package pdftex.def Info: ./../../outputs/figures/p2_sat_inc.png  used on input line 984.
 (pdftex.def)             Requested size: 318.7021pt x 187.8066pt.
-<./../../outputs/figures/p2_psat_inc.png, id=757, 2144.01pt x 1246.6575pt>
+<./../../outputs/figures/p2_psat_inc.png, id=753, 2144.01pt x 1246.6575pt>
 File: ./../../outputs/figures/p2_psat_inc.png Graphic file (type png)
 <use ./../../outputs/figures/p2_psat_inc.png>
 Package pdftex.def Info: ./../../outputs/figures/p2_psat_inc.png  used on input line 984.
 (pdftex.def)             Requested size: 318.70871pt x 185.31657pt.
-<./../../outputs/figures/p2_sat_exc.png, id=758, 1879.02pt x 1093.08376pt>
+<./../../outputs/figures/p2_sat_exc.png, id=754, 1879.02pt x 1093.08376pt>
 File: ./../../outputs/figures/p2_sat_exc.png Graphic file (type png)
 <use ./../../outputs/figures/p2_sat_exc.png>
 Package pdftex.def Info: ./../../outputs/figures/p2_sat_exc.png  used on input line 984.
 (pdftex.def)             Requested size: 318.71239pt x 185.4048pt.
-<./../../outputs/figures/p2_psat_exc.png, id=759, 1876.00874pt x 1246.6575pt>
+<./../../outputs/figures/p2_psat_exc.png, id=755, 1876.00874pt x 1246.6575pt>
 File: ./../../outputs/figures/p2_psat_exc.png Graphic file (type png)
 <use ./../../outputs/figures/p2_psat_exc.png>
 Package pdftex.def Info: ./../../outputs/figures/p2_psat_exc.png  used on input line 984.
@@ -813,22 +813,22 @@ File: ./../../outputs/figures/legend_horizontal.png Graphic file (type png)
 <use ./../../outputs/figures/legend_horizontal.png>
 Package pdftex.def Info: ./../../outputs/figures/legend_horizontal.png  used on input line 984.
 (pdftex.def)             Requested size: 318.70804pt x 28.62645pt.
-<./../../outputs/figures/p2_ap_inc.png, id=760, 1891.065pt x 1093.08376pt>
+<./../../outputs/figures/p2_ap_inc.png, id=756, 1891.065pt x 1093.08376pt>
 File: ./../../outputs/figures/p2_ap_inc.png Graphic file (type png)
 <use ./../../outputs/figures/p2_ap_inc.png>
 Package pdftex.def Info: ./../../outputs/figures/p2_ap_inc.png  used on input line 995.
 (pdftex.def)             Requested size: 318.7067pt x 184.22058pt.
-<./../../outputs/figures/p2_apstem_inc.png, id=761, 1891.065pt x 1093.08376pt>
+<./../../outputs/figures/p2_apstem_inc.png, id=757, 1891.065pt x 1093.08376pt>
 File: ./../../outputs/figures/p2_apstem_inc.png Graphic file (type png)
 <use ./../../outputs/figures/p2_apstem_inc.png>
 Package pdftex.def Info: ./../../outputs/figures/p2_apstem_inc.png  used on input line 995.
 (pdftex.def)             Requested size: 318.7067pt x 184.22058pt.
-<./../../outputs/figures/p2_ap_exc.png, id=762, 1891.065pt x 1093.08376pt>
+<./../../outputs/figures/p2_ap_exc.png, id=758, 1891.065pt x 1093.08376pt>
 File: ./../../outputs/figures/p2_ap_exc.png Graphic file (type png)
 <use ./../../outputs/figures/p2_ap_exc.png>
 Package pdftex.def Info: ./../../outputs/figures/p2_ap_exc.png  used on input line 995.
 (pdftex.def)             Requested size: 318.7067pt x 184.22058pt.
-<./../../outputs/figures/p2_apstem_exc.png, id=763, 1891.065pt x 1093.08376pt>
+<./../../outputs/figures/p2_apstem_exc.png, id=759, 1891.065pt x 1093.08376pt>
 File: ./../../outputs/figures/p2_apstem_exc.png Graphic file (type png)
 <use ./../../outputs/figures/p2_apstem_exc.png>
 Package pdftex.def Info: ./../../outputs/figures/p2_apstem_exc.png  used on input line 995.
@@ -837,13 +837,13 @@ File: ./../../outputs/figures/legend_horizontal.png Graphic file (type png)
 <use ./../../outputs/figures/legend_horizontal.png>
 Package pdftex.def Info: ./../../outputs/figures/legend_horizontal.png  used on input line 995.
 (pdftex.def)             Requested size: 318.70804pt x 28.62645pt.
-[56 <./../../outputs/figures/p1_sat.png> <./../../outputs/figures/p1_ap.png> <./../../outputs/figures/p1_psat.png> <./../../outputs/figures/p1_apstem.png> <./../../outputs/figures/legend_horizontal.png>] [57 <./../../outputs/figures/p2_sat_inc.png> <./../../outputs/figures/p2_psat_inc.png> <./../../outputs/figures/p2_sat_exc.png> <./../../outputs/figures/p2_psat_exc.png>] [58 <./../../outputs/figures/p2_ap_inc.png> <./../../outputs/figures/p2_apstem_inc.png> <./../../outputs/figures/p2_ap_exc.png> <./../../outputs/figures/p2_apstem_exc.png>]
-<./../../outputs/figures/p2_gpa_inc.png, id=789, 1876.00874pt x 1093.08376pt>
+[55 <./../../outputs/figures/p1_sat.png> <./../../outputs/figures/p1_ap.png> <./../../outputs/figures/p1_psat.png> <./../../outputs/figures/p1_apstem.png> <./../../outputs/figures/legend_horizontal.png>] [56 <./../../outputs/figures/p2_sat_inc.png> <./../../outputs/figures/p2_psat_inc.png> <./../../outputs/figures/p2_sat_exc.png> <./../../outputs/figures/p2_psat_exc.png>] [57 <./../../outputs/figures/p2_ap_inc.png> <./../../outputs/figures/p2_apstem_inc.png> <./../../outputs/figures/p2_ap_exc.png> <./../../outputs/figures/p2_apstem_exc.png>]
+<./../../outputs/figures/p2_gpa_inc.png, id=785, 1876.00874pt x 1093.08376pt>
 File: ./../../outputs/figures/p2_gpa_inc.png Graphic file (type png)
 <use ./../../outputs/figures/p2_gpa_inc.png>
 Package pdftex.def Info: ./../../outputs/figures/p2_gpa_inc.png  used on input line 1008.
 (pdftex.def)             Requested size: 422.77077pt x 246.33353pt.
-<./../../outputs/figures/p2_gpa_exc.png, id=790, 1876.00874pt x 1093.08376pt>
+<./../../outputs/figures/p2_gpa_exc.png, id=786, 1876.00874pt x 1093.08376pt>
 File: ./../../outputs/figures/p2_gpa_exc.png Graphic file (type png)
 <use ./../../outputs/figures/p2_gpa_exc.png>
 Package pdftex.def Info: ./../../outputs/figures/p2_gpa_exc.png  used on input line 1008.
@@ -852,12 +852,12 @@ File: ./../../outputs/figures/legend_horizontal.png Graphic file (type png)
 <use ./../../outputs/figures/legend_horizontal.png>
 Package pdftex.def Info: ./../../outputs/figures/legend_horizontal.png  used on input line 1008.
 (pdftex.def)             Requested size: 422.77847pt x 37.97409pt.
-<./../../outputs/figures/p3_zip_inc.png, id=791, 1900.09875pt x 1150.2975pt>
+<./../../outputs/figures/p3_zip_inc.png, id=787, 1900.09875pt x 1150.2975pt>
 File: ./../../outputs/figures/p3_zip_inc.png Graphic file (type png)
 <use ./../../outputs/figures/p3_zip_inc.png>
 Package pdftex.def Info: ./../../outputs/figures/p3_zip_inc.png  used on input line 1019.
 (pdftex.def)             Requested size: 422.7489pt x 255.92723pt.
-<./../../outputs/figures/p3_zip_exc.png, id=792, 1903.11pt x 1081.03876pt>
+<./../../outputs/figures/p3_zip_exc.png, id=788, 1903.11pt x 1081.03876pt>
 File: ./../../outputs/figures/p3_zip_exc.png Graphic file (type png)
 <use ./../../outputs/figures/p3_zip_exc.png>
 Package pdftex.def Info: ./../../outputs/figures/p3_zip_exc.png  used on input line 1019.
@@ -866,23 +866,23 @@ File: ./../../outputs/figures/legend_horizontal.png Graphic file (type png)
 <use ./../../outputs/figures/legend_horizontal.png>
 Package pdftex.def Info: ./../../outputs/figures/legend_horizontal.png  used on input line 1019.
 (pdftex.def)             Requested size: 422.77847pt x 37.97409pt.
-[59 <./../../outputs/figures/p2_gpa_inc.png> <./../../outputs/figures/p2_gpa_exc.png>] [60 <./../../outputs/figures/p3_zip_inc.png> <./../../outputs/figures/p3_zip_exc.png>]
-<./../../outputs/figures/p3_zip_inc_la.png, id=806, 1900.09875pt x 1141.26375pt>
+[58 <./../../outputs/figures/p2_gpa_inc.png> <./../../outputs/figures/p2_gpa_exc.png>] [59 <./../../outputs/figures/p3_zip_inc.png> <./../../outputs/figures/p3_zip_exc.png>]
+<./../../outputs/figures/p3_zip_inc_la.png, id=801, 1900.09875pt x 1141.26375pt>
 File: ./../../outputs/figures/p3_zip_inc_la.png Graphic file (type png)
 <use ./../../outputs/figures/p3_zip_inc_la.png>
 Package pdftex.def Info: ./../../outputs/figures/p3_zip_inc_la.png  used on input line 1031.
 (pdftex.def)             Requested size: 318.69254pt x 191.41754pt.
-<./../../outputs/figures/p3_zip_inc_ny.png, id=807, 1900.09875pt x 1165.35374pt>
+<./../../outputs/figures/p3_zip_inc_ny.png, id=802, 1900.09875pt x 1165.35374pt>
 File: ./../../outputs/figures/p3_zip_inc_ny.png Graphic file (type png)
 <use ./../../outputs/figures/p3_zip_inc_ny.png>
 Package pdftex.def Info: ./../../outputs/figures/p3_zip_inc_ny.png  used on input line 1031.
 (pdftex.def)             Requested size: 318.69254pt x 195.45802pt.
-<./../../outputs/figures/p3_zip_exc_la.png, id=808, 1900.09875pt x 1141.26375pt>
+<./../../outputs/figures/p3_zip_exc_la.png, id=803, 1900.09875pt x 1141.26375pt>
 File: ./../../outputs/figures/p3_zip_exc_la.png Graphic file (type png)
 <use ./../../outputs/figures/p3_zip_exc_la.png>
 Package pdftex.def Info: ./../../outputs/figures/p3_zip_exc_la.png  used on input line 1031.
 (pdftex.def)             Requested size: 318.69254pt x 191.41754pt.
-<./../../outputs/figures/p3_zip_exc_ny.png, id=809, 1909.1325pt x 1117.17375pt>
+<./../../outputs/figures/p3_zip_exc_ny.png, id=804, 1909.1325pt x 1117.17375pt>
 File: ./../../outputs/figures/p3_zip_exc_ny.png Graphic file (type png)
 <use ./../../outputs/figures/p3_zip_exc_ny.png>
 Package pdftex.def Info: ./../../outputs/figures/p3_zip_exc_ny.png  used on input line 1031.
@@ -891,22 +891,22 @@ File: ./../../outputs/figures/legend_horizontal.png Graphic file (type png)
 <use ./../../outputs/figures/legend_horizontal.png>
 Package pdftex.def Info: ./../../outputs/figures/legend_horizontal.png  used on input line 1031.
 (pdftex.def)             Requested size: 318.70804pt x 28.62645pt.
-<./../../outputs/figures/p4_zip_income_inc.png, id=810, 1945.2675pt x 1093.08376pt>
+<./../../outputs/figures/p4_zip_income_inc.png, id=805, 1945.2675pt x 1093.08376pt>
 File: ./../../outputs/figures/p4_zip_income_inc.png Graphic file (type png)
 <use ./../../outputs/figures/p4_zip_income_inc.png>
 Package pdftex.def Info: ./../../outputs/figures/p4_zip_income_inc.png  used on input line 1042.
 (pdftex.def)             Requested size: 318.69943pt x 179.08342pt.
-<./../../outputs/figures/p4_county_income_inc.png, id=811, 2002.48125pt x 1093.08376pt>
+<./../../outputs/figures/p4_county_income_inc.png, id=806, 2002.48125pt x 1093.08376pt>
 File: ./../../outputs/figures/p4_county_income_inc.png Graphic file (type png)
 <use ./../../outputs/figures/p4_county_income_inc.png>
 Package pdftex.def Info: ./../../outputs/figures/p4_county_income_inc.png  used on input line 1042.
 (pdftex.def)             Requested size: 318.69244pt x 173.96294pt.
-<./../../outputs/figures/p4_zip_income_exc.png, id=812, 1945.2675pt x 1093.08376pt>
+<./../../outputs/figures/p4_zip_income_exc.png, id=807, 1945.2675pt x 1093.08376pt>
 File: ./../../outputs/figures/p4_zip_income_exc.png Graphic file (type png)
 <use ./../../outputs/figures/p4_zip_income_exc.png>
 Package pdftex.def Info: ./../../outputs/figures/p4_zip_income_exc.png  used on input line 1042.
 (pdftex.def)             Requested size: 318.69943pt x 179.08342pt.
-<./../../outputs/figures/p4_county_income_exc.png, id=813, 1894.07625pt x 1093.08376pt>
+<./../../outputs/figures/p4_county_income_exc.png, id=808, 1894.07625pt x 1093.08376pt>
 File: ./../../outputs/figures/p4_county_income_exc.png Graphic file (type png)
 <use ./../../outputs/figures/p4_county_income_exc.png>
 Package pdftex.def Info: ./../../outputs/figures/p4_county_income_exc.png  used on input line 1042.
@@ -915,13 +915,13 @@ File: ./../../outputs/figures/legend_horizontal.png Graphic file (type png)
 <use ./../../outputs/figures/legend_horizontal.png>
 Package pdftex.def Info: ./../../outputs/figures/legend_horizontal.png  used on input line 1042.
 (pdftex.def)             Requested size: 318.70804pt x 28.62645pt.
-[61 <./../../outputs/figures/p3_zip_inc_la.png> <./../../outputs/figures/p3_zip_inc_ny.png> <./../../outputs/figures/p3_zip_exc_la.png> <./../../outputs/figures/p3_zip_exc_ny.png>] [62 <./../../outputs/figures/p4_zip_income_inc.png> <./../../outputs/figures/p4_county_income_inc.png> <./../../outputs/figures/p4_zip_income_exc.png> <./../../outputs/figures/p4_county_income_exc.png>]
-<./../../outputs/figures/combo1_inc_sat.png, id=830, 1120.185pt x 732.7375pt>
+[60 <./../../outputs/figures/p3_zip_inc_la.png> <./../../outputs/figures/p3_zip_inc_ny.png> <./../../outputs/figures/p3_zip_exc_la.png> <./../../outputs/figures/p3_zip_exc_ny.png>] [61 <./../../outputs/figures/p4_zip_income_inc.png> <./../../outputs/figures/p4_county_income_inc.png> <./../../outputs/figures/p4_zip_income_exc.png> <./../../outputs/figures/p4_county_income_exc.png>]
+<./../../outputs/figures/combo1_inc_sat.png, id=826, 1120.185pt x 732.7375pt>
 File: ./../../outputs/figures/combo1_inc_sat.png Graphic file (type png)
 <use ./../../outputs/figures/combo1_inc_sat.png>
 Package pdftex.def Info: ./../../outputs/figures/combo1_inc_sat.png  used on input line 1055.
 (pdftex.def)             Requested size: 422.78607pt x 276.5536pt.
-<./../../outputs/figures/combo1_inc_psat.png, id=831, 1120.185pt x 732.7375pt>
+<./../../outputs/figures/combo1_inc_psat.png, id=827, 1120.185pt x 732.7375pt>
 File: ./../../outputs/figures/combo1_inc_psat.png Graphic file (type png)
 <use ./../../outputs/figures/combo1_inc_psat.png>
 Package pdftex.def Info: ./../../outputs/figures/combo1_inc_psat.png  used on input line 1055.
@@ -930,12 +930,12 @@ File: ./../../outputs/figures/legend_horizontal.png Graphic file (type png)
 <use ./../../outputs/figures/legend_horizontal.png>
 Package pdftex.def Info: ./../../outputs/figures/legend_horizontal.png  used on input line 1055.
 (pdftex.def)             Requested size: 422.77847pt x 37.97409pt.
-<./../../outputs/figures/combo2_inc_sat.png, id=832, 1120.185pt x 732.7375pt>
+<./../../outputs/figures/combo2_inc_sat.png, id=828, 1120.185pt x 732.7375pt>
 File: ./../../outputs/figures/combo2_inc_sat.png Graphic file (type png)
 <use ./../../outputs/figures/combo2_inc_sat.png>
 Package pdftex.def Info: ./../../outputs/figures/combo2_inc_sat.png  used on input line 1066.
 (pdftex.def)             Requested size: 422.78607pt x 276.5536pt.
-<./../../outputs/figures/combo2_inc_psat.png, id=833, 1087.06125pt x 732.7375pt>
+<./../../outputs/figures/combo2_inc_psat.png, id=829, 1087.06125pt x 732.7375pt>
 File: ./../../outputs/figures/combo2_inc_psat.png Graphic file (type png)
 <use ./../../outputs/figures/combo2_inc_psat.png>
 Package pdftex.def Info: ./../../outputs/figures/combo2_inc_psat.png  used on input line 1066.
@@ -944,12 +944,12 @@ File: ./../../outputs/figures/legend_horizontal.png Graphic file (type png)
 <use ./../../outputs/figures/legend_horizontal.png>
 Package pdftex.def Info: ./../../outputs/figures/legend_horizontal.png  used on input line 1066.
 (pdftex.def)             Requested size: 422.77847pt x 37.97409pt.
-<./../../outputs/figures/combo3_inc_ap.png, id=834, 1942.25626pt x 1240.635pt>
+<./../../outputs/figures/combo3_inc_ap.png, id=830, 1942.25626pt x 1240.635pt>
 File: ./../../outputs/figures/combo3_inc_ap.png Graphic file (type png)
 <use ./../../outputs/figures/combo3_inc_ap.png>
 Package pdftex.def Info: ./../../outputs/figures/combo3_inc_ap.png  used on input line 1077.
 (pdftex.def)             Requested size: 422.76334pt x 270.04417pt.
-<./../../outputs/figures/combo3_inc_apstem.png, id=835, 1978.39125pt x 1240.635pt>
+<./../../outputs/figures/combo3_inc_apstem.png, id=831, 1978.39125pt x 1240.635pt>
 File: ./../../outputs/figures/combo3_inc_apstem.png Graphic file (type png)
 <use ./../../outputs/figures/combo3_inc_apstem.png>
 Package pdftex.def Info: ./../../outputs/figures/combo3_inc_apstem.png  used on input line 1077.
@@ -958,7 +958,7 @@ File: ./../../outputs/figures/legend_horizontal.png Graphic file (type png)
 <use ./../../outputs/figures/legend_horizontal.png>
 Package pdftex.def Info: ./../../outputs/figures/legend_horizontal.png  used on input line 1077.
 (pdftex.def)             Requested size: 422.77847pt x 37.97409pt.
-[63 <./../../outputs/figures/combo1_inc_sat.png> <./../../outputs/figures/combo1_inc_psat.png>] [64 <./../../outputs/figures/combo2_inc_sat.png> <./../../outputs/figures/combo2_inc_psat.png>] [65 <./../../outputs/figures/combo3_inc_ap.png> <./../../outputs/figures/combo3_inc_apstem.png>]
+[62 <./../../outputs/figures/combo1_inc_sat.png> <./../../outputs/figures/combo1_inc_psat.png>] [63 <./../../outputs/figures/combo2_inc_sat.png> <./../../outputs/figures/combo2_inc_psat.png>] [64 <./../../outputs/figures/combo3_inc_ap.png> <./../../outputs/figures/combo3_inc_apstem.png>]
 LaTeX Font Info:    Calculating math sizes for size <4> on input line 1142.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <4> on input line 1142.
@@ -1001,18 +1001,18 @@ Package rerunfilecheck Info: File `eepa_student_list_manuscript_r_r.out' has not
 (rerunfilecheck)             Checksum: 70C151D865402D240849EDF80996CE6A;3211.
  ) 
 Here is how much of TeX's memory you used:
- 15915 strings out of 477984
- 266518 string characters out of 5837741
- 1923382 words of memory out of 5000000
+ 15914 strings out of 477984
+ 266532 string characters out of 5837741
+ 1922382 words of memory out of 5000000
  35513 multiletter control sequences out of 15000+600000
  649900 words of font info for 128 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,14n,76p,2371b,481s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,14n,76p,2371b,488s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/ozanj/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/ozanj/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/ozanj/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/ozanj/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/Users/ozanj/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/ozanj/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx5.pfb><c:/Users/ozanj/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx6.pfb><c:/Users/ozanj/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx7.pfb><c:/Users/ozanj/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb><c:/Users/ozanj/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Users/ozanj/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/ozanj/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/ozanj/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/ozanj/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr5.pfb><c:/Users/ozanj/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Users/ozanj/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/ozanj/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/Users/ozanj/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri8.pfb><c:/Users/ozanj/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmro12.pfb><c:/Users/ozanj/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/ozanj/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/ozanj/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on eepa_student_list_manuscript_r_r.pdf (69 pages, 2738217 bytes).
+Output written on eepa_student_list_manuscript_r_r.pdf (68 pages, 2738103 bytes).
 PDF statistics:
- 1019 PDF objects out of 1200 (max. 8388607)
- 834 compressed objects within 9 object streams
- 270 named destinations out of 1000 (max. 500000)
+ 1015 PDF objects out of 1200 (max. 8388607)
+ 831 compressed objects within 9 object streams
+ 269 named destinations out of 1000 (max. 500000)
  355 words of extra memory for PDF output out of 10000 (max. 10000000)
 
