@@ -1,0 +1,107 @@
+---
+title: "Response to Editors and Reviewers"
+author: "ozan"
+date: "`r Sys.Date()`"
+output: pdf_document
+bibliography: ../../assets/bib/eepa_student_list.bib
+csl: ../../assets/bib/apa.csl
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Editor 
+
+## Major recommendations/concerns
+
+1. College admissions priorities or student list products
+
+> **Editor concern**. *First, Reviewer 1 and 2 note that several of the arguments made in the paper are not necessarily about college lists, but instead about the admissions priorities of each institution. We believe it would be useful to tease this out more in the paper. We also believe it would be helpful to provide some (masked) information about the 14 institutions. This could be rounded enrollment numbers (in bands) or Carnegie Classification or something else. But it feels like as the argument is strengthened on why this might be about the admissions priorities of institutions, the reader would benefit from better understanding the contexts of the 14 institutions.*
+
+**Author response**: We agree with these concerns raised by Reviewers 1 and 2. We read Reviewer 1's concern as including admissions priorities, but being broader than admissions priorities (The first major concern of Reviewer 1 is "where does the problem lie" and Reviewer 1 states "The nature of the [public records] request made me think we're dealing with how universities use student requests either implicitly or explicitly to privilege certain groups in the search and recruitment process").
+
+Thus, the revised manuscript reframed the problem with student lists as (1) the underlying architecture of student list products and (2) how student list products are utilized by college administrators executing student list purchases. Alongside this reframing, the revised manuscript is now motivated by three research questions:
+
+- RQ1: What is relationship between individual search filters and racial composition of included vs excluded students? 
+- RQ2: In what ways do public universities utilize racialized input search filters in concert with other search filters when purchasing student lists? 
+- RQ3: What is racial composition of student list purchases that utilize racialized input search filters in concert with other search filters? 
+
+RQ2 reflects the revised emphasis on how student list products are utilized in practice. The revised conceptual framework now concludes with a subsection named "Utilizing Student List Products" that draws from the literature on product utilization from sociology to inform targeted analyses of actual student lists purchased by public universities. This literature states that product utilization is partly a function of occupational/professional norms, which motivates the idea that criteria selected by individual colleges are likely to reflect college admissions standards. However, the utilization literature raises additional key factors that can yield racial inequality (e.g., implicit bias by individual decision-makers). In particular, we state that "Americans dramatically underestimate the magnitude of racial income inequality (Kraus, Onyeador, Daumeyer, Rucker, & Richeson, 2019). Therefore, discretionary selection devices that incorporate racialized inputs may produce racial inequality because decision-makers may be ignorant about how
+these inputs interact with local patterns of racial inequality (Korver-Glenn, 2018)." These ideas raise the possibility that racial inequality in student list purchases may be the result of decision-makers having incomplete knowledge about how a complicated product (e.g., multiple intersecting fitlers) interacts with local racial segregation.
+
+We believe that this broader emphasis on "product utilization" -- including admissions standards -- is preferable because focusing solely on admissions standards makes the implicit assumption that racial inequality in student list purchases are primarily a function of conscious decisions with respect to admissions standards, but this is inconsistent with findings from the literature on product utilization.
+
+However, the revised manuscript acknowledges that admissions standards are likely an important driver of student list purchases. The revised manuscript includes results which show that public research universities in our data collection sample were more likely to condition on test scores (as opposed to GPA) and utilized higher test-score thresholds than public MA/doctoral universities. We feel that these findings are sufficient to drive home the point that admissions standards matter. We do not provide detailed information about Carnegie Classification/selectivity/admissions standards we did not feel that such information is essential given space limitations. However, this information could be added if Editors/Reviewers feel it is essential.
+
+2. Empirical analyses do not make a contribution
+
+> **Editor concern**. *Second, Reviewer 1 notes that the current analysis does not provide a substantial contribution to our understanding of admissions recruitment.The reviewer provides suggestions of ways the authors could expand the analysis to provide substantial insight into recruitment. We are not being prescriptive to say that the authors must follow Reviewer 1’s guidance. However, there needs to be more done. The current findings generally appear to align with what we already know about who takes college entrance exams or has higher academic GPAs. The current tests of proportions are not that revelatory given that the appendix tables show that almost every estimate is statistically significant (likely partially due to Type I error but also because these are large samples that will find practically insignificant differences statistically significant). More interesting are the findings that combining these elements creates a substantially more exclusive prospect pool (more could be done to explicitly tease this out).*
+
+**Author response**. We push back by arguing that this manuscript makes a contribution that differs from a purely empirical contribution. We believe that the primary contributions of this manuscript are not empirical, but rather (1) motivating future research on topics that have not been addressed and (2) introducing theoretical concepts from sociology to study these topics with a focus on racial inequality. 
+
+Speaking about the simulations of filters from HSLS, Revewer 1 notes
+
+> "we don’t need the [empirical] research here to know the answer -- even before the analysis, the manuscript cites literature that shows that gaps in test taking and scores by student background characteristics which necessarily suggests that filters using those criteria would exclude certain groups." 
+
+Given that racial inequality in student list products has never been studied before, the descriptive analyses of individual search filters are important for demonstrating basic relationships between search filters and racial composition. Although the expected findings can be inferred from prior literature, it is more powerful to demonstrate these findings empirically. Additionally, like Norris's [-@RN4786] analysis of Moody's city credit rating algorithm, our simple analyses of HSLS shows future education researchers that third-party products that have not been studied before can be studied by applying simple descriptive statistics to publicly available data.
+
+With that said, we agree with the Editor and Reviewer 1 that the empirical analyses did not make a sufficiently substantial contribution! Although the Editor/Reviewer1 found analyses that filter on multiple search filters simultaneously to be more interesting, sample sizes preclude us from selecting many filters simultaneously.
+
+The addition of RQ2 and RQ3 -- and the associated conceptual framework subsection on product utilization -- motivate analyses that make a stronger contribution. Revised RQ1 focuses on individual search filters and racial composition. 
+
+RQ2 motivates analyses about which search filters did universities in our data collection actually select, yielding new insights about how student list products are utilized. 
+
+RQ3 motivates analyses of the racial composition of targeted student list purchases -- motivated by the conceptual framework -- that filter on multiple search criteria. These analyses include simulations from HSLS data and also analyses of actual student list purchases made by public universities [KARINA -- ADD A FEW SENTENCES ABOUT WHAT ANALYSES RUN AND THE CONTRIBUTION]
+
+3. Requesting overview of college admissions and recruitment
+
+> **Editor comment**. Third, Reviewer 2 and 3 both seek more of an overview in the paper on college admission and recruitment broadly. We understand that this is a sociological analysis, but it does feel like somewhere in the introduction or literature review, it would be helpful to include some space devoted to an overall overview that cites interdisciplinary research on college recruitment. Given that EEPA covers all levels of education and all disciplines, it would be useful to ensure that readers who are not experts in this individual area can have strong grounding in how college recruitment works.
+
+**Author response**. We agree with this recommendation, which is reflected in the revised introduction and the revised "Background and Literature Review" section. 
+
+The revised introduction begins by providing statistics about racial inequality in college access, followed by Hoxby's conceptualization as the market for college access as a "two-sided matching problem" where students lack information about where they should enroll and colleges lack information about which students they should enroll. <!-- Hoxby said that a primary barrier to efficient matches was colleges' lack of information about the achievement/aptitude of students and that the SAT/ACT exam overcame this problem by allowing colleges to make apples-to-apples comparisons about prospective students from different places. --> Hoxby's conceptualization motivates the idea of student list products as a match-making intermediary connecting universities to prospective students.
+
+The revised "Background and Literature Review" section begins by defining enrollment management and the enrollment funnel. The enrollment management profession views both recruitment and college admission as part of the broader process of trying to enroll students. The enrollment funnel identifies broad stages in the process of enrolling students (e.g., leads, inquiries, applicants, admits). In turn, buying names is the primary recruiting intervention for identifying leads from the broader pool of prospects. Therefore, we show where student lists fit in the broader process of enrolling students. Our focus on "enrollment management" implicitly pushes back on language in the decision letter that implies that student lists are part of the "college admissions process" (e.g., Editor states "... focus on an understudied part of the college admissions process", Reviewer 1 states "...biases related to parts of the admissions process I largely take as given"). This distinction may seem semantic, and we acknowledge that colleges generally recruit the sorts of students they would like to admit. However, the enrollment management profession conceives of buying names (to identify leads) and admissions as two distinct processes within a larger process.
+
+Whereas the original literature review focused solely on scholarship on recruiting from sociology, the revised literature review substantively reviews scholarship from both economics and sociology. Interdisciplinary scholarship on recruiting tends to be aligned with either economics or sociology (e.g., our prior work on off-campus recruiting), so we hope that our revised literature review sufficiently captures interdisciplinary scholarship on recruiting.
+
+4. Justify assertions with citations
+
+> **Editor concern**. Fourth, we agree with Reviewer 1 that it would be helpful to include citations or peer-reviewed references to justify assertions throughout the paper. We can certainly see why some statements are likely to be true, but the paper needs to provide clear textual citations that provide theevidence behind the statements. As an example, across pages 5 and 6, there’s a statement about the test-optional movement being an existential crisis for the College Board. Yet, the College Board makes the majority of its funding from administering the AP program (and hasexpanded its revenue streams by contracting with states to provide the SAT as a high school exit exam). If the authors want to make thatargument, there needs to be a clear explanation of the evidence that drives the argument. Another example is that the authors repeatedly arguethat micro-targeting is used for harm but, as Reviewer 1 notes, there needs to be justification for this argument included in the paper (this tiesinto the next point on the conceptual framework). These types of statements can be found throughout the paper. Therefore, a thorough revisionof the entire paper attending to ensuring there’s justification for statements of fact would be beneficial.
+
+**Author response**. We agree with this recommendation and apologize for this failure in our original manuscript. Our read is that the concern here is about failing to provide citations when the assertion being made is not obvously true and the assertion is not based on published peer-reviewed research. We tried to remove all assertions where we cannot find supporting evidence/citations. In most cases, this meant removing the assertion entirely if it was not central to the paper. For example, we removed text claiming that test-optional is an existential crisis for college board. 
+
+By contrast, statements about harm caused by micro-targeting ....
+START HERE WEDNESDAY
+
+5. Reduce scope and length of conceptual framework
+
+6. Strengthen ties to policy
+
+7. representativeness of sample for geographic analyses
+
+text
+
+## Minor recommendations/concerns
+
+# Reviewer 1
+
+## Major recommendations/concerns
+
+## Minor recommendations/concerns
+
+# Reviewer 2
+
+## Major recommendations/concerns
+
+## Minor recommendations/concerns
+
+# Reviewer 3
+
+## Major recommendations/concerns
+
+## Minor recommendations/concerns
+
+@RN2247 credits the standardized college entrance exam for transforming U.S. higher education from a system of local autarkies to an efficient, national market by causing a 
+
