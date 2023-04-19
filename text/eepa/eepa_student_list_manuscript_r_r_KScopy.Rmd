@@ -1,0 +1,1431 @@
+---
+title: "A Sociological Analysis of Structural Racism in Student List Products"
+#subtitle: ""
+#author: 
+#  - Ozan Jaquette
+#  - Karina Salazar
+bibliography: ../../assets/bib/eepa_student_list.bib
+csl: ../../assets/bib/apa.csl
+citeproc: no
+output: 
+  #bookdown::word_document2:    
+  bookdown::pdf_document2:
+    toc: FALSE
+    pandoc_args: !expr rmdfiltr::add_wordcount_filter(rmdfiltr::add_citeproc_filter(args = NULL))
+eoutput: pdf_document
+always_allow_html: true
+urlcolor: blue
+fontsize: 12pt
+#header-includes:
+#      - \usepackage{pdflscape}
+#      - \usepackage{geometry}
+header-includes:
+  - \usepackage{floatrow}
+  - \floatsetup{capposition=top}
+  #- \usepackage{setspace}\doublespacing
+  #- \usepackage{setspace}\onehalfspacing #\doublespacing
+  #- \usepackage{setspace}\setstretch{2.0}
+  - \usepackage{setspace}
+  - \usepackage{fancyhdr}
+  - \usepackage{titlesec}
+  #- \usepackage[scaled]{helvet}  # https://stackoverflow.com/a/28538633/6373540
+  #- \renewcommand{\familydefault}{\sfdefault}
+  #- \usepackage[T1]{fontenc}
+  - \usepackage{geometry}
+      
+      
+---
+
+```{r setup, include= FALSE}
+library(knitr)
+library(bookdown)
+
+# https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_pdf.pdf
+library(kableExtra)
+library(tidyverse)
+library(gridExtra)
+library(scales)
+
+knitr::opts_chunk$set(echo = F, message = F, warning = F)
+
+knitr::knit_hooks$set(inline = function(x) {   if(!is.numeric(x)){     x   }else{    prettyNum(round(x,2), big.mark=",")    } })
+
+theme_set(
+  theme(
+    text = element_text(size = 7),
+    panel.background = element_blank(),
+    plot.title = element_text(color = '#444444', size = 7, hjust = 0.5, face = 'bold'),
+    axis.ticks = element_blank(),
+    axis.title = element_text(face = 'bold'),
+    legend.title = element_text(face = 'bold'),
+    legend.key.size = unit(0.3, 'cm')
+  )
+)
+
+
+options(knitr.kable.NA = '')
+options(scipen = 999)
+# webshot::install_phantomjs()
+
+library(ggbreak)
+library(usmap)
+
+
+load(url('https://github.com/mpatricia01/public_requests_eda/blob/main/data/tbl_fig_data_final.RData?raw=true'))
+
+#load in table data
+load("./../../outputs/tables/p1_table.Rda")
+load("./../../outputs/tables/p2_table.Rda")
+load("./../../outputs/tables/p3_table.Rda")
+load("./../../outputs/tables/p4_table.Rda")
+load("./../../outputs/tables/c1_table.Rda")
+load("./../../outputs/tables/c2_table.Rda")
+load("./../../outputs/tables/c3_table.Rda")
+
+
+theme_set(
+  theme(
+    text = element_text(size = 7, family = 'Helvetica'),
+    panel.background = element_blank(),
+    plot.title = element_text(color = '#444444', size = 7, face = 'bold', hjust = 0.5),
+    axis.ticks = element_blank(),
+    axis.title = element_text(face = 'bold'),
+    legend.title = element_text(face = 'bold', hjust = 0),
+    legend.key.size = unit(0.3, 'cm'),
+    strip.text.x = element_text(size = 7, face = 'bold', hjust = 0.5),
+    strip.background = element_rect(fill = NA, color = NA)
+  )
+)
+
+# color_palette <- c('#bbcfd7', '#d2c8bc', '#ba9a88')
+color_palette <- c('#46a69e', '#7ec7b8', '#b9efe6', '#bf7bb2', '#9e508a', '#537ec4', '#344273', '#fdc3bb', '#fa634b')
+extra_colors <- c('#b5b5b5', '#767676')
+color_text <- 'white'
+
+# https://stackoverflow.com/a/65844319/6373540
+linesep <- function(x, y = character()){
+  if(!length(x))
+    return(y)
+  linesep(x[-length(x)], c(rep('', x[length(x)] - 1), '\\addlinespace', y))  
+}
+```
+
+<!--\doublespacing \onehalfspacing  \setstretch{1.5} -->
+\setstretch{1.5}
+
+ <!--\fancyhead{}% Remove all header contents -->
+
+<!--
+\pagestyle{fancy}
+\fancyhead{}
+\renewcommand{\headrulewidth}{0pt}  
+ -->
+ 
+<!--
+\fancypagestyle{plain}{ %
+  \fancyhf{}   
+  \renewcommand{\headrulewidth}{0pt}  
+}
+
+-->
+
+
+<!--Control vertical spacinf before/after sections and subsections -->
+
+\titlespacing{\section}{0pt}{0pc}{0pc}
+\titlespacing{\subsection}{0pt}{0pc}{0pc}
+ 
+
+ABSTRACT
+
+Universities identify prospective students by purchasing “student lists.” Student list products are algorithmic selection devices that use search filters (e.g., test score, zip code) to select prospective students. We ask, what is the relationship between search filters and the racial composition of included versus excluded students? Drawing from the sociology of race, we conceptualize certain search filters as structurally racist inputs. Structurally racist inputs are determinants of selection devices that are correlated with race because some groups have been historically excluded from the input.  We test propositions using a nationally representative sample of high school students. Several academic and geographic filters systematically exclude Black and Latinx students. We motivate critical policy research on third-party products and vendors in education.
+
+
+
+\pagenumbering{roman}
+\newpage
+\pagenumbering{gobble}
+\pagenumbering{arabic}
+
+
+# Introduction
+
+
+Racial inequality in college access remains an enduring barrier to social mobility [KARINA - ADD STATS/INFO AS REQUESTED BY REVIEWER2].
+<!-- 
+- text from reviewer2: "I would suggest the authors consider situating this study in a broader literature around college access. There is one paragraph in the beginning that discusses the probability of enrollment for students opting into the College Board Search Service, but I think there is more that could and should be said about existing racial inequities in college enrollment. What are current figures on the representation of students in public universities, for example? Have these numbers changed in recent years? Are they likely to worsen given affirmative action legislation or improve given the movement toward test-optional policies? In short, a brief discussion on the current representation of underrepresented groups in higher education helps to contextualize the broader impacts and implications of student lists and situate the magnitude of the problem that the study is illuminating. In essence, the so what?"
+--> 
+
+In economics the market for college access is "modeled as a two-sided matching problem in which the efficient outcome allocates students to colleges based on students’ ability to benefit from the type and magnitude of the human capital investment that the college offers" [@RN2247, p. 106]. @RN2247 argues that information costs were the primary barrier to efficient matches. Students want to attend the best possible college but they don't know where they will be admitted and how much it will cost. Colleges want to enroll the best possible students, but they don't know who or where the "good" students are, or how to contact them. "In 1955," @RN2247[p. 103] states, "there was _no_ early national college aptitude test. Students and colleges simply did not know where students stood in the national distribution of high school graduates’ achievement or aptitude." Colleges could not make an apples-to-apples comparison between students from different schools because the information on a high school transcript "is relative to a standard that a college will not understand unless it draws very often from the high school” [@RN2247, p. 103].
+
+@RN2247 credits the standardized college entrance exam for transforming U.S. higher education from a system of local autarkies to an efficient, national market by causing a "dramatic fall" (p. 102) in the cost of "colleges' information about students." From 1955 to 1990 the number of colleges requiring the SAT/ACT increased dramatically from 143 to to 1,839, while the number of SAT/ACT test-takers per freshman seat increased from 0.23 in 1955 to 0.69 in 1990 to 0.87 in 2005 [@RN2247]. Test-takers can send scores to colleges they are interested in, allowing colleges to compare prospects from disparate places. Following the creation of Title IV federal financial aid programs, US higher education finance can be conceived as a national voucher system, whereby tuition revenue -- including household savings and financial aid -- follow students to whichever institution they enroll in. Most colleges cannot survive solely from inquiries by prospects who reach out on their own [CITE]. They must find desirable prospects who can be convinced to apply and enroll. 
+
+In 1972 the College Board began selling lists of prospective students to colleges [@belkin2019-studata], enabling colleges to identify and target desirable students across the country. Student lists are a match-making intermediary connecting universities to prospective students. Lists sold by College Board and ACT became the primary means colleges used to identify college-going high school students [CITE RNL?]. A student list contains the contact information of prospective students who meet the search filter criteria (e.g., test score range, high school GPA, zip codes) specified by the university. Purchased lists are a fundamental input for undergraduate recruiting campaigns [@RN4728], which target prospects by mail, email, and on social media. Recent research suggests that student lists are important for college access and college choice decisions, particularly for first-generation and underrepresented minority students [@RN4739; @RN4894; @RN4752]. 
+<!-- 
+Based on a survey of their clients, enrollment management consulting firm @RN4402 reported that the majority of public and private non-profit universities purchase more than 50,000 names each year. 
+Colleges and universities (herein universities) identify prospective students by purchasing "student lists" from College Board, ACT, and other vendors. A student list contains the contact information of prospective students who meet the search filter criteria (e.g., test score range, high school GPA, zip codes) specified by the university. Purchased lists are a fundamental input for undergraduate recruiting campaigns [@RN4728], which target individual prospects by mail, email, and on social media.
+--> 
+
+
+However, we argue that student list products are a market mechanism that may exacerbate racial inequality in college access. Drawing from the sociology of race, we suggest that the prospect profiles of students of color from communities of color are less likely to be purchased for three reasons. First, the College Board and ACT student list products utilized by public and private non-profit colleges exclude non test-takers, but rates of test-taking differ by race [@RN4859;@RN4860]. Second, colleges control which prospect profiles they purchase by filtering on "search filters" (e.g., SAT score, AP score, zip code). We conceptualize several student list search filters as "racialized inputs" [@RN4786] that systematically disadvantage underrepresented students of color because they have been historically excluded from this input. Third, because of admissions standards or because they do not know how search filters interact with local patterns of segregation, college administrators may select combinations of search filters that result in racial exclusion.
+
+This manuscript focuses on search filters from the College Board Student Search Service that we conceptualize as racialized inputs [@RN4786]. We address three research questions. First, What is relationship between individual search filters and racial composition of included vs excluded students? Second, in what ways do public universities racialized input search filters in concert with other search filters when purchasing student lists? Third, what is racial composition of student list purchases that utilize racialized input search filters in concert with other search filters? 
+
+We address RQ1 by reconstructing the College Board Student Search Service product using a nationally representative sample of 9th graders in 2009 from the High School Longitudinal Survey (HSLS:09). Analyses simulate and compare the racial composition of included versus excluded prospects when individual search filters are utilized, focusing on test score (e.g., SAT, AP) and geography (e.g., zip code) certain search filters are utilized. We address RQ2 analyzing 830 student lists purchased by 14 public universities, which were collected via public records requests. We address RQ3 by showing the racial composition of selected student list purchases -- simulated purchases based on HSLS data and actual purchases based on public records requests -- that filter on multiple search filters simultaneously.
+
+The manuscript is organized as follows. First, we provide background on student list products, situating them vis-a-vis the process of recruiting students and summarizing recent dynamics in the market for student list data. Second, we review empirical scholarship on recruiting, focusing on scholarship from sociology. Third, we develop a a conceptual framework and propositions. Next, we describe methods and present results. Finally, we discuss implications for scholarship and policy. Student lists have been largely ignored by researchers and policymakers for more than 50 years. Thus, the primary goal of this research is to motivate future scholarship and policy debate about student list products.
+
+[MOVE MOST OF NEXT TWO PARAGRAPHS TO DISCUSSION] We observe striking parallels between the origins and functions of student list products, which remain unregulated, and consumer credit report products, which are federally regulated. In the market for college access, SAT/ACT scores were viewed by colleges as a measure of the achievement or aptitude of potential students. Similarly, credit scores were designed to predict the probability of repayment for businesses that depend on the ability of customers to pay back debt [@RN4880; @RN4877]. Like SAT/ACT scores, credit scores were "designed to overcome the chronic problems of information asymmetries" [@RN4880, p. 434] by providing firms information about potential customers [@RN4880; @RN2133]. SAT/ACT scores helped create a national higher education market by enabling colleges to compare prospects from disparate places. Similarly, credit scores allow firms "to distinguish 'good' from 'bad' customers 'at-a-distance'" [@RN4880, p. 434]. Consumer reporting companies like Equifax wrap credit scores and other consumer information into products designed to filter and target customers [@equifax_drive], enabling firms to transition from the model of approving/rejecting applicants to the more aggressive model of pre-approving desirable customers [@RN4880]. Similarly, student list products enabled colleges to transition from the model of accepting/rejecting applications to the model of identifying and targeting desirable prospects.
+
+
+Consumer credit products are regulated under the Fair Credit Reporting Act -- enforced by the FTC -- and the Consumer Finance Protection Act -- enforced by the Consumer Finance Protection Bureau --  because these credit scores lead to the exension of credit. By contrast, student list products are not federally regulated. We suggest that student list products lead to the extension of credit through student loans because colleges identify prospects by buying lists at the top of the "enrollment funnel" and offer financial aid to convert admits to enrolled students in the last stage of the enrollment funnel. We argue that student list products should be regulated because they incorporate racialized inputs that disadvantage communities of color and because universities are likely to utilize student list products in ways that increase racial inequality. College Board argues that student list products can be used to increase racial diversity [CITE]. The question becomes, should policymakers continue to tolerate a product that is likely to do harm on the grounds that the product is also capable of doing good.
+
+
+<!-- **Standardized credit and test scores**. We observe striking parallels between the role of credit scores in consumer credit markets and the role of standardized testing in higher education. Credit scores predict the probability that an individual will repay a loan. Credit score products (e.g., FICO score) were created to serve businesses (e.g., car dealerships) that depend on the ability of customers to pay back debt [@RN4880; @RN4877]. In the case of UK retail banking, local banks relied on face-to-face interviews and tacit knowledge of the local community to assess creditworthiness. Following a period of deregulation and acquisitions in the 1980s, banks increasingly operated at regional and national levels and relied on credit score products to "overcome the chronic problems of information asymmetries in the industry and to distinguish 'good' from 'bad' customers 'at-a-distance'" [@RN4880, p. 434]. Hungry for more customers, credit scores enabled banks to transition from the model of approving/rejecting applicants to the model of pre-approving desirable customers.   -->
+
+<!--   -->
+ 
+
+
+ <!-- College Board and ACT student list products are fundamentally based on standardized tests. Hoxby [-@RN2133; -@RN2247] argues that the standardized college entrance exam was a fundamental cause of a national U.S. higher education market emerging from a system of local autarkies. The market for college access is "usually modeled as a two-sided matching problem in which the efficient outcome allocates students to colleges based on students’ ability to benefit from the type and magnitude of the human capital investment that the college offers\ldots Reducing the cost of distance increases the number of students and colleges in the match, and is thereby likely to increase the efficiency of each match. Reducing the cost of the information that each side has about the other has an even greater effect on match efficiency."  -->
+
+<!--  
+Similarly, the preeminent economist Caroline Hoxby [-@RN2133; -@RN2247] credits the standardized college entrance exam for the emergence of a national U.S. higher education market. Economics conceives the market for college access "as a two-sided matching problem in which the efficient outcome allocates students to colleges based on students’ ability to benefit from the \ldots human capital investment that the college offers" [@RN2133, p. 106]. The primary to barrier efficient matches was the cost of information that colleges know about students: "in 1955, there was _no_ early national college aptitude test. Students and colleges simply did not know where students stood in the national distribution of high school graduates’ achievement or aptitude" [@RN2247, p. 103]. Colleges could not make an apples-to-apples comparison between students from different schools because the information on a high school transcript "is relative to a standard that a college will not understand unless it draws very often from the high school” [@RN2133, p. 103]. From 1955 to 1990 the number of colleges requiring the SAT/ACT increased dramatically from 143 to to 1,839, as did the number of test-takers. Hoxby [-@RN2133; -@RN2247] credits the standardized college entrance exam for a "dramatic fall" the cost information about students. Test-takers can send scores to colleges they are interested in, allowing colleges to compare prospects from disparate places. 
+
+In 1972 the College Board began selling lists of prospective students to colleges [@belkin2019-studata], enabling colleges to identify and target desirable students across the country. College Board -- and later, ACT -- student list products enable colleges with varying levels of selectivity to target prospective students within a desired score range. Student list products are not federally regulated. By contrast, consumer credit score products are regulated under the Fair Credit Reporting Act -- enforced by the FTC -- and the Consumer Finance Protection Act -- enforced by the Consumer Finance Protection Bureau --  because these credit scores lead to the exension of credit. However, student loans are the second highest source of debt in the U.S., behind mortgages [CITE]. Arguably, student list products lead to the extension of credit through student loans.
+ --> 
+
+<!--The creation of individual consumer credit scores enabled businesses to classify customers into many different groups, leading to the development of "classification situations" [@RN4810] defined as the development of tiered products that target consumers with different levels of benefits and costs depending on their position along the continuum of credit [@RN4810].--> 
+<!--@RN4810[p. 566] offer a quote from a banking trade publication: "Stop trying to lend at low margin to accountants, lawyers and civil servants who are reliable but earn the bank peanuts. Instead, find the customers who used to be turned away; by using modern techniques, in credit scoring and securitization, they can be transformed into profitable business."-->
+<!--The creation of individual consumer credit scores enabled businesses to classify customers into many different groups, leading to the development of tiered products that target consumers with different levels of benefits and costs depending on their position along the continuum of credit [@RN4810]. Whereas information about consumer credit was historically utilized to make binary classifications that denied people with "bad" credit, consumer credit scores made finer classifications that were foundational to products -- for example "payday loans" -- that targeted consumers with bad credit as a source of profit, since they could be charged higher interest rates and took longer to repay [@RN4810]. By contrast, College Board and ACT student list products enabled colleges with varying levels of selectivity to target prospective students within a desired score range. @cottom2017lower offers for-profit colleges as the exemplar of "predatory inclusion," the targeting of "marginalized consumer-citizens into ostensibly democratizing mobility schemes on extractive terms [@RN4774, p. 443]. For-profit colleges utilized student lists to target prospects, but these lists were generally not purchased from College Board or ACT because their target population of Black and Latinx adult women were mostly not recent SAT/ACT test-takers [@cottom2017lower]. Therefore, whereas consumer credit scores facilitated predatory inclusion in many consumer credit markets, predatory inclusion in higher education was disproportionately focused on students who did not take standardized college entrance exams [CUT SOME/ALL OF THIS PARAGRAPH].-->  
+
+
+# Background and Literature Review
+
+## Enrollment Management and the Enrollment Funnel
+
+Enrollment management is the organizational behavior side of college access and student success. The term enrollment management can refer to a profession, an administrative structure, or an industry. As a profession, enrollment management integrates techniques from marketing and economics in order to “influence the characteristics and the size of enrolled student bodies” [@RN2771, p. xiv]. Beyond the basic goal of survival, universities pursue some combination of broad enrollment goals (e.g., tuition revenue, academic profile, racial diversity) [@RN2247]; @RN1549; @RN2772], while also tending to specific needs of campus constituencies (e.g., College of Engineering needs majors, athletic teams need players) [@RN3519]. As an administrative structure, the office of enrollment management typically controls the activities of admissions, financial aid, and marketing and recruiting [@RN2406]. The enrollment management industry consists of university professionals (e.g., admissions counselors, VP for enrollment management, admissions counselors), professional associations (e.g., National Association for College Admission Counseling), and third-party vendors/consultancies that interact with universities and students (e.g., College Board, EAB, PowerSchool).
+
+ <!-- 
+Universities must enroll students to survive and thrive. Beyond the basic goal of survival, universities pursue some combination of broad enrollment goals (e.g., tuition revenue, academic profile, racial diversity), which are a function of ownership control and mission, student demand, revenue sources, and key internal/external stakeholders, amongst other factors [@RN2772; @RN2247; @RN1549; @RN3625], while also meeting the needs of various campus constituencies (e.g., College of Engineering needs majors, athletic teams need players) [@RN4321; @RN3519]. Universities cannot realize these goals solely from prospects who find the university on their own. They must incite demand and discover desirable prospects who can be convinced to apply and enroll.
+ -->
+
+ 
+Universities cannot realize their enrollment goals solely from prospects who find the university on their own. They must incite demand and discover desirable prospects who can be convinced to enroll. The “enrollment funnel” -- depicted in Figure \@ref(fig:em-funnel) -- is a conceptual model used by enrollment management industry to depict broad stages in the process of recruiting students. The funnel begins with a large pool of "prospects" (i.e., prospective students) that the university would like to convert into enrolled students. "Leads" are prospects whose contact information has been obtained. "Inquiries" are prospects that contact your institution and consist of two types: first, inquiries who respond to an initial solicitation  (e.g., email) from the university; and second, "student-as-first-contact" inquiries who reach out to the university on their own (e.g., sending ACT scores). Applicants consist of inquiries who apply plus "stealth applicants" who do not contact the university before applying. The funnel narrows at each successive stage in order to convey the assumption of "melt" at each stage (e.g., a subset of "inquiries" will apply).
+
+Practically, the purpose of the enrollment funnel is to inform recruiting interventions that target one or more stage. These interventions seek to increase the probability of "conversion" across stages [@RN4322]. At the top of the enrollment funnel, purchasing student lists is the primary means of converting prospects to leads. Purchased leads are served emails, brochures, and targeted social media designed to solicit inquiries and applications [@RN4895]. Digital (e.g., Google display ads, YouTube) and traditional (e.g., TV, billboards ) advertising are means of raising brand awareness and soliciting student-as-first-contact inquiries and [@RN4895; @RN4904]. At the bottom of the funnel, colleges offer financial aid packages to convert admits to enrolled students [e.g., @RN3133]. 
+<!--
+The sum of purchased leads plus student-as-first-contact inquiries constitutes the set of all prospects the university has contact information for who may receive subsequent targeted recruiting interventions. 
+Off-campus recruiting visits are used to increase yields and applications.
+--> 
+
+## Scholarship on Recruiting
+
+Scholarship on enrollment management behaviors targeting college access tend to focus on the latter stages of the enrollment funnel, particularly the process of deciding which applicants to admit [e.g.] [@RN4131; @RN3522; @RN4135] and the use of financial aid to convert admits to enrolled students [@RN1948; @RN2241; @RN3762]. Fewer studies investigate the earlier "recruiting" stages of identifying prospects, acquiring leads, and soliciting inquiries and applications.
+
+Scholarship on recruiting from economics tends to analyze the causal effect of specific interventions on college access outcomes. @RN3699 evaluate a nation-wide experiment that delivered customized information about admissions and financial aid to high-achieving (at least 90th percentile SAT/ACT score, 3.7 GPA), low-income students. The intervention positively affected applications, admission, and enrollment to selective colleges. These results catalyzed scholarship on information and advising interventions [e.g.] [@RN4900; @RN4352; @RN4345], but results have been mixed. Another set of studies evaluate interventions by flagship universities that combine outreach and financial aid [@RN4850; @RN4903]. 
+
+<!--  @RN4901 analyzes customized information provided to students by Naviance college planning software. Scatterplots of previous applicants to a college -- GPA (x-axis), SAT score (y-axis), and dot colors indicating admission -- cause students to apply to colleges where they have a high probability of admission and where their SAT scores are similar to previous admits, with affect sizes largest for Black, Latinx, and low-income students. -->
+A small number of studies from economics evaluate third-party products. @RN4901 finds that customized information provided by Naviance college planning software causes students to apply to colleges where they have a high probability of admission and where their SAT scores are similar to previous admits, with affect sizes largest for Black, Latinx, and low-income students. In a report published by College Board, @RN4739 compared SAT test-takers who opted into the College Board Student Search Service -- allowing accredited institutions to purchase their contact information -- to those who opted out. After controlling for covariates (e.g., SAT score, parental education, high school), 41.1\% of students who participated in Search attended a 4-year college compared to 32.8\% of students who opted out, an 8.3 percentage point difference and a 25.3 (`(41.1-32.8)/32.8`) percent change in the relative probability. Participating in Search was associated with a larger change in the relative probability of attending a 4-year college for Black students (24.5\%) and Hispanic student (34.4\%) than White students (21.6\%), and a larger change for students whose parents did not attend college (40.6\%) than those whose parents had a BA (18.9\%).^[After controlling for covariates, @RN4739 find that 20.6\% of students who participated in Search obtained a BA in four years compared to 15.7\% of students who opted out, representing a 31.2\% increase in the relative probability of graduation and this increase was larger for Black (40.3\%) and Latinx (43.3\%) students (48.3\%) than it was for white students and larger for students whose parents did not attend college (50.0\%) than it was for students whose parents had a BA (25.3\%). The logical mechanism is that where students start college affects the probability of graduation [@RN2261; @RN1494].] Leveraging a natural experiment in College Board student list purchases, @RN4894 find that the purchase of a prospect profile by a college increases the probability that the student will apply to and enroll at the college, with larger effects sizes Black, Latinx, low-income, and first-generation students.
+
+Scholarship from sociology tends to document recruiting behavior "in the wild," often as part of broader analyses of college access or enrollment management [e.g.] [@RN4520; @cottom2017lower]. @RN4324 probes the structural holes between high school counseling and college recruiting efforts <!--  -- marketing materials, college representative visits, and instant admissions events --  -->from the perspective of high school students. Underrepresented minority students reported "feeling like their school counselors had low expectations for them and were too quick to suggest that they attend community college" (p. 97). In turn, these students were drawn to colleges that made them feel wanted, often attending institutions with lower graduation rates and requiring larger loans than other options. An audit experiment by @RN4720 sent inquiry email inquiries by fictitious Black high school students to white college admissions counselors. Counselors were less likely to respond to black students who expressed strong commitment to racial justice. 
+
+Several studies analyze connections between colleges and high schools from an organizational perspective [@RN3519; @RN4407; @RN4758; @RN4759]. Off-campus recruiting visits are often conceptualized as an indicator of enrollment priorities and/or a network tie indicating the existence of a substantive relationship [@RN4733]. @RN3519 provides an ethnography of enrollment management at a selective liberal arts college. The college valued recruiting visits to high schools as a means of maintaining relationships with guidance counselors at feeder schools, and tended to visit the same set of -- disproportionately affluent, private, and white -- high schools year after year. @RN4758 analyzed off-campus recruiting visits by 15 public research universities. Most universities made more out-of-state than in-state visits. These out-of-state visits focused on affluent, predominantly white public and private schools.
+<!-- 
+Thus, whereas scholarship from economics often evaluates the effect of outreach interventions designed to increase underrepresented student enrollment at selective colleges, scholarship from sociology finds that the recruiting efforts of selective colleges prioritize students from privileged schools and communities.
+
+@RN4759 analyzed off-campus recruiting visits by public research universities to out-of-state metropolitan areas, finding that universities engage in "recruitment redlining -- the circuitous avoidance of predominantly Black and Latinx communities along recruiting visit paths" (p. X). In contrast to branding about the commitment to racial diversity [@RN4839], these studies find that the recruiting efforts of selective institutions prioritize affluent, predominantly white schools and communities.-->
+
+@cottom2017lower shows that for-profit colleges found a niche in Black and Latinx communities precisely because traditional colleges ignored these communities (see also @dache2018dangling). For-profits identified prospects by compiling and purchasing lists [@cottom2017lower]. However, they did not rely on lists from College Board and ACT because their target audience of Black and Latinx adult women were not recent test-takers. Ironically, Black and Latinx adult women were vulnerable to marketing from for-profits because they were excluded from the College Board and ACT lists used by traditional colleges. The for-profit business model of encouraging students to take on federal and private loans exemplifies "predatory inclusion," the logic of "including marginalized consumer-citizens into ostensibly democratizing mobility schemes on extractive terms" [@RN4774, p. 443]. Another example of predatory inclusion is "payday loans," which target people with low credit scores based on data purchased from credit bureaus [@RN4810]. 
+<!-- 
+Consumer credit products enable businesses to classify customers into many groups. Historically, information about consumer credit was utilized to make binary classifications that denied people with "bad" credit. Over time, firms developed tiered products that target consumers with different levels of benefits and costs depending on their position along the continuum of credit. New products -- such as "payday loans" -- explicitly targeted consumers with bad credit as a source of profit, since these consumers could be charged higher interest rates and took longer to repay [@RN4810]. @cottom2017lower offers for-profit colleges as the exemplar of "predatory inclusion," the targeting of "marginalized consumer-citizens into ostensibly democratizing mobility schemes on extractive terms" [@RN4774, p. 443]. Ironically, Black and Latinx adult women were vulnerable to marketing from for-profits because -- as non test-takers -- they were excluded from the College Board and ACT students lists purchased by public and private non-profit colleges. 
+--> 
+
+Reflecting on the recruiting literature, studies from both economics and sociology find that underrepresented student populations are particularly sensitive to recruiting interventions. Economics often evaluates the effect of outreach designed to increase underrepresented student enrollment at selective colleges, but sociology finds that the recruiting efforts of selective colleges prioritize students from privileged schools and communities. Scholarship from sociology assumes that recruiting is something done by individual colleges. While a few studies from economics analyze how students respond to interventions delivered by third-party products [e.g.] [@RN4894; @RN4901], no studies analyze third-party recruiting products as the fundamental object of analysis. We argue that third-party products and vendors structure college recruiting behavior and, in turn, college access. Prior research has not examined whether third-party recruiting products incorporate structural inequality in ways that systematically disadvantage underrepresented students and prior research has not examined how colleges utilize these products. This study deconstructs the College Board Student Search Service product. We simulate the racial composition of purchases that utilize search filters conceptualized as "racialized inputs" [@RN4786] and we examine the usage of these inputs in actual student lists purchased by public universities.
+
+
+## Background: Student List Products
+
+**List-based vs. behavioral-based leads**. “Lead generation” is the process of connecting merchants who sell products to "leads" -- consumers potentially interested in these products [@ftc2016]. Student lists are an example of "list-based" lead generation. List-based lead generation is based on the direct mail business model [@singer1988] but has evolved into "database marketing," in which information about prospects is stored in a database and prospects are selected using search filters [e.g., @equifax_drive]. Behavioral-based targeting emerged from advances in digital technology and includes most advertising on websites and social media. Whereas list-based marketing proceeds in two steps -- obtain customer contact information and then serve marketing material –- behavioral-based targeting identifies targets based on their user profile and simultaneously serves advertisements to users while they are on the platform. An article on digital advertising by @RN4728[p. 9] provides insight about usage of list-based and behavioral-based leads in higher education:
+
+> For industries outside of higher education and for non-freshman recruitment, a primary aim of digital marketing is often that of identifying a pool of potentially interested customers \ldots [By contrast] Where the recruitment of college-bound high school students is concerned, digital channels are less important from a lead-generation perspective, because the vast majority of likely candidates are already readily identifiable via testing and survey services (ACT, College Board, etc.). Digital marketing is, instead, of greatest value in further stages of the recruitment funnel, including inquiry generation and application generation.
+
+When recruiting college-going high school students, @RN4728 suggests that behavioral-based leads are less effective than purchasing names from College Board/ACT and then targeting these prospects on digital platforms (e.g., Meta allows colleges to serve ads to purchased names on Facebook/Instagram). Behavioral-based targeting (e.g., Google Ads, Google Display Network, Twitter) is the primary sources of leads when high-quality databases of prospective customers are not available. Therefore, postsecondary programs targeting working adults often rely on behavioral-based targeting [@RN4897; @carey_opm].
+
+**Sources of student list data**. Student list data are extracted from the user-data of students laboring on platforms (e.g., taking a test, searching for college). Historically, the student list business has been dominated by College Board and ACT, which derive student list data from their database of test-takers. In the 21st Century, advances in technology yielded new sources of student list data, particularly free online college search engines (e.g., Cappex) and college planning software sold to high schools used by high school students and guidance counselors (e.g., Naviance, Scoir) [@list_biz].
+
+**Who buys student lists**. Extant knowledge about how colleges use student lists depends on market research by Ruffalo Noel Leviz, which publishes regular reports about recruiting practices based on survey responses from their clients (mostly public and private non-profit universities of mid-level size and mid-level selectivity). In an analysis of 120 4-year colleges, @RN4895 reported that 87% of private and 86% of public institutions "purchase high school student names to generate inquiries and applicants" (p. 5). For public institutions, 20% purchased fewer than 50,000 names annually, 29% purchased 50-100K, 31% purchased 100-150K, and 20% purchased more than 150K names annually. Anecdotal evidence suggests that larger and more selective institutions purchase more names than smaller and less selective ones [@belkin2019-studata; @list_biz]. @RN4896 reports that purchasing names was the top ranked expenditure item in the undergraduate marketing and recruiting budget for both private and public institutions. In 2022 the the average public institution allocated 15% of its budget to purchasing names (up from 12% in 2020), compared to 2% of its budget on behavioral-based leads.^[For private colleges, 16% purchased fewer than 50,000 names annually, 35% purchased 50-100K, 28% purchased 100-150K, and 21% purchased more than 150K names annually [@RN4895]. In 2022 the average private institution allocated 16% of its budget to purchasing names (up from 14% in 2020), compared to 7% of its budget on behavioral-based leads [@RN4896].] 
+
+```{r, include = FALSE}
+# Average # of criteria used
+avg_criteria <- mean(rowSums(orders_df %>% select(starts_with('filter_'))))
+
+# Proportion select at least 1 academic + 1 geographic filter
+orders_df_stats <- orders_df %>% 
+  mutate(
+    filter_academic = filter_gpa + filter_sat + filter_psat + filter_rank + filter_ap_score + filter_sat_math + filter_sat_writing + filter_sat_reading + filter_sat_reading_writing + filter_hs_math,  # filter_hs_math
+    filter_geographic = filter_states_fil + filter_zip + filter_geomarket + filter_segment + filter_cbsa + filter_intl + filter_county + filter_proximity_search,  # filter_proximity_search
+    filter_academic_geographic = (filter_academic > 0) & (filter_geographic > 0)
+  )
+
+pct_purchase <- mean(orders_df_stats$filter_academic_geographic) * 100
+```
+
+**Buying College Board and ACT student lists**. Each student list purchase is a subset of prospects from a larger, underlying database. College Board, ACT, and other student list products (e.g., *Intersect*) incorporate search filters that allow customers to control which prospect profiles they select. @list_empirics categorizes search filters available in the College Board Student Search Service product into the four buckets of academic, geographic, demographic, and student preferences (e.g., desired campus size, intended major). Academic filters include high school graduating class, SAT score, PSAT score, AP score by subject, high school GPA, and high school class rank. Individual filters are specified as score ranges (e.g., XXX - XXX) and can be combined with other filters as `AND` or `OR` conditions. Geographic search filters include state, CBSA, county, zip code, and "geomarket" and "geodemographic" filters (described below). Demographic filters include race, ethnicity, gender, and first-generation status. Student preference filters include intended major, college size, and college type. Analyzing data about 830 student lists purchased by 14 public universities, @list_empirics found that the average list purchase specified `r avg_criteria` criteria and `r pct_purchase`% of purchases specified at least one academic and one geographic filter. 
+
+A purchased list ([College Board template](https://drive.google.com/file/d/1Qvc_QRi9izEF1W78Lh4nNi5NsXjCZqUE/view), [ACT template](https://drive.google.com/file/d/1rsP45OyOsnPYhV8uWYKDAy_spGhjj6aj/view)) is essentially a spreadsheet with one row per prospect and columns for contact information and student characteristics from the pre-test questionnaire (e.g., graduation year, high school code, gender, ethnicity, race, first-generation status, intended major). Information about academic achievement is extremely limited, but can be inferred from search filters.
+<!-- 
+As in political advertising [@RN4789], micro-targeting has become a branding strategy for student list products. For example, College Board Student Search promises to “create a real pipeline of best-fit prospects” @RN1623 while ACT Encoura uses the tag-line “find and engage your best-fit students” @RN1624. 
+--> 
+
+**How lists are used**. Much like the role of voter files in political campaigns [@RN4731], purchased lists are the basic building block for data-informed undergraduate "recruiting campaigns." Enrollment managers use predictive models to inform recruiting interventions [@list_empirics; @ruffalo_noel_levitz_2021]. However, both the algorithms and the interventions must be fed data about prospects (e.g., cannot send brochures and emails without addresses). Therefore, at the top of the enrollment funnel (Figure \@ref(fig:em-funnel)), colleges buy the contact information of prospects they want to recruit. Once purchased, student lists are combined with behavioral based leads and inquiries who reach out on their own (e.g., took a virtual tour) and then layered with additional data sources, such as consumer data from credit bureaus, historical application/enrollment data about students who attended the same high school, etc. These layered data are the input to predictive models that inform decisions about recruiting interventions designed to push them to subsequent stages of the funnel (e.g., who gets a \$0.50 postcard and who gets a \$7 brochure). @RN4895[p. 6] reports that email, targeted digital advertising (e.g., Instagram), and direct mail are the top three "preferred methods for first\ldots contact with high school purchased names" and that the average number of times purchased names are contacted before giving up is 11 for private institutions and 8 for public institutions.
+
+<!-- Of the institutions that purchase names, nearly all purchase names of 11th graders and 12th graders, while 85% of privates and 78% of publics purchase names of 10th graders [@RN4895]. --> 
+<!-- ^[Anecdotal evidence suggests that the majority of 4-year colleges hire an enrollment management consulting firm for the purpose of recruiting. Collectively, the largest two firms -- Ruffalo Noel Levitz and EAB -- claim to provide enrollment management services (recruiting, financial aid, student success, development) to more than 3,000 colleges in the U.S. [@eabcomm; @rnlabout]. Purchasing names on behalf of the college is a core service consultancies provide and many firms have developed predictive models to inform name buys [@fire_engine_red_search_modeling; @ruffalo_noel_levitz_2021]] --> 
+
+With respect to efficacy, @RN4402 asked clients to rate different "first contact" interventions (e.g., off-campus recruiting visit) as sources of inquiries and enrolled students. For the median public college, purchased lists accounted for 26\% of inquiries, which ranked \#1, and accounted for 14\% of enrolled students, which ranked fourth after "application as first contact" (19\%), campus visit (17\%), and off-campus visit (16\%).^[For the median private college, student list purchases were the highest source of inquiries, accounting for 32\% of inquiries and were tied with off-campus recruiting visits as the highest source of enrolled students, accounting for 18\% of enrolled students [@RN4402].]
+<!-- 
+With respect to efficacy from the perspective of students, @RN4739 compared SAT test-takers who opted into the College Board Student Search Service -- allowing accredited institutions to "licence" their contact information -- to those who opted out. After controlling for covariates (e.g., SAT score, parental education), 41.1\% of students who participated in Search attended a 4-year college compared to 32.8\% of students who opted out, an 8.3 percentage point difference and a 25.3 (`(41.1-32.8)/32.8`) percent change in the relative probability. Participating in Search was associated with a larger change in the relative probability of attending a 4-year college for Black students (24.5\%) and Hispanic student (34.4\%) than White students (21.6\%), and a larger change for students whose parents did not attend college (40.6\%) than those whose parents had a BA (18.9\%). Additionally, where students start college affects the probability of graduation [@RN2261; @RN1494]. After controlling for covariates, @RN4739 find that 20.6\% of students who participated in Search obtained a BA in four years compared to 15.7\% of students who opted out, representing a 31.2\% increase in the relative probability of graduation and this increase was larger for Black (40.3\%) and Latinx (43.3\%) students (48.3\%) than it was for white students and larger for students whose parents did not attend college (50.0\%) than it was for students whose parents had a BA (25.3\%).
+--> 
+
+# Conceptual Framework
+
+ADD INTRO PARAGRAPH
+
+## Selection Devices
+
+The sociology of race is concerned with processes that allocate individuals to categories based on some set of input factors. Examples include college admissions, hiring, applications for credit, and prison sentencing. Selection devices are procedures or routines for making selection decisions [@RN4778]. One dimension selection devices differ is individual discretion versus standardization. Discretionary selection processes rely on the judgment of individual evaluators. In professional domains (e.g., psychiatric treatment, holistic admissions), evaluators exercise judgment about cases based on professional norms about how to evaluate inputs. By contrast, "standardized selection devices" make decisions based on a mathematical function in which the value of input variables determines the value of the outcome [@RN4861], for example a public university that admits applicants based on a function of ACT score and GPA.
+
+ <!-- THIS PARAGRAPH ORIGINALLY HERE
+Scholarship from sociology and critical data studies has focused on algorithmic bias from standardized selection devices that utilize predictive analytics [e.g., ][@RN4772; @RN4849; @RN4786; @RN4794]. @RN4743[p. 4] distinguishes selection devices that rely on descriptive analytics, which seek to “uncover and summarize patterns or features that exist in data sets” (e.g., high school GPA), versus those that rely on predictive analytics, which “refers to the use of statistical models to generate new data” (e.g., predicted probability of enrollment). Products that utilize predictive analytics apply statistical models to previous cases and apply the results of these analyses to predict outcomes for future cases.  In child welfare, for example, the "Structured Decision Making Model" (SDM) is a selection device that yields recommendations about whether children should be placed in protective care based on a standardized survey instrument designed to discern the likelihood of future abuse or neglect [@RN4778].
+ -->
+ 
+ <!-- In nonactuarial standardized selection devices, the formula which assigns weights to each input is not determined by statistical analyses of past cases. Prior to 2003, the University of Michigan evaluated applications by assigning points to characteristics (e.g., GPA, ACT/SAT score, alumni, underrepresented racial/ethnic minority) and admitting applicants above 100 points. However, decisions about the number of points to assign each characteristics were based on considerations of organizational mission -- including the goal of reducing racial inequality -- rather than regression coefficients from past analyses of student success.-->
+
+Student list products are selection devices that enable university administrators to select prospective students from a larger pool based on a set of input factors. Student list products are discretionary rather than standardized selection devices. For each purchase, the administrator may choose which inputs to filter on and which thresholds to apply to each filter. Although most College Board search filters measure descriptive characteristics of individual prospects (e.g., SAT score range, state), several search filters utilize predictive analytics (e.g., geomarket, geodemographic cluster).
+ <!-- In contrast discretionary selection processes that rely on professional training and expertise (e.g., child welfare decisions, admissions readers), any individual associated with a Title IV institution may execute student list purchases, including consultants hired by the Title IV institution. Third, student list purchases are structured by which prospective students are in the underlying database, which search filters the product include, and which search filters the product encourages. Therefore, like actuarial selection devices, student list purchases may yield racial inequality due to search filters that are correlated with race. However, whereas actuarial selection devices replace individual judgment with decisions based on a formula, the individual discretion granted by student list products may reduce or amplify structural racial inequality embedded within student list products.-->
+ 
+Scholarship examines whether discretionary and standardized selection devices produce/reduce racial inequality [e.g.,][@RN4801; @RN4786; @RN4775]. @RN4794[p. 22] observe that, following 1970s anti-discrimination legislation, many industries adopted actuarial selection devices because "evidence had accumulated that both private and public decision-makers were routinely giving into vague intuitions, personal prejudices, and arbitrary opinions. Reviewing the literature, @RN4778 state that standardized selection devices can reduce racial inequality _if_ the primary source of inequality is explicit or implicit racial bias from individual decision-makers. 
+ <!-- @RN4794[p. 22] observe that in the wake of 1970s anti-discrimination legislation, many industries adopted actuarial selection devices because "evidence had accumulated that both private and public decision-makers were routinely giving into vague intuitions, personal prejudices, and arbitrary opinions\ldots The mechanics of modern algorithms offered promises of transparency and of equal, dispassionate treatment—behind the veil of ignorance—without making distinctions based on prohibited demographic characteristics such as race or gender."-->
+
+However, standardized selection devices do not eliminate racial inequality stemming from structural racism. @RN4814 criticizes social science disciplines (e.g., psychology, economics) for defining racism as an ideology held by individuals. These definitions cast attention to the attitudes and behaviors of individuals, ignoring the possibility that broader institutions can be racist.  @RN4814[p. 474] argues that racialized social systems allocate "economic, political, social, and even psychological rewards to groups along racial lines”. <!--  By contrast, racism is merely the ideological component of racialized social systems [@RN4814]. --> In turn, structural racism is "a form of systematic racial bias embedded in the ‘normal’ functions of laws and social relations” [@RN4760, p. 1143], whereby processes viewed as neutral or common-sense systematically advantage dominant groups and disadvantage marginalized groups. Amidst the growth of "colorblind" selection devices that do not include race as an input, scholarship from sociology finds that selection devices may produce racial inequality by utilizing seemingly neutral or objective determinants that are systematically correlated with race [e.g., @RN4775; @RN4786].
+
+ <!-- Rating and scoring criteria should be broken into two categories: (1) those that are theoretically and empirically orthogonal or distant from racial disadvantage and (2) those that are theoretically and empirically correlated with historical racial disadvantage. I refer to the former as non-racialized and the latter as racialized inputs -->
+**Racialized inputs**. @RN4786 reconstructs Moody's city government credit rating algorithm, which assigns credits scores to cities based on determinants thought to predict loan default. @RN4786[p. 5] defines racialized inputs "those that are theoretically and empirically correlated with historical racial disadvantage," subjugation, and exclusion. By contrast, non-racialized inputs are "theoretically and emirically orthogonal or distant from racial disadvantage." Median family income is conceptualized as a racialized input; because of historical wage discrimination, income is correlated with race and cities with a greater share of Black residents have lower median income. Once median income is included in Moody's model, percent Black is no longer a significant predictor of city credit rating. Through the inclusion of seemingly neutral racialized inputs, "prior disadvantage and racism against Black individuals becomes institutionalized" [p. 2] and selection devices yield racially disparate outcomes "in ways that escape legibility/cognition as racially unequal" [p. 5].
+
+**_Geography inputs_**. Geographic borders are the most commonly studied racialized inputs [@RN4849; @RN4775; @RN4779] [ADD CITES]. These studies build on the fact that American communities and schools are racially segregated as a consequence of historic and contemporary laws, policies, and practices promoting racial segregation [e.g., @RN4551; @RN4801; @rothstein2017color]. Algorithmic selection devices that categorize people based on geographic location without considering structures that produce segregation are likely to reproduce historical race-based inequality in opportunity. <!-- @RN4775 argues that geographic inputs are a means of capitalizing on residential segregation to circumvent laws prohibiting race as an input, stating that "racialized zip codes are the output of Jim Crow policies and the input of New Jim Code practices" (p. 147). --> For example, @RN4849 analyzes an algorithm uses zip code as an input to predict the probability of recidivism for previously incarcerated people. Because zip codes are correlated with race, using zip code to predict recidivism generates racial inequity in predicted risk. 
+
+
+ <!-- @RN4880[p. 447] observe that "the fusing of marketing and credit-scoring [e.g., FICO scores] developed in tandem with the growth of geographical information systems and geodemographic analysis\ldots in the mid-1980s" as businesses depending on customer credit transitioned from approving/rejecting applicants to the model of pre-approving desirable customers.  -->
+ 
+Methods for using geography as a predictive input were pioneed by geodemography, a branch of market research that estimates the behavior of consumers based on where they live [@RN4878]. Geodemography emerged in the 1980s alongside efforts to fuse marketing and credit scoring [@RN4880], as businesses that depended on customer credit transitioned from the model of approving/rejecting applicants to the more aggressive model of pre-approving desirable customers. Richard @RN4886[p. 36], director of Experian Marketing Services and creator of Acorn and Mosiac, states:
+
+> Geographical information can\ldots be very useful at the recruitment stage. Addresses in postcodes with high levels of bad debt can be eliminated as can those where credit referencing activity is particularly low. Area classification systems, such as Mosaic and Acorn, yield further discriminators which can be used to reduce the recruitment of poor credit risks\ldots The combination of all this information into a recruitment scorecard allows the credit operator to select the best possible addresses from rented lists, electoral rolls or the company's own customer file\ldots and enables the recruitment of accounts to be redirected away from areas of high bad debt.
+
+Initially, geodemographic systems scored individual localities (e.g., zip code) based on consumer behavior. Subsequent geodemographic classification systems (e.g., Mosaic by Experian) classify localities and individuals into like audience segments for marketers [[CITE](https://www.experian.com/content/dam/marketing/na/assets/ems/marketing-services/documents/product-sheets/mosaic-product-sheet.pdf)]. 
+
+**_Predictive analytics inputs_**. MOVE PARAGRAPH ON PREDICTIVE ANALYTICS FROM START OF CF HERE
+
+Scholarship on algorithmic bias has focused on the use of predictive analytics in selection devices [e.g., ][@RN4772; @RN4849; @RN4786; @RN4794]. @RN4743[p. 4] distinguishes selection devices that rely on descriptive analytics, which seek to “uncover and summarize patterns or features that exist in data sets” (e.g., high school GPA), versus those that rely on predictive analytics, which “refers to the use of statistical models to generate new data” (e.g., predicted probability of enrollment). Products that utilize predictive analytics apply statistical models to previous cases and apply the results of these analyses to predict outcomes for future cases.
+
+In child welfare, for example, the "Structured Decision Making Model" (SDM) is a selection device that yields recommendations about whether children should be placed in protective care based on a standardized survey instrument designed to discern the likelihood of future abuse or neglect [@RN4778].
+
+
+
+Predictive analytics are another class of racialized inputs in selection devices. Predictive analytics are often used to predict outcomes for new cases based on analysis of previous cases. @RN4743 warns that using historical data to predict the behavior of a new group of people "creates new justifications for exclusion" (p. 10) and @RN4794[p. 224] state that “predicting the future on the basis of the past threatens to reify and reproduce existing inequalities of treatment by institutions." For example, predictive models of recidivism identify the determinants of recidivism for past cases and apply these results to predict the probability of recidivism for new cases [@RN4849]. Ex-offenders with high predicted probabilities of recidivism receive greater police attention, which increases the probability of arrest. @RN4887 refers to this phenomenon as the "ratchet effect," whereby disproportionately targeted populations are predicted to have higher risk of an outcome, which amplifies disproportionate targeting. Predictive analytics can also be used as an input. For example, geodemographic methods create geographic customer segments based on past consumer data and use these segments as one input to select target customers [@RN4565; @RN4744].
+
+## Student List Products
+
+**Test-taking and test score filters**. RQ1 examines the relationship between individual student list product attributes and racial inequality, independent of how universities utilize student list products. We argue that the underlying architecture of student list products produce structural inequality in two broad ways. 
+
+The first source of structural inequality is which prospective students are included in the underlying database. For any selection device or statistical model, when individuals are excluded from an analysis sample because they have missing values for some or all variables, the possibility of selection bias emerges. If missingness is correlated with race, then the selection device yields systematic racial exclusion. Guidance from the Federal Trade Commission states that "If a data set is missing information from particular populations, using that data to build a\ldots model may yield results that are unfair or inequitable to legally protected groups" [@RN4749].
+
+Historically, College Board and ACT student list products exclude students who do not take at least one of their assessments (e.g,. SAT, AP, PSAT).^[Recently, College Board and ACT, respectively, began allowing non test-takers to opt into student list products by participating in the College Board [Big Future](https://bigfuture.collegeboard.org/) or the ACT [Encourage](https://myoptions.org/) college search engines, but it is unclear how many non test-takers opt in using these resources.] Prior research shows that rates of SAT/ACT test-taking differ by race and class [e.g., @RN2275; @RN4860; @RN4859]. Similarly, the percentage of students who take AP exams vary across race, particularly for STEM exams [@RN4855], and Black students are more likely than white students to attend a high school with few AP course offerings [@RN4854]. These findings motivate the following proposition, which we analyze separately by assessment (SAT, PSAT, AP) and for taking any assessment.
+
+**P1**: The condition of taking standardized assessments is associated with racial disparities in who is included versus excluded in student list products.
+
+The second source of structural inequality in student list products is the use of racialized inputs as search filters. We argue that test score filters (e.g., SAT, PSAT, AP) meet @RN4786 criteria -- "theoretically and
+empirically correlated with historical racial disadvantage" (p.5) -- of racialized inputs. Race-based differences in standardized test scores are a function of historical and contemporary segregation of U.S. communities in schools [@RN4893], which drive race-based differences in school funding [@RN4902] and race-based differences in access to college preparatory curriculum, including SAT/ACT test preparation [@RN4856] and access to AP courses [@RN4853; @RN4855]. Therefore, filtering prospects based on test scores without simultaneously considering the historical and contemporary structural inequalities that drive race-based differences in test scores is likely to reproduce racial inequality in educational opportunity.^[By comparison, high school GPA is a strong predictor of postsecondary student success [@RN2301; @RN6019] and is more theoretically and empirically distant from historical racial disadvantage [@RN2517;@RN1749]. Therefore, we conceptualize the high school GPA search filter as a non-racialized input in student list products.]
+
+**P2**: As test score threshold increases, the proportion of underrepresented minority students included in student lists declines relative to the proportion who are excluded.
+
+
+**Geographic filters**. [KARINA - MODIFY THIS SECTION] Geographic search filters enable universities to target prospects based on where they live. College Board geographic search filters include state, CBSA, county, zip code, geomarket, and geodemographic filters.
+
+
+We conceptualize geographic search filters as racialized inputs because these filters are built on top of historic and contemporary policies and practices promoting racial segregation. Targeting prospective students based on geographic location without consideration to macro and local structures that produce racial segregation is likely to reinforce historical race-based inequality in educational opportunity.
+
+Prior research on recruiting consistently finds that selective private and public research universities disproportionately target affluent schools and communities [@RN3519; @RN4759; @RN4758; @RN4733]. These findings suggest that universities may filter on affluent zip codes when purchasing student lists. We expect that filtering for affluent neighborhoods is positively associated with racial exclusion because structures of racial segregation often prohibit people of color from living in affluent neighborhoods.
+
+**P3**. As purchases filter on higher levels of zip-code affluence, the proportion of underrepresented minority students included in student lists declines relative to the proportion who are excluded.
+
+University recruiting behavior often targets prospects in particular metropolitan areas [@list_empirics; @RN4758]. When targeting metropolitan areas, we expect that utilizing finer geographic filters (e.g., zip code rather than county) is associated with greater racial dispairities in student list purchases because American residential segregation occurs at fine-grained geographic levels [@RN4779].
+
+**P4**. Filtering on smaller geographic localities is associated with greater racial disparities in included vs. excluded than filtering on larger geographic localities.
+
+<!--
+
+In addition to filters for known geographic borders, College Board uses data on test-takers from previous admissions cycles to create new geographic borders for the purpose of filtering prospective students. "Geomarkets" divide metropolitan areas into smaller pieces. For example, the San Francisco Bay Area is divided into eight geomarkets, including CA10 the "City of San Jose" and CA11 "Santa Clara County excluding San Jose" [[CITE](https://drive.google.com/drive/u/0/folders/1mqvLpSZZ6k7EWHPh0btt2hWy2J-jXs_y)]. Geodemographic segment filters utilize cluster analysis allocate each high school and each neighborhood (census tract) to a market segment based on based on past college-going behaviors of students from that school or neighborhood [@RN4565]. The resulting classification is highly correlated with race because communities of color that have been historically excluded from higher education are more likely to be lumped together. More generally, we argue that filtering on geographic borders created from past education data is associated with racial exclusion because these borders likely reflect historic disparities in educational opportunity. Further, these filters increase the effects of historic place-based inequality because they enable universities to discriminate between prospects based on previously unknown geographic borders.[BUT CAN'T ANALYZE THESE CUZ WE DON'T HAVE/NEED TO CREATE THE BORDERS]
+-->
+
+
+## Utilizing Student List Products
+
+Whereas the conceptual discussion thus far has focused on individual search filters, student list products are designed to filter on multiple search filters simultaneously. In contrast to standardized selection devices (e.g., XXXX), student list products are discretionary selection devices that allow administrators to choose which search filters and filter thresholds to select and how many purchases to execute. A university may utilize student list products in ways that reduce or amplify racial inequality in college access. This section draws from scholarship on product utilization to motivate analyses about how public universities utilize racialized input search filters in concert with other search filters when purchasing student lists (RQ2) and to motivate analyses about the racial composition of student list purchases that utilize multiple search filters (RQ3).
+
+We highlight key findings from sociological scholarship on product utilization. On balance, scholarship tends to find that administrative discretion over selection devices causes structural inequality to increase [CITE; e.g.,] [@RN4883; @RN4881; @RN4795]. Compared to standardized selection devices, discretionary selection devices allow the explicit or implicit racial bias of individual decision-makers to affect selection decisions [@RN4794; @RN4801]. In the context of occupations/professions (e.g., medicine, social work), discretionary selection criteria reflect occupational/professional norms, which may be more or less cognizant of structural racism [@RN4778; @RN4760]. For example, @RN4801 shows that homes in white neighborhoods received higher appraisal values than those in non-white neighborhoods because of appraiser discretion in selecting comparison homes for the valuation. Two necessary conditions to prevent ascriptive bias in discretionary selection processes are transparency -- decisions about selection criteria are clear to all stakeholders -- and accountability -- decision-makers face consequences for utilizing racially biased selection criteria [@RN4881; @RN4883]. Finally, Americans dramatically underestimate the magnitude of racial income inequality [@RN4884].<!-- ^[@RN4885[p. 142] describes this "racial ignorance" as a means of "white knowledge evasion" that "reinforces white domination."]--> Discretionary selection devices that incorporate racialized inputs are likely to amplify racial inequality because decision-makers may be ignorant about how selection inputs interact with on-the-ground patterns of racial inequality [@RN4801] and/or because decision-makers may view racialized inputs as objective, colorblind measures of merit [@RN4882; @RN4866]. 
+
+Drawing from the utilization literature, we motivate analyses about administrative discretion and racial inequality in student list purchases. First, universities may select academic achievement filters that are consistent with their admissions standards, which are a function of university stakeholders and the admissions profession [CITE]. Although race-based differences in standardized testing may be driven by structural inequality, most admissions offices viewed test scores objective measures of achievement or aptitude [@RN3699], until quite recently. Therefore, we expect that selective institutions are more likely to filter on standardized test scores compared to less selective institutions and are likely to filter on higher score thresholds.
+<!-- [ADD SENTENCE?: GIVEN LIMITED SAMPLE SIZE OF 14 PUBLIC UNIVS, WE USE CARNEGIE CATEGORY OF RESEARCH VS. MA/DOCTORAL AS A CRUDE PROXY FOR SELECTIVTY]--> 
+
+Second, filtering on multiple search filters facilitates micro-targeting of desired prospects. Indeed, micro-targeting has become a branding strategy for student list products. College Board Student Search promises to “create a real pipeline of best-fit prospects” [@RN1623] while ACT Encoura uses the tag-line “find and engage your best-fit students” [@RN1624]. Consulting firms encourage universities to execute multiple student list purchases, each targeting different market segments [e.g., @waxman].^[For example, in data collected by [@list_empirics], colleges assigned names to individual searches, such as, "Women in STEM," "International 2022 PSAT 1200," "CA 2021 SAT URM to 1290," "Performing arts," etc.] Thus, student list products are powerful, complicated tools for precisely identifying prospects. However, the flip-side of micro-targeting is exclusion. Purchased lists do not show how the characteristics of targeted prospects compare to the demographics of their surrounding community. Thus, specifying multiple filters can yield unintended racial inequality because administrators have incomplete knowledge about how the intersections of these filters interact with local patterns of racial segregation. Considering a non-racialized filter (high school GPA), adding a racialized input filter (e.g., SAT score, AP score) may increase racial inequality. Additionally, filtering on multiple structurally racist inputs (e.g., SAT score and zip-code) may have a compounding effect on racial inequality.
+
+Third, amidst the data science revolution, College Board and ACT have added search filters based on predictive analytics (e.g., College Board "Geomarket", ACT "probability of enrollment"). The College Board Geomarket filter sub-divides states/metropolitan areas into distinct markets based on historical data about college enrollment. The College Board Geodemographic Segment filter allocates individual census tracts and individual high schools into distinct clusters based on past college enrollment. Drawing from the sociology of race [@@RN4794; @RN4887], creating new geographic borders based on historical patterns for the purpose of including/excluding future students serves to amplify the effect of historic race-based inquality in educational opportunity. Furthermore, administrators utilizing these filters likely have incomplete knowledge about how these borders interact with local patterns of segregation. We expect that using Geomarket or Geodemographic filters, in concert with other search filters, is associated with racial inequality in targeted versus excluded prospects.
+
+Finally, some colleges may utilize student list products to increase enrollment by underrepresented populations. College Board and ACT student list products are designed to facilitate this goal by incorporating filters for race, ethnicity, and first-generation status. For example, colleges may purchase separate lists for particular racial/ethnic groups, specifying different test score thresholds for different groups. Purchases that explicitly target underrepresented populations may be more or less inclusive of students from communities of color. Given the complexity of student list products and incomplete knowledge about race-based income inequality [@RN4884], policymakers should be concerned about potential unintended harm from these efforts. Student list purchases designed to overcome one inequality in college access may unintentionally amplify other social inequalities. For example, purchases designed to target "women in STEM" may yield racial or socioeconomic inequality. Additionally, purchases that explicitly target underrepresented minority students with high test scores may systematically exclude students from predominantly non-white communities.
+
+# Methods
+
+## Data 
+
+Our analyses utilize two data sources. First, the primary data source is the High School Longitudinal Study of 2009 (HSLS09) conducted by the National Center for Education Statistics (NCES). HSLS09 is a nationally representative survey that follows a cohort of more than 23,000 students from 944 schools entering the ninth grade in Fall 2009. Follow-up surveys were administered to students in Spring 2012 (when most were in 11th grade), in 2013, in 2016, and NCES collected high school transcripts in 2013-14. HSLS provides the extensive student-level demographic, geographic, and academic variables needed to create academic and geographic filters used within student list purchases. 
+
+<!-- cut text, original text from karina
+
+Surveys collected during the base year include responses from students' parents, teachers, school administrators, and school counselors. Five subsequent data collection waves capture students' schooling experiences through 11th grade, high school graduation and postsecondary plans, and enrolling in college or entering the labor market. 
+
+HSLS provides the extensive student-level demographic, geographic, and academic variables needed to create academic and geographic filters used within student list purchases. Moreover, HSLS09's nationally representative sample of high school students allows us to analyze patterns of who is included and excluded in simulated student list purchases as filter combinations and filter thresholds change.
+-->
+
+Our analysis sample includes students who meet all of the following conditions: completed Spring 2012 first follow-up survey; completed 2013 update survey; and obtained high school transcript data. Of the 23,503 respondents included in HSLS09, our unweighted analysis sample consists of the 16,530 students who meet all conditions.^[Unwighted sample was rounded to 10 to meet restricted data regulations by NCES] The survey weight variable W3W2STUTR is designed for respondents who meet these conditions. After weighting, these 16,530 students represent the population of approximately 4.187 million U.S. 9th graders in 2009.
+
+<!-- From paragraph above
+[STATE 95% CI FOR THIS POINT ESTIMATE?] The analysis sample is smaller for analyses that utilize variables that have missing values for some respondents [? SAY MIN ANALYSIS SAMPLE SIZE IS THIS?]-->
+
+The second data source consists of "order summaries" for student lists that public universities purchased from College Board. These data are used to inform hypothetical student list purchases in the final set of analyses. As described in @list_empirics, we collected these data by issuing public records requests to all public universities in five states (CA, IL, TX, MN, and one anonymous state) about student lists purchased from 2016-2020. @list_empirics analyzed 830 College Board orders, which yielded more than 3.6 million prospect profiles. These orders were placed by 14 public universities. Figure \@ref(fig:order-filters-empirical-report) shows the filters utilized in these orders.
+
+<!-- From paragraph above
+@list_empirics shows that some universities placed many more orders and/or purchased many more prospect profiles than others.-->
+
+## Variables 
+
+<!-- 
+We ask, what is the relationship between student list search filters (e.g., test score range, zip code) and the characteristics of students who are included vs. excluded in student lists purchased from College Board?
+X = student list filters
+Y = characteristics of students included in student list filters
+-->
+Our research question is, what is the relationship between student list search filters and the racial composition of students who are included versus excluded from College Board student list purchases? In turn, our dependent variable measures student demographic characteristics and our independent variables are measures of student list filters. Descriptive statistics for analysis variables are shown in Table \@ref(tab:descriptives).
+
+**Dependent variable**. Our primary dependent variable is the student race/ethnicity composite variable X2RACE, which includes the following seven categories: American Indian/Alaska Native, non-Hispanic; Asian, non-Hispanic; Black/African-American, non-Hispanic; Hispanic; More than one race, non-Hispanic; Native Hawaiian/Pacific Islander, non-Hispanic; and White, non-Hispanic.^[We collapse "Hispanic, no race specified" and "Hispanic, race specified" into a single category.] 
+
+<!-- CUT FROM ABOVE PARAGRAPH : Following our conceptual framework, this manuscript is primarily concerned with the racial composition of prospects who are included in student list purchases compared to the racial composition of prospects who are excluded. We also conducted analyses that utilized parental education (`X2PAREDU`) and family income (`X2FAMINCOME`) as dependent variables, but we exclude these analyses because of manuscript space limits.-->
+
+**Independent variables**. Independent variables are measures of student list filters. Choices about independent variables were based on our conceptual framework and the set of student list filters observed in our public records request data collection, shown in Figure \@ref(fig:order-filters-empirical-report). Our conceptual framework restricts analytic focus to academic filters and geographic filters.
+
+<!-- CUT FROM ABOVE PARAGRAPH: leaving demographic filters and student preferences filters for a future analysis [?EXCEPT INTENDED MAJOR FOR WOMEN IN STEM?].  -->
+
+Propositions **P1** and **P2** focus on academic filters. **P1** is concerned about which students take standardized assessments, which determines inclusion in the underlying College Board student list database. **P2** is concerned with test score thresholds utilized to filter prospects. For **P1**, we create dichotomous measures for each of the following assessments (input variables in parentheses) based on test score variables from the high school transcript file: PSAT/PreACT (X3TXPSATCOM); SAT/ACT (X3TXSATCOMP); any AP exam (variables with names that start with X3TXAP); and any STEM AP exam. For **P2**, we use these same input variables to create test score measures for PSAT/PreACT; SAT/ACT; highest AP exam score; and highest AP STEM exam score. We also create a measure of high school GPA in academic courses (X3TGPAACAD), which is a question asked in the pre-test questionnaire of College Board assessments. Consistent with how College Board filters work, **P2** variables are analyzed as categorical rather than continuous variables. To select thresholds for **P2** variables -- for example, an SAT score thresholds of less than 1000, 1000+, 1200+, 1300+, etc. -- we considered what the product allows, what we observed in orders collected via public records requests, and the goal of parsimony.
+
+<!-- A limitation of measures created for **P1** and **P2** is that HSLS does not have separate measures for SAT and ACT. Instead, SAT and ACT test scores are converted to the same scale, but we do not know which students took which assessments. The same is true for PSAT and PreACT assessment. -->
+
+Propositions **P3** and **P4** focus on geographic filters. Drawing from Figure \@ref(fig:order-filters-empirical-report), we create measures for student county (X2GCNTY), zip code  (X2GZIPCD), and CBSA (based on crosswalk with home zip code). Next, we attach income data to localities by merging in data from the American Community Survey (ACS) 2012 5-year estimates. We do not create independent variables for geomarket filter or geodemograhic segment filter because these filters utilize geographic borders based on proprietary College Board data.
+
+## Analyses
+
+<!-- 
+Analyses utilize simple descriptive statistics, with appropriate statistical tests. Analyses examine who is included when particular filters and/or filter thresholds are utilized to purchase prospect profiles. 
+
+All analyses compare the racial composition of included versus excluded prospects associated with some student list purchase.
+-->
+
+Analyses utilize simple descriptive statistics, with appropriate statistical tests. All analyses compare the racial composition of included versus excluded prospects when particular filters and/or filter thresholds are utilized to purchase prospect profiles.
+
+Consider a hypothetical purchase that all prospects took an AP STEM exam. We compare the racial composition of the included group to the racial composition of the excluded group. For example, Black students comprise 5.05% (`=91/1803`) of AP STEM test-takers and Black students comprise 10.6% (`=1564/14722`) of students who do not take an AP STEM exam. The test for difference in proportions compares whether the proportion of included prospects who identify as Black differs from the proportion of excluded prospects who identify as Black, and this test is run separately for each race/ethnicity group. This comparison focuses on the racial composition of prospects targeted from the university perspective; that is, what is the racial composition of prospects who are targeted by a particular set of filters versus the racial composition of prospects who are excluded by these filters?
+
+<!-- Conceptually, two types of comparisons are possible. Comparison type one compares the proportion of students from a particular race/ethnicity group (e.g. Black) who are included to the proportion of students not from that particular race who are included. For example, using unweighted sample sizes, `91/1,655=5.5%` of Black students took an AP STEM exam and `1,712/14,870=11.5%` of non-Black students took an AP STEM exam. The test for difference in proportions compares the 5.5% of Black students who are included to the 11.5% of non-Black students who are included, and this test is run separately for each race/ethnicity group.  
+
+
+While the significance tests from comparison type one and comparison type two are mathematically equivalent, the two comparisons differ conceptually. The first comparison analyzes the probability of being targeted from the student perspective; that is, do students who identify as Black have a higher/lower probability of being included than students who do not identify as Black? The second comparison focuses on the racial composition targeting from the university perspective; that is, what is the racial composition of prospects who are targeted by a particular set of filters versus the racial composition of prospects who are excluded by these filters? This manuscript focuses on comparison type two because we are interested in how student list products structure the racial composition of university recruiting efforts. -->
+
+<!-- 
+# comparison 1
+df_stu %>% filter(x2race == 'black') %>% count(apstem01) %>% mutate(pct = n/sum(n)*100)
+
+df_stu %>% filter(x2race != 'black') %>% count(apstem01) %>% mutate(pct = n/sum(n)*100)
+
+
+# comparison 2 = compares the racial composition of the included group to the racial composition of the excluded group
+
+df_stu %>% filter(apstem01 == 'yes') %>% count(re_black) %>% mutate(pct = n/sum(n)*100)
+
+df_stu %>% filter(apstem01 == 'no') %>% count(re_black) %>% mutate(pct = n/sum(n)*100)
+-->
+
+Analyses for propositions P1 through P4 examine purchases that utilize individual filters in isolation. The final set of analyses examine purchases that utilize academic and geographic filters in combination with one another, with choice of filters informed by commonly observed combinations from the public request data and also by theoretical considerations. 
+
+## Limitations
+
+This manuscript uses HSLS09 to recreate the College Board Student Search Service. One limitation is that HSLS variables for SAT test-taking and test scores also include ACT test-takers, with ACT scores converted to the SAT scale. The same is true for the PSAT and PreACT. The Student Search service includes students who take at least one College Board assessment, but we cannot differentiate between College Board and ACT test-takers, so our analyses incorrectly treat ACT test-takers as College Board test-takers. We considered restricting the analysis sample to states where the majority of students take the SAT rather than the ACT. We chose not to take this approach because the ACT "Educational Opportunity Service" student list product -- now, named Encoura -- includes academic and geographic filters that are nearly identical to the College Board filters that are the focus of this manuscript [@schmidt_2022]. Thus, analyses can be interpreted as who would be included/excluded by both College Board and ACT student list products.
+
+Second, test-takers have the opportunity to opt-out of the College Board Student Search Service and the ACT Educational Opportunity Service but HSLS09 has no reasonable proxy for whether students opt-in or opt-out. @RN4752 finds that 86% of ACT test-takers opt-in, but does not investigate the student characteristics associated with opting in. Third, the HSL09 cohort pre-dates the increase in test-optional admissions policies and decline in test-takers which occurred since the onset of COVID19. This undermines the external validity of our findings with respect to current cohorts of high school students. That said, several for-profit vendors have developed student list products  (e.g., Intersect by PowerSchool) poised to acquire market share ceded by College Board and ACT, and these products use filters that are similar to College Board and ACT products [@markup_naviance]. Our analysis of structurally racist inputs and exclusion yields insights across student list products. Fourth, we could not make measures for high school class rank, an academic filter, or for geomarket and geodemographic filters, which utilize proprietary College Board data.
+
+# Findings
+
+## Student List Products   
+
+__Individual Filters__. We address RQ1 by first describing the racial characteristics of HSLS09 students who completed standardized assessments in comparison to those who did not, which would determine inclusion in the underlying College Board student list database. Figure \@ref(fig:test-takers) presents the racial/ethnic composition of prospects included (i.e., completed assessment) and excluded (i.e., did not complete assessment) across SAT, PSAT, and AP exams. For example, the top left graph shows that more than 1.8 million prospects completed the SAT and would have presumably been included in the College Board student list database. In comparison, more than 2.3 million prospects did not complete the SAT and would be excluded from the database. White students make up 53% of included students who completed the SAT and 51% of excluded students who did not. Table \@ref(tab:p1table) reports statistical tests for proportions between included and excluded students by race/ethnicity. Differences in White student proportions across included and excluded prospects are statistically significant (p<0.000).  While Asian and Multiracial students make up nearly equal proportions in both included and excluded prospects, Hispanic students make up only 17% of included prospects relative to 26% of excluded prospects (p<0.000). Black students similarly make up 12% of included prospects but 15% of excluded prospects (p<0.000). 
+
+Other standardized assessments resulted in similar included prospects that were on average made up of larger proportions of White and Asian students and smaller proportions of Hispanic, Black, and American Indian/Alaska Native students than excluded groups, lending support for Proposition P1. For example, Figure \@ref(fig:test-takers) also shows the composition of included versus excluded prospects by AP exam completion in any subject on the top right panel. Similar to SAT, White (54% versus 51% White) and Asian students (8% versus 3%) make up statistically significant (p<0.000) larger proportions of included prospects. While an equal proportion of included and excluded students are Hispanic (22%), Black students make up a smaller share (p<0.000) of included prospects (8%) than excluded prospects (15%). When inclusion versus exclusion is determined by completing an AP exam in a STEM subject, total included students declines to nearly half (383,669) of those included via completing any AP exam. Moreover, Black (7% versus 14%), Hispanic (19% versus 22%), Multiracial (7% versus 14%), and American Indian/Alaska Native (0.2% versus 0.7%) students make up smaller statistically significant proportions of the included prospects relative to excluded prospects based on completion of an AP STEM exam. 
+
+Proposition P2 suggests the proportion of underrepresented minority students included in student lists decline relative to the proportion who are excluded as assessment score thresholds increase. In order to test this proposition, we analyze the racial composition of included versus excluded students at minimum score thresholds commonly used across student list purchase orders for SAT, PSAT, and AP exams. For example, Figure \@ref(fig:thresholds-tests) presents these results for SAT (left panel) and PSAT assessments (right panel). For the top left panel, each bar represents the racial composition of included prospects who completed the SAT exam and scored at the minimum threshold indicated. On the bottom left panel of Figure \@ref(fig:thresholds-tests), each bar represents the racial composition of excluded prospects who did not complete the SAT exam in addition to students who did complete the exam but did not meet the minimum score threshold indicated. Statistical tests for differences in proportion for Figure \@ref(fig:thresholds-tests) are reported in online appendices for space considerations.
+
+As SAT score thresholds increase from less than 1000 to greater than 1400 in Figure \@ref(fig:thresholds-tests), proportions of included White and Asian students increase while proportions of included Hispanic and Black students decrease. For example, White students make up a statistically significant (p<0.000) smaller share of included (47%) than excluded (53%) prospects scoring less than 1000 on the SAT, which results in an equal share of Hispanic students (22%) and a greater share of included Black students (19% versus 12%) relative to excluded prospects at this score threshold. However, Hispanic student proportions in included versus excluded prospects decrease to 12% versus 25% at scores greater than 1000, 9% versus 23% at scores greater than 1200, and down to 5% versus 22% at scores greater than 1400. Similarly, Black student proportions in included versus excluded prospects decrease to 6% versus 16% at scores greater than 1000, 4% versus 14% at scores greater than 1200, 2% versus 14% at scores greater than 1300, and down to making up 0% of included prospects at scores greater than 1400. These proportional differences across score thresholds are statistically significant (p<0.05) for both Hispanic and Black students (online appendix).
+
+While making up relatively small proportions of the overall sample, declines in proportions of American Indian/Alaska Native students and Native Hawaiian/Pacific Islander students within included versus excluded prospect groups are statistically significant as score thresholds increase (online Appendix A). In order to more equitably capture these differences, we report the number of students rather than their overall representational proportion within included versus excluded groups. For instance, more than 7,600 American Indian/Alaska Native students and nearly 2,500 Native Hawaiian/Pacific Islander students are represented in the included prospects relative to the more than 20,800 and 16,300 represented in the excluded prospects at SAT scores less than 1000, respectively. However, American Indian/Alaska Native students decline to zero and Hawaiian/Pacific Islander students decline to 435 students in the included prospects group by the 1300 or greater SAT score threshold.
+
+
+PSAT results are also shown in Figure \@ref(fig:thresholds-tests) for composite scores that range from 60 to 240. ^[PSAT exams taken 2014 or before receive composite scores that range from from 60 to 240. PSAT exams taken 2015 or later are scored via a range from 320 to 1520. Our lower bound PSAT composite score thresholds of 120, 170, 200, and 220 for HSLS students who completed the exam prior to 2014 equate to minimum score thresholds of 890, 1220, 1410, and 1510 on the 2015 or later PSAT scale, respectively. [CITE](https://satsuite.collegeboard.org/media/pdf/2015-psat-nmsqt-concordance-tables.pdf)] Similar to SAT, as PSAT composite score thresholds increase from less than 120 to greater than 220, proportions of included White and Asian students increase while proportions of included Hispanic and Black students decrease relative to excluded prospects. Online appendices show all comparisons between included and excluded students across PSAT score thresholds are statistically significant at the p<0.000 level, with the exception of multiracial students at the 220 or greater minimum score threshold. 
+
+<!-- The right panels of Figure 2 show results for SAT score, which ranges from 400 to 1600, across minimum score thresholds of 1000, 1200, 1300, and 1400. Similar patterns to PSAT occur as SAT score thresholds increase. For example, White and Asian included student proportions increase from 47% and 3% at scores less than 1000 to 69% and 19% at scores greater than 1400, respectively. On the other hand, Hispanic and Black included student proportions decrease from 22% and 19% at scores less than 1000 to 5% and less than 1% at scores greater than 1400, respectively. Multiracial students make up a nearly equal proportions of the included and excluded groups at the lowest and highest score thresholds. Similar to PSAT, the more than 2,000 American Indian/Alaska Native students and 3,300 Native Hawaiian/Pacific Islander students included in the 1000 or greater score threshold decline to zero and 435 students by the 1300 or greater score threshold, respectively.  -->
+
+We find similar racial disparities in included versus excluded prospects across AP exam score thresholds, providing strong support for Proposition P2. Figure \@ref(fig:thresholds-tests-ap) shows similar results as Figure \@ref(fig:thresholds-tests) for AP exams. As AP score thresholds for any subject exam (left panel) increase from one to five, proportions of included White and Asian students increase while proportions of included Hispanic, Black, Multiracial, American Indian/Alaska Native, and Native Hawaiian/Pacific Islander decrease relative to excluded prospects. For example, the 110,360 included prospects (relative to excluded prospects) who had a score of one on any subject AP exam were on average 38% White (52% excluded), 6% Asian (4% excluded), 27% Hispanic (22% excluded), and 21% Black (14% excluded). By an AP score threshold of four or greater, included prospect proportions shift (relative to excluded) to 60% White (51% excluded), 10% Asian (3% excluded), 20% Hispanic (22% excluded), and 4% Black (4% excluded).^[Proportional differences for these specific racial/ethnic categories at reported score thresholds are statistically significant at the p<0.000 level and reported in online appendices] Similar patterns are evident for AP STEM exam completion (right panel). 
+
+<!-- Given differences in completion rates for standardized assessments by race, our conceptual framework outlines an interest in whether using GPA filters leads to greater racial parity between included versus excluded students relative to standardized assessments as thresholds increase. We therefore analyze the racial composition of included versus excluded students at minimum thresholds commonly used across student list purchase orders for high school GPA. Figure \@ref(fig:thresholds-gpa) shows the racial composition of included (top panel) and excluded (bottom panel) students across less than 2.0, 2.0 or greater, 3.0 or greater, and 3.5 or greater thresholds of GPA. Similar to standardized assessments, Figure \@ref(fig:thresholds-gpa) suggests proportions of included prospects increase for White students and Asian students (although modestly) while proportions of included prospects decrease for Hispanic and Black students as GPA thresholds increase. For instance, White student proportions increase from 37% (relative to 57% excluded, p<0.000) at GPA less than 2.0 to 71% (relative to 57% excluded, p<0.000) at GPA 3.5 or greater. On the other hand, Hispanic and Black included student proportions (relative to excluded proportions) decrease from 30% (19% excluded, p<0.000) and 22% (11% excluded, p<0.000) at GPA less than 2.0 to 11% (24% excluded, p<0.000) and 4% (15% excluded, p<0.000) at GPA 4.0 or greater, respectively. The 12,591 American Indian/Alaska Native students included at GPA less than 2.0 (15,928 excluded, p<0.000) also decline to 1,304 (27,216 excluded, p<0.000) at GPA 3.5 or greater score threshold.  -->
+
+<!-- However, Figure \@ref(fig:thresholds-gpa) shows that GPA filters at "middle" thresholds (2.0 to 3.0) lead to smaller declines in proportions of included Hispanic and Black students relative to middle thresholds of SAT and PSAT filters. In increasing GPA from 2.0 or greater to 3.0 or greater, the proportions of Hispanic and Black included students decrease by 3 percentage points or less. In comparison, increasing PSAT from scores 120 or greater to 200 or greater results in an up to nine percentage point decrease in the number of included Black students. This pattern of lesser relative declines in the proportion of underrepresented minority students included at "middle" thresholds is also evident by AP filters (see Figure \@ref(fig:thresholds-tests-ap)). However, given the disparities in AP course availability and exam completion rates, a considerable smaller number of overall included students are captured by AP filters than GPA.  -->
+
+Proposition P3 suggests as purchases filter on higher levels of zip code affluence, the proportion of underrepresented minority students included in student lists will decline relative to the proportion who are excluded. In order to test this proposition, we analyze the racial composition of included versus excluded students when filtering by zip code median household income. In order to deal with median household incomes varying widely across the U.S., we categorized all zip codes into percentiles based on levels of median household income within their respective Core Based Statistical Areas (CBSA). For example, median household income percentiles based on the 378 zip codes within the Los Angeles metropolitan area are \$55,256 at the 20th percentile, \$70,804 at the 40th percentile, \$89,709 at the 60th percentile, and \$108,316 at the 80th percentile (in 2022 CPI). So the Los Angeles zip code 92649, which captures parts of the Huntington Beach area, with a median household income of \$109,159 (in 2022 CPI) would be categorized as zip code in the 80th percentile of affluence within CBSA. This approach also aligns with common ways in which student list orders purchase prospect's contact information by filtering on zip codes within specific CBSAs. 
+
+Figure \@ref(fig:zipcode-affluence) presents the racial composition of zip codes that included (top panel) versus excluded prospects (bottom panel) when filtering based on percentile of affluence within CBSA. The figure suggests that as zip code affluence increases, included prospects have larger proportions of White students and smaller proportions of Hispanic and Black students relative to excluded prospects. For example, Hispanic and Black students make up 30% and 27% of included prospects and 20% and 11% of excluded prospects at zip codes below the 20th percentile of affluence, respectively. The proportions of Hispanic and Black students within included prospects decline as zip code affluence increases up though the 89th percentile. For zip codes in 90th percentile or higher of affluence within CBSA, the proportions of Hispanic students within included prospects declines to 11% relative to making up 23% of excluded prospects (p<0.000). Similarly, Black students make up 9% of included prospects relative to making up 14% of excluded prospects (p<0.000) within the most affluent zip codes. ^[Online appendices report statistical tests for proportions between included and excluded students by race/ethnicity for zip code affluence.] 
+
+<!-- To contextualize these findings, Figure \@ref(fig:zipcode-affluence-metros) presents similar results as Figure \@ref(fig:zipcode-affluence) for two specific CBSAs: Los Angeles and New York. The left panel of Figure 6 shows the racial composition of included (top) and excluded (bottom) students across percentiles of zip code affluence for Los Angeles. Similar to results across all CBSAs in Figure \@ref(fig:zipcode-affluence), proportions of included prospects relative to excluded prospects increase for White students while proportions decline for Hispanic and Black students as zip codes become more affluent. For instance, White student proportions increase from 5% (relative to 17% excluded, p<0.000) at the 20th percentile, to 28% (relative to 12% excluded, p<0.000) at 50th-79th percentiles, and up to making up 76% of included prospects (relative to 12% excluded, p<0.000) for zip codes at the 90th percentile or higher of affluence. On the other hand, Hispanic and Black included student proportions (relative to excluded proportions) decrease from 73% (54% excluded, p<0.000) and 14% (7% excluded, p<0.000) at zip codes in the lower 20th percentiles of affluence to 4% (60% excluded, p<0.000) and 3% (9% excluded, p<0.000) at the 90th percentile or higher of affluence, respectively. While New York provides a different racial composition of students than Los Angeles, similar and statistically significant patterns persist. -->
+
+
+These findings suggest that purchases filtering on higher levels of zip-code affluence lead to smaller proportions of underrepresented minority students included in student lists relative to the proportion who are excluded, providing support for Proposition P3. However, we acknowledge that categorizing zip codes within CBSA limits the number of rural zip codes captured within the included prospect groups. By categorizing zip code affluence within CBSA, only rural zip codes within micropolitan statistical areas (i.e., areas that have at least one urban cluster of at least 10,000 people with commuting ties to adjacent metropolitan areas that have higher degrees of social and economic activity) will be captured via CBSA. 
+
+
+<!-- To analyze whether filtering on smaller geographic localities is associated with greater racial disparities in included prospects relative to excluded prospects (Proposition P4), we compare the racial characteristics of prospects based on zip code filters versus county filters. We categorize all zip codes and counties based on levels of median household income within their respective Core Based Statistical Areas (CBSA), given results for Proposition P3, to analyze whether relationships between racial composition and geographic level change across levels of affluence. Therefore, zip codes and counties are categorized as low, moderate, and high income based on their median household incomes falling below 30th percentile, within 30th-70th percentiles, or greater than 70th percentile of affluence within their respective CBSAs.  -->
+
+<!-- Figure \@ref(fig:zipcode-county) presents the racial composition of prospects when using zip code filters (left panel) in comparison to county filters (right panel).  There are modest differences between included versus excluded groups when comparing zip code filters to county filters at low and moderate levels of affluence. For example, Hispanic students are slightly overrepresented within included relative to excluded prospects (23% versus 22%, p<0.000) by zip code at moderate levels of affluence but underrepresented (20% versus 22%, p<0.000) at moderate affluence levels for county. Similarly, Black students are slightly underrepresented within included relative to excluded prospects (12% versus 15%, p<0.000) by zip code at moderate levels of affluence but overrepresented (20% versus 13%, p<0.000) at moderate affluence levels for county.  -->
+
+<!-- Differences between the use of zip code filters and county filters are most evident in high levels of affluence. For instance, Hispanic and Black students make up 16% and 8% of included prospects and 24% and 16% of excluded prospects for the most affluent zip codes, respectively. However, in the most affluent counties, Hispanic students make up an equal share of included and excluded prospects (22%). Similarly, filtering on the most affluent counties leads to smaller differences in proportions of Black students within included and excluded prospects (11% versus 16%,  p<0.000). These results suggest filtering for smaller geographic localities (i.e., zip codes) is associated with greater racial disparities in included prospects relative to excluded prospects in comparison to larger geographic localities (i.e., counties) at higher levels of affluence, which results for Proposition P3 suggest are the thresholds with the greatest lack of racial parity between included versus excluded students.    -->
+
+
+## Utilizing Student List Products 
+
+__Filter Usage__. Our second research question asks in what ways do public universities use racialized input search filters in concert with other search filters. We begin by analyzing how often filters were used for actual College Board students list purchases across research versus ma/doctoral universities in our project sample. While student list purchases typically filter on multiple criteria, Figure \@ref(fig:order-filters-empirical-report) illustrates the prevalence of each individual filter by institution type. Beyond all orders using a high school graduating class filter, we group filters across academic, geographic, demographic, and student preferences. Across both research and ma/doctoral universities, commonly used academic filters include GPA , SAT , and PSAT. Compared to ma/doctoral universities, research universities were less likely to filter on GPA or SAT score and more likely to filter on PSAT score. Geographic filters used to purchase student lists differed substantially across institution type. Orders by research universities most commonly used a state filter whereas ma/doctoral universities used a zip code filter. Research universities also used filters utilizing geography as a predictive input for assessing the college going behavior of prospective students living in those areas (e.g., geomarket, segment). Although not as commonly used as academic and geographic filters, research universities also used demographic and student preference filters. Filters for race, low socioeconomic status, and gender were the most commonly used demographic filters, whereas college size, major, college type, and location were most commonly used student preferences. 
+
+Table \@ref(tab:orders-filters-combo) shows the top ten filter combinations used for student list purchases across institution type for our project sample. ^[While the majority of orders specified multiple filters as "AND" conditions, some orders specified particular filters as "OR" conditions (e.g., SAT score in some range or PSAT score in some range). Additionally, filter combinations are skewed by universities that made large numbers of orders relative to other universities] For ma/doctoral universities, the top 10 filter combinations account for 95% of all orders. This is a function of nearly half of all orders using a combination of high school graduation class, zip code, SAT scores, and GPA as filters and another 32% of orders using the same filters with PSAT scores instead of SAT. For research universities, the top ten filter combinations
+account for 51% of all orders. The most common filter combination, making up 10% of all orders, included high school graduation class, state, race, SAT, PSAT, GPA, and high school rank. The second most common combination only used high school graduation class, state, and PSAT score filters, which were also used for the remaining top five combinations in addition to filters like race, gpa, low-socioeconomic status, and students’ preference for nationally recognized programs. 
+
+
+__Racial Composition of Resulting Lists__. Our last research question focuses on assessing the racial composition of student list purchases that utilize racialized input search filters in concert with other search filters. We begin by simulating student lists purchases via filtering the HSLS09 sample based on common combinations of filters used by public and ma/doctoral universities in Figure \@ref(fig:order-filters-empirical-report). For example, Figure \@ref(fig:gpa-sat-psat) is a simulated student list resulting from combining the two most common academic filters: GPA and SAT. ONE OR TWO SENTENCES HERE ABOUT FILTERS BEING APPLIED ACCORDING TO ADMISSIONS STANDARDS FOR HIGHER THRESHOLDS. 
+
+The top panel of Figure \@ref(fig:gpa-sat-psat) presents the racial composition of prospects included when filtering on GPA greater than or equal to 3.0 while simulating increases to minimum SAT thresholds at increments of 50 beginning at scores just above the HSLS09 sample median of 1010. For space considerations, we only present included prospect groups across all combinations. The figure suggests that even at the the lowest SAT score, White students make up much larger proportions while Black and Hispanic students make up significantly smaller proportions of included prospects when filtering for both GPA and SAT. For example, White students make up 72% of included prospects when filtering for GPAs greater than or equal to 3.0 in combination with SAT scores greater than 1050, whereas Hispanic and Black students make up 10% and 3%, respectively. Racial disparities only grow as SAT thresholds increases. Moreover, these racial disparities are greater than when filtering for similar thresholds for GPA (Figure \@ref(fig:thresholds-gpa)) and SAT score (Figure \@ref(fig:thresholds-tests)) individually. The bottom panel of Figure \@ref(fig:gpa-sat-psat) suggest similar results are evident when combining a GPA filter greater than or equal to 3.0 and a PSAT filter. While Hispanic and Black students make up larger proportions at lower thresholds of PSAT in comparison to SAT when combined with GPA, the racial disparity for Black students is still greater in the combination of filters than when filtering for similar thresholds of PSAT score (Figure \@ref(fig:thresholds-tests)) individually.
+
+[REVISE THIS BASED ON GEOGRAPHY DECISION]In order to assess the effects of combining academic and geographic filters, Figure \@ref(fig:gpa-sat-psat-zip) adds a zip code filter to the GPA and SAT/PSAT order simulations presented above. We again deal with median household incomes varying widely across the U.S. by categorizing all zip codes into percentiles based on levels of median household income within CBSAs. The top panel of Figure \@ref(fig:gpa-sat-psat-zip) presents the racial composition of included students when filtering for GPAs greater than or equal to 3.0, SAT scores greater than or equal to 1050, and zip codes at various levels of affluence. In comparison to racial disparities in included versus excluded prospects driven by just zip code affluence in Figure 5, the combination of zip code with GPA and SAT filters leads much greater disparities even at lower levels of affluence. For example, Figure \@ref(fig:gpa-sat-psat-zip) shows White students make up 72% of included prospects when filtering for GPAs greater than or equal to 3.0 in combination with SAT scores greater than 1050 within the lowest income zip codes (<20th percentile), whereas Hispanic and Black students make up 9% and 7%, respectively. The proportions of Hispanic and Black included prospects resulting from the combination of filters are considerably lower than the 30% of Hispanic and 27% of Black included prospects resulting from only filtering by zip code (Figure \@ref(fig:zipcode-affluence)). Greater racial disparities result from the the combination of filters across all levels of zip code affluence in comparison to only filtering by zip code, although proportional differences are modest at higher incomes. Similar patterns are evident when combining similar zip code and GPA filters with a PSAT filter for composite scores greater than or equal to 150.
+
+We also simulate the racial composition of included prospects when filtering on both GPA and AP scores in Figure \@ref(fig:gpa-ap). ONE OR TWO SENTENCES HERE ABOUT FILTERS BEING APPLIED ACCORDING TO ADMISSIONS STANDARDS FOR HIGHER THRESHOLDS. The top panel presents the racial composition of prospects included when filtering on GPA greater than or equal to 3.0 while simulating increases in AP scores in any subject exam. Across all AP score thresholds, White students make up a larger proportion while Black and Hispanic students make up smaller proportions of included prospects when filtering for both GPA and AP relative to filtering for these individually. For example, White students make up 49% of included prospects when filtering for GPAs greater than or equal to 3.0 in combination with an AP score of 1 in any subject exam, whereas Hispanic and Black students make up 17% and 21%, respectively. Hispanic and Black student proportions decline as AP thresholds increase. This decline is most significant for Black students, which result in less than 1% of Black students making up included prospects when filtering for GPAs greater than or equal to 3.0 in combination with an AP score of 5. Moreover, these racial disparities are greater than when filtering for similar thresholds for GPA (Figure \@ref(fig:thresholds-gpa)) and AP score (Figure \@ref(fig:thresholds-tests-ap)) individually. The bottom panel of Figure \@ref(fig:gpa-ap) suggest similar results are evident when combining a GPA filter greater than or equal to 3.0 and an AP STEM exam filter.
+
+In order to understand how administrative discretion may be used beyond admissions standards to explicitly increase enrollments from underrepresented populations, we analyze order filters and resulting student lists purchased by universities in our project sample. For example, a university in the study made orders targeting
+prospective students who are women interested in science, technology, engineering, and math (STEM) via two different filter combinations. The first combination used SAT scores, GPA (ranging from a low of B and high of A+), a state filter (in-state versus out-of-state), and prospects’ self-reported intended major. SAT score filters
+for these orders ranged from 1200 to 1600 for in-state prospects and 1300 to 1600 for out-of-state prospects. The second pattern also used the same GPA and state filters,
+but STEM interest was proxied via AP test scores. Orders for in-state prospects filtered for scores ranging from 3 to 5 on AP STEM tests whereas orders for out-of-state prospects filtered for scores ranging from 4 to 5 on AP STEM tests.
+
+We analyze the resulting student lists from Women in STEM orders – focusing on prospects from four metropolitan areas – in order to analyze in-depth patterns in the racial and economic characteristics of prospects that result from the combination of achievement, geographic, and gender filters used to target women interested in STEM. Because nearly 85% of prospects from Women in STEM orders were out-of-state prospective students (N=10,668), we select four out-of-state metropolitan areas and compare prospective students to the characteristics of public high school women students in those metropolitan areas. ^[The four out-of-state metropolitan
+areas were selected based on where the greatest number of prospects whose profiles were purchased and based on regional variation: New York (1,663 prospects, rank #1),
+Atlanta (548 prospects, rank #2), Chicago (485 prospects,rank #3), and Seattle (279 prospects, rank #11).]
+
+Figure \@ref(fig:ucsd-deep-dive) compares racial and income characteristics of prospective students whose profiles were purchased to the characteristics of all female public high school students in each metropolitan area. For each metropolitan area, we show two figures. The figure on the left column provides the average median
+household income for the overall metropolitan area, for prospects whose profiles were purchased using AP scores, and prospects whose profiles were purchased using SAT scores. Prospect-level economic characteristics are measured by taking the average median household income of all prospects’ home zip codes. The figure on the right column provides the racial/ethnic composition of all public high school women 12th grade students in the metropolitan area, of prospects whose profiles were purchased using AP scores, and of prospects whose profiles were purchased using SAT scores.
+
+For example, Figure \@ref(fig:ucsd-deep-dive) shows the overall median household income for the Atlanta metropolitan area is \$76,000. Relative to this overall median household income, Women in STEM prospects whose profiles were purchased by the university across both types of orders are more affluent. Prospects that scored a 4 or 5 on an AP STEM exam live in Atlanta zip codes where the average median household income is \$96,000. Whereas prospects that scored a 1200 to 1600 on the SAT and indicated an interest in STEM majors live in Atlanta zip codes where the average median household income is $105,000. Women in STEM prospects are also consistently more affluent than their overall metropolitan areas across Chicago, New York, and Seattle, with prospects whose profiles were purchased through SAT filters having the highest overall incomes.
+
+Figure \@ref(fig:ucsd-deep-dive) also shows the racial/ethnic composition of
+prospects relative to public high school women students in their metropolitan areas. For example, public high school women students in New York are 29% White, 9% Asian, 26% Black, and 34% Latinx. However, Women in STEM prospects from New York that scored a 4 or 5 on an AP STEM exam whose profiles were purchased by the university are 38% White, 44% Asian, 3% Black, 11% Latinx, 5% multiracial. Only 2 women in STEM
+prospects in the New York metro whose profiles were purchased via AP scores identified as Native American. These racial disparities are most pronounced in orders using SAT scores. Of the 821 prospects from the New York metro that scored a 1200
+to 1600 on the SAT and indicated an interest in STEM majors, 54% were White, 43% Asian, and 3% multiracial. Only one prospect identified as Latinx and zero prospects identified as Black or Native American. Similar patterns in racial/ethnic composition of Women in STEM prospects are also evident across Atlanta, Chicago, and Seattle.
+
+# Discussion
+
+<!-- 
+Universities identify prospective students by purchasing student lists. College Board began selling student lists in 1972 [@belkin2019-studata], but prior research has not investigated how student list products structure the connection between universities and prospective students. 
+. College Board began selling student lists in 1972 [@belkin2019-studata]
+-->
+CUT/RANDOM TEXT
+THIS ARTICLE IS INTERESTING; COULD USE WHEN DISCUSING CREDIT REPORTS 
+https://nationalmortgageprofessional.com/news/42294/using-credit-bureau-data-your-marketing
+
+SEE IF YOU CAN WORK CELLINI ARTICLE ON ADVERTISING SPEND INTO THE MANUSCRIPT (although see @RN4904 analysis of advertising spend by colleges)
+
+In turn, enrollment management consulting firms buy names on behalf of colleges, utilize predictive models help colleges "build the class you want more efficiently than ever" [@rnl_2023_search] by identifying "right fit" prospects "who align with your enrollment goals" [@rnl_2023_demand].
+
+Often, student list purchases are also informed by predictive models [@fire_engine_red_search_modeling]. 
+
+ The test-optional movement and growth in the number of high schools using college planning software threaten the competitive advantage of College Board and ACT in the domain of coverage.
+
+Prior scholarship on recruiting [e.g., @RN4758] assumes that recruiting is done by individual colleges and universities. Universities identify prospective students by purchasing student lists, but prior research has not investigated how student list products structure the connection between universities and prospective students. We ask, what is the relationship between student list search filters and the racial composition of students who are included versus excluded in student lists purchased from College Board? We develop a conceptual framework about structural racism in algorithmic products by drawing from sociology and critical data studies. Structurally racist inputs are determinants of a selection device that are correlated with race because historically dominated racial groups have been historically excluded from the input [@RN4778]. We propose that several academic filters and geographic filters are structurally racist inputs. We assess propositions about the relationship between search filters and racial exclusion using a nationally representative sample of 9th graders from 2009.
+
+Results for Proposition P1 suggest conditioning on test-taking is associated with racial disparities in included versus excluded prospects across SAT, PSAT, and AP exams. Test-takers are on average
+made up of larger proportions of White and Asian students and smaller proportions of Hispanic,
+Black, and American Indian/Alaska Native students. While some proportional differences between test-takers were modest, these proportions determine inclusion in the underlying College Board student list database and are then exacerbated by filtering across score thresholds in results for Proposition P2. When analyzing geographic filters, results for Proposition P3 suggest that included prospects have larger proportions of White students and smaller proportions of Hispanic and Black students as student list purchases filter on higher levels of zip code affluence. Additionally, results for Proposition P4 find that filtering at smaller levels of geography (zipcode) is associated with larger racial disparities between included versus excluded Hispanic and Black prospects in comparison to filtering at larger levels of geography (county). 
+
+Lastly, results suggest filtering on multiple criteria compound the effect of racial disparities between included versus excluded prospects. For example, we find that combining multiple academic filters such GPA and SAT/PSAT scores or GPA and AP scores leads to larger proportions of White students and smaller proportions of Black and Hispanic students within included prospects. Moroever, racial disparities between included versus excluded prospects are generally larger when combining multiple academic filters than when filtering at similar thresholds for any one filter individually. Similarly, orders that combine academic filters (GPA, SAT, PSAT) with zip code lead to lower proportions of Hispanic and Black students within included prospects across all levels of affluence and at greater disparities (relative to excluded prospects) than when filtering for zip code alone. 
+
+These results have policy implications for federal regulatory agencies concerned with consumer protection and equality of opportunity. Consider zip code filters. Given the history of racial segregation, there is no equality of opportunity rationale for products that enable universities to target particular zip codes. Over the last decade, the Federal Trade Commission (FTC) has become concerned about algorithmic products that "categorize consumers in ways that can result in exclusion of certain populations" [@RN4743, p. 9]. The FTC enforces the FTC Act, which applies to all organizations engaged in interstate commerce. Section 5 of the FTC Act prohibits "unfair" practices, defined as practices that meet three criteria: (1) causes substantial harm to consumers; (2) harm cannot be reasonably avoided; and (3) harm not outweighed by benefits to other consumers and to competition [@fdic_2018]. Zip code filters may cause substantial harm to consumers (criterion \#1) because students who live in nearby non-targeted zip codes are excluded from college access opportunities. Consumers cannot reasonably avoid the injury (criterion \#2) because they cannot easily move to a different zip code. The benefit to targeted consumers may not outweigh the harm to excluded consumers (criterion \#3). 
+
+This manuscript is the first word on student list products, not the last word. Other filters may satisfy the FTC unfair practices criteria more unequivocally than zip code. Future research should examine filters based on predictive analytics, which model past cases to make predictions about future cases. One example is ACT's "Enrollment Predictor" filter, in which "every student in the Encoura\textregistered Data Cloud is scored on their likelihood to enroll at your institution" [@schmidt_2022]. College Board developed several geographic filters that create geographic borders based on historic, proprietary data on college enrollment. The "geomarket" filter carves metropolitan areas into distinct markets. Geodemographic segment filters utilize cluster analysis to allocate individual high schools and individual census tracts into distinct clusters based on historic college-going behavior. The analysis of Moody's city government credit rating algorithm by @RN4786 suggests that these filters can be recreated -- or closely approximated -- using publicly available data sources. 
+
+Another topic for future research is demographic search filters, which allow universities to target prospects by race, ethnicity, gender, and first-generation status. The equity rationale is that these filters facilitate access for underrepresented populations, particularly in a post affirmative action landscape. However, analyses by @list_empirics found that purchases that filtered for underrepresented racial/ethnic groups often disproportionately targeted students from affluent, predominantly white schools and communities. Additionally, "women in STEM" purchases yielded profound racial and socioeconomic inequality.
+
+In addition to empirical analyses, legal scholarship informs how regulatory agencies interpret the law. For example, @berk_law_2021 argues that the Consumer Financial Protection Bureau (CFPB) has regulatory authority over for-profit colleges because organizations that provide financial advisory services to consumers seeking loans -- the activities of any financial aid office -- are "covered persons" under the Consumer Financial Protection Act (CFPA). Similarly, legal scholarship can inform how the FTC and the CFPB intepret regulatory authority over student list vendors and products. One issue is whether and how student list vendors can be regulated as "consumer reporting agencies," which are regulated by the  Fair Credit Reporting Act and the CFPA. A consumer reporting agency is an entity that sells information about prospective consumers that leads to the extension of credit (i.e., loans) ([15 U.S.C \S 1681a ](https://www.law.cornell.edu/uscode/text/15/1681a)). Student list vendors may  qualify as consumer reporting agencies because of the systematic link between student lists and student loans. That is, the first stage of the enrollment funnel is to identify "leads" by purchasing student lists and the last stage is convert admits to enrolled students by offering financial aid packages.
+
+The broader contribution of this manuscript is to motivate critical education policy research that focuses on third-party products and vendors. The majority of policy research in education analyzes students, schools, or universities, often in relation to federal, state, or local policies. Scholarship from critical data studies and sociology shows that structural racism is "a feature, not a bug" of digital platforms [@RN4775; @RN4862; @RN4772] because racial exploitation is the defining feature of capitalism [@RN4773] and the defining feature of platform capitalism [@RN4774]. By contrast, @RN4843 observes that scholarship on technology and education is dominated by technocratic analyses of instruction and student learning outcomes. The nascent "platform studies in education" literature urges education research to follow the example of critical data studies and "go beyond pedagogical and technical questions toward social, political, and economic critiques" [@RN4844, p. 207]. However, this literature has not yet investigated how platforms structure educational opportunity along racial, class, and geographic dimensions. We propose an empirical literature on third-party products and vendors in education that bridges scholarship on education policy and platform studies. This literature will incorporate structural theories of inequality and theories of organizational behavior from sociology and economics. Student list products represent a model topic for this literature.
+
+<!-- Our analysis of student list products provides a model for this literature 
+@RN1025 describes the process of generating profit from money ($M$) and commodities ($C$) (e.g., raw inputs, machinery, labor)
+
+Student list products are a model topic for this critical, empirical literature because they substantially structure college access and are a source of profit for third-party vendors. 
+-->
+One thread within this research agenda examines the business models of edtech platform capitalism [e.g., @RN4815; @RN4827]. "Data rent" refers to "digital traces" created by users interacting with a platform [@RN4829], which often become the basis for new products. Drawing from @RN1025, @RN4799 develops the concept "data as capital" to describe how platforms monetize user-data. The formula $M-C-M'$ represents economic capital, whereby money $M$ is invested to produce commodity $C$, which is sold for a larger amount of money $M'$ [@RN1025]. Student list products exemplify this process. Student list data are derived from the user-data of students laboring on a platform, whether that be taking a standardized assessment or searching for scholarships on a free college search engine. Processes that profit from student list data follow the formula for economic capital. College Board uses the cycle $M-C-M'-C-M''$, investing money ($M$) to create tests ($C$), which are sold to households for $M'$ and also yield student list data ($C$), which are sold to universities ($M''$) looking for students. New entrants to the market for student list data (e.g., PowerSchool, EAB) add another link to the cycle. Instead of selling names at a price-per-prospect (e.g., \$0.50) like College Board, they wrap proprietary databases of prospects within software-as-service products that recruit these prospects (e.g., Intersect, Enroll360), which are then sold to universities for an annual subscription.
+
+Future critical policy research should also examine how college access is structured by vendors and consultancies in the broader enrollment management industry. Many universities depend on enrollment management consulting firms to recruit students [@list_biz]. In our public records data collection, roughly half the public universities outsourced student list buys to consulting firms [@list_empirics]. These universities tended to be uninformed about who they were recruiting. Several enrollment management consultancies sell algorithmic products designed to make recommendations about list buys [@fire_engine_red_search_modeling; @ruffalo_noel_levitz_2021]. For example, Ruffalo Noel Levitz offers an algorithm that tells universities how many names to buy from each zip code [@jmu_rnl]. Beyond name buys, consultancies develop and implement strategy about digital advertising, direct mail, which high schools to visit, and tuition pricing and financial aid. To the extent that unviersities outsource enrollment management to consultancies, these consultancies substantially structure college access. However, extant scholarship on college access assumes that universities perform these functions in-house.
+
+The enrollment management industry also structures "student success" in higher education and K-12. For example, EAB's Starfish student success software incorporates university administrative data, predicts student outcomes using past data, issues notifications when students get "off-track," and "make[s] student intervention easy and integrated" [@eab_starfish]. A growing number of scholars are harnessing advances in machine learning to predict student success [e.g., @RN4863]. Commercial student success products also utilize machine learning, but scholarship has not investigated the fairness of third-party predictive models sold to universities. Do these models use race/ethicity as an input? Do commercial student success platforms achieve higher graduation rates by pushing students out of certain majors?
+
+
+Difficulty obtaining data is an obstacle to empirical scholarship on third-party vendors and products. @RN4842 notes that "deconstructing the black boxes of Big Data isn’t easy" because platform capitalism creates intentional barriers to inspection (p.6). <!--@RN4842 explores strategies for keeping black boxes closed, including legal secrecy, which "obliges those privy to certain information to keep it secret" and obfuscation, which "involves deliberate attemps at concealment." The end goal of secrecy and obfuscation is opacity.--> @RN4774 argues that "administrative opacity is a deliberate strategy to manage regulatory environments. It shields organizations, both public and private, from democratic appeals for access and equity" (p. 443).
+
+Student list products exemplify this opacity. College Board began selling student lists in 1972 [@belkin2019-studata], but prior research never investigated student list products because few people know they exist and because of difficulty obtaining the data. We spent three years -- years we would like back! -- attempting to collect data about student list products by issuing public records requests to public universities [@list_empirics]. We gained traction only after obtaining pro bono representation from four multinational law firms. 
+
+This manuscript suggests that investigating third-party products need not be so laborious. @list_empirics assumed that quantitative analysis of College Board student list products required (1) order summary data (i.e., filter criteria) and (2) prospect-level student list data for each purchase. By contrast, this manuscript shows that analyses of student list products require (1) knowledge of product specifications and (2) student-level survey data containing variables necessary to recreate these product specifications. The analyses presented here additionally utilized order summaries collected via public records requests. However, obtaining order summaries is less daunting than obtaining both the order summary and the associated prospect-level data for each purchase.
+
+Future research can investigate third-party products by combining rich NCES longitudinal survey data with methods from investigative journalism [e.g., @markup_naviance]. Consider commercial "student success" products like EAB's Starfish. First, researchers can learn about product specifications from internet searches by attending trade shows (e.g., NACAC) where vendors peddle their wares. State contract databases, for example the [Illinois Procurement Bulletin](https://www.procure.stateuniv.state.il.us/search.cfm), show which public universities purchased Starfish. Additional information about product specifications can be obtained by issuing public records requests to universities that purchased a Starfish contract (the best use of public records requests is obtaining contracts and product documentation). Second, use NCES survey data to recreate -- or approximate -- the input measures utilized by the product. Third, recreate the analytic approaches utilized by the product. One caution, algorithimic products often facilitate targeting by geographic locality, but NCES survey sample sizes are often too small for analyses of particular states or metropolitan areas.
+
+The payoff for developing this critical policy literature is great, and so is the cost of inaction. Third-party providers do not want to be the object of research because scrutiny from scholars will lead to scrutiny from regulators, which may disrupt profitable practices [@RN4774]. Increasingly, third-party providers perform core functions of schools and universities [@RN4843; @RN4815]. If researchers continues to ignore these products, then policy research will have diminishing influence on core functions of schools and universities. As conservative courts challenge progressive education policies like affirmative action, policy research should go on the offensive by applying theory about structural mechanisms to investigate structural racism by third-party products and vendors.
+
+In higher education, third-party providers now dwarf the for-profit college market. Nevertheless, the Higher Education Act (HEA) -- enforced by the US Department of Education -- regulates for-profit Title IV institutions, but remains agnostic about "third-party servicers" (aside from lenders and guaranty agencies). For example, responding to concerns about incentive-based compensation for online program management (OPM) companies, the Department of Education [-@usde2011] argued that tuition sharing with third-party vendors is not problematic because enrollment goals are determined by the institution, not the vendor.^[@usde2011 states that, "the independence of the third party (both as a corporate matter and as a decision-maker) from the institution that provides the actual teaching and educational services is a significant safeguard against the abuses the Department has seen heretofore. When the institution determines the number of enrollments and hires an unaffiliated third party to provide bundled services that include recruitment, payment based on the amount of tuition generated does not incentivize the recruiting as it does when the recruiter is determining the enrollment numbers" (p.11)]
+
+Therefore, developing a critical policy literature on third-party vendors/products demands that researchers be "price-makers" rather than "price-takers" when it comes to which issues demand policy attention. Instead of doing research that fits within the constraints of federal education policy, do research that shifts the focus of federal policy. Given the narrow focus of the HEA and the Department of Education, this research agenda should target the Federal Trade Commission, the Consumer Finance Protection Bureau and other agencies that enforce laws concerned with equality of opportunity for consumers. This shift in target audience requires researchers to learn more about these regulatory agencies, the laws they enforce, and to develop relationships with key staff. This new research focus represents a "paradigm shift" in education policy research, as opposed to "normal science" [@RN924]. This paradigm shift will be well remunerated with policy impact and scholarly productivity.
+
+
+<!--
+
+Although filtering on specific zip codes may be instrumentally rational from the perspective of university enrollment goals, there is no equality of opportunity rationale for a product that enables universities to target students living in one zip code and exclude students from the neighboring zip code [?MOVE SENTENCE TO DISCUSSION?]. 
+TEXT CUT FROM END OF INTRO, SOME OF IT STILL IN INTRO
+
+Our broader contribution is to policy research on college access. Extant research analyzes students, schools, or universities, often in relation to local, state, or federal policies. Although federal higher education policies often focus on for-profit colleges, third-party for-profit vendors now dwarf direct providers. We propose a critical, empirical research program on college access that focuses on organizations and products in the edtech sector. Like student list data, most digital platforms in education are derived from the user-data of students laboring on platforms. What these platforms do with student data is opaque, because obfuscation is a deliberate strategy to avoid regulation [@RN4774]. 
+
+
+As courts challenge progressive college access policies like affirmative action, policy research should go on the offensive by applying theory about structural mechanisms to investigate structural racism by third-party products and vendors. 
+
+Given the narrow scope of the Department of Education and the Higher Education Act (HEA), this research should target the FTC, the CFPB, and other agencies that serve equality of opportunity for consumers.
+
+-->
+
+
+
+\pagebreak
+
+\singlespacing
+
+# References
+
+<div id="refs"></div>
+
+
+
+\newpage
+
+# Tables
+
+```{r orders-filters-combo}
+bind_cols(
+  orders_filters_combo %>% 
+    filter(univ_type == 'research') %>% 
+    select(filter_combos, n, pct) %>% 
+    head(10) %>%
+    mutate(pct = str_c(round(pct * 100), '%')),
+  orders_filters_combo %>% 
+    filter(univ_type == 'regional') %>% 
+    select(filter_combos, n, pct) %>% 
+    head(10) %>%
+    mutate(pct = str_c(round(pct * 100), '%'))
+) %>% 
+  kable(
+    booktabs = T, 
+    col.names = rep(c('Filters', 'Count', 'Percent'), 2), 
+    align = rep(c('l', 'c', 'c'), 2),
+    caption = "Top filter combinations used in College Board orders purchased purchased by research vs. ma/doctoral"
+  ) %>%
+  add_header_above(c('Research' = 3, 'MA/doctoral' = 3), bold = T) %>% 
+  row_spec(0, bold = T) %>%
+  kable_styling(position = 'center', latex_options = c('hold_position', 'scale_down'))
+
+
+#OLD TABLE WITHOUT INSTITUTION TYPE
+# orders_filters_combo %>% 
+#   group_by(filter_combos) %>% 
+#   summarise(
+#     n = sum(n), 
+#     pct = sum(n) / sum((orders_filters %>% select(univ_type, total) %>% distinct())$total)*100
+#   ) %>% 
+#   ungroup() %>% 
+#   arrange(-pct) %>% 
+#   mutate(
+#     cum_n = cumsum(n),
+#     cum_pct = round(cumsum(pct), digits = 1),
+#     pct = round(pct, digits = 1)
+#   ) %>% 
+#   head(20) %>% 
+#   kable(
+#     booktabs = T, 
+#     col.names = c('Filters', 'Count', 'Pct', 'Cum count', 'Cum pct'), 
+#     align = c('l', 'r', 'r', 'r', 'r'),
+#     linesep = '',
+#     caption = "Top filter combinations used in College Board orders purchased purchased by 14 public universities"
+#   ) %>%
+#   row_spec(0, bold = T) %>%
+#   kable_styling(position = 'center', latex_options = c('hold_position', 'scale_down'), )
+```
+
+```{r descriptives}
+df1 <- data.frame(
+  category = c("Race/Ethnicity", "White", "Asian", "Hisp", "Black", "Multi", "NH/PI", "AI/AN", "", "Academic Filters",  "SAT Test-Taker", "SAT Non-Test-Taker", "PSAT Test-Taker", "PSAT Non-Test-Taker", "AP test-taker (any)", "AP non-test-taker (any)", "AP test-taker (STEM)", "AP non-test-taker (STEM)", "Academic GPA", "Missing Academic GPA"),
+  unweight = c("", "9,390", "1,370", "2,520", "1,660", "1,410", "70", "110", "", "" , "7,910", "8,610", "4,780",  "11,760", "2,990", "13,530", "1,800" , "14,720" ,  "16,480",  "40"),
+  n = c("", "2,163,043", "150,222", "920,384", "574,370", "332,043", "18,784", "28,519",  "", "", "1,860,677", "2,326,689", "3,086,739",  "1,100,627", "694,359" , "3,493,007", "383,669" , "3,803,697", "4,177,402" , "9,964"),
+  se = c("", "45,293", "15,373", "41,451", "36,346", "12,921", "5,241", "6,288",  "", "", "54,277", "54,249", "51,247",  "51,417", "33,918", "34,022", "23,721", "23,893", "6,863", "6,562"),
+  pct = c("", "51.7", "3.6", "22.0", "13.7", "7.9", "0.4", "0.7",  "", "" ,"55.6", "44.4", "73.7", "26.3", "16.6", "83.4", "9.2", "90.8", "99.8", "0.2")
+)
+
+df1 %>%
+  kable(
+    booktabs = T, 
+    col.names = c(' ', 'Unweighted', 'N', 'SE', 'Pct'), 
+    align = c('l', 'r', 'r', 'r', 'r'),
+    linesep = '',
+    caption = "HSLS09 Descriptive Statistics"
+  ) %>%
+  row_spec(0, bold = T) %>%
+  row_spec(1, bold=T, italic = T) %>%
+  row_spec(10,bold=T, italic = T) %>%
+  kable_styling(position = 'center', latex_options = c('hold_position', 'scale_down'), font_size = 7) %>%
+   add_footnote("Unweighted sample sizes rounded to nearest 10 per NCES restricted data license regulations", notation="symbol")
+```
+
+
+\clearpage
+
+
+```{r p1table}
+
+# df1 <- data.frame(
+#   cat = p1_table$x2race,
+#   prop1 = p1_table$testtaker_estimate,
+#   prop2 = p1_table$nontesttaker_estimate,
+#   diff = round(as.numeric(p1_table$nontesttaker_estimate) - as.numeric(p1_table$nontesttaker_estimate), digits=3 ),
+#   pval= p1_table$pval
+# )
+
+p1_table %>% 
+  kable(
+    format = "latex", booktabs = TRUE,
+    #longtable = T,
+    col.names = c(' ', 'Included', 'Excluded', 'Difference', "Lower CI", "Upper CI"), 
+    align = c('l', 'r', 'r', 'r', 'r','r'),
+    linesep = '',
+    caption = "Test Taker Differences in Proportion",
+  ) %>%
+  row_spec(0, bold = T, font_size=2) %>%
+  pack_rows("SAT", 1, 7) %>%
+  pack_rows("PSAT", 8, 14) %>%
+  pack_rows("AP", 15, 21) %>%
+  pack_rows("AP STEM", 22, 28) %>%
+
+
+  #row_spec(1, bold=T, italic = T, font_size=2) %>%
+  #row_spec(9,bold=T, italic = T, font_size=2) %>%
+  #row_spec(17,bold=T, italic = T, font_size=2) %>%
+  #row_spec(25,bold=T, italic = T, font_size=2) %>%
+
+  kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
+                    full_width = FALSE), font_size = 2.5)
+```
+
+\clearpage
+
+
+# Figures
+
+<!-- \begin{landscape}-->
+<!-- \pagebreak -->
+
+
+```{r cb-fig, fig.height = 5, fig.cap = 'Student Search Service and four-year college enrollment/completion'}
+
+create_cb_figure <- function(categories, values, plot_title) {
+  cb_fig_df <- data.frame(
+    category = rep(categories, each = 2),
+    subcategory = rep(c('Not Licensed', 'Gain from being Licensed'), length(categories)), 
+    value = values
+  )
+  
+  cb_fig_df$category <- factor(cb_fig_df$category, levels = categories)
+  
+  cb_fig_df %>%
+    left_join(
+      cb_fig_df %>%
+        pivot_wider(id_cols = category, names_from = subcategory, values_from = value) %>%
+        mutate(
+          total = `Not Licensed` + `Gain from being Licensed`,
+          pct_change = `Gain from being Licensed` / `Not Licensed` * 100
+        ),
+      by = 'category') %>% 
+    ggplot(aes(x = category, y = value, fill = subcategory, width = 0.6)) +
+    geom_bar(position = 'stack', stat = 'identity') +
+    geom_text(aes(y = value, label = if_else(subcategory == 'Not Licensed', str_c(sprintf('%.1f', value), '%'), '')), color = '#444444', size = 2, position = position_stack(vjust = 0.5)) +
+    geom_text(aes(y = total + 3, label = if_else(subcategory == 'Not Licensed', str_c('(', sprintf('%.1f', pct_change), '%)'), '')), color = '#444444', size = 2) +
+    geom_text(aes(y = total + 7, label = if_else(subcategory == 'Not Licensed', str_c(sprintf('%.1f', `Gain from being Licensed`), 'pp'), '')), color = '#444444', size = 2) +
+    ggtitle(plot_title) +
+    xlab('') + ylab('') + 
+    scale_y_continuous(expand = expansion(mult = c(0, 0.05)), limits = c(0, 80)) +
+    scale_fill_manual(values = c('#ba9a88', '#bbcfd7')) +
+    theme(
+        plot.margin = margin(t = 0.6, unit = 'cm'),
+        panel.grid.major.y = element_line(size = 0.1, color = 'gray'),
+        legend.title = element_blank(),
+        legend.position = 'bottom',
+        legend.margin = margin(t = -0.5, unit = 'cm'),
+        legend.text = element_text(margin = margin(r = 0.2, unit = 'cm'))
+      ) +
+      guides(fill = guide_legend(reverse = T))
+}
+
+grid.arrange(
+  create_cb_figure(
+    c('Overall', 'Asian', 'Black', 'Hispanic', 'AI/AN', 'HI/PI', 'White'),
+    c(32.8, 8.3, 37.5, 5.7, 31.8, 7.8, 24.1, 8.3, 26.5, 6.3, 22.2, 5.8, 44.4, 9.6),
+    'Enrollment'
+  ),
+  create_cb_figure(
+    c('Overall', 'Asian', 'Black', 'Hispanic', 'AI/AN', 'White'),
+    c(15.7, 4.9, 17.7, 5.0, 7.2, 2.9, 6.7, 2.9, 8.7, 4.2, 24.0, 6.7),
+    'BA Completion within 4 Years'
+  ),
+  create_cb_figure(
+    c('Overall', 'No College', 'College,\nNo BA', 'College,\nBA or Higher'),
+    c(32.8, 8.3, 24.9, 10.1, 36.5, 11.0, 53.4, 10.1),
+    'Enrollment'
+  ),
+  create_cb_figure(
+    c('Overall', 'No College', 'College,\nNo BA', 'College,\nBA or Higher'),
+    c(15.7, 4.9, 13.6, 6.8, 21.3, 8.5, 39.9, 10.1),
+    'BA Completion within 4 Years'
+  ),
+  ncol = 2
+)
+```
+
+\begingroup\fontsize{8}{12}\selectfont
+_Notes: AI/AN = American Indian or Alaska Native. HI/PI = Hawaiian or Pacific Islander. Sample for enrollment outcomes is all SAT takers in the 2015–2018 high school graduation cohorts. Sample for completion outcomes is students in the 2015–2016 cohorts. Results are estimated from regressions that include student-level controls for: sex, race/ethnicity, SAT score, parental education level, last Student Search Service opt-in status, graduation cohort, and high school fixed effects. All differences between licensed versus non-licensed students are statistically significant at the 1% level._
+\endgroup
+
+
+\pagebreak
+
+
+```{r em-funnel, echo = FALSE, fig.align = 'center', fig.cap = "The enrollment funnel", out.width = "45%"}
+knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
+#knitr::include_graphics('./../../outputs/figures/enrollment_funnel.png')
+#![The enrollment funnel](assets/images/enrollment_funnel.png)
+```
+
+\pagebreak
+
+```{r order-filters-empirical-report, fig.height = 5, fig.cap = "Filters used in College Board orders purchased by 14 public universities"}
+orders_filters %>% 
+  add_row(univ_label = 'Research', filters = 'academic', is_asu = 'all', num = 0) %>% 
+  add_row(univ_label = 'MA/doctoral', filters = 'academic', is_asu = 'all', num = 0) %>% 
+  add_row(univ_label = 'Research', filters = 'geographic', is_asu = 'all', num = 0) %>% 
+  add_row(univ_label = 'MA/doctoral', filters = 'geographic', is_asu = 'all', num = 0) %>% 
+  add_row(univ_label = 'Research', filters = 'demographic', is_asu = 'all', num = 0) %>% 
+  add_row(univ_label = 'MA/doctoral', filters = 'demographic', is_asu = 'all', num = 0) %>% 
+  add_row(univ_label = 'Research', filters = 'student preferences', is_asu = 'all', num = 0) %>% 
+  add_row(univ_label = 'MA/doctoral', filters = 'student preferences', is_asu = 'all', num = 0) %>% 
+  mutate(
+    filters_label = recode_factor(
+      filters,
+      'citizenship' = 'Citizenship',
+      'rotc' = 'ROTC',
+      'financial_aid' = 'Financial aid',
+      'national_recognition_programs' = 'NRP',
+      'edu_aspirations' = 'Education aspirations',
+      'college_setting' = 'College setting',
+      'college_studentbody' = 'College student body',
+      'college_living_plans' = 'College living plans',
+      'college_location' = 'College location',
+      'college_type' = 'College type',
+      'major' = 'Major',
+      'college_size' = 'College size',
+      'student preferences' = '   ',
+      'first_gen_parent' = 'First generation',
+      'low_ses' = 'Low SES',
+      'gender' = 'Gender',
+      'race' = 'Race',
+      'demographic' = '  ',
+      'proximity_search' = 'Proximity search',
+      'county' = 'County',
+      'intl' = 'International',
+      'cbsa' = 'CBSA',
+      'segment' = 'Segment',
+      'geomarket' = 'Geomarket',
+      'zip' = 'Zip code',
+      'states_fil' = 'State',
+      'geographic' = ' ',
+      'hs_math' = 'HS math',
+      'sat_reading_writing' = 'SAT reading/writing',
+      'sat_reading' = 'SAT reading',
+      'sat_writing' = 'SAT writing',
+      'sat_math' = 'SAT math',
+      'ap_score' = 'AP score',
+      'rank' = 'Rank',
+      'psat' = 'PSAT',
+      'sat' = 'SAT',
+      'gpa' = 'GPA',
+      'academic' = '',
+      'hsgrad_class' = 'HS grad class'
+    )
+  ) %>% 
+  filter(!filters %in% c('hs_math', 'proximity_search', 'rotc', 'citizenship')) %>% 
+  ggplot(aes(x = filters_label, y = num, fill = is_asu)) +
+  geom_bar(stat = 'identity') +
+  geom_text(aes(label = if_else(filters %in% c('academic', 'geographic', 'demographic', 'student preferences') & univ_label == 'Research', str_c(str_to_sentence(filters), ' filters'), ''), y = 0), hjust = 0, vjust = 0.8, size = 2, fontface = 'bold') +
+  geom_text(aes(y = num_total, label = if_else(!filters %in% c('academic', 'geographic', 'demographic', 'student preferences') & is_asu != 'asu', str_c(round(pct * 100), '%'), '')), hjust = -0.1, size = 2) +
+  scale_y_continuous(expand = expansion(mult = c(0.01, 0.1))) +
+  scale_fill_manual(values = rev(color_palette[c(1, 2)]), name = 'ASU') +
+  xlab('') + ylab('Number of orders') +
+  guides(fill = guide_legend(reverse = T)) +
+  facet_wrap(~ factor(univ_label, levels = c('Research', 'MA/doctoral'))) +
+  coord_flip() + 
+  theme(
+    legend.position = 'none'
+  )
+
+#OLD TABLE WITHOUT INSTITUTION TYPE
+# orders_filters %>% 
+#   filter(is_asu == 'all') %>% 
+#   group_by(filters) %>% 
+#   summarise(
+#     num_total = sum(num_total), 
+#     total = sum(total), 
+#     pct = sum(num_total) / sum(total)
+#   ) %>% 
+#   ungroup() %>% 
+#   add_row(filters = 'academic', num_total = 0) %>% 
+#   add_row(filters = 'geographic', num_total = 0) %>% 
+#   add_row(filters = 'demographic', num_total = 0) %>% 
+#   add_row(filters = 'student preferences', num_total = 0) %>% 
+#   mutate(
+#     filters_label = recode_factor(
+#       filters,
+#       'citizenship' = 'Citizenship',
+#       'rotc' = 'ROTC',
+#       'financial_aid' = 'Financial aid',
+#       'national_recognition_programs' = 'NRP',
+#       'edu_aspirations' = 'Education aspirations',
+#       'college_setting' = 'College setting',
+#       'college_studentbody' = 'College student body',
+#       'college_living_plans' = 'College living plans',
+#       'college_location' = 'College location',
+#       'college_type' = 'College type',
+#       'major' = 'Major',
+#       'college_size' = 'College size',
+#       'student preferences' = '   ',
+#       'first_gen_parent' = 'First generation',
+#       'low_ses' = 'Low SES',
+#       'gender' = 'Gender',
+#       'race' = 'Race',
+#       'demographic' = '  ',
+#       'proximity_search' = 'Proximity search',
+#       'county' = 'County',
+#       'intl' = 'International',
+#       'cbsa' = 'CBSA',
+#       'segment' = 'Segment',
+#       'geomarket' = 'Geomarket',
+#       'zip' = 'Zip code',
+#       'states_fil' = 'State',
+#       'geographic' = ' ',
+#       'hs_math' = 'HS math',
+#       'sat_reading_writing' = 'SAT reading/writing',
+#       'sat_reading' = 'SAT reading',
+#       'sat_writing' = 'SAT writing',
+#       'sat_math' = 'SAT math',
+#       'ap_score' = 'AP score',
+#       'rank' = 'Rank',
+#       'psat' = 'PSAT',
+#       'sat' = 'SAT',
+#       'gpa' = 'GPA',
+#       'academic' = '',
+#       'hsgrad_class' = 'HS grad class'
+#     )
+#   ) %>% 
+#   filter(!filters %in% c('hs_math', 'proximity_search', 'rotc', 'citizenship')) %>% 
+#   ggplot(aes(x = filters_label, y = num_total)) +
+#   geom_bar(stat = 'identity', fill = '#7ec7b8') +
+#   geom_text(aes(label = if_else(filters %in% c('academic', 'geographic', 'demographic', 'student preferences'), str_c(str_to_sentence(filters), ' filters'), ''), y = 0), hjust = 0, vjust = 0.8, size = 2, fontface = 'bold') +
+#   geom_text(aes(y = num_total, label = if_else(!filters %in% c('academic', 'geographic', 'demographic', 'student preferences'), str_c(round(pct * 100), '%'), '')), hjust = -0.1, size = 2) +
+#   scale_y_continuous(expand = expansion(mult = c(0.01, 0.1))) +
+#   xlab('') + ylab('Number of orders') +
+#   guides(fill = guide_legend(reverse = T)) +
+#   coord_flip()
+```
+
+
+
+\begin{landscape}
+\pagebreak
+
+
+```{r test-takers, echo = FALSE, fig.align = 'center', fig.cap = "Test Takers Across SAT, PSAT, and AP Assessments", out.width = "49%", fig.show='hold'}
+#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
+knitr::include_graphics(c("./../../outputs/figures/p1_sat.png","./../../outputs/figures/p1_ap.png"))
+knitr::include_graphics(c("./../../outputs/figures/p1_psat.png","./../../outputs/figures/p1_apstem.png"))
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+
+
+```
+
+\pagebreak
+
+```{r thresholds-tests, echo = FALSE, fig.align = 'center', fig.cap = "SAT and PSAT Filters Across Thresholds", out.width = "49%", fig.show='hold'}
+#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
+knitr::include_graphics(c("./../../outputs/figures/p2_sat_inc.png","./../../outputs/figures/p2_psat_inc.png"))
+knitr::include_graphics(c("./../../outputs/figures/p2_sat_exc.png","./../../outputs/figures/p2_psat_exc.png"))
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+
+
+```
+
+\pagebreak
+
+```{r thresholds-tests-ap, echo = FALSE, fig.align = 'center', fig.cap = "AP Filter Across Thresholds", out.width = "49%", fig.show='hold'}
+#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
+knitr::include_graphics(c("./../../outputs/figures/p2_ap_inc.png","./../../outputs/figures/p2_apstem_inc.png"))
+knitr::include_graphics(c("./../../outputs/figures/p2_ap_exc.png","./../../outputs/figures/p2_apstem_exc.png"))
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+
+
+```
+\end{landscape}
+\restoregeometry
+
+\pagebreak
+
+```{r thresholds-gpa, echo = FALSE, fig.align = 'center', fig.cap = "GPA Filter Across Thresholds", out.width = "90%", fig.show='hold'}
+#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
+knitr::include_graphics(c("./../../outputs/figures/p2_gpa_inc.png"))
+knitr::include_graphics(c("./../../outputs/figures/p2_gpa_exc.png"))
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+
+
+```
+
+\pagebreak
+
+```{r zipcode-affluence, echo = FALSE, fig.align = 'center', fig.cap = "Zip Code Filter Across Affluence Percentiles", out.width = "90%", fig.show='hold'}
+#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
+knitr::include_graphics(c("./../../outputs/figures/p3_zip_inc.png"))
+knitr::include_graphics(c("./../../outputs/figures/p3_zip_exc.png"))
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+
+
+```
+
+\pagebreak
+\begin{landscape}
+
+```{r zipcode-affluence-metros, echo = FALSE, fig.align = 'center', fig.cap = "Zip Code Filter Across Affluence Percentiles for Los Angeles and New York", out.width = "49%", fig.show='hold'}
+#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
+knitr::include_graphics(c("./../../outputs/figures/p3_zip_inc_la.png", "./../../outputs/figures/p3_zip_inc_ny.png"))
+knitr::include_graphics(c("./../../outputs/figures/p3_zip_exc_la.png", "./../../outputs/figures/p3_zip_exc_ny.png"))
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+
+
+```
+
+\pagebreak
+
+```{r zipcode-county, echo = FALSE, fig.align = 'center', fig.cap = "Zip Code and County Filters Across Affluence Levels", out.width = "49%", fig.show='hold'}
+#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
+knitr::include_graphics(c("./../../outputs/figures/p4_zip_income_inc.png", "./../../outputs/figures/p4_county_income_inc.png"))
+knitr::include_graphics(c("./../../outputs/figures/p4_zip_income_exc.png", "./../../outputs/figures/p4_county_income_exc.png"))
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+
+
+```
+\end{landscape}
+\restoregeometry
+
+\pagebreak
+
+
+
+```{r gpa-sat-psat, echo = FALSE, fig.align = 'center', fig.cap = "Academic and Geographic Combination: GPA (3.0+) and SAT or PSAT (across score thresholds)", out.width = "90%", fig.show='hold'}
+#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
+knitr::include_graphics(c("./../../outputs/figures/combo1_inc_sat.png"))
+knitr::include_graphics(c("./../../outputs/figures/combo1_inc_psat.png"))
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+
+
+```
+
+\pagebreak
+
+```{r gpa-sat-psat-zip, echo = FALSE, fig.align = 'center', fig.cap = "Academic and Geographic Combination: GPA (3.0+), PSAT (150+) or SAT (1050+), and Zip (across income thresholds)", out.width = "90%", fig.show='hold'}
+#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
+knitr::include_graphics(c("./../../outputs/figures/combo2_inc_sat.png"))
+knitr::include_graphics(c("./../../outputs/figures/combo2_inc_psat.png"))
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+
+
+```
+
+\pagebreak
+
+```{r gpa-ap, echo = FALSE, fig.align = 'center', fig.cap = "Academic and Geographic Combination: GPA (3.0+) and AP (acrossscore thresholds)", out.width = "90%", fig.show='hold'}
+#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
+knitr::include_graphics(c("./../../outputs/figures/combo3_inc_ap.png"))
+knitr::include_graphics(c("./../../outputs/figures/combo3_inc_apstem.png"))
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+
+
+```
+
+<!-- 
+\end{landscape}
+
+\restoregeometry
+-->
+
+\clearpage
+
+```{r ucsd-deep-dive, fig.cap = "Women in STEM Prospects by Metro (Average Income and Racial Composition)"}
+ucsd_income_figure <- ucsd_income %>% 
+  mutate(
+    count_type = recode_factor(
+      ord_type,
+      'sat' = 'SAT',
+      'ap' = 'AP',
+      'metro' = 'Metro'
+    ),
+    cbsa_name = str_replace(str_replace(cbsa_name, 'Roswell', 'Alpharetta'), ' Metro Area', '')
+  ) %>% 
+  ggplot(aes(y = count_type, x = income_2564)) + 
+  geom_bar(stat = 'identity', fill = extra_colors[[1]]) + 
+  geom_text(mapping = aes(label = str_c('$', round(income_2564 / 1000), 'K')), size = 2, hjust = -0.1) +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.04)), limits = c(0, 163000)) +
+  scale_y_discrete(expand = expansion(mult = c(0.01, 0.1))) +
+  xlab('') + ylab('') +
+  facet_wrap(~ cbsa_name, ncol = 1) +
+  guides(fill = guide_legend(reverse = T)) +
+  theme(
+    # plot.background = element_rect(color = 'gray'),
+    # panel.background = element_rect(color = 'red'),
+    axis.text.x = element_blank(),
+    axis.text.y = element_text(color = '#444444', size = 6, face = 'bold', hjust = 1),
+    strip.text.x = element_text(size = 7, face = 'bold', hjust = 0, margin = margin(2, 0, 2, 0, 'mm'))
+  )
+
+ucsd_race_figure_data <- ucsd_race %>% 
+  mutate(
+    race = recode_factor(
+      race,
+      'missing' = 'Missing',
+      'noresponse' = 'No response',
+      'other' = 'Other',
+      'tworaces' = 'Multiracial',
+      'nativehawaii' = 'NH/PI',
+      'amerindian' = 'AI/AN',
+      'hispanic' = 'Latinx',
+      'black' = 'Black',
+      'asian' = 'Asian',
+      'white' = 'White'
+    ),
+    count_type = recode_factor(
+      ord_type,
+      'sat' = 'SAT',
+      'ap' = 'AP',
+      'metro' = 'Metro'
+    ),
+    cbsa_name = str_replace(cbsa_name, ' Metro Area', '')
+  )
+
+ucsd_race_figure_totals <- ucsd_race_full %>% 
+  mutate(
+    count_type = recode_factor(
+      ord_type,
+      'sat' = 'SAT',
+      'ap' = 'AP',
+      'metro' = 'Metro'
+    )
+  ) %>% 
+  group_by(cbsa_name, count_type) %>% 
+  summarise(
+    count = sum(count)
+  ) %>% 
+  ungroup()
+  
+ucsd_race_figure <- ucsd_race_figure_data %>% 
+  filter(!race %in% c('Missing', 'No response')) %>% 
+  ggplot(aes(y = count_type, x = pct, fill = race)) + 
+  geom_bar(position = 'stack', stat = 'identity') + 
+  geom_text(mapping = aes(label = if_else(pct > 0.02, as.character(round(pct * 100)), '')), size = 2, position = position_stack(vjust = 0.5), color = color_text) +
+  geom_text(data = ucsd_race_figure_totals, mapping = aes(x = 1, fill = NULL, label = if_else(count_type != 'Metro', str_c('N=', count), '')), size = 2, hjust = -0.2) +
+  # scale_fill_brewer(palette = 'BrBG', direction = -1, name = 'Race') +
+  scale_fill_manual(values = rev(color_palette[1:7]), name = 'Race') +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.04)), limits = c(0, 1.14)) +
+  scale_y_discrete(expand = expansion(mult = c(0.01, 0.1))) +
+  xlab('') + ylab('') +
+  facet_wrap(~ cbsa_name, ncol = 1) +
+  guides(fill = guide_legend(reverse = T)) +
+  theme(
+    # plot.background = element_rect(color = 'gray'),
+    # panel.background = element_rect(color = 'red'),
+    axis.text.x = element_blank(),
+    axis.text.y = element_blank(),
+    strip.text.x = element_text(color = 'white', size = 7, face = 'bold', hjust = 0, margin = margin(2, 0, 2, 0, 'mm')),
+    plot.margin = unit(c(5.5, 0, 5.5, 2), 'pt')
+  )
+
+grid.arrange(
+  ucsd_income_figure,
+  ucsd_race_figure,
+  ncol = 2,
+  widths = c(2, 3)
+)
+```
+
+
+\newpage
+
+
+
+# Online Appendix
+
+
+\pagenumbering{gobble}
+\pagenumbering{arabic}
+\renewcommand*{\thepage}{A\arabic{page}}
+\pagestyle{fancy}
+\setlength{\headheight}{15pt}
+
+
+
+```{r p2table}
+
+# df1 <- data.frame(
+#   cat = p1_table$x2race,
+#   prop1 = p1_table$testtaker_estimate,
+#   prop2 = p1_table$nontesttaker_estimate,
+#   diff = round(as.numeric(p1_table$nontesttaker_estimate) - as.numeric(p1_table$nontesttaker_estimate), digits=3 ),
+#   pval= p1_table$pval
+# )
+
+p2_table %>% 
+  kable(
+    format = "latex", booktabs = TRUE,
+    #longtable = T,
+    col.names = c(' ', 'White', 'Asian', 'Hisp', "Black", "Multi", "NH/PI", "AI/AN"), 
+    align = c('l', 'r', 'r', 'r', 'r','r', 'r','r'),
+    linesep = '',
+    caption = "Score Threshold Proportion Differences in Included vs. Excluded across Race/Ethnicity",
+  ) %>%
+  row_spec(0, bold = T, font_size=6) %>%
+  pack_rows("SAT", 1, 5) %>%
+  pack_rows("PSAT", 6, 10) %>%
+  pack_rows("AP", 11, 15) %>%
+  pack_rows("AP STEM", 16, 20) %>%
+  pack_rows("GPA", 21, 25) %>%
+
+
+  #row_spec(1, bold=T, italic = T, font_size=2) %>%
+  #row_spec(9,bold=T, italic = T, font_size=2) %>%
+  #row_spec(17,bold=T, italic = T, font_size=2) %>%
+  #row_spec(25,bold=T, italic = T, font_size=2) %>%
+
+  kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
+                    full_width = FALSE), font_size = 4)
+```
+
+
+```{r p3table}
+
+# df1 <- data.frame(
+#   cat = p1_table$x2race,
+#   prop1 = p1_table$testtaker_estimate,
+#   prop2 = p1_table$nontesttaker_estimate,
+#   diff = round(as.numeric(p1_table$nontesttaker_estimate) - as.numeric(p1_table$nontesttaker_estimate), digits=3 ),
+#   pval= p1_table$pval
+# )
+
+p3_table %>% 
+  kable(
+    format = "latex", booktabs = TRUE,
+    #longtable = T,
+    col.names = c(' ', 'White', 'Asian', 'Hisp', "Black", "Multi", "NH/PI", "AI/AN"), 
+    align = c('l', 'r', 'r', 'r', 'r','r', 'r','r'),
+    linesep = '',
+    caption = "Zip Affluence Proportion Differences in Included vs. Excluded across Race/Ethnicity",
+  ) %>%
+  row_spec(0, bold = T, font_size=6) %>%
+  pack_rows("Affluence Percentile", 1, 6) %>%
+
+
+  #row_spec(1, bold=T, italic = T, font_size=2) %>%
+  #row_spec(9,bold=T, italic = T, font_size=2) %>%
+  #row_spec(17,bold=T, italic = T, font_size=2) %>%
+  #row_spec(25,bold=T, italic = T, font_size=2) %>%
+
+  kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
+                    full_width = FALSE), font_size = 4)
+```
+
+
+```{r p4table}
+
+# df1 <- data.frame(
+#   cat = p1_table$x2race,
+#   prop1 = p1_table$testtaker_estimate,
+#   prop2 = p1_table$nontesttaker_estimate,
+#   diff = round(as.numeric(p1_table$nontesttaker_estimate) - as.numeric(p1_table$nontesttaker_estimate), digits=3 ),
+#   pval= p1_table$pval
+# )
+
+p4_table %>% 
+  kable(
+    format = "latex", booktabs = TRUE,
+    #longtable = T,
+    col.names = c(' ', 'White', 'Asian', 'Hisp', "Black", "Multi", "NH/PI", "AI/AN"), 
+    align = c('l', 'r', 'r', 'r', 'r','r', 'r','r'),
+    linesep = '',
+    caption = "Zip and County Proportion Differences in Included vs. Excluded across Race/Ethnicity",
+  ) %>%
+  row_spec(0, bold = T, font_size=6) %>%
+  pack_rows("Zip", 1, 3) %>%
+  pack_rows("County", 4, 6) %>%
+
+
+  #row_spec(1, bold=T, italic = T, font_size=2) %>%
+  #row_spec(9,bold=T, italic = T, font_size=2) %>%
+  #row_spec(17,bold=T, italic = T, font_size=2) %>%
+  #row_spec(25,bold=T, italic = T, font_size=2) %>%
+
+  kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
+                    full_width = FALSE), font_size = 4)
+```
+
+
+
+```{r c1table}
+
+# df1 <- data.frame(
+#   cat = p1_table$x2race,
+#   prop1 = p1_table$testtaker_estimate,
+#   prop2 = p1_table$nontesttaker_estimate,
+#   diff = round(as.numeric(p1_table$nontesttaker_estimate) - as.numeric(p1_table$nontesttaker_estimate), digits=3 ),
+#   pval= p1_table$pval
+# )
+
+c1_table %>% 
+  kable(
+    format = "latex", booktabs = TRUE,
+    #longtable = T,
+    col.names = c(' ', 'White', 'Asian', 'Hisp', "Black", "Multi", "NH/PI", "AI/AN"), 
+    align = c('l', 'r', 'r', 'r', 'r','r', 'r','r'),
+    linesep = '',
+    caption = "GPA and PSAT/SAT Score Threshold Proportion Differences in Included vs. Excluded across Race/Ethnicity",
+  ) %>%
+  row_spec(0, bold = T, font_size=6) %>%
+  pack_rows("SAT", 1, 3) %>%
+  pack_rows("PSAT", 4, 9) %>%
+
+
+  #row_spec(1, bold=T, italic = T, font_size=2) %>%
+  #row_spec(9,bold=T, italic = T, font_size=2) %>%
+  #row_spec(17,bold=T, italic = T, font_size=2) %>%
+  #row_spec(25,bold=T, italic = T, font_size=2) %>%
+
+  kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
+                    full_width = FALSE), font_size = 4)
+```
+
+
+```{r c2table}
+
+# df1 <- data.frame(
+#   cat = p1_table$x2race,
+#   prop1 = p1_table$testtaker_estimate,
+#   prop2 = p1_table$nontesttaker_estimate,
+#   diff = round(as.numeric(p1_table$nontesttaker_estimate) - as.numeric(p1_table$nontesttaker_estimate), digits=3 ),
+#   pval= p1_table$pval
+# )
+
+c2_table %>% 
+  kable(
+    format = "latex", booktabs = TRUE,
+    #longtable = T,
+    col.names = c(' ', 'White', 'Asian', 'Hisp', "Black", "Multi", "NH/PI", "AI/AN"), 
+    align = c('l', 'r', 'r', 'r', 'r','r', 'r','r'),
+    linesep = '',
+    caption = "GPA, PSAT/SAT, and Zip Code Proportion Differences in Included vs. Excluded across Race/Ethnicity",
+  ) %>%
+  row_spec(0, bold = T, font_size=6) %>%
+  pack_rows("SAT (1050+)", 1, 6) %>%
+  pack_rows("PSAT (150+)", 7, 12) %>%
+
+
+  #row_spec(1, bold=T, italic = T, font_size=2) %>%
+  #row_spec(9,bold=T, italic = T, font_size=2) %>%
+  #row_spec(17,bold=T, italic = T, font_size=2) %>%
+  #row_spec(25,bold=T, italic = T, font_size=2) %>%
+
+  kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
+                    full_width = FALSE), font_size = 4)
+```
+
+
+
+```{r c3table}
+
+# df1 <- data.frame(
+#   cat = p1_table$x2race,
+#   prop1 = p1_table$testtaker_estimate,
+#   prop2 = p1_table$nontesttaker_estimate,
+#   diff = round(as.numeric(p1_table$nontesttaker_estimate) - as.numeric(p1_table$nontesttaker_estimate), digits=3 ),
+#   pval= p1_table$pval
+# )
+
+c3_table %>% 
+  kable(
+    format = "latex", booktabs = TRUE,
+    #longtable = T,
+    col.names = c(' ', 'White', 'Asian', 'Hisp', "Black", "Multi", "NH/PI", "AI/AN"), 
+    align = c('l', 'r', 'r', 'r', 'r','r', 'r','r'),
+    linesep = '',
+    caption = "GPA and AP Proportion Differences in Included vs. Excluded across Race/Ethnicity",
+  ) %>%
+  row_spec(0, bold = T, font_size=6) %>%
+  pack_rows("AP", 1, 5) %>%
+  pack_rows("AP STEM", 6, 10) %>%
+
+
+  #row_spec(1, bold=T, italic = T, font_size=2) %>%
+  #row_spec(9,bold=T, italic = T, font_size=2) %>%
+  #row_spec(17,bold=T, italic = T, font_size=2) %>%
+  #row_spec(25,bold=T, italic = T, font_size=2) %>%
+
+  kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
+                    full_width = FALSE), font_size = 4)
+```
+
+
