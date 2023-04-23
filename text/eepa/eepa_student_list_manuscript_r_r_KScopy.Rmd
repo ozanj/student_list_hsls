@@ -770,6 +770,7 @@ p1_table %>%
 ```
 
 
+\clearpage
 
 
 # Figures
@@ -1393,9 +1394,8 @@ grid.arrange(
 ```
 
 
+
 \newpage
-
-
 
 # Online Appendix
 
@@ -1407,10 +1407,10 @@ grid.arrange(
 \setlength{\headheight}{15pt}
 
 
-```{r gpa-ap, echo = FALSE, fig.align = 'center', fig.cap = "Academic and Geographic Combination: GPA (3.0+) and AP (acrossscore thresholds)", out.width = "90%", fig.show='hold'}
+```{r gpa-ap, echo = FALSE, fig.align = 'center', fig.cap = "Academic and Geographic Combination: GPA (3.0+) and AP (across score thresholds)", out.width = "80%", fig.show='hold'}
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
-knitr::include_graphics(c("./../../outputs/figures/combo3_inc_ap.png"))
-knitr::include_graphics(c("./../../outputs/figures/combo3_inc_apstem.png"))
+knitr::include_graphics(c("./../../outputs/figures/combo3_inc_apv2.png"))
+knitr::include_graphics(c("./../../outputs/figures/combo3_inc_apstemv2.png"))
 knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 
 
