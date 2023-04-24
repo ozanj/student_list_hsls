@@ -156,7 +156,7 @@ X1CONTROL,X1 School control,BY student level composites,1,1,0,0,BY,X1,0,
 X1LOCALE,X1 School locale (urbanicity),BY student level composites,1,1,0,0,BY,X1,0,
 X1REGION,X1 School geographic region,BY student level composites,1,1,0,0,BY,X1,0,
 X1CENDIV,X1 School census geographic division,BY student level composites,0,0,0,0,BY,X1,1,
-X1STATESAMPL,X1 State level public school sample membership,BY student level composites,0,0,0,0,BY,X1,1,
+X1STATESAMPL,X1 State level public school sample membership,BY student level composites,1,0,0,0,BY,X1,1,
 X1STATE,X1 State code for school,BY student level composites,1,0,0,0,BY,X1,1,
 X1GRADESPAN,X1 Grade span of school-administrator questionnaire,BY student level composites,0,0,0,0,BY,X1,1,
 X1FREELUNCH,X1 Grade 9 percent free lunch-categorical,BY student level composites,1,0,0,0,BY,X1,1,89

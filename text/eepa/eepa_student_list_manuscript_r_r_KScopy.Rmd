@@ -1054,10 +1054,10 @@ knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 <!-- ``` -->
 
 
-```{r zipcode-affluence, echo = FALSE, fig.align = 'center', fig.cap = "Zip Code Filter Across Affluence Percentiles", out.width = "90%", fig.show='hold'}
+```{r zipcode-affluence, echo = FALSE, fig.align = 'center', fig.cap = "Public High School Zip Code Filter Across Affluence Percentiles", out.width = "90%", fig.show='hold'}
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
-knitr::include_graphics(c("./../../outputs/figures/p3_zip_inc.png"))
-knitr::include_graphics(c("./../../outputs/figures/p3_zip_exc.png"))
+knitr::include_graphics(c("./../../outputs/figures/p3_HSzip_inc.png"))
+knitr::include_graphics(c("./../../outputs/figures/p3_HSzip_exc.png"))
 knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 
 
