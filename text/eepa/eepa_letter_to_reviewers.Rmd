@@ -306,13 +306,13 @@ Although this is stated succinctly earlier in the manuscript, the sub-section "B
 Leads are prospective students whose contact information has been obtained. Although identifying leads is important to nearly all colleges, not all colleges utilize lists as the primary means of identifying leads. As the revised manuscript states, Community colleges and institutions offering adult education programs often rely on behavioral-based leads (e.g., google display ads). @cottom2017lower shows that for-profits buy student lists, but not primarily from College Board/ACT because recent test-takers are not their target customers. Drawing from market research by @RN4895, the majority of public and private non-profit colleges buy names of high school students. Of the colleges that buy names, most buy more than 50,000 per year. Additionally, the revised manuscript states: Case studies and investigative reporting suggests that larger and more selective institutions purchase more names than smaller and less selective ones [@belkin2019-studata; @list_biz; @RN4912]. Even though selective/prestigious colleges receive many inquiries, they may buy names in order to increase applications (and lower acceptance rates) and/or to increase enrollment of underrepresented populations.
 
 
-1. Sharpen conceptualization of structurally racist inputs
+2. Sharpen conceptualization of structurally racist inputs
 
 > **Reviewer 2 concern**. *The conceptual framework is well-written and does a good job connecting search filters used by colleges to structurally racist inputs. One thing that I think would strengthen this section is to offer a more detailed discussion of how these inputs come to be racialized. For example, the authors note that zip codes are racialized but do not offer citations or a deeper discussion of this. Offering examples of policies and practices that have led zip codes to become a racist input would help strengthen the paper’s contribution. Similarly, the authors note factors that contribute to inequities in test scores by race, but this discussion, I think, is fairly surface level and doesn’t fully engage with the extent to which resources have been extended to some, primarily White schools, and denied to other schools in ways that create different educational opportunities. The authors start to do this (e.g., on page #), but I think a more detailed discussion would be helpful in establishing just the extent to which theseinputs are likely to be racialized. I could see this being a great piece to cite in the broader admissions and financial aid literature (regarding racialized evaluation metrics), so more developed connections in the conceptual framework would be useful.*
 
 **Author response**. We appreceate and agree with Reviewer 2 concerns here! Earlier in the letter, we explained how we refined our conceptualization of "racialized inputs" (which replaces "structurally racist inputs"), as  @RN4786[p. 5] "those that are theoretically and empirically correlated with historical racial disadvantage," subjugation, and exclusion. This conceptualization provides scope conditions. In turn, the revised manuscript can offer succint, but we think effective, arguments for why geographic filters (e.g., zip codes) and standardized test scores are racialized inputs. Geographic filters are racialized inputs because residential segregation is a function of historic structural racism in who can live where. Standardized test scores are racialized inputs because prior research shows -- theoretically and empirically -- that differences in standardized test scores by race are a function of racial segregation and disparities in education funding and education resources, which are a function of historic structural racism. 
 
-1. Connection between student lists and broader inequities in admissions and education.
+3. Connection between student lists and broader inequities in admissions and education.
 
 > **Reviewer 2 concern**. *One point that seems to be missing in the discussion is that the reason colleges select on filters in the first place is that they are often selecting on the same set of filters that they use to evaluate admissions applications. As a result, we could (and should, as the authors clearly show) change the way colleges recruit students, but absent additional overhauls to admissions criteria (and financial aid, college culture, etc.), the same outcomes are likely. Maybe some way to build this into the discussion is to highlight whether implications from this study for recruiting could similarly be used to rethink admissions criteria. I defer to the authors for how they want to address this, but it seems important to note that the entire system (K12 education, college admissions and aid) is designed to produce these inequitable outcomes, so changing recruitingpractices is one lever, but other levers similarly need to be pulled to produce different outcomes.*
 
@@ -322,70 +322,126 @@ Reviewer 2 argues that racial inequities in student list purchases are a functio
 
 These are powerful, and provocative thoughts! At present, the revised manuscript does not substantively incorporate these ideas in the discussion section, even though we agree whole-heartedly. Why not? Our interpretation of the big-picture marching orders from Editor/Reviewers was that the manuscript was not sufficiently low to the ground in terms of focusing on college access, recruitment, student lists, and how colleges use them. Rather, the original manuscript got distracted by talking about changes in the enrollment management consulting industry, trying to make the case for a big-picture literature on "platform capitalism" in education, etc. So our revised manuscript tries to focus on being lower to the ground and going deeper on the big things that were asked for. In doing so, we lost some of the forest-level, big picture thinking. 
 
-I do think we are at a moment of potential structural change -- both for good and for bad. Many colleges are going test-optional and to the extent that the test has been a racialized barrier, this is exciting. At the same time, segregation is getting worse, and there is great uncertainty about the future of student list products and recruiting more generally. At present, the revised manuscript does not address these issues, but we would be happy to take them on in a limited way in the discussion if the Editor/Reviewers would like us to do so!
+I do think we are at a moment of potential structural change -- both for good and for bad. Many colleges are going test-optional and to the extent that the test has been a racialized barrier, this is exciting. At the same time, segregation is getting worse, and there is great uncertainty about the future of student list products and recruiting more generally. At present, the revised manuscript does not address these issues, but we would be happy to take them on in a limited way in the discussion if the Editor/Reviewers would like us to do so.
 
-1. xxx
-
-> **Reviewer 2 concern**. *xx*
-
-**Author response**. xx
-
-1. xxx
-
-> **Reviewer 2 concern**. *xx*
-
-**Author response**. xx
-
-1. xxx
-
-> **Reviewer 2 concern**. *xx*
-
-**Author response**. xx
 
 ## Minor recommendations/concerns
+
+- **Reviewer 2 concern**: *The authors mention “platform studies in higher education” a few times in the manuscript – it’d be helpful to define this at first mention and discuss what some of these platforms are and the role they play for universities*
+
+**Author response**: The revised manuscript has removed substantive discussion of platform studies due to scope and page limitations concerns. We briefly introduce this literature in the last paragraph of the manuscript, and we revised text to explain what digital platforms are and what this literature cares about.
+
+- **Reviewer 2 concern**: *The second paragraph notes that student lists are important for degree completion – it wasn’t immediately clear to me what the connection here is, so making it explicit could help.*
+
+**Author response**: Due to space limitations, we relegated findings about degree completion to a footnote, but we added a sentence to the end of the footnote explaining the potential mechanism between student lists and degree completion: "The logical mechanism is that where students start college affects the probability of graduation [@RN2261; @RN1494]"
+
+- **Reviewer 2 concern**: *The first full paragraph on page 2 offers a lot of key definitions for the paper one after another – it’s easy to get a little lost in this paragraph, so maybe it would help to offer more transitions or descriptions of each key term and clarify how it connects to others*
+
+**Author response**: We agree with this concern. The revised introduction has replaced this paragraph with text that introduces fewer concepts/definitions. 
+
+- **Reviewer 2 concern**: *The end of the introduction methods unfair practices criteria under the FTC Act, but this is the first time it’s mentioned, so it would help to clarify what the authors mean by this and how it relates to the student lists (the authors are clear about it in the discussion, but the first mention doesn’t have much context)*
+
+**Author response**: The revised manuscript removes legal speculation, as requested by Editor/Reviewers. The revised manuscript does not discuss or mention the FTC Act
+
+- **Reviewer 2 concern**: *Is there a citation for Figure 1? Or does it draw on previous literature to identify the funnel?*
+
+**Author response**: KARINA -- HANDLE THIS. THE THEIR UNDERLYING CONCERN IS IFTHE FUNNEL IS SOMETHING WE MADE UP OR IF IT IS A REAL THING THAT EXISTS IN THE WORLD. SO CITE SOME ORIGINAL SOURCE, AND INDICATE THAT WE JUST CHANGED THE COLORS OR SOMETHING LIKE THAT.
+
+- **Reviewer 2 concern**: *The authors mention a period of vertical acquisitions in the enrollment management industry, but I’m not sure I saw a discussion of these vertical acquisitions in the text that follows*
+
+**Author response**: Agreed. The revised manuscript has removed discussion of vertical acquisitions.
+
+- **Reviewer 2 concern**: *Page 5 – authors mention ACT and College Board offer clients information about prospects that are not included in student lists – what type of information is this?*
+
+**Author response**: In order to reduce word count and scope, the revised manuscript does not discuss ACT/College Board enrollment management consulting services in any depth.
+
+- **Reviewer 2 concern**: *In section 3 that starts on page 6, the authors mention prior scholarship that focuses on the later stages of the enrollment funnel – perhaps cite some of this literature?*
+
+**Author response**: We have added a few citations to give readers a sense of this literature.
+
+- **Reviewer 2 concern**: *“Blind spot” on page 6 – consider changing the language to remove the word blind*
+
+**Author response**: Thank you for this suggestion. We have removed this language.
+
+- **Reviewer 2 concern**: *On page 8, the authors mention critical geography, but I think this is one of the first times it is mentioned in the manuscript – maybe mention this in the introduction and offer a brief description of how it informs the study*
+
+**Author response**: In the interest of reducing scope, the revised manuscript develops a conceptual framework solely from sociology and has eliminated discussion of critical geography. 
+
+- **Reviewer 2 concern**: *Page 9 – what is the connection between actuarial methods and selection devices? I think making this explicit would be helpful for the reader*
+
+**Author response**: The revised manuscript makes this connection more explicit. We also replaces the term "actuarial methods" with "predictive analytics." 
+
+We introduce "selection devices" as the first and primary concept of the conceptual framework (CF). Later in the CF, we introduce predictive analytics, which may be used as the outcome of a standardized selection device or maybe used as an input in a discretionary selection device. Student list search filters like "geodemographic segment" are examples of using predictive analytics as the input in a discretionary selection device.
+
+- **Reviewer 2 concern**: *In section 4.2.1, the authors posit two broad sources of structural inequality – might be worth noting that these two sources are deeply connected – i.e., the input itself determines who is included/excluded in the underlying data while the search filters further exacerbate these differences inwho is included/excluded*
+
+**Author response**: We agree with this recommendation. Due to space limitations, we have kept text noting this connection brief. The revised text reads: "The second source of structural inequality in student list products is the use of racialized inputs as search filters, which builds on differences in who is in the underlying database and exacerbates differences in who is included in student list purchases."
+
+- **Reviewer 2 concern**: *Round sample sizes to nearest 10 for HLS09 data reporting throughout*
+
+**Author response**: KARINA 
+
+- **Reviewer 2 concern**: *In discussing the 2 data sources on pages 16-17, can you clarify which data are used to investigate each proposition?*
+
+**Author response**: KARINA
+
+- **Reviewer 2 concern**: *Are both Table 1 and Figure 3 necessary? It might be possible to just have one of these given the number of tables and figures*
+
+**Author response**: We feel that both Table 1 and Figure 3 are necessary, particularly given the Editor/Reviewer request for analyses about how colleges utilize student lists. Figure 3 counts the number of times each filter was selected in the 830 student list purchases. But each student list purchase selects on multiple filters and Figure 3 does not convey this. Table 1 conveys which filters were most often specified together in student list purchases. However, in recognition of the number of tables/figures, we have dropped several tables/figures from the original manuscript. 
+
+- **Reviewer 2 concern**: *In 6.3 starting on page 27, it might be useful to reference back to table 1 or figure 3 to note how these combined filters were selected (i.e., based on common search filters)*
+
+**Author response**: KARINA
+
+- **Reviewer 2 concern**: *The authors note how much colleges pay per name, but it might help to provide an overall amount some colleges spend on student lists, just togive the reader a sense of the importance these lists play in recruitment*
+
+**Author response**: The revised manuscript reports data from @RN4896 about the percentage of undergraduate recruitment budget allocated to student list purchases. However, we do not report actual amounts.
+
 
 # Reviewer 3
 
 ## Major recommendations/concerns
 
-1. xxx
 
-> **Reviewer 3 concern**. *xx*
 
-**Author response**. xx
+1. Frame the manuscript vis-a-vis racial inequality in college access
 
-1. xxx
+> **Reviewer 3 concern**. *I would suggest the authors consider situating this study in a broader literature around college access. There is one paragraph in the beginning that discusses the probability of enrollment for students opting into the College Board Search Service, but I think there is more that could and should be said about existing racial inequities in college enrollment. What are current figures on the representation of students in public universities, for example? Have these numbers changed in recent years? Are they likely to worsen given affirmative action legislation or improve given the movement toward test-optional policies? In short, a brief discussion on the current representation of underrepresented groups in higher education helps to contextualize the broader impacts and implications of student lists and situate the magnitude of the problem that the study is illuminating. In essence, the so what? Likewise, the paper should end by coming back to this point about equitable access and opportunity to college for students from minoritized backgrounds.*
 
-> **Reviewer 3 concern**. *xx*
+**Author response**. We agree with this suggestion. In the revised manuscript, the first paragraph focuses on racial inequality in college access and provides statistics based on [KARINA]. The introduction then shows that the emergence of student lists was fundamentally based on the standardized college entrance exam, which sociologists argue are mechanisms that amplify historic structural inequality. We agree with Reviewer 3 that framing the manuscript vis-a-vis racial inequality in college access helpls situate the so-what of studying student lists. However, we do not go in greater depth about racial inequality in college access because the manuscript is very long and we make the assumption that the assumption that most readers know that racial inequality in college access exists. Additionally, we begin the discussion section re-stating the problem of racial inequality in college access. 
 
-**Author response**. xx
+1. @RN4778
 
-1. xxx
+> **Reviewer 3 concern**. *The systematic exclusion of applicants of color is a key argument in the paper. As such, the authors might consider discussing the Hirschman and Bosk piece in more detail. It is cited throughout and seems to provide critical support for the authors’ claims. Is the current conceptual framework an extension of or a response to Hirschman and Bosk’s work?*
 
-> **Reviewer 3 concern**. *xx*
-
-**Author response**. xx
+**Author response**. @RN4778 are IMPORTANT BUT NOT TEXT TEXT TEXT
 
 1. xxx
 
-> **Reviewer 3 concern**. *xx*
+> **Reviewer 3 concern**. *The mention of micro-targeting and market segmentation made me think about critical quant studies in education policy research and the work of scholars (e.g., Samantha Viano and Dominique Baker) raising questions about the construction of large-scale datasets such as what are the types of variables that are being included. How are race and class conceptualized? How are other critical variables operationalized? It seems this literature is quite relevant to the paper and I would encourage the authors to consider featuring it more prominently or at least citing it in the discussion of critical data studies.*
 
-**Author response**. xx
+**Author response**. KARINA -- CAN YOU HANDLE THIS ONE
 
-1. xxx
+1. Unclear organization of the conceptual framework
 
-> **Reviewer 3 concern**. *xx*
+> **Reviewer 3 concern**. *I was unclear/a bit confused by section 4.2 of the manuscript. It seems to repeat the preceding discussion of algorithmic selection devices. Is this the start of the conceptual framework? Should these mechanisms be collapsed in or incorporated into section 4.1 which discusses them as well(although using examples from outside of education)?*
 
-**Author response**. xx
+> **Reviewer 3 concern**. *In section 4.2.1., there is a sentence, “Drawing from theory…” I would just add in theory for a better description. For example, sociological theory.*
 
-1. xxx
+**Author response**. We agree that the organization and flow of the original conceptual framework were convoluted and stilted. We believe that the revised manuscript has improved logical organization and flow, with the following sub-sections: (1) Selection Devices (introduce selection devices and what sociology knows about racial inequality in selection devices); (2) Student List Products (motivate analyses that examine racial inequality in underlying architecture of student list products); (3) Utilizing Student List Products (motivate analyses about how colleges utilize student list products)
 
-> **Reviewer 3 concern**. *xx*
+1. Improve organization of discussion section and reduce redundancy
 
-**Author response**. xx
+> **Reviewer 3 concern**. *I would encourage more organization of section 7, the discussion of the paper. At times, this section is a bit wandering and repetitive. Consider adding subsections for “Implications for Research” as well as subheadings to organize the various implications/future directions for research. And as stated above, I would circle back to the broader implications of this work for college access.*
 
+**Author response**. We agree with these suggestions. The revised discussion section has the following organization and sub-headings
 
-## Minor recommendations/concerns
+- Summary
+- Policy Implications
+  - Federal policy
+  - State policy
+- Implications for scholarship
 
+Additionally, we worked to remove rendundancy from the discussion section and the section begins by framing issue importance vis-a-vis racial inequality in college access.
 
 
