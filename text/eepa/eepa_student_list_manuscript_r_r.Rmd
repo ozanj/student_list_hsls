@@ -387,7 +387,7 @@ Colleges may utilize student list products to increase enrollment by underrepres
 
 ## Data 
 
-Our analyses utilize two data sources. First, the primary data source is the High School Longitudinal Study of 2009 (HSLS09) conducted by the National Center for Education Statistics (NCES). HSLS09 is a nationally representative survey that follows a cohort of more than 23,000 students from 944 schools entering the ninth grade in Fall 2009. Follow-up surveys were administered to students in Spring 2012 (when most were in 11th grade), in 2013, in 2016, and NCES collected high school transcripts in 2013-14. HSLS provides the extensive student-level demographic, geographic, and academic variables needed to create academic and geographic filters used within student list purchases. 
+Our analyses utilize two data sources. First, the primary data source is the High School Longitudinal Study of 2009 (HSLS09) conducted by the National Center for Education Statistics (NCES). HSLS09 is a nationally representative survey that follows a cohort of more than 23,000 students from 944 schools entering the ninth grade in Fall 2009. Follow-up surveys were administered to students in Spring 2012 (when most were in 11th grade), in 2013, in 2016, and NCES collected high school transcripts in 2013-14. HSLS provides the extensive student-level demographic, geographic, and academic variables needed to create academic and geographic filters used within student list purchases. We use HSLS09 to run analyses for RQ1 and RQ3. 
 
 <!-- cut text, original text from karina
 
@@ -396,14 +396,16 @@ Surveys collected during the base year include responses from students' parents,
 HSLS provides the extensive student-level demographic, geographic, and academic variables needed to create academic and geographic filters used within student list purchases. Moreover, HSLS09's nationally representative sample of high school students allows us to analyze patterns of who is included and excluded in simulated student list purchases as filter combinations and filter thresholds change.
 -->
 
-Our analysis sample includes students who meet all of the following conditions: completed Spring 2012 first follow-up survey; completed 2013 update survey; and obtained high school transcript data. Of the 23,503 respondents included in HSLS09, our unweighted analysis sample consists of the 16,530 students who meet all conditions.^[Unwighted sample was rounded to 10 to meet restricted data regulations by NCES] The survey weight variable W3W2STUTR is designed for respondents who meet these conditions. After weighting, these 16,530 students represent the population of approximately 4.187 million U.S. 9th graders in 2009.
+Our HSLS09 analysis sample includes students who meet all of the following conditions: completed Spring 2012 first follow-up survey; completed 2013 update survey; and obtained high school transcript data. Of the 23,503 respondents included in HSLS09, our unweighted analysis sample consists of the 16,530 students who meet all conditions.^[Unwighted sample was rounded to 10 to meet restricted data regulations by NCES] The survey weight variable W3W2STUTR is designed for respondents who meet these conditions. After weighting, these 16,530 students represent the population of approximately 4.187 million U.S. 9th graders in 2009.
 
 <!-- From paragraph above
 [STATE 95% CI FOR THIS POINT ESTIMATE?] The analysis sample is smaller for analyses that utilize variables that have missing values for some respondents [? SAY MIN ANALYSIS SAMPLE SIZE IS THIS?]-->
 
-The second data source consists of "order summaries" for student lists that public universities purchased from College Board. These data are used to inform hypothetical student list purchases in the final set of analyses. As described in @list_empirics, we collected these data by issuing public records requests to all public universities in five states (CA, IL, TX, MN, and one anonymous state) about student lists purchased from 2016-2020. @list_empirics analyzed 830 College Board orders, which yielded more than 3.6 million prospect profiles. These orders were placed by 14 public universities. Figure \@ref(fig:order-filters-empirical-report) shows the filters utilized in these orders.
+Collected as part of a larger project [@list_empirics], the second data source consists of "order summaries" and their resulting "student lists" for College Board purchases by 14 universities. These data are used in analyses for RQ2 and RQ3. As described in @list_empirics, we collected these data by issuing public records requests to all public universities in five states (CA, IL, TX, MN, and one anonymous state) about student lists purchased from 2016-2020. @list_empirics analyzed 830 College Board orders by 14 universities, which yielded more than 3.6 million prospect profiles. Figure \@ref(fig:order-filters-empirical-report) shows the filters utilized in these orders.   
 
 <!-- From paragraph above
+Figure \@ref(fig:order-filters-empirical-report) shows the filters utilized in these orders.
+
 @list_empirics shows that some universities placed many more orders and/or purchased many more prospect profiles than others.-->
 
 ## Variables 
@@ -413,7 +415,7 @@ We ask, what is the relationship between student list search filters (e.g., test
 X = student list filters
 Y = characteristics of students included in student list filters
 -->
-Our research question is, what is the relationship between student list search filters and the racial composition of students who are included versus excluded from College Board student list purchases? In turn, our dependent variable measures student demographic characteristics and our independent variables are measures of student list filters. Descriptive statistics for analysis variables are shown in Table \@ref(tab:descriptives).
+When analyzing the racial composition of student lists via HSLS09, our dependent variable measures student demographic characteristics and our independent variables are measures of student list filters (individual or combination). When analyzing the racial composition of actual student list purchases via the public records request data collection, our dependent and independent variables remain the same except we use fields provided by the College Board. We therefore focus on providing details regarding HSLS09 variables used below. Descriptive statistics for HSLS09 analysis variables are shown in Table \@ref(tab:descriptives).
 
 **Dependent variable**. Our primary dependent variable is the student race/ethnicity composite variable X2RACE, which includes the following seven categories: American Indian/Alaska Native, non-Hispanic; Asian, non-Hispanic; Black/African-American, non-Hispanic; Hispanic; More than one race, non-Hispanic; Native Hawaiian/Pacific Islander, non-Hispanic; and White, non-Hispanic.^[We collapse "Hispanic, no race specified" and "Hispanic, race specified" into a single category.] 
 
@@ -427,7 +429,9 @@ Propositions **P1** and **P2** focus on academic filters. **P1** is concerned ab
 
 <!-- A limitation of measures created for **P1** and **P2** is that HSLS does not have separate measures for SAT and ACT. Instead, SAT and ACT test scores are converted to the same scale, but we do not know which students took which assessments. The same is true for PSAT and PreACT assessment. -->
 
-Propositions **P3** and **P4** focus on geographic filters. Drawing from Figure \@ref(fig:order-filters-empirical-report), we create measures for student county (X2GCNTY), zip code  (X2GZIPCD), and CBSA (based on crosswalk with home zip code). Next, we attach income data to localities by merging in data from the American Community Survey (ACS) 2012 5-year estimates. We do not create independent variables for geomarket filter or geodemograhic segment filter because these filters utilize geographic borders based on proprietary College Board data.
+Proposition **P3** focuses on geographic filters. We create measures for student's school zip code by merging in data from the National Center for Education Statistics (NCES). Next, we attach income data to zip code by merging in data from the American Community Survey (ACS) 2012 5-year estimates. 
+
+<!-- We do not create independent variables for geomarket filter or geodemograhic segment filter because these filters utilize geographic borders based on proprietary College Board data. -->
 
 ## Analyses
 
@@ -437,9 +441,13 @@ Analyses utilize simple descriptive statistics, with appropriate statistical tes
 All analyses compare the racial composition of included versus excluded prospects associated with some student list purchase.
 -->
 
-Analyses utilize simple descriptive statistics, with appropriate statistical tests. All analyses compare the racial composition of included versus excluded prospects when particular filters and/or filter thresholds are utilized to purchase prospect profiles.
+Analyses across all research questions utilize simple descriptive statistics. For RQ1, analyses compare the racial composition of included versus excluded HSLS09 prospects when particular filters and/or filter thresholds are utilized to purchase prospect profiles. Given HSLS09 is nationally representative, we run appropriate statistical tests for comparing differences in included versus excluded students by race/ethnicity. Consider a hypothetical purchase of all prospects that took an AP STEM exam. We compare the racial composition of the included group to the racial composition of the excluded group. For example, Black students comprise 5.05% (`=91/1803`) of AP STEM test-takers and Black students comprise 10.6% (`=1564/14722`) of students who do not take an AP STEM exam. The test for difference in proportions compares whether the proportion of included prospects who identify as Black differs from the proportion of excluded prospects who identify as Black, and this test is run separately for each race/ethnicity group. Analyses for propositions P1 through P3, which answer RQ1, examine HSLS09 prospects included versus excluded based on individual filters in isolation. 
 
-Consider a hypothetical purchase that all prospects took an AP STEM exam. We compare the racial composition of the included group to the racial composition of the excluded group. For example, Black students comprise 5.05% (`=91/1803`) of AP STEM test-takers and Black students comprise 10.6% (`=1564/14722`) of students who do not take an AP STEM exam. The test for difference in proportions compares whether the proportion of included prospects who identify as Black differs from the proportion of excluded prospects who identify as Black, and this test is run separately for each race/ethnicity group. This comparison focuses on the racial composition of prospects targeted from the university perspective; that is, what is the racial composition of prospects who are targeted by a particular set of filters versus the racial composition of prospects who are excluded by these filters?
+For RQ2, we draw on order summaries for the 830 student list purchases across the 14 universities in our the public records request data collection. We use counts and proportions of filters used across research (N=7) versus ma/doctoral (N=7) universities to describe broad patterns in how racialized input search filters are used in concert with other filters when purchasing students list. 
+
+Finally, we use both HSLS09 and the public records request data to investigate the racial composition of student list purchases that utilize racialized input search filters in concert with other search filters for RQ3. Analyses based on HSLS09 examine included versus excluded prospects by race/ethnicity when academic and geographic filters are used in combination with one another, with choice of filters informed by our theoretical framework. Analyses based on public records requests examine the racial/ethnic characteristics of included prospects based on observed filter combinations. Drawing on our theoretical framework, we explicitly analyze student list purchases from the public records requests data collection that use combinations of filters that are conceptualized as likely to minimize or perpetuate racial inequality based on utilization. However, analyses based on public records requests are unable to make inferences about the population of student list purchases.
+
+<!-- This comparison focuses on the racial composition of prospects targeted from the university perspective; that is, what is the racial composition of prospects who are targeted by a particular set of filters versus the racial composition of prospects who are excluded by these filters? -->
 
 <!-- Conceptually, two types of comparisons are possible. Comparison type one compares the proportion of students from a particular race/ethnicity group (e.g. Black) who are included to the proportion of students not from that particular race who are included. For example, using unweighted sample sizes, `91/1,655=5.5%` of Black students took an AP STEM exam and `1,712/14,870=11.5%` of non-Black students took an AP STEM exam. The test for difference in proportions compares the 5.5% of Black students who are included to the 11.5% of non-Black students who are included, and this test is run separately for each race/ethnicity group.  
 
@@ -460,7 +468,6 @@ df_stu %>% filter(apstem01 == 'yes') %>% count(re_black) %>% mutate(pct = n/sum(
 df_stu %>% filter(apstem01 == 'no') %>% count(re_black) %>% mutate(pct = n/sum(n)*100)
 -->
 
-Analyses for propositions P1 through P4 examine purchases that utilize individual filters in isolation. The final set of analyses examine purchases that utilize academic and geographic filters in combination with one another, with choice of filters informed by commonly observed combinations from the public request data and also by theoretical considerations. 
 
 ## Limitations
 
@@ -468,57 +475,105 @@ This manuscript uses HSLS09 to recreate the College Board Student Search Service
 
 Second, test-takers have the opportunity to opt-out of the College Board Student Search Service and the ACT Educational Opportunity Service but HSLS09 has no reasonable proxy for whether students opt-in or opt-out. @RN4752 finds that 86% of ACT test-takers opt-in, but does not investigate the student characteristics associated with opting in. Third, the HSL09 cohort pre-dates the increase in test-optional admissions policies and decline in test-takers which occurred since the onset of COVID19. This undermines the external validity of our findings with respect to current cohorts of high school students. That said, several for-profit vendors have developed student list products  (e.g., Intersect by PowerSchool) poised to acquire market share ceded by College Board and ACT, and these products use filters that are similar to College Board and ACT products [@markup_naviance]. Our analysis of structurally racist inputs and exclusion yields insights across student list products. Fourth, we could not make measures for high school class rank, an academic filter, or for geomarket and geodemographic filters, which utilize proprietary College Board data.
 
+
 # Findings
 
-## Academic Filters   
+## Racial Composition of Individual Filters  
 
-We begin by describing the racial characteristics of prospects who completed standardized assessments in comparison to those who did not, which determines inclusion in the underlying College Board student list database. Figure \@ref(fig:test-takers) presents the racial/ethnic composition of prospects included (i.e., completed assessment) and excluded (i.e., did not complete assessment) across SAT, PSAT, and AP exams. For example, the top left graph shows that more than 1.8 million prospects completed the SAT and would have presumably been included in the College Board student list database. In comparison, more than 2.3 million prospects did not complete the SAT and would be excluded from the database. White students make up 53% of included students who completed the SAT and 51% of excluded students who did not. Table \@ref(tab:p1table) reports statistical tests for proportions between included and excluded students by race/ethnicity. Differences in White student proportions across included and excluded prospects are statistically significant (p<0.000).  While Asian and Multiracial students make up nearly equal proportions in both included and excluded prospects, Hispanic students make up only 17% of included prospects relative to 26% of excluded prospects (p<0.000). Black students similarly make up 12% of included prospects but 15% of excluded prospects (p<0.000). 
+We address RQ1 by first describing the racial characteristics of HSLS09 students who completed standardized assessments in comparison to those who did not, which would determine inclusion in the underlying College Board student list database. Figure \@ref(fig:test-takers) presents the racial/ethnic composition of prospects included (i.e., completed assessment) and excluded (i.e., did not complete assessment) across SAT, PSAT, and AP exams. For example, the top left graph shows that more than 1.8 million prospects completed the SAT and would have presumably been included in the College Board student list database. In comparison, more than 2.3 million prospects did not complete the SAT and would be excluded from the database. White students make up 57% of included students who completed the SAT and 47% of excluded students who did not. Table \@ref(tab:p1table) reports statistical tests for proportions between included and excluded students by race/ethnicity. Differences in White student proportions across included and excluded prospects are statistically significant (p<0.000).  While Asian and Multiracial students make up nearly equal proportions in both included and excluded prospects, Hispanic students make up only 17% of included prospects relative to 26% of excluded prospects (p<0.000). Black students similarly make up 12% of included prospects but 15% of excluded prospects (p<0.000). 
 
 Other standardized assessments resulted in similar included prospects that were on average made up of larger proportions of White and Asian students and smaller proportions of Hispanic, Black, and American Indian/Alaska Native students than excluded groups, lending support for Proposition P1. For example, Figure \@ref(fig:test-takers) also shows the composition of included versus excluded prospects by AP exam completion in any subject on the top right panel. Similar to SAT, White (54% versus 51% White) and Asian students (8% versus 3%) make up statistically significant (p<0.000) larger proportions of included prospects. While an equal proportion of included and excluded students are Hispanic (22%), Black students make up a smaller share (p<0.000) of included prospects (8%) than excluded prospects (15%). When inclusion versus exclusion is determined by completing an AP exam in a STEM subject, total included students declines to nearly half (383,669) of those included via completing any AP exam. Moreover, Black (7% versus 14%), Hispanic (19% versus 22%), Multiracial (7% versus 14%), and American Indian/Alaska Native (0.2% versus 0.7%) students make up smaller statistically significant proportions of the included prospects relative to excluded prospects based on completion of an AP STEM exam. 
 
-Proposition P2 suggests the proportion of underrepresented minority students included in student lists decline relative to the proportion who are excluded as assessment score thresholds increase. In order to test this proposition, we analyze the racial composition of included versus excluded students at minimum score thresholds commonly used across student list purchase orders for SAT, PSAT, and AP exams. For example, Figure \@ref(fig:thresholds-tests) presents these results for SAT (left panel) and PSAT assessments (right panel). For the top left panel, each bar represents the racial composition of included prospects who completed the SAT exam and scored at the minimum threshold indicated. On the bottom left panel of Figure \@ref(fig:thresholds-tests), each bar represents the racial composition of excluded prospects who did not complete the SAT exam in addition to students who did complete the exam but did not meet the minimum score threshold indicated. Statistical tests for differences in proportion for Figure \@ref(fig:thresholds-tests) are reported in online appendices for space considerations.
+Proposition P2 suggests the proportion of underrepresented minority students included in student lists decline relative to the proportion who are excluded as assessment score thresholds increase. In order to test this proposition, we analyze the racial composition of included versus excluded HSLS09 students at minimum score thresholds commonly used across student list purchase orders for SAT, PSAT, and AP exams. For example, Figure \@ref(fig:thresholds-tests) presents these results for SAT (top panel) and PSAT assessments (bottom panel). For the top left panel, each bar represents the racial composition of included prospects who completed the SAT exam and scored at the minimum threshold indicated. On the top right panel of Figure \@ref(fig:thresholds-tests), each bar represents the racial composition of excluded prospects who did not complete the SAT exam in addition to students who did complete the exam but did not meet the minimum score threshold indicated. Statistical tests for differences in proportion for Figure \@ref(fig:thresholds-tests) are reported in online appendices for space considerations.
 
 As SAT score thresholds increase from less than 1000 to greater than 1400 in Figure \@ref(fig:thresholds-tests), proportions of included White and Asian students increase while proportions of included Hispanic and Black students decrease. For example, White students make up a statistically significant (p<0.000) smaller share of included (47%) than excluded (53%) prospects scoring less than 1000 on the SAT, which results in an equal share of Hispanic students (22%) and a greater share of included Black students (19% versus 12%) relative to excluded prospects at this score threshold. However, Hispanic student proportions in included versus excluded prospects decrease to 12% versus 25% at scores greater than 1000, 9% versus 23% at scores greater than 1200, and down to 5% versus 22% at scores greater than 1400. Similarly, Black student proportions in included versus excluded prospects decrease to 6% versus 16% at scores greater than 1000, 4% versus 14% at scores greater than 1200, 2% versus 14% at scores greater than 1300, and down to making up 0% of included prospects at scores greater than 1400. These proportional differences across score thresholds are statistically significant (p<0.05) for both Hispanic and Black students (online appendix).
 
-While making up relatively small proportions of the overall sample, declines in proportions of American Indian/Alaska Native students and Native Hawaiian/Pacific Islander students within included versus excluded prospect groups are statistically significant as score thresholds increase (online Appendix A). In order to more equitably capture these differences, we report the number of students rather than their overall representational proportion within included versus excluded groups. For instance, more than 7,600 American Indian/Alaska Native students and nearly 2,500 Native Hawaiian/Pacific Islander students are represented in the included prospects relative to the more than 20,800 and 16,300 represented in the excluded prospects at SAT scores less than 1000, respectively. However, American Indian/Alaska Native students decline to zero and Hawaiian/Pacific Islander students decline to 435 students in the included prospects group by the 1300 or greater SAT score threshold.
+<!-- While making up relatively small proportions of the overall sample, declines in proportions of American Indian/Alaska Native students and Native Hawaiian/Pacific Islander students within included versus excluded prospect groups are statistically significant as score thresholds increase (online Appendix A). In order to more equitably capture these differences, we report the number of students rather than their overall representational proportion within included versus excluded groups. For instance, more than 7,600 American Indian/Alaska Native students and nearly 2,500 Native Hawaiian/Pacific Islander students are represented in the included prospects relative to the more than 20,800 and 16,300 represented in the excluded prospects at SAT scores less than 1000, respectively. However, American Indian/Alaska Native students decline to zero and Hawaiian/Pacific Islander students decline to 435 students in the included prospects group by the 1300 or greater SAT score threshold. -->
 
 
-PSAT results are also shown in Figure \@ref(fig:thresholds-tests) for composite scores that range from 60 to 240. ^[PSAT exams taken 2014 or before receive composite scores that range from from 60 to 240. PSAT exams taken 2015 or later are scored via a range from 320 to 1520. Our lower bound PSAT composite score thresholds of 120, 170, 200, and 220 for HSLS students who completed the exam prior to 2014 equate to minimum score thresholds of 890, 1220, 1410, and 1510 on the 2015 or later PSAT scale, respectively. [CITE](https://satsuite.collegeboard.org/media/pdf/2015-psat-nmsqt-concordance-tables.pdf)] Similar to SAT, as PSAT composite score thresholds increase from less than 120 to greater than 220, proportions of included White and Asian students increase while proportions of included Hispanic and Black students decrease relative to excluded prospects. Online appendices show all comparisons between included and excluded students across PSAT score thresholds are statistically significant at the p<0.000 level, with the exception of multiracial students at the 220 or greater minimum score threshold. 
+PSAT results are also shown in Figure \@ref(fig:thresholds-tests) for composite scores that range from 60 to 240. ^[PSAT exams taken 2014 or before receive composite scores that range from from 60 to 240. PSAT exams taken 2015 or later are scored via a range from 320 to 1520. Our lower bound PSAT composite score thresholds of 120, 170, 200, and 220 for HSLS students who completed the exam prior to 2014 equate to minimum score thresholds of 890, 1220, 1410, and 1510 on the 2015 or later PSAT scale, respectively. [CITE](https://satsuite.collegeboard.org/media/pdf/2015-psat-nmsqt-concordance-tables.pdf)] Similar to SAT, as PSAT composite score thresholds increase from less than 120 to greater than 220, proportions of included White and Asian students increase while proportions of included Hispanic and Black students decrease relative to excluded prospects. Figure \@ref(fig:thresholds-tests-ap) shows similar racial disparities in included versus excluded prospects across AP exam score thresholds, providing strong support for Proposition P2. 
+
+<!-- Online appendices show all comparisons between included and excluded students across PSAT score thresholds are statistically significant at the p<0.000 level, with the exception of multiracial students at the 220 or greater minimum score threshold.  -->
 
 <!-- The right panels of Figure 2 show results for SAT score, which ranges from 400 to 1600, across minimum score thresholds of 1000, 1200, 1300, and 1400. Similar patterns to PSAT occur as SAT score thresholds increase. For example, White and Asian included student proportions increase from 47% and 3% at scores less than 1000 to 69% and 19% at scores greater than 1400, respectively. On the other hand, Hispanic and Black included student proportions decrease from 22% and 19% at scores less than 1000 to 5% and less than 1% at scores greater than 1400, respectively. Multiracial students make up a nearly equal proportions of the included and excluded groups at the lowest and highest score thresholds. Similar to PSAT, the more than 2,000 American Indian/Alaska Native students and 3,300 Native Hawaiian/Pacific Islander students included in the 1000 or greater score threshold decline to zero and 435 students by the 1300 or greater score threshold, respectively.  -->
 
-We find similar racial disparities in included versus excluded prospects across AP exam score thresholds, providing strong support for Proposition P2. Figure \@ref(fig:thresholds-tests-ap) shows similar results as Figure \@ref(fig:thresholds-tests) for AP exams. As AP score thresholds for any subject exam (left panel) increase from one to five, proportions of included White and Asian students increase while proportions of included Hispanic, Black, Multiracial, American Indian/Alaska Native, and Native Hawaiian/Pacific Islander decrease relative to excluded prospects. For example, the 110,360 included prospects (relative to excluded prospects) who had a score of one on any subject AP exam were on average 38% White (52% excluded), 6% Asian (4% excluded), 27% Hispanic (22% excluded), and 21% Black (14% excluded). By an AP score threshold of four or greater, included prospect proportions shift (relative to excluded) to 60% White (51% excluded), 10% Asian (3% excluded), 20% Hispanic (22% excluded), and 4% Black (4% excluded).^[Proportional differences for these specific racial/ethnic categories at reported score thresholds are statistically significant at the p<0.000 level and reported in online appendices] Similar patterns are evident for AP STEM exam completion (right panel). 
 
-Given differences in completion rates for standardized assessments by race, our conceptual framework outlines an interest in whether using GPA filters leads to greater racial parity between included versus excluded students relative to standardized assessments as thresholds increase. We therefore analyze the racial composition of included versus excluded students at minimum thresholds commonly used across student list purchase orders for high school GPA. Figure \@ref(fig:thresholds-gpa) shows the racial composition of included (top panel) and excluded (bottom panel) students across less than 2.0, 2.0 or greater, 3.0 or greater, and 3.5 or greater thresholds of GPA. Similar to standardized assessments, Figure \@ref(fig:thresholds-gpa) suggests proportions of included prospects increase for White students and Asian students (although modestly) while proportions of included prospects decrease for Hispanic and Black students as GPA thresholds increase. For instance, White student proportions increase from 37% (relative to 57% excluded, p<0.000) at GPA less than 2.0 to 71% (relative to 57% excluded, p<0.000) at GPA 3.5 or greater. On the other hand, Hispanic and Black included student proportions (relative to excluded proportions) decrease from 30% (19% excluded, p<0.000) and 22% (11% excluded, p<0.000) at GPA less than 2.0 to 11% (24% excluded, p<0.000) and 4% (15% excluded, p<0.000) at GPA 4.0 or greater, respectively. The 12,591 American Indian/Alaska Native students included at GPA less than 2.0 (15,928 excluded, p<0.000) also decline to 1,304 (27,216 excluded, p<0.000) at GPA 3.5 or greater score threshold. 
+<!-- Figure \@ref(fig:thresholds-tests-ap) shows similar results as Figure \@ref(fig:thresholds-tests) for AP exams. As AP score thresholds for any subject exam (left panel) increase from one to five, proportions of included White and Asian students increase while proportions of included Hispanic, Black, Multiracial, American Indian/Alaska Native, and Native Hawaiian/Pacific Islander decrease relative to excluded prospects. For example, the 110,360 included prospects (relative to excluded prospects) who had a score of one on any subject AP exam were on average 38% White (52% excluded), 6% Asian (4% excluded), 27% Hispanic (22% excluded), and 21% Black (14% excluded). By an AP score threshold of four or greater, included prospect proportions shift (relative to excluded) to 60% White (51% excluded), 10% Asian (3% excluded), 20% Hispanic (22% excluded), and 4% Black (4% excluded).^[Proportional differences for these specific racial/ethnic categories at reported score thresholds are statistically significant at the p<0.000 level and reported in online appendices] Similar patterns are evident for AP STEM exam completion (right panel).  -->
 
-However, Figure \@ref(fig:thresholds-gpa) shows that GPA filters at "middle" thresholds (2.0 to 3.0) lead to smaller declines in proportions of included Hispanic and Black students relative to middle thresholds of SAT and PSAT filters. In increasing GPA from 2.0 or greater to 3.0 or greater, the proportions of Hispanic and Black included students decrease by 3 percentage points or less. In comparison, increasing PSAT from scores 120 or greater to 200 or greater results in an up to nine percentage point decrease in the number of included Black students. This pattern of lesser relative declines in the proportion of underrepresented minority students included at "middle" thresholds is also evident by AP filters (see Figure \@ref(fig:thresholds-tests-ap)). However, given the disparities in AP course availability and exam completion rates, a considerable smaller number of overall included students are captured by AP filters than GPA. 
+<!-- Given differences in completion rates for standardized assessments by race, our conceptual framework outlines an interest in whether using GPA filters leads to greater racial parity between included versus excluded students relative to standardized assessments as thresholds increase. We therefore analyze the racial composition of included versus excluded students at minimum thresholds commonly used across student list purchase orders for high school GPA. Figure \@ref(fig:thresholds-gpa) shows the racial composition of included (top panel) and excluded (bottom panel) students across less than 2.0, 2.0 or greater, 3.0 or greater, and 3.5 or greater thresholds of GPA. Similar to standardized assessments, Figure \@ref(fig:thresholds-gpa) suggests proportions of included prospects increase for White students and Asian students (although modestly) while proportions of included prospects decrease for Hispanic and Black students as GPA thresholds increase. For instance, White student proportions increase from 37% (relative to 57% excluded, p<0.000) at GPA less than 2.0 to 71% (relative to 57% excluded, p<0.000) at GPA 3.5 or greater. On the other hand, Hispanic and Black included student proportions (relative to excluded proportions) decrease from 30% (19% excluded, p<0.000) and 22% (11% excluded, p<0.000) at GPA less than 2.0 to 11% (24% excluded, p<0.000) and 4% (15% excluded, p<0.000) at GPA 4.0 or greater, respectively. The 12,591 American Indian/Alaska Native students included at GPA less than 2.0 (15,928 excluded, p<0.000) also decline to 1,304 (27,216 excluded, p<0.000) at GPA 3.5 or greater score threshold.  -->
 
-## Geographic Filters   
+<!-- However, Figure \@ref(fig:thresholds-gpa) shows that GPA filters at "middle" thresholds (2.0 to 3.0) lead to smaller declines in proportions of included Hispanic and Black students relative to middle thresholds of SAT and PSAT filters. In increasing GPA from 2.0 or greater to 3.0 or greater, the proportions of Hispanic and Black included students decrease by 3 percentage points or less. In comparison, increasing PSAT from scores 120 or greater to 200 or greater results in an up to nine percentage point decrease in the number of included Black students. This pattern of lesser relative declines in the proportion of underrepresented minority students included at "middle" thresholds is also evident by AP filters (see Figure \@ref(fig:thresholds-tests-ap)). However, given the disparities in AP course availability and exam completion rates, a considerable smaller number of overall included students are captured by AP filters than GPA.  -->
 
-Proposition P3 and Proposition P4 conceptualize how the use of geographic filters may result in greater racial disparities in proportions of included prospects relative to excluded prospects. For instance, Proposition P3 suggests as purchases filter on higher levels of zip code affluence, the proportion of underrepresented minority students included in student lists will decline relative to the proportion who are excluded. In order to test this proposition, we analyze the racial composition of included versus excluded students when filtering by zip code median household income. In order to deal with median household incomes varying widely across the U.S., we categorized all zip codes into percentiles based on levels of median household income within their respective Core Based Statistical Areas (CBSA). For example, median household income percentiles based on the 378 zip codes within the Los Angeles metropolitan area are \$55,256 at the 20th percentile, \$70,804 at the 40th percentile, \$89,709 at the 60th percentile, and \$108,316 at the 80th percentile (in 2022 CPI). So the Los Angeles zip code 92649, which captures parts of the Huntington Beach area, with a median household income of \$109,159 (in 2022 CPI) would be categorized as zip code in the 80th percentile of affluence within CBSA. This approach also aligns with common ways in which student list orders purchase prospect's contact information by filtering on zip codes within specific CBSAs. 
+Proposition P3 suggests as purchases filter on higher levels of zip code affluence, the proportion of underrepresented minority students included in student lists will decline relative to the proportion who are excluded. In order to test this proposition, we analyze the racial composition of included versus excluded students when filtering by zip code median household income. In order to deal with median household incomes varying widely across the U.S., we categorized all zip codes into percentiles based on levels of median household income within their respective Core Based Statistical Areas (CBSA). For example, median household income percentiles based on the 378 zip codes within the Los Angeles metropolitan area are \$55,256 at the 20th percentile, \$70,804 at the 40th percentile, \$89,709 at the 60th percentile, and \$108,316 at the 80th percentile (in 2022 CPI). So the Los Angeles zip code 92649, which captures parts of the Huntington Beach area, with a median household income of \$109,159 (in 2022 CPI) would be categorized as zip code in the 80th percentile of affluence within CBSA. This approach also aligns with common ways in which student list orders purchase prospect's contact information by filtering on zip codes within specific CBSAs. 
 
 Figure \@ref(fig:zipcode-affluence) presents the racial composition of zip codes that included (top panel) versus excluded prospects (bottom panel) when filtering based on percentile of affluence within CBSA. The figure suggests that as zip code affluence increases, included prospects have larger proportions of White students and smaller proportions of Hispanic and Black students relative to excluded prospects. For example, Hispanic and Black students make up 30% and 27% of included prospects and 20% and 11% of excluded prospects at zip codes below the 20th percentile of affluence, respectively. The proportions of Hispanic and Black students within included prospects decline as zip code affluence increases up though the 89th percentile. For zip codes in 90th percentile or higher of affluence within CBSA, the proportions of Hispanic students within included prospects declines to 11% relative to making up 23% of excluded prospects (p<0.000). Similarly, Black students make up 9% of included prospects relative to making up 14% of excluded prospects (p<0.000) within the most affluent zip codes. ^[Online appendices report statistical tests for proportions between included and excluded students by race/ethnicity for zip code affluence.] 
 
-To contextualize these findings, Figure \@ref(fig:zipcode-affluence-metros) presents similar results as Figure \@ref(fig:zipcode-affluence) for two specific CBSAs: Los Angeles and New York. The left panel of Figure 6 shows the racial composition of included (top) and excluded (bottom) students across percentiles of zip code affluence for Los Angeles. Similar to results across all CBSAs in Figure \@ref(fig:zipcode-affluence), proportions of included prospects relative to excluded prospects increase for White students while proportions decline for Hispanic and Black students as zip codes become more affluent. For instance, White student proportions increase from 5% (relative to 17% excluded, p<0.000) at the 20th percentile, to 28% (relative to 12% excluded, p<0.000) at 50th-79th percentiles, and up to making up 76% of included prospects (relative to 12% excluded, p<0.000) for zip codes at the 90th percentile or higher of affluence. On the other hand, Hispanic and Black included student proportions (relative to excluded proportions) decrease from 73% (54% excluded, p<0.000) and 14% (7% excluded, p<0.000) at zip codes in the lower 20th percentiles of affluence to 4% (60% excluded, p<0.000) and 3% (9% excluded, p<0.000) at the 90th percentile or higher of affluence, respectively. While New York provides a different racial composition of students than Los Angeles, similar and statistically significant patterns persist.
+<!-- To contextualize these findings, Figure \@ref(fig:zipcode-affluence-metros) presents similar results as Figure \@ref(fig:zipcode-affluence) for two specific CBSAs: Los Angeles and New York. The left panel of Figure 6 shows the racial composition of included (top) and excluded (bottom) students across percentiles of zip code affluence for Los Angeles. Similar to results across all CBSAs in Figure \@ref(fig:zipcode-affluence), proportions of included prospects relative to excluded prospects increase for White students while proportions decline for Hispanic and Black students as zip codes become more affluent. For instance, White student proportions increase from 5% (relative to 17% excluded, p<0.000) at the 20th percentile, to 28% (relative to 12% excluded, p<0.000) at 50th-79th percentiles, and up to making up 76% of included prospects (relative to 12% excluded, p<0.000) for zip codes at the 90th percentile or higher of affluence. On the other hand, Hispanic and Black included student proportions (relative to excluded proportions) decrease from 73% (54% excluded, p<0.000) and 14% (7% excluded, p<0.000) at zip codes in the lower 20th percentiles of affluence to 4% (60% excluded, p<0.000) and 3% (9% excluded, p<0.000) at the 90th percentile or higher of affluence, respectively. While New York provides a different racial composition of students than Los Angeles, similar and statistically significant patterns persist. -->
 
 
 These findings suggest that purchases filtering on higher levels of zip-code affluence lead to smaller proportions of underrepresented minority students included in student lists relative to the proportion who are excluded, providing support for Proposition P3. However, we acknowledge that categorizing zip codes within CBSA limits the number of rural zip codes captured within the included prospect groups. By categorizing zip code affluence within CBSA, only rural zip codes within micropolitan statistical areas (i.e., areas that have at least one urban cluster of at least 10,000 people with commuting ties to adjacent metropolitan areas that have higher degrees of social and economic activity) will be captured via CBSA. 
 
 
-To analyze whether filtering on smaller geographic localities is associated with greater racial disparities in included prospects relative to excluded prospects (Proposition P4), we compare the racial characteristics of prospects based on zip code filters versus county filters. We categorize all zip codes and counties based on levels of median household income within their respective Core Based Statistical Areas (CBSA), given results for Proposition P3, to analyze whether relationships between racial composition and geographic level change across levels of affluence. Therefore, zip codes and counties are categorized as low, moderate, and high income based on their median household incomes falling below 30th percentile, within 30th-70th percentiles, or greater than 70th percentile of affluence within their respective CBSAs. 
+<!-- To analyze whether filtering on smaller geographic localities is associated with greater racial disparities in included prospects relative to excluded prospects (Proposition P4), we compare the racial characteristics of prospects based on zip code filters versus county filters. We categorize all zip codes and counties based on levels of median household income within their respective Core Based Statistical Areas (CBSA), given results for Proposition P3, to analyze whether relationships between racial composition and geographic level change across levels of affluence. Therefore, zip codes and counties are categorized as low, moderate, and high income based on their median household incomes falling below 30th percentile, within 30th-70th percentiles, or greater than 70th percentile of affluence within their respective CBSAs.  -->
 
-Figure \@ref(fig:zipcode-county) presents the racial composition of prospects when using zip code filters (left panel) in comparison to county filters (right panel).  There are modest differences between included versus excluded groups when comparing zip code filters to county filters at low and moderate levels of affluence. For example, Hispanic students are slightly overrepresented within included relative to excluded prospects (23% versus 22%, p<0.000) by zip code at moderate levels of affluence but underrepresented (20% versus 22%, p<0.000) at moderate affluence levels for county. Similarly, Black students are slightly underrepresented within included relative to excluded prospects (12% versus 15%, p<0.000) by zip code at moderate levels of affluence but overrepresented (20% versus 13%, p<0.000) at moderate affluence levels for county. 
+<!-- Figure \@ref(fig:zipcode-county) presents the racial composition of prospects when using zip code filters (left panel) in comparison to county filters (right panel).  There are modest differences between included versus excluded groups when comparing zip code filters to county filters at low and moderate levels of affluence. For example, Hispanic students are slightly overrepresented within included relative to excluded prospects (23% versus 22%, p<0.000) by zip code at moderate levels of affluence but underrepresented (20% versus 22%, p<0.000) at moderate affluence levels for county. Similarly, Black students are slightly underrepresented within included relative to excluded prospects (12% versus 15%, p<0.000) by zip code at moderate levels of affluence but overrepresented (20% versus 13%, p<0.000) at moderate affluence levels for county.  -->
 
-Differences between the use of zip code filters and county filters are most evident in high levels of affluence. For instance, Hispanic and Black students make up 16% and 8% of included prospects and 24% and 16% of excluded prospects for the most affluent zip codes, respectively. However, in the most affluent counties, Hispanic students make up an equal share of included and excluded prospects (22%). Similarly, filtering on the most affluent counties leads to smaller differences in proportions of Black students within included and excluded prospects (11% versus 16%,  p<0.000). These results suggest filtering for smaller geographic localities (i.e., zip codes) is associated with greater racial disparities in included prospects relative to excluded prospects in comparison to larger geographic localities (i.e., counties) at higher levels of affluence, which results for Proposition P3 suggest are the thresholds with the greatest lack of racial parity between included versus excluded students.   
+<!-- Differences between the use of zip code filters and county filters are most evident in high levels of affluence. For instance, Hispanic and Black students make up 16% and 8% of included prospects and 24% and 16% of excluded prospects for the most affluent zip codes, respectively. However, in the most affluent counties, Hispanic students make up an equal share of included and excluded prospects (22%). Similarly, filtering on the most affluent counties leads to smaller differences in proportions of Black students within included and excluded prospects (11% versus 16%,  p<0.000). These results suggest filtering for smaller geographic localities (i.e., zip codes) is associated with greater racial disparities in included prospects relative to excluded prospects in comparison to larger geographic localities (i.e., counties) at higher levels of affluence, which results for Proposition P3 suggest are the thresholds with the greatest lack of racial parity between included versus excluded students.    -->
 
 
-## Combinations of Filters   
+## Utilizing Student List Products 
 
-Our last set of analyses focus on assessing whether filtering on multiple criteria compound the effect of racial disparities in which prospects are included versus excluded. We draw on Figure \@ref(fig:order-filters-empirical-report) to select common filters used across orders. We begin by combining the two most common academic filters: GPA and SAT. Figure \@ref(fig:gpa-sat-psat)  (top panel) presents the racial composition of prospects included when filtering on GPA greater than or equal to 3.0 while simulating increases to minimum SAT thresholds at increments of 50 beginning at scores just above the sample median of 1010. For space considerations, we only present included prospect groups across all combinations. The figure suggests that even at the the lowest SAT score, White students make up much larger proportions while Black and Hispanic students make up significantly smaller proportions of included prospects when filtering for both GPA and SAT. For example, White students make up 72% of included prospects when filtering for GPAs greater than or equal to 3.0 in combination with SAT scores greater than 1050, whereas Hispanic and Black students make up 10% and 3%, respectively. Racial disparities only grow as SAT thresholds increases. Moreover, these racial disparities are greater than when filtering for similar thresholds for GPA (Figure \@ref(fig:thresholds-gpa)) and SAT score (Figure \@ref(fig:thresholds-tests)) individually. The bottom panel of Figure \@ref(fig:gpa-sat-psat) suggest similar results are evident when combining a GPA filter greater than or equal to 3.0 and a PSAT filter. While Hispanic and Black students make up larger proportions at lower thresholds of PSAT in comparison to SAT when combined with GPA, the racial disparity for Black students is still greater in the combination of filters than when filtering for similar thresholds of PSAT score (Figure \@ref(fig:thresholds-tests)) individually.
+To answer RQ2, in what ways do public universities use racialized input search filters, we begin by analyzing how often filters were used for actual College Board students list purchases in our project sample. Figure \@ref(fig:order-filters-empirical-report) illustrates the prevalence of each individual filter by institution type. Beyond all orders using a high school graduating class filter, we categorize filters within academic, geographic, demographic, and student preference groups. Both research and ma/doctoral universities commonly used academic filters like GPA, SAT, and PSAT. However, compared to ma/doctoral universities, research universities were less likely to filter on GPA or SAT score and more likely to filter on PSAT score. Geographic filters used to purchase student lists differed substantially across institution type. Orders by research universities most commonly used a state filter whereas ma/doctoral universities used a zip code filter. Research universities also used filters utilizing predictive analytics to make inferences about the college going behavior of prospective students living in specific geographic areas (e.g., geomarket, segment). Research universities also used demographic and student preference filters. Filters for race, low socioeconomic status, and gender were the most commonly used demographic filters, whereas college size, major, college type, and location were most commonly used student preferences. 
 
-In order to assess the effects of combining academic and geographic filters, Figure \@ref(fig:gpa-sat-psat-zip) adds a zip code filter to the GPA and SAT/PSAT order simulations presented above. We again deal with median household incomes varying widely across the U.S. by categorizing all zip codes into percentiles based on levels of median household income within CBSAs. The top panel of Figure \@ref(fig:gpa-sat-psat-zip) presents the racial composition of included students when filtering for GPAs greater than or equal to 3.0, SAT scores greater than or equal to 1050, and zip codes at various levels of affluence. In comparison to racial disparities in included versus excluded prospects driven by just zip code affluence in Figure 5, the combination of zip code with GPA and SAT filters leads much greater disparities even at lower levels of affluence. For example, Figure \@ref(fig:gpa-sat-psat-zip) shows White students make up 72% of included prospects when filtering for GPAs greater than or equal to 3.0 in combination with SAT scores greater than 1050 within the lowest income zip codes (<20th percentile), whereas Hispanic and Black students make up 9% and 7%, respectively. The proportions of Hispanic and Black included prospects resulting from the combination of filters are considerably lower than the 30% of Hispanic and 27% of Black included prospects resulting from only filtering by zip code (Figure \@ref(fig:zipcode-affluence)). Greater racial disparities result from the the combination of filters across all levels of zip code affluence in comparison to only filtering by zip code, although proportional differences are modest at higher incomes. Similar patterns are evident when combining similar zip code and GPA filters with a PSAT filter for composite scores greater than or equal to 150.
+Given the prevalence of academic filters across universities, Figure \@ref(fig:orders-psat) and Figure \@ref(fig:orders-psat) show minimum and maximum thresholds used in SAT and PSAT score filters by institution type, respectively. These figures show that research universities tended to specify higher minimum score thresholds and higher maximum score thresholds across both SAT and PSAT compared to ma/doctoral universities.
 
-Lastly, we assess the racial composition of included prospects when filtering on both GPA and AP scores in Figure \@ref(fig:gpa-ap). The top panel presents the racial composition of prospects included when filtering on GPA greater than or equal to 3.0 while simulating increases in AP scores in any subject exam. Across all AP score thresholds, White students make up a larger proportion while Black and Hispanic students make up smaller proportions of included prospects when filtering for both GPA and AP relative to filtering for these individually. For example, White students make up 49% of included prospects when filtering for GPAs greater than or equal to 3.0 in combination with an AP score of 1 in any subject exam, whereas Hispanic and Black students make up 17% and 21%, respectively. Hispanic and Black student proportions decline as AP thresholds increase. This decline is most significant for Black students, which result in less than 1% of Black students making up included prospects when filtering for GPAs greater than or equal to 3.0 in combination with an AP score of 5. Moreover, these racial disparities are greater than when filtering for similar thresholds for GPA (Figure \@ref(fig:thresholds-gpa)) and AP score (Figure \@ref(fig:thresholds-tests-ap)) individually. The bottom panel of Figure \@ref(fig:gpa-ap) suggest similar results are evident when combining a GPA filter greater than or equal to 3.0 and an AP STEM exam filter.
+Student list purchases typically filter on multiple criteria. Table \@ref(tab:orders-filters-combo) shows the top ten filter combinations used for student list purchases across institution type for our project sample. ^[While the majority of orders specified multiple filters as "AND" conditions, some orders specified particular filters as "OR" conditions (e.g., SAT score in some range or PSAT score in some range). Additionally, filter combinations are skewed by universities that made large numbers of orders relative to other universities] For ma/doctoral universities, the top 10 filter combinations account for 95% of all orders. This is a function of nearly half of all orders using a combination of high school graduation class, zip code, SAT scores, and GPA as filters and another 32% of orders using the same filters with PSAT scores instead of SAT. For research universities, the top ten filter combinations
+account for 51% of all orders. The most common filter combination, making up 10% of all orders, included high school graduation class, state, race, SAT, PSAT, GPA, and high school rank. The second most common combination only used high school graduation class, state, and PSAT score filters, which were also used for the remaining top five combinations in addition to filters like race, gpa, low-socioeconomic status, and students’ preference for nationally recognized programs. 
+
+
+## Racial Composition of Multiple Filters 
+
+__Analyses Based on HSLS09__. Our last research question focuses on assessing the racial composition of student list purchases that utilize racialized input search filters in concert with other search filters. We begin by simulating student list purchases via filtering the HSLS09 sample based on common combinations of filters used by public and ma/doctoral universities in Figure \@ref(fig:order-filters-empirical-report). For example, the top panel of Figure \@ref(fig:gpa-sat-psat) is a simulated student list resulting from combining the two most common academic filters: GPA and SAT. Drawing on utilization literature, high school GPA is a strong predictor of postsecondary student success (CITE) and is less likely to be theoretically and empirically correlated to racial disadvantage than standardized test scores. On the other hand, universities may filter on test score thresholds that are consistent with their admissions standards (e.g., more prestigious universities recruit and enroll students with higher test scores) (CITE) but hold race-based differences driven by structural inequality. We therefore explore the racial composition of prospects included in student lists when filtering on GPA greater than or equal to 3.0 while simulating increases to minimum thresholds for standardized tests. 
+
+The top panel of Figure \@ref(fig:gpa-sat-psat) presents the racial composition of prospects included when filtering on GPA greater than or equal to 3.0 across SAT thresholds at increments of 50 beginning at scores just above the HSLS09 sample median of 1010. For space considerations, we only present included prospect groups across all combinations. The figure suggests that even at the the lowest SAT score, White students make up much larger proportions of included prospects while Black and Hispanic students make up significantly smaller proportions when filtering for both GPA and SAT. For example, White students make up 72% of included prospects when filtering for GPAs greater than or equal to 3.0 in combination with SAT scores greater than 1050, whereas Hispanic and Black students make up 10% and 3%, respectively. Racial disparities only grow as SAT thresholds increase. Moreover, these racial disparities are greater than when filtering for similar thresholds for GPA (Figure \@ref(fig:thresholds-gpa)) and SAT score (Figure \@ref(fig:thresholds-tests)) individually. The bottom panel of Figure \@ref(fig:gpa-sat-psat) suggest similar results are evident when combining a GPA filter greater than or equal to 3.0 and a PSAT filter. While Hispanic and Black students make up larger proportions at lower thresholds of PSAT in comparison to SAT when combined with GPA, the racial disparity for Black students is still greater in the combination of filters than filtering for similar thresholds of PSAT score (Figure \@ref(fig:thresholds-tests)) individually. Online appendices show similar racial disparities are evident when filtering on both GPA and AP scores in (Figure \@ref(fig:gpa-ap)). 
+
+<!-- The top panel presents the racial composition of prospects included when filtering on GPA greater than or equal to 3.0 while simulating increases in AP scores in any subject exam. Across all AP score thresholds, White students make up a larger proportion while Black and Hispanic students make up smaller proportions of included prospects when filtering for both GPA and AP relative to filtering for these individually. For example, White students make up 49% of included prospects when filtering for GPAs greater than or equal to 3.0 in combination with an AP score of 1 in any subject exam, whereas Hispanic and Black students make up 17% and 21%, respectively. Hispanic and Black student proportions decline as AP thresholds increase. This decline is most significant for Black students, which result in less than 1% of Black students making up included prospects when filtering for GPAs greater than or equal to 3.0 in combination with an AP score of 5. Moreover, these racial disparities are greater than when filtering for similar thresholds for GPA (Figure \@ref(fig:thresholds-gpa)) and AP score (Figure \@ref(fig:thresholds-tests-ap)) individually. The bottom panel of Figure \@ref(fig:gpa-ap) suggest similar results are evident when combining a GPA filter greater than or equal to 3.0 and an AP STEM exam filter. -->
+
+[REVISE THIS BASED ON GEOGRAPHY DECISION] In order to assess the microtargeting effects of combining academic and geographic filters, Figure \@ref(fig:gpa-sat-psat-zip) adds a zip code filter to the GPA and SAT/PSAT order simulations presented above. We again deal with median household incomes varying widely across the U.S. by categorizing all zip codes into percentiles based on levels of median household income within CBSAs. The top panel of Figure \@ref(fig:gpa-sat-psat-zip) presents the racial composition of included students when filtering for GPAs greater than or equal to 3.0, SAT scores greater than or equal to 1050, and zip codes at various levels of affluence. In comparison to racial disparities in included versus excluded prospects driven by just zip code affluence in Figure 5, the combination of zip code with GPA and SAT filters leads much greater disparities even at lower levels of affluence. For example, Figure \@ref(fig:gpa-sat-psat-zip) shows White students make up 72% of included prospects when filtering for GPAs greater than or equal to 3.0 in combination with SAT scores greater than 1050 within the lowest income zip codes (<20th percentile), whereas Hispanic and Black students make up 9% and 7%, respectively. The proportions of Hispanic and Black included prospects resulting from the combination of filters are considerably lower than the 30% of Hispanic and 27% of Black included prospects resulting from only filtering by zip code (Figure \@ref(fig:zipcode-affluence)). Greater racial disparities result from the the combination of filters across all levels of zip code affluence in comparison to only filtering by zip code, although proportional differences are modest at higher incomes. Similar patterns are evident when combining similar zip code and GPA filters with a PSAT filter for composite scores greater than or equal to 150.
+
+__Analyses Based on Actual Student List Purchases__. By drawing on actual student lists purchased by universities in our project sample, we can explore the effects of utilizing filters beyond admissions standards and microtargeting. For example, while this study is unable to use HSLS09 to recreate predictive analytics filters that subdivide geographic areas into distinct markets based on past college enrollments, we can analyze the racial composition of student lists using filters like College Board's Segment services via our project sample. Online appendix Table \@ref(tab:orders-cluster-en) and Table \@ref(tab:orders-cluster-hs), recreated from College Board (2011b), show the characteristics of Segment neighborhood clusters and school clusters used as filters by one university in our project sample. Drawing on our conceptual framework, Table \@ref(tab:orders-cluster-en) and Table \@ref(tab:orders-cluster-hs) suggest that predictive analytics use to create clusters are likely drawing on historical and geographical correlations between racial and income demographics. For example, neighborhood cluster EN78 is 26% nonwhite and has median income of \$134,400 while neighborhood cluster EN:71 is 97% nonwhite and has median income of \$42,661. 
+
+<!-- Several universities in our project sample that used College Board's Segment filter. To build Segment, College Board integrates information about -->
+<!-- test-takers and their neighborhood and school – including historical college going behavior. These data are used used “to group the 33,000+ high schools and 44,000 neighborhoods into 29 unique high-school types and 33 unique neighborhood types” (College Board, 2011b, p. 4), resulting in high school (HS) clusters HS:51-HS:79 and educational neighborhood (EN) clusters EN:51-EN:83. When making student list purchases, a universities may purchase the profiles of prospects who are associated with particular combinations of neighborhood and high school cluster (e.g., neighborhood cluster EN:73 and high school categories HS:65 or HS:70). -->
+
+
+
+We therefore analyze the racial composition of student lists from eight orders by a public research university that utilized Segment filters and specified very similar academic criteria across orders. These eight orders targeted 2019-2023 high school graduating classes, and resulted in 131,562 prospects whose profiles were purchased. All eight Segment orders filtered on GPAs ranging from a low of B- to a high of A+. The orders specified minimum PSAT/SAT scores ranging from 1220-1240 and maximum PSAT/SAT scores of 1450. Student lists were also geographically filtered across state/CBSAs and segments. All eight orders filtered on the same Segment high school and neighborhood clusters, which are highlighted in Table \@ref(tab:orders-cluster-en) and Table \@ref(tab:orders-cluster-hs). ^[All orders filtered for the following school and neighborhood clusters combinations: 1) Neighborhood cluster 51, with any high school cluster; 2) Neighborhood cluster 53, with high school cluster 70; 3) Neighborhood cluster 58, with any high school cluster; 3) Neighborhood cluster 60, with high school clusters 65, 70, or 79; 4) Neighborhood cluster 61, with high school cluster 65; 5) Neighborhood cluster 63, with high school clusters 68 or 70; 6) Neighborhood cluster 69, with high school clusters 65 or 79; 7) Neighborhood cluster 70, with high school clusters 65, 68, 70, or 75; 8) Neighborhood cluster 73, with any high school cluster; 9) Neighborhood cluster 78, with high school cluster 66; 10) High school cluster 79, with any neighborhood cluster.]
+
+Figure \@ref(fig:uiuc-deep-dive) compares racial and income the characteristics of prospects whose profiles were purchased via Segment to the characteristics of all high school students in the top four metropolitan areas where many prospects whose profiles were purchased reside: New York (27,932 prospects, rank #1), Los Angeles (12,307 prospects, rank #2), Philadelphia (9,126 prospects, rank #3), Washington, DC (5,728 prospects, rank #4). For each metropolitan area, we show two figures: on the left column, we show the racial composition of prospects whose profiles were purchased living in the metropolitan area compared to the racial composition of all public high school students in the metropolitan area; on the right column, we show the income of prospects whose profiles were purchased living in the metropolitan area – defined as the average median household income of prospects’ home zip codes– compared to the overall median income of the metropolitan area.
+
+For New York, Figure \@ref(fig:uiuc-deep-dive) shows White and Asian students comprised 58% and 27% of prospects whose profiles were purchased via Segment, respectively, compared to making up 30% and 9% of students in public high schools in the metropolitan area. By contrast, Black and Latinx students comprised just 1% and 8% of prospects, respectively, compared to 26% and 34% of students in public high schools. Furthermore, prospects whose profiles were purchased lived in zip codes that were much more affluent – an average of
+\$153,000 – than the overall New York metropolitan area median income of \$91,000. Figure \@ref(fig:uiuc-deep-dive) shows similar racial patterns in the other three metropolitan areas.
+
+
+Figure \@ref(fig:uiuc-map) takes a spatial look at the high schools presented in Figure \@ref(fig:uiuc-deep-dive) across the four metropolitan areas. The map shows public high schools, with blue markers indicating the location of a school where at least one prospect’s profile was purchased and the size of blue markers indicating the number of prospects whose profiles were purchased. Red markers indicate the location of schools where no prospect profiles were purchased. Figure \@ref(fig:uiuc-map) corroborates descriptive findings above. Prospects whose profiles were purchased attend high schools that are largely concentrated in affluent and predominantly White zip codes bordering the central cores of each the metropolitan area, whereas schools where zero prospect profiles were purchased indicated by red markers are concentrated in the lowest income areas with larger proportions of People of Color in the center metropolitan areas. Similar patterns are evident across maps for all four metropolitan areas, which can be accessed [here](https://mpatricia01.github.io/public_requests_eda/outputs/maps/map_segment.html).
+
+We also draw on the project sample to explore how colleges may utilize student list products to increase enrollment by underrepresented populations. For instance, some universities in the study made orders targeting prospective students who are women interested in science, technology, engineering, and math (STEM) via two different filter combinations. The first combination used SAT scores, GPA (ranging from a low of B and high of A+), a state filter (in-state versus out-of-state), and prospects’ self-reported intended major. SAT score filters for these orders ranged from 1200 to 1600 for in-state prospects and 1300 to 1600 for out-of-state prospects. The second pattern also used the same GPA and state filters, but STEM interest was proxied via AP test scores. Orders for in-state prospects filtered for scores ranging from 3 to 5 on AP STEM tests whereas orders for out-of-state prospects filtered for scores ranging from 4 to 5 on AP STEM tests.
+
+
+<!-- For example, while this study is unable to use HSLS09 to recreate predictive analytics filters that subdivide geographic areas into distinct markets based on past college enrollments, we can analyze the resulting racial composition of student lists using such filters via our project sample.  [ADD IN SEGMENT ] -->
+
+We analyze the resulting student lists from Women in STEM orders – focusing on prospects from four metropolitan areas – from one public research university in order to analyze in-depth patterns in the racial and economic characteristics of prospects that result from the combination of achievement, geographic, and gender filters used to target women interested in STEM. Because nearly 85% of prospects from Women in STEM orders were out-of-state prospective students (N=10,668), we select four out-of-state metropolitan areas and compare prospective students to the characteristics of public high school women students in those metropolitan areas. ^[The four out-of-state metropolitan
+areas were selected based on where the greatest number of prospects whose profiles were purchased and based on regional variation: New York (1,663 prospects, rank #1), Atlanta (548 prospects, rank #2), Chicago (485 prospects,rank #3), and Seattle (279 prospects, rank #11).]
+
+Figure \@ref(fig:ucsd-deep-dive) compares racial and income characteristics of prospective students whose profiles were purchased to the characteristics of all female public high school students in each metropolitan area. For each metropolitan area, we show two figures. The figure on the left column provides the average median household income for the overall metropolitan area, for prospects whose profiles were purchased using AP scores, and prospects whose profiles were purchased using SAT scores. Prospect-level economic characteristics are measured by taking the average median household income of all prospects’ home zip codes. The figure on the right column provides the racial/ethnic composition of all public high school women 12th grade students in the metropolitan area, of prospects whose profiles were purchased using AP scores, and of prospects whose profiles were purchased using SAT scores.
+
+For example, Figure \@ref(fig:ucsd-deep-dive) shows the overall median household income for the Atlanta metropolitan area is \$76,000. Relative to this overall median household income, Women in STEM prospects whose profiles were purchased by the university across both types of orders are more affluent. Prospects that scored a 4 or 5 on an AP STEM exam live in Atlanta zip codes where the average median household income is \$96,000. Whereas prospects that scored a 1200 to 1600 on the SAT and indicated an interest in STEM majors live in Atlanta zip codes where the average median household income is $105,000. Women in STEM prospects are also consistently more affluent than their overall metropolitan areas across Chicago, New York, and Seattle, with prospects whose profiles were purchased through SAT filters having the highest overall incomes.
+
+Figure \@ref(fig:ucsd-deep-dive) also shows the racial/ethnic composition of prospects relative to public high school women students in their metropolitan areas. For example, public high school women students in New York are 29% White, 9% Asian, 26% Black, and 34% Latinx. However, Women in STEM prospects from New York that scored a 4 or 5 on an AP STEM exam whose profiles were purchased by the university are 38% White, 44% Asian, 3% Black, 11% Latinx, 5% multiracial. Only 2 women in STEM prospects in the New York metro whose profiles were purchased via AP scores identified as Native American. These racial disparities are most pronounced in orders using SAT scores. Of the 821 prospects from the New York metro that scored a 1200 to 1600 on the SAT and indicated an interest in STEM majors, 54% were White, 43% Asian, and 3% multiracial. Only one prospect identified as Latinx and zero prospects identified as Black or Native American. Similar patterns in racial/ethnic composition of Women in STEM prospects are also evident across Atlanta, Chicago, and Seattle.
+
+
+
 
 # Discussion
 
@@ -587,29 +642,53 @@ For example, future research should examine how college access is structured by 
 # Tables
 
 ```{r orders-filters-combo}
-orders_filters_combo %>% 
-  group_by(filter_combos) %>% 
-  summarise(
-    n = sum(n), 
-    pct = sum(n) / sum((orders_filters %>% select(univ_type, total) %>% distinct())$total)*100
-  ) %>% 
-  ungroup() %>% 
-  arrange(-pct) %>% 
-  mutate(
-    cum_n = cumsum(n),
-    cum_pct = round(cumsum(pct), digits = 1),
-    pct = round(pct, digits = 1)
-  ) %>% 
-  head(20) %>% 
+bind_cols(
+  orders_filters_combo %>% 
+    filter(univ_type == 'research') %>% 
+    select(filter_combos, n, pct) %>% 
+    head(10) %>%
+    mutate(pct = str_c(round(pct * 100), '%')),
+  orders_filters_combo %>% 
+    filter(univ_type == 'regional') %>% 
+    select(filter_combos, n, pct) %>% 
+    head(10) %>%
+    mutate(pct = str_c(round(pct * 100), '%'))
+) %>% 
   kable(
     booktabs = T, 
-    col.names = c('Filters', 'Count', 'Pct', 'Cum count', 'Cum pct'), 
-    align = c('l', 'r', 'r', 'r', 'r'),
-    linesep = '',
-    caption = "Top filter combinations used in College Board orders purchased purchased by 14 public universities"
+    col.names = rep(c('Filters', 'Count', 'Percent'), 2), 
+    align = rep(c('l', 'c', 'c'), 2),
+    caption = "Top filter combinations used in College Board orders purchased purchased by research vs. ma/doctoral"
   ) %>%
+  add_header_above(c('Research' = 3, 'MA/doctoral' = 3), bold = T) %>% 
   row_spec(0, bold = T) %>%
-  kable_styling(position = 'center', latex_options = c('hold_position', 'scale_down'), )
+  kable_styling(position = 'center', latex_options = c('hold_position', 'scale_down'))
+
+
+#OLD TABLE WITHOUT INSTITUTION TYPE
+# orders_filters_combo %>% 
+#   group_by(filter_combos) %>% 
+#   summarise(
+#     n = sum(n), 
+#     pct = sum(n) / sum((orders_filters %>% select(univ_type, total) %>% distinct())$total)*100
+#   ) %>% 
+#   ungroup() %>% 
+#   arrange(-pct) %>% 
+#   mutate(
+#     cum_n = cumsum(n),
+#     cum_pct = round(cumsum(pct), digits = 1),
+#     pct = round(pct, digits = 1)
+#   ) %>% 
+#   head(20) %>% 
+#   kable(
+#     booktabs = T, 
+#     col.names = c('Filters', 'Count', 'Pct', 'Cum count', 'Cum pct'), 
+#     align = c('l', 'r', 'r', 'r', 'r'),
+#     linesep = '',
+#     caption = "Top filter combinations used in College Board orders purchased purchased by 14 public universities"
+#   ) %>%
+#   row_spec(0, bold = T) %>%
+#   kable_styling(position = 'center', latex_options = c('hold_position', 'scale_down'), )
 ```
 
 ```{r descriptives}
@@ -627,7 +706,7 @@ df1 %>%
     col.names = c(' ', 'Unweighted', 'N', 'SE', 'Pct'), 
     align = c('l', 'r', 'r', 'r', 'r'),
     linesep = '',
-    caption = "Descriptive Statistics"
+    caption = "HSLS09 Descriptive Statistics"
   ) %>%
   row_spec(0, bold = T) %>%
   row_spec(1, bold=T, italic = T) %>%
@@ -675,11 +754,11 @@ p1_table %>%
                     full_width = FALSE), font_size = 2.5)
 ```
 
+
 \clearpage
 
 
 # Figures
-
 
 <!-- \begin{landscape}-->
 <!-- \pagebreak -->
@@ -768,18 +847,14 @@ knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
 
 ```{r order-filters-empirical-report, fig.height = 5, fig.cap = "Filters used in College Board orders purchased by 14 public universities"}
 orders_filters %>% 
-  filter(is_asu == 'all') %>% 
-  group_by(filters) %>% 
-  summarise(
-    num_total = sum(num_total), 
-    total = sum(total), 
-    pct = sum(num_total) / sum(total)
-  ) %>% 
-  ungroup() %>% 
-  add_row(filters = 'academic', num_total = 0) %>% 
-  add_row(filters = 'geographic', num_total = 0) %>% 
-  add_row(filters = 'demographic', num_total = 0) %>% 
-  add_row(filters = 'student preferences', num_total = 0) %>% 
+  add_row(univ_label = 'Research', filters = 'academic', is_asu = 'all', num = 0) %>% 
+  add_row(univ_label = 'MA/doctoral', filters = 'academic', is_asu = 'all', num = 0) %>% 
+  add_row(univ_label = 'Research', filters = 'geographic', is_asu = 'all', num = 0) %>% 
+  add_row(univ_label = 'MA/doctoral', filters = 'geographic', is_asu = 'all', num = 0) %>% 
+  add_row(univ_label = 'Research', filters = 'demographic', is_asu = 'all', num = 0) %>% 
+  add_row(univ_label = 'MA/doctoral', filters = 'demographic', is_asu = 'all', num = 0) %>% 
+  add_row(univ_label = 'Research', filters = 'student preferences', is_asu = 'all', num = 0) %>% 
+  add_row(univ_label = 'MA/doctoral', filters = 'student preferences', is_asu = 'all', num = 0) %>% 
   mutate(
     filters_label = recode_factor(
       filters,
@@ -825,19 +900,93 @@ orders_filters %>%
     )
   ) %>% 
   filter(!filters %in% c('hs_math', 'proximity_search', 'rotc', 'citizenship')) %>% 
-  ggplot(aes(x = filters_label, y = num_total)) +
-  geom_bar(stat = 'identity', fill = '#7ec7b8') +
-  geom_text(aes(label = if_else(filters %in% c('academic', 'geographic', 'demographic', 'student preferences'), str_c(str_to_sentence(filters), ' filters'), ''), y = 0), hjust = 0, vjust = 0.8, size = 2, fontface = 'bold') +
-  geom_text(aes(y = num_total, label = if_else(!filters %in% c('academic', 'geographic', 'demographic', 'student preferences'), str_c(round(pct * 100), '%'), '')), hjust = -0.1, size = 2) +
+  ggplot(aes(x = filters_label, y = num, fill = is_asu)) +
+  geom_bar(stat = 'identity') +
+  geom_text(aes(label = if_else(filters %in% c('academic', 'geographic', 'demographic', 'student preferences') & univ_label == 'Research', str_c(str_to_sentence(filters), ' filters'), ''), y = 0), hjust = 0, vjust = 0.8, size = 2, fontface = 'bold') +
+  geom_text(aes(y = num_total, label = if_else(!filters %in% c('academic', 'geographic', 'demographic', 'student preferences') & is_asu != 'asu', str_c(round(pct * 100), '%'), '')), hjust = -0.1, size = 2) +
   scale_y_continuous(expand = expansion(mult = c(0.01, 0.1))) +
+  scale_fill_manual(values = rev(color_palette[c(1, 2)]), name = 'ASU') +
   xlab('') + ylab('Number of orders') +
   guides(fill = guide_legend(reverse = T)) +
-  coord_flip()
+  facet_wrap(~ factor(univ_label, levels = c('Research', 'MA/doctoral'))) +
+  coord_flip() + 
+  theme(
+    legend.position = 'none'
+  )
+
+#OLD TABLE WITHOUT INSTITUTION TYPE
+# orders_filters %>% 
+#   filter(is_asu == 'all') %>% 
+#   group_by(filters) %>% 
+#   summarise(
+#     num_total = sum(num_total), 
+#     total = sum(total), 
+#     pct = sum(num_total) / sum(total)
+#   ) %>% 
+#   ungroup() %>% 
+#   add_row(filters = 'academic', num_total = 0) %>% 
+#   add_row(filters = 'geographic', num_total = 0) %>% 
+#   add_row(filters = 'demographic', num_total = 0) %>% 
+#   add_row(filters = 'student preferences', num_total = 0) %>% 
+#   mutate(
+#     filters_label = recode_factor(
+#       filters,
+#       'citizenship' = 'Citizenship',
+#       'rotc' = 'ROTC',
+#       'financial_aid' = 'Financial aid',
+#       'national_recognition_programs' = 'NRP',
+#       'edu_aspirations' = 'Education aspirations',
+#       'college_setting' = 'College setting',
+#       'college_studentbody' = 'College student body',
+#       'college_living_plans' = 'College living plans',
+#       'college_location' = 'College location',
+#       'college_type' = 'College type',
+#       'major' = 'Major',
+#       'college_size' = 'College size',
+#       'student preferences' = '   ',
+#       'first_gen_parent' = 'First generation',
+#       'low_ses' = 'Low SES',
+#       'gender' = 'Gender',
+#       'race' = 'Race',
+#       'demographic' = '  ',
+#       'proximity_search' = 'Proximity search',
+#       'county' = 'County',
+#       'intl' = 'International',
+#       'cbsa' = 'CBSA',
+#       'segment' = 'Segment',
+#       'geomarket' = 'Geomarket',
+#       'zip' = 'Zip code',
+#       'states_fil' = 'State',
+#       'geographic' = ' ',
+#       'hs_math' = 'HS math',
+#       'sat_reading_writing' = 'SAT reading/writing',
+#       'sat_reading' = 'SAT reading',
+#       'sat_writing' = 'SAT writing',
+#       'sat_math' = 'SAT math',
+#       'ap_score' = 'AP score',
+#       'rank' = 'Rank',
+#       'psat' = 'PSAT',
+#       'sat' = 'SAT',
+#       'gpa' = 'GPA',
+#       'academic' = '',
+#       'hsgrad_class' = 'HS grad class'
+#     )
+#   ) %>% 
+#   filter(!filters %in% c('hs_math', 'proximity_search', 'rotc', 'citizenship')) %>% 
+#   ggplot(aes(x = filters_label, y = num_total)) +
+#   geom_bar(stat = 'identity', fill = '#7ec7b8') +
+#   geom_text(aes(label = if_else(filters %in% c('academic', 'geographic', 'demographic', 'student preferences'), str_c(str_to_sentence(filters), ' filters'), ''), y = 0), hjust = 0, vjust = 0.8, size = 2, fontface = 'bold') +
+#   geom_text(aes(y = num_total, label = if_else(!filters %in% c('academic', 'geographic', 'demographic', 'student preferences'), str_c(round(pct * 100), '%'), '')), hjust = -0.1, size = 2) +
+#   scale_y_continuous(expand = expansion(mult = c(0.01, 0.1))) +
+#   xlab('') + ylab('Number of orders') +
+#   guides(fill = guide_legend(reverse = T)) +
+#   coord_flip()
 ```
 
 
-\pagebreak
+
 \begin{landscape}
+\pagebreak
 
 
 ```{r test-takers, echo = FALSE, fig.align = 'center', fig.cap = "Test Takers Across SAT, PSAT, and AP Assessments", out.width = "49%", fig.show='hold'}
@@ -853,8 +1002,8 @@ knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 
 ```{r thresholds-tests, echo = FALSE, fig.align = 'center', fig.cap = "SAT and PSAT Filters Across Thresholds", out.width = "49%", fig.show='hold'}
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
-knitr::include_graphics(c("./../../outputs/figures/p2_sat_inc.png","./../../outputs/figures/p2_psat_inc.png"))
-knitr::include_graphics(c("./../../outputs/figures/p2_sat_exc.png","./../../outputs/figures/p2_psat_exc.png"))
+knitr::include_graphics(c("./../../outputs/figures/p2_sat_incv2.png","./../../outputs/figures/p2_sat_excv2.png"))
+knitr::include_graphics(c("./../../outputs/figures/p2_psat_incv2.png","./../../outputs/figures/p2_psat_excv2.png"))
 knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 
 
@@ -864,21 +1013,36 @@ knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 
 ```{r thresholds-tests-ap, echo = FALSE, fig.align = 'center', fig.cap = "AP Filter Across Thresholds", out.width = "49%", fig.show='hold'}
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
-knitr::include_graphics(c("./../../outputs/figures/p2_ap_inc.png","./../../outputs/figures/p2_apstem_inc.png"))
-knitr::include_graphics(c("./../../outputs/figures/p2_ap_exc.png","./../../outputs/figures/p2_apstem_exc.png"))
+knitr::include_graphics(c("./../../outputs/figures/p2_ap_incv2.png","./../../outputs/figures/p2_ap_excv2.png"))
+knitr::include_graphics(c("./../../outputs/figures/p2_apstem_incv2.png","./../../outputs/figures/p2_apstem_excv2.png"))
 knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 
 
 ```
+
+
 \end{landscape}
+
+\pagebreak
+
 \restoregeometry
 
-\pagebreak
+<!-- \pagebreak -->
 
-```{r thresholds-gpa, echo = FALSE, fig.align = 'center', fig.cap = "GPA Filter Across Thresholds", out.width = "90%", fig.show='hold'}
+<!-- ```{r thresholds-gpa, echo = FALSE, fig.align = 'center', fig.cap = "GPA Filter Across Thresholds", out.width = "90%", fig.show='hold'} -->
+<!-- #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png') -->
+<!-- knitr::include_graphics(c("./../../outputs/figures/p2_gpa_inc.png")) -->
+<!-- knitr::include_graphics(c("./../../outputs/figures/p2_gpa_exc.png")) -->
+<!-- knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png")) -->
+
+
+<!-- ``` -->
+
+
+```{r zipcode-affluence, echo = FALSE, fig.align = 'center', fig.cap = "Public High School Zip Code Filter Across Affluence Percentiles", out.width = "90%", fig.show='hold'}
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
-knitr::include_graphics(c("./../../outputs/figures/p2_gpa_inc.png"))
-knitr::include_graphics(c("./../../outputs/figures/p2_gpa_exc.png"))
+knitr::include_graphics(c("./../../outputs/figures/p3_HSzip_inc.png"))
+knitr::include_graphics(c("./../../outputs/figures/p3_HSzip_exc.png"))
 knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 
 
@@ -886,48 +1050,103 @@ knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 
 \pagebreak
 
-```{r zipcode-affluence, echo = FALSE, fig.align = 'center', fig.cap = "Zip Code Filter Across Affluence Percentiles", out.width = "90%", fig.show='hold'}
-#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
-knitr::include_graphics(c("./../../outputs/figures/p3_zip_inc.png"))
-knitr::include_graphics(c("./../../outputs/figures/p3_zip_exc.png"))
-knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+```{r orders-sat, fig.height = 4, fig.cap = "SAT filter used by research vs. ma/doctoral"}
+orders_sat_total <- orders_sat %>% 
+  filter(test_range == 'sat_min') %>% 
+  group_by(univ_type) %>% 
+  summarise(
+    num_orders = sum(num)
+  ) %>% 
+  pull(num_orders, univ_type)
 
-
+orders_sat %>% 
+  mutate(
+    range_label = recode_factor(
+      test_range,
+      'sat_min' = 'Minimum',
+      'sat_max' = 'Maximum'
+    ),
+    univ_label = recode_factor(
+      univ_type,
+      'research' = str_c('Research (N=', orders_sat_total[['research']], ')'),
+      'regional' = str_c('MA/doctoral (N=', orders_sat_total[['regional']], ')')
+    )
+  ) %>% 
+  ggplot(aes(x = brks, y = pct, fill = univ_label)) +
+  geom_bar(position = position_dodge2(reverse = T, padding = 0), stat = 'identity') +
+  geom_text(aes(label = num), hjust = -0.1, size = 2, position = position_dodge2(0.9, reverse = T, padding = 0)) +
+  scale_y_continuous(expand = expansion(mult = c(0.01, 0.1)), labels = label_percent(accuracy = 1)) +
+  scale_fill_manual(values = color_palette, name = 'University type') +
+  xlab('') + ylab('% of orders in university type') +
+  facet_wrap(~ range_label) +
+  coord_flip()
 ```
 
 \pagebreak
-\begin{landscape}
 
-```{r zipcode-affluence-metros, echo = FALSE, fig.align = 'center', fig.cap = "Zip Code Filter Across Affluence Percentiles for Los Angeles and New York", out.width = "49%", fig.show='hold'}
-#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
-knitr::include_graphics(c("./../../outputs/figures/p3_zip_inc_la.png", "./../../outputs/figures/p3_zip_inc_ny.png"))
-knitr::include_graphics(c("./../../outputs/figures/p3_zip_exc_la.png", "./../../outputs/figures/p3_zip_exc_ny.png"))
-knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+```{r orders-psat, fig.height = 4, fig.cap = "PSAT filter used by research vs. ma/doctoral"}
+orders_psat_total <- orders_psat %>% 
+  filter(test_range == 'psat_min') %>% 
+  group_by(univ_type) %>% 
+  summarise(
+    num_orders = sum(num)
+  ) %>% 
+  pull(num_orders, univ_type)
 
-
+orders_psat %>% 
+  mutate(
+    range_label = recode_factor(
+      test_range,
+      'psat_min' = 'Minimum',
+      'psat_max' = 'Maximum'
+    ),
+    univ_label = recode_factor(
+      univ_type,
+      'research' = str_c('Research (N=', orders_psat_total[['research']], ')'),
+      'regional' = str_c('MA/doctoral (N=', orders_psat_total[['regional']], ')')
+    )
+  ) %>% 
+  ggplot(aes(x = brks, y = pct, fill = univ_label)) +
+  geom_bar(position = position_dodge2(reverse = T, padding = 0), stat = 'identity') +
+  geom_text(aes(label = num), hjust = -0.1, size = 2, position = position_dodge2(0.9, reverse = T, padding = 0)) +
+  scale_y_continuous(expand = expansion(mult = c(0.01, 0.1)), labels = label_percent(accuracy = 1)) +
+  scale_fill_manual(values = color_palette, name = 'University type') +
+  xlab('') + ylab('% of orders in university type') +
+  facet_wrap(~ range_label) +
+  coord_flip()
 ```
+
+
+<!-- ```{r zipcode-affluence-metros, echo = FALSE, fig.align = 'center', fig.cap = "Zip Code Filter Across Affluence Percentiles for Los Angeles and New York", out.width = "49%", fig.show='hold'} -->
+<!-- #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png') -->
+<!-- knitr::include_graphics(c("./../../outputs/figures/p3_zip_inc_la.png", "./../../outputs/figures/p3_zip_inc_ny.png")) -->
+<!-- knitr::include_graphics(c("./../../outputs/figures/p3_zip_exc_la.png", "./../../outputs/figures/p3_zip_exc_ny.png")) -->
+<!-- knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png")) -->
+
+
+<!-- ``` -->
+
+<!-- \pagebreak -->
+
+<!-- ```{r zipcode-county, echo = FALSE, fig.align = 'center', fig.cap = "Zip Code and County Filters Across Affluence Levels", out.width = "49%", fig.show='hold'} -->
+<!-- #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png') -->
+<!-- knitr::include_graphics(c("./../../outputs/figures/p4_zip_income_inc.png", "./../../outputs/figures/p4_county_income_inc.png")) -->
+<!-- knitr::include_graphics(c("./../../outputs/figures/p4_zip_income_exc.png", "./../../outputs/figures/p4_county_income_exc.png")) -->
+<!-- knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png")) -->
+
+
+<!-- ``` -->
+
+
 
 \pagebreak
 
-```{r zipcode-county, echo = FALSE, fig.align = 'center', fig.cap = "Zip Code and County Filters Across Affluence Levels", out.width = "49%", fig.show='hold'}
+
+
+```{r gpa-sat-psat, echo = FALSE, fig.align = 'center', fig.cap = "Academic Combinations: GPA (3.0+) and SAT or PSAT (across score thresholds)", out.width = "90%", fig.show='hold'}
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
-knitr::include_graphics(c("./../../outputs/figures/p4_zip_income_inc.png", "./../../outputs/figures/p4_county_income_inc.png"))
-knitr::include_graphics(c("./../../outputs/figures/p4_zip_income_exc.png", "./../../outputs/figures/p4_county_income_exc.png"))
-knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
-
-
-```
-\end{landscape}
-\restoregeometry
-
-\pagebreak
-
-
-
-```{r gpa-sat-psat, echo = FALSE, fig.align = 'center', fig.cap = "Academic and Geographic Combination: GPA (3.0+) and SAT or PSAT (across score thresholds)", out.width = "90%", fig.show='hold'}
-#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
-knitr::include_graphics(c("./../../outputs/figures/combo1_inc_sat.png"))
-knitr::include_graphics(c("./../../outputs/figures/combo1_inc_psat.png"))
+knitr::include_graphics(c("./../../outputs/figures/combo1_inc_satv2.png"))
+knitr::include_graphics(c("./../../outputs/figures/combo1_inc_psatv2.png"))
 knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 
 
@@ -944,16 +1163,6 @@ knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 
 ```
 
-\pagebreak
-
-```{r gpa-ap, echo = FALSE, fig.align = 'center', fig.cap = "Academic and Geographic Combination: GPA (3.0+) and AP (acrossscore thresholds)", out.width = "90%", fig.show='hold'}
-#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
-knitr::include_graphics(c("./../../outputs/figures/combo3_inc_ap.png"))
-knitr::include_graphics(c("./../../outputs/figures/combo3_inc_apstem.png"))
-knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
-
-
-```
 
 <!-- 
 \end{landscape}
@@ -962,6 +1171,215 @@ knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 -->
 
 \clearpage
+
+```{r uiuc-deep-dive, fig.cap = "Segment filter prospects by metro (average income and racial composition)", fig.height = 3.6}
+uiuc_income_figure <- uiuc_income %>% 
+  mutate(
+    count_type = recode_factor(
+      ord_type,
+      'prospect' = 'Prospects',
+      'metro' = 'Metro'
+    ),
+    cbsa_name = str_replace(cbsa_name, ' Metro Area', '')
+  ) %>% 
+  ggplot(aes(y = count_type, x = income_2564)) + 
+  geom_bar(stat = 'identity', fill = extra_colors[[1]]) + 
+  geom_text(mapping = aes(label = str_c('$', round(income_2564 / 1000), 'K')), size = 2, hjust = -0.1) +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.04)), limits = c(0, 250000)) +
+  scale_y_discrete(expand = expansion(mult = c(0.01, 0.1))) +
+  xlab('') + ylab('') +
+  facet_wrap(~ factor(cbsa_name, levels = c('New York-Newark-Jersey City, NY-NJ-PA', 'Los Angeles-Long Beach-Anaheim, CA', 'Philadelphia-Camden-Wilmington, PA-NJ-DE-MD', 'Washington-Arlington-Alexandria, DC-VA-MD-WV')), ncol = 1) +
+  guides(fill = guide_legend(reverse = T)) +
+  theme(
+    # plot.background = element_rect(color = 'gray'),
+    # panel.background = element_rect(color = 'red'),
+    axis.text.x = element_blank(),
+    axis.text.y = element_text(color = '#444444', size = 6, face = 'bold', hjust = 1),
+    strip.text.x = element_text(size = 7, face = 'bold', hjust = 0, margin = margin(2, 0, 2, 0, 'mm'))
+  )
+
+uiuc_race_figure_data <- uiuc_race %>% 
+  mutate(
+    race = recode_factor(
+      race,
+      'unknown' = 'Missing',
+      'noresponse' = 'No response',
+      'other' = 'Other',
+      'tworaces' = 'Multiracial',
+      'nativehawaii' = 'NH/PI',
+      'amerindian' = 'AI/AN',
+      'hispanic' = 'Latinx',
+      'black' = 'Black',
+      'asian' = 'Asian',
+      'white' = 'White'
+    ),
+    count_type = recode_factor(
+      ord_type,
+      'prospect' = 'Prospects',
+      'metro' = 'Metro'
+    ),
+    cbsa_name = str_replace(cbsa_name, ' Metro Area', '')
+  ) 
+
+uiuc_race_figure_totals <- uiuc_race_full %>% 
+  mutate(
+    count_type = recode_factor(
+        ord_type,
+        'prospect' = 'Prospects',
+        'metro' = 'Metro'
+    )
+  ) %>% 
+  group_by(cbsa_name, count_type) %>% 
+  summarise(
+    count = sum(count)
+  ) %>% 
+  ungroup()
+  
+uiuc_race_figure <- uiuc_race_figure_data %>% 
+  filter(!race %in% c('Missing', 'No response')) %>% 
+  ggplot(aes(y = count_type, x = pct, fill = race)) + 
+  geom_bar(position = 'stack', stat = 'identity') + 
+  geom_text(mapping = aes(label = if_else(pct > 0.02, as.character(round(pct * 100)), '')), size = 2, position = position_stack(vjust = 0.5), color = color_text) +
+  geom_text(data = uiuc_race_figure_totals, mapping = aes(x = 1, fill = NULL, label = if_else(count_type != 'Metro', str_c('N=', prettyNum(count, big.mark = ',')), '')), size = 2, hjust = -0.15) +
+  # scale_fill_brewer(palette = 'BrBG', direction = -1, name = 'Race') +
+  scale_fill_manual(values = rev(color_palette[1:7]), name = 'Race') +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.04)), limits = c(0, 1.14)) +
+  scale_y_discrete(expand = expansion(mult = c(0.01, 0.1))) +
+  xlab('') + ylab('') +
+  facet_wrap(~ factor(cbsa_name, levels = c('New York-Newark-Jersey City, NY-NJ-PA', 'Los Angeles-Long Beach-Anaheim, CA', 'Philadelphia-Camden-Wilmington, PA-NJ-DE-MD', 'Washington-Arlington-Alexandria, DC-VA-MD-WV')), ncol = 1) +
+  guides(fill = guide_legend(reverse = T)) +
+  theme(
+    # plot.background = element_rect(color = 'gray'),
+    # panel.background = element_rect(color = 'red'),
+    axis.text.x = element_blank(),
+    axis.text.y = element_blank(),
+    strip.text.x = element_text(color = NA, size = 7, face = 'bold', hjust = 0, margin = margin(2, 0, 2, 0, 'mm')),
+    plot.margin = unit(c(5.5, 0, 5.5, -45), 'pt')
+  )
+
+grid.arrange(
+  uiuc_income_figure,
+  uiuc_race_figure,
+  ncol = 2
+)
+```
+
+
+
+\pagebreak
+
+\begin{landscape}
+
+```{r uiuc-map, echo = FALSE, fig.align = 'center', fig.cap = "Segment filter prospects by metro maps (average income and racial composition)", out.width = "100%", fig.show='hold'}
+#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
+knitr::include_graphics(c("./../../outputs/images/uiuc-map.png"))
+
+
+
+```
+
+\end{landscape}
+
+\clearpage
+
+```{r ucsd-deep-dive, fig.cap = "Women in STEM Prospects by Metro (Average Income and Racial Composition)"}
+ucsd_income_figure <- ucsd_income %>% 
+  mutate(
+    count_type = recode_factor(
+      ord_type,
+      'sat' = 'SAT',
+      'ap' = 'AP',
+      'metro' = 'Metro'
+    ),
+    cbsa_name = str_replace(str_replace(cbsa_name, 'Roswell', 'Alpharetta'), ' Metro Area', '')
+  ) %>% 
+  ggplot(aes(y = count_type, x = income_2564)) + 
+  geom_bar(stat = 'identity', fill = extra_colors[[1]]) + 
+  geom_text(mapping = aes(label = str_c('$', round(income_2564 / 1000), 'K')), size = 2, hjust = -0.1) +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.04)), limits = c(0, 163000)) +
+  scale_y_discrete(expand = expansion(mult = c(0.01, 0.1))) +
+  xlab('') + ylab('') +
+  facet_wrap(~ cbsa_name, ncol = 1) +
+  guides(fill = guide_legend(reverse = T)) +
+  theme(
+    # plot.background = element_rect(color = 'gray'),
+    # panel.background = element_rect(color = 'red'),
+    axis.text.x = element_blank(),
+    axis.text.y = element_text(color = '#444444', size = 6, face = 'bold', hjust = 1),
+    strip.text.x = element_text(size = 7, face = 'bold', hjust = 0, margin = margin(2, 0, 2, 0, 'mm'))
+  )
+
+ucsd_race_figure_data <- ucsd_race %>% 
+  mutate(
+    race = recode_factor(
+      race,
+      'missing' = 'Missing',
+      'noresponse' = 'No response',
+      'other' = 'Other',
+      'tworaces' = 'Multiracial',
+      'nativehawaii' = 'NH/PI',
+      'amerindian' = 'AI/AN',
+      'hispanic' = 'Latinx',
+      'black' = 'Black',
+      'asian' = 'Asian',
+      'white' = 'White'
+    ),
+    count_type = recode_factor(
+      ord_type,
+      'sat' = 'SAT',
+      'ap' = 'AP',
+      'metro' = 'Metro'
+    ),
+    cbsa_name = str_replace(cbsa_name, ' Metro Area', '')
+  )
+
+ucsd_race_figure_totals <- ucsd_race_full %>% 
+  mutate(
+    count_type = recode_factor(
+      ord_type,
+      'sat' = 'SAT',
+      'ap' = 'AP',
+      'metro' = 'Metro'
+    )
+  ) %>% 
+  group_by(cbsa_name, count_type) %>% 
+  summarise(
+    count = sum(count)
+  ) %>% 
+  ungroup()
+  
+ucsd_race_figure <- ucsd_race_figure_data %>% 
+  filter(!race %in% c('Missing', 'No response')) %>% 
+  ggplot(aes(y = count_type, x = pct, fill = race)) + 
+  geom_bar(position = 'stack', stat = 'identity') + 
+  geom_text(mapping = aes(label = if_else(pct > 0.02, as.character(round(pct * 100)), '')), size = 2, position = position_stack(vjust = 0.5), color = color_text) +
+  geom_text(data = ucsd_race_figure_totals, mapping = aes(x = 1, fill = NULL, label = if_else(count_type != 'Metro', str_c('N=', count), '')), size = 2, hjust = -0.2) +
+  # scale_fill_brewer(palette = 'BrBG', direction = -1, name = 'Race') +
+  scale_fill_manual(values = rev(color_palette[1:7]), name = 'Race') +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.04)), limits = c(0, 1.14)) +
+  scale_y_discrete(expand = expansion(mult = c(0.01, 0.1))) +
+  xlab('') + ylab('') +
+  facet_wrap(~ cbsa_name, ncol = 1) +
+  guides(fill = guide_legend(reverse = T)) +
+  theme(
+    # plot.background = element_rect(color = 'gray'),
+    # panel.background = element_rect(color = 'red'),
+    axis.text.x = element_blank(),
+    axis.text.y = element_blank(),
+    strip.text.x = element_text(color = 'white', size = 7, face = 'bold', hjust = 0, margin = margin(2, 0, 2, 0, 'mm')),
+    plot.margin = unit(c(5.5, 0, 5.5, 2), 'pt')
+  )
+
+grid.arrange(
+  ucsd_income_figure,
+  ucsd_race_figure,
+  ncol = 2,
+  widths = c(2, 3)
+)
+```
+
+
+
 \newpage
 
 # Online Appendix
@@ -973,6 +1391,17 @@ knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 \pagestyle{fancy}
 \setlength{\headheight}{15pt}
 
+
+```{r gpa-ap, echo = FALSE, fig.align = 'center', fig.cap = "Academic and Geographic Combination: GPA (3.0+) and AP (across score thresholds)", out.width = "80%", fig.show='hold'}
+#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
+knitr::include_graphics(c("./../../outputs/figures/combo3_inc_apv2.png"))
+knitr::include_graphics(c("./../../outputs/figures/combo3_inc_apstemv2.png"))
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+
+
+```
+
+\pagebreak
 
 
 ```{r p2table}
@@ -1183,3 +1612,73 @@ c3_table %>%
 ```
 
 
+\clearpage
+
+
+```{r orders-cluster-en}
+en_df <- data.frame(
+  cluster = c(51:83, 'Total'),
+  sat_math = c(546, 480, 561, 458, 566, 420, 541, 533, 561, 589, 585, 596, 548, 466, 440, 499, 519, 552, 534, 613, 405, 399, 528, 433, 459, 514, 502, 594, 550, 534, 491, 496, 500, 512),
+  sat_cr = c(533, 470, 544, 443, 565, 411, 519, 489, 562, 590, 567, 595, 541, 466, 433, 492, 501, 558, 521, 598, 408, 397, 514, 435, 457, 509, 492, 578, 551, 527, 483, 491, 490, 502),
+  pct_outofstate = c(0.32, 0.3, 0.32, 0.25, 0.52, 0.29, 0.52, 0.28, 0.52, 0.63, 0.51, 0.67, 0.39, 0.48, 0.23, 0.2, 0.27, 0.52, 0.37, 0.65, 0.39, 0.31, 0.29, 0.29, 0.28, 0.27, 0.26, 0.56, 0.57, 0.39, 0.27, 0.29, 0.19, 0.32),
+  pct_nonwhite = c(0.3, 0.58, 0.5, 0.83, 0.24, 0.93, 0.47, 0.87, 0.24, 0.37, 0.3, 0.24, 0.23, 0.34, 0.93, 0.12, 0.53, 0.35, 0.19, 0.29, 0.97, 0.87, 0.42, 0.84, 0.85, 0.38, 0.18, 0.26, 0.32, 0.39, 0.57, 0.21, 0.26, 0.43),
+  pct_aid = c(0.57, 0.71, 0.55, 0.76, 0.63, 0.66, 0.43, 0.69, 0.74, 0.36, 0.4, 0.72, 0.65, 0.29, 0.78, 0.76, 0.59, 0.65, 0.65, 0.61, 0.68, 0.47, 0.62, 0.79, 0.72, 0.64, 0.75, 0.39, 0.74, 0.65, 0.72, 0.75, 0.71, 0.65),
+  med_income = c(95432, 63578, 92581, 38977, 71576, 35308, 67394, 68213, 54750, 104174, 123858, 59824, 69347, 49829, 45081, 50453, 60960, 57902, 88100, 86381, 42661, 32708, 90849, 44065, 50421, 61332, 62372, 134400, 40909, 49877, 63030, 53465, 49335, 70231)
+)
+
+en_df %>% 
+  mutate(
+    pct_outofstate = percent(pct_outofstate, accuracy = 1),
+    pct_nonwhite = percent(pct_nonwhite, accuracy = 1),
+    pct_aid = percent(pct_aid, accuracy = 1),
+    med_income = dollar(med_income)
+  ) %>% 
+  kable(
+    booktabs = T,
+    linesep = linesep(nrow(en_df) - 1, 1),
+    col.names = c('2011 D+ Cluster', 'SAT Math', 'SAT CR', 'Going Out of State', 'Percent NonWhite', 'Need Financial Aid', 'Med Income'),
+    align = c('l', rep('c', 6)),
+    caption = "Filter by neighborhood segments",
+  ) %>% 
+  row_spec(c(0, nrow(en_df)), bold = T) %>%
+  row_spec(c(1, 3, 8, 10, 11, 13, 19, 20, 23, 28), background = color_palette[[3]]) %>% 
+  column_spec (1:7, border_left = F, border_right = F) %>% 
+  kable_styling(latex_options = 'scale_down')
+```
+
+
+\clearpage
+
+```{r orders-cluster-hs}
+hs_df <- data.frame(
+  cluster = c(51:79, 'Total'),
+  sat_math = c(462, 489, 471, 376, 489, 536, 434, 592, 499, 523, 485, 474, 440, 606, 515, 498, 526, 541, 390, 595, 400, 528, 451, 654, 514, 600, 595, 473, 594, 514),
+  sat_cr = c(457, 496, 484, 371, 481, 508, 435, 577, 489, 549, 370, 473, 427, 542, 503, 515, 546, 540, 395, 581, 412, 544, 438, 579, 502, 584, 508, 468, 585, 502),
+  pct_outofstate = c(0.14, 0.81, 0.28, 0.33, 0.39, 0.73, 0.29, 0.51, 0.19, 0.23, 0.33, 0.34, 0.28, 0.37, 0.28, 0.37, 0.48, 0.41, 0.36, 0.56, 0.57, 0.35, 0.24, 0.76, 0.31, 0.72, 0.64, 0.48, 0.61, 0.32),
+  pct_nonwhite = c(0.33, 0.99, 0.38, 0.96, 0.46, 0.43, 0.82, 0.27, 0.18, 0.3, 0.89, 0.92, 0.86, 0.89, 0.43, 0.37, 0.41, 0.26, 0.92, 0.33, 0.98, 0.25, 0.89, 0.8, 0.2, 0.5, 0.75, 0.43, 0.26, 0.44),
+  pct_aid = c(0.68, 0.77, 0.62, 0.38, 0.44, 0.49, 0.79, 0.32, 0.74, 0.33, 0.09, 0.67, 0.72, 0.57, 0.65, 0.73, 0.69, 0.62, 0.74, 0.48, 0.8, 0.64, 0.76, 0.46, 0.71, 0.28, 0.39, 0.22, 0.71, 0.65),
+  med_income = c(40918, 64730, 60833, 38146, 71845, 63967, 48301, 104509, 47685, 70175, 61385, 55515, 49238, 81911, 72692, 60272, 71279, 79260, 43391, 105721, 43137, 70018, 48406, 59089, 72850, 90265, 39490, 56703, 65180, 70223)
+)
+
+hs_df %>% 
+  mutate(
+    pct_outofstate = percent(pct_outofstate, accuracy = 1),
+    pct_nonwhite = percent(pct_nonwhite, accuracy = 1),
+    pct_aid = percent(pct_aid, accuracy = 1),
+    med_income = dollar(med_income)
+  ) %>% 
+  kable(
+    booktabs = T,
+    linesep = linesep(nrow(hs_df) - 1, 1),
+    col.names = c('2011 D+ Cluster', 'SAT Math', 'SAT CR', 'Going Out of State', 'Percent NonWhite', 'Need Financial Aid', 'Med Income'),
+    align = c('l', rep('c', 6)),
+    caption="Filter by high school segments"
+  ) %>% 
+  row_spec(c(0, nrow(hs_df)), bold = T) %>%
+  row_spec(c(8, 13:16, 18:20, 23, 25, 29), background = color_palette[[3]]) %>% 
+  column_spec (1:7, border_left = F, border_right = F) %>% 
+  kable_styling(latex_options = 'scale_down')
+```
+
+
+\clearpage
