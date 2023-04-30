@@ -1110,7 +1110,7 @@ orders_psat %>%
 
 
 
-```{r gpa-sat-psat, echo = FALSE, fig.align = 'center', fig.cap = "Academic Combinations: GPA (3.0+) and SAT or PSAT (across score thresholds)", out.width = "49%", fig.show='hold'}
+```{r gpa-sat-psat, echo = FALSE, fig.align = 'center', fig.cap = "Academic Combinations: GPA (3.0+) and College Entrance or Pre-Entrance Exams (across score thresholds)", out.width = "49%", fig.show='hold'}
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
 knitr::include_graphics(c("./../../outputs/figures/combo1_inc_satv2.png"))
 knitr::include_graphics(c("./../../outputs/figures/combo1_inc_psatv2.png"))
@@ -1120,7 +1120,7 @@ knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 ```
 \pagebreak
 
-```{r gpa-sat-psat-zip, echo = FALSE, fig.align = 'center', fig.cap = "Academic and Geographic Combination: GPA (3.0+), PSAT (150+) or SAT (1050+), and Zip (across income thresholds)", out.width = "49%", fig.show='hold'}
+```{r gpa-sat-psat-zip, echo = FALSE, fig.align = 'center', fig.cap = "Academic and Geographic Combination: GPA (3.0+), College Pre-Entrance (150+) or Entrance (1050+) Exams, and Zip (across income thresholds)", out.width = "49%", fig.show='hold'}
 
 knitr::include_graphics(c("./../../outputs/figures/combo2_inc_satV2.png"))
 knitr::include_graphics(c("./../../outputs/figures/combo2_inc_psatV2.png"))
@@ -1511,11 +1511,11 @@ c1_table %>%
     col.names = c(' ', 'White', 'Asian', 'Hisp', "Black", "Multi", "NH/PI", "AI/AN"), 
     align = c('l', 'r', 'r', 'r', 'r','r', 'r','r'),
     linesep = '',
-    caption = "GPA and PSAT/SAT Score Threshold Proportion Differences in Included vs. Excluded across Race/Ethnicity",
+    caption = "GPA and College Entrance or Pre-Entrance Exam Score Threshold Proportion Differences in Included vs. Excluded across Race/Ethnicity",
   ) %>%
   row_spec(0, bold = T, font_size=6) %>%
-  pack_rows("SAT", 1, 3) %>%
-  pack_rows("PSAT", 4, 9) %>%
+  pack_rows("College Entrance Exam", 1, 3) %>%
+  pack_rows("College Pre-Entrance Exam", 4, 9) %>%
 
 
   #row_spec(1, bold=T, italic = T, font_size=2) %>%
@@ -1545,11 +1545,11 @@ c2_table %>%
     col.names = c(' ', 'White', 'Asian', 'Hisp', "Black", "Multi", "NH/PI", "AI/AN"), 
     align = c('l', 'r', 'r', 'r', 'r','r', 'r','r'),
     linesep = '',
-    caption = "GPA, PSAT/SAT, and Zip Code Proportion Differences in Included vs. Excluded across Race/Ethnicity",
+    caption = "GPA, College Entrance/Pre-Entrance Exam, and Zip Code Proportion Differences in Included vs. Excluded across Race/Ethnicity",
   ) %>%
   row_spec(0, bold = T, font_size=6) %>%
-  pack_rows("SAT (1050+)", 1, 6) %>%
-  pack_rows("PSAT (150+)", 7, 12) %>%
+  pack_rows("College Entrance Exam (1050+)", 1, 6) %>%
+  pack_rows("College Pre-Entrance Exam (150+)", 7, 12) %>%
 
 
   #row_spec(1, bold=T, italic = T, font_size=2) %>%
