@@ -820,7 +820,60 @@ knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
 #![The enrollment funnel](assets/images/enrollment_funnel.png)
 ```
 
+
+\begin{landscape}
 \pagebreak
+
+
+```{r test-takers, echo = FALSE, fig.align = 'center', fig.cap = "Test Takers Across College Extrance, College Pre-Entrance, and AP Assessments", out.width = "49%", fig.show='hold'}
+#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
+knitr::include_graphics(c("./../../outputs/figures/p1_sat.png","./../../outputs/figures/p1_ap.png"))
+knitr::include_graphics(c("./../../outputs/figures/p1_psat.png","./../../outputs/figures/p1_apstem.png"))
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+
+
+```
+
+\pagebreak
+
+```{r thresholds-tests, echo = FALSE, fig.align = 'center', fig.cap = "SAT and PSAT Filters Across Thresholds", out.width = "49%", fig.show='hold'}
+#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
+knitr::include_graphics(c("./../../outputs/figures/p2_sat_incv2.png","./../../outputs/figures/p2_sat_excv2.png"))
+knitr::include_graphics(c("./../../outputs/figures/p2_psat_incv2.png","./../../outputs/figures/p2_psat_excv2.png"))
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+
+
+```
+
+\pagebreak
+
+```{r thresholds-tests-ap, echo = FALSE, fig.align = 'center', fig.cap = "AP Filter Across Thresholds", out.width = "49%", fig.show='hold'}
+#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
+knitr::include_graphics(c("./../../outputs/figures/p2_ap_incv2.png","./../../outputs/figures/p2_ap_excv2.png"))
+knitr::include_graphics(c("./../../outputs/figures/p2_apstem_incv2.png","./../../outputs/figures/p2_apstem_excv2.png"))
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+
+
+```
+
+\pagebreak
+
+
+
+```{r zipcode-affluence, echo = FALSE, fig.align = 'center', fig.cap = "Zip Code Filter Across Affluence Percentiles", out.width = "49%", fig.show='hold'}
+#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
+knitr::include_graphics(c("./../../outputs/figures/p3_zip_incV2.png"))
+knitr::include_graphics(c("./../../outputs/figures/p3_zip_excV2.png"))
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+
+
+```
+
+
+\end{landscape}
+\pagebreak
+\restoregeometry
+
 
 ```{r order-filters-empirical-report, fig.height = 5, fig.cap = "Filters used in College Board Orders Purchased by 14 Public Universities"}
 orders_filters %>% 
@@ -962,58 +1015,7 @@ orders_filters %>%
 
 
 
-\begin{landscape}
-\pagebreak
 
-
-```{r test-takers, echo = FALSE, fig.align = 'center', fig.cap = "Test Takers Across SAT, PSAT, and AP Assessments", out.width = "49%", fig.show='hold'}
-#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
-knitr::include_graphics(c("./../../outputs/figures/p1_sat.png","./../../outputs/figures/p1_ap.png"))
-knitr::include_graphics(c("./../../outputs/figures/p1_psat.png","./../../outputs/figures/p1_apstem.png"))
-knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
-
-
-```
-
-\pagebreak
-
-```{r thresholds-tests, echo = FALSE, fig.align = 'center', fig.cap = "SAT and PSAT Filters Across Thresholds", out.width = "49%", fig.show='hold'}
-#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
-knitr::include_graphics(c("./../../outputs/figures/p2_sat_incv2.png","./../../outputs/figures/p2_sat_excv2.png"))
-knitr::include_graphics(c("./../../outputs/figures/p2_psat_incv2.png","./../../outputs/figures/p2_psat_excv2.png"))
-knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
-
-
-```
-
-\pagebreak
-
-```{r thresholds-tests-ap, echo = FALSE, fig.align = 'center', fig.cap = "AP Filter Across Thresholds", out.width = "49%", fig.show='hold'}
-#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
-knitr::include_graphics(c("./../../outputs/figures/p2_ap_incv2.png","./../../outputs/figures/p2_ap_excv2.png"))
-knitr::include_graphics(c("./../../outputs/figures/p2_apstem_incv2.png","./../../outputs/figures/p2_apstem_excv2.png"))
-knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
-
-
-```
-
-\pagebreak
-
-
-
-```{r zipcode-affluence, echo = FALSE, fig.align = 'center', fig.cap = "Zip Code Filter Across Affluence Percentiles", out.width = "49%", fig.show='hold'}
-#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
-knitr::include_graphics(c("./../../outputs/figures/p3_zip_incV2.png"))
-knitr::include_graphics(c("./../../outputs/figures/p3_zip_excV2.png"))
-knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
-
-
-```
-
-
-\end{landscape}
-\pagebreak
-\restoregeometry
 
 ```{r orders-sat, fig.height = 3, fig.cap = "SAT Filter Used by Research vs. MA/Doctoral Public Universities"}
 orders_sat_total <- orders_sat %>% 
@@ -1385,7 +1387,7 @@ p1_table %>%
     col.names = c(' ', 'Included', 'Excluded', 'Difference', "Lower CI", "Upper CI"), 
     align = c('l', 'r', 'r', 'r', 'r','r'),
     linesep = '',
-    caption = "Test Taker Differences in Proportion",
+    caption = "Assessment Completer Differences in Proportion",
   ) %>%
   row_spec(0, bold = T, font_size=2) %>%
   pack_rows("College Entrance Exam", 1, 7) %>%
