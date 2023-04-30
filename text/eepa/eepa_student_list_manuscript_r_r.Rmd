@@ -1388,8 +1388,8 @@ p1_table %>%
     caption = "Test Taker Differences in Proportion",
   ) %>%
   row_spec(0, bold = T, font_size=2) %>%
-  pack_rows("SAT", 1, 7) %>%
-  pack_rows("PSAT", 8, 14) %>%
+  pack_rows("College Entrance Exam", 1, 7) %>%
+  pack_rows("College Pre-Entrance Exam", 8, 14) %>%
   pack_rows("AP", 15, 21) %>%
   pack_rows("AP STEM", 22, 28) %>%
 
