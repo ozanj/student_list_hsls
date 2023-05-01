@@ -707,15 +707,16 @@ bind_cols(
 #   kable_styling(position = 'center', latex_options = c('hold_position', 'scale_down'), )
 ```
 
-\begingroup\fontsize{8}{12}\selectfont -->
- _Notes: Top filter combinations are based on 830 College Board student list purchases made by research (N=8) and ma/doctoral (N=6) universities from 2016-2020. Geodemographic and Segment filters are proprietary filters created by College Board that use geodemography to predict the college-going behaviors of students within specific geographic areas._
+\begingroup\fontsize{8}{12}\selectfont 
+
+_Notes: Top filter combinations are based on 830 College Board student list purchases made by research (N=8) and ma/doctoral (N=6) universities from 2016-2020. Geodemographic and Segment filters are proprietary filters created by College Board that use geodemography to predict the college-going behaviors of students within specific geographic areas._
 
 
 
 
 ```{r descriptives}
 df1 <- data.frame(
-  category = c("Race/Ethnicity", "White", "Asian", "Hisp", "Black", "Multi", "NH/PI", "AI/AN", "", "Academic Filters",  "SAT Test-Taker", "SAT Non-Test-Taker", "PSAT Test-Taker", "PSAT Non-Test-Taker", "AP test-taker (any)", "AP non-test-taker (any)", "AP test-taker (STEM)", "AP non-test-taker (STEM)", "Academic GPA", "Missing Academic GPA"),
+  category = c("Race/Ethnicity", "White", "Asian", "Hisp", "Black", "Multi", "NH/PI", "AI/AN", "", "Academic Filters",  "College Entrance Exam Completer", "College Entrance Exam Non-Completer", "College Pre-Entrance Exam Completer", "College Pre-Entrance Exam Non-Completer", "AP test-taker (any)", "AP non-test-taker (any)", "AP test-taker (STEM)", "AP non-test-taker (STEM)", "Academic GPA", "Missing Academic GPA"),
   unweight = c("", "9,390", "1,370", "2,520", "1,660", "1,410", "70", "110", "", "" , "7,910", "8,610", "4,780",  "11,760", "2,990", "13,530", "1,800" , "14,720" ,  "16,480",  "40"),
   n = c("", "2,163,043", "150,222", "920,384", "574,370", "332,043", "18,784", "28,519",  "", "", "1,860,677", "2,326,689", "3,086,739",  "1,100,627", "694,359" , "3,493,007", "383,669" , "3,803,697", "4,177,402" , "9,964"),
   se = c("", "45,293", "15,373", "41,451", "36,346", "12,921", "5,241", "6,288",  "", "", "54,277", "54,249", "51,247",  "51,417", "33,918", "34,022", "23,721", "23,893", "6,863", "6,562"),
