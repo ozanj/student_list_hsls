@@ -661,6 +661,33 @@ For example, future research should examine how college access is structured by 
 
 # Tables
 
+
+
+```{r descriptives}
+df1 <- data.frame(
+  category = c("Race/Ethnicity", "White", "Asian", "Hisp", "Black", "Multi", "NH/PI", "AI/AN", "", "Academic Filters",  "College Entrance Exam Completer", "College Entrance Exam Non-Completer", "College Pre-Entrance Exam Completer", "College Pre-Entrance Exam Non-Completer", "AP test-taker (any)", "AP non-test-taker (any)", "AP test-taker (STEM)", "AP non-test-taker (STEM)", "Academic GPA", "Missing Academic GPA"),
+  unweight = c("", "9,390", "1,370", "2,520", "1,660", "1,410", "70", "110", "", "" , "7,910", "8,610", "4,780",  "11,760", "2,990", "13,530", "1,800" , "14,720" ,  "16,480",  "40"),
+  n = c("", "2,163,043", "150,222", "920,384", "574,370", "332,043", "18,784", "28,519",  "", "", "1,860,677", "2,326,689", "3,086,739",  "1,100,627", "694,359" , "3,493,007", "383,669" , "3,803,697", "4,177,402" , "9,964"),
+  se = c("", "45,293", "15,373", "41,451", "36,346", "12,921", "5,241", "6,288",  "", "", "54,277", "54,249", "51,247",  "51,417", "33,918", "34,022", "23,721", "23,893", "6,863", "6,562"),
+  pct = c("", "51.7", "3.6", "22.0", "13.7", "7.9", "0.4", "0.7",  "", "" ,"55.6", "44.4", "73.7", "26.3", "16.6", "83.4", "9.2", "90.8", "99.8", "0.2")
+)
+
+df1 %>%
+  kable(
+    booktabs = T, 
+    col.names = c(' ', 'Unweighted', 'N', 'SE', 'Pct'), 
+    align = c('l', 'r', 'r', 'r', 'r'),
+    linesep = '',
+    caption = "HSLS09 Descriptive Statistics"
+  ) %>%
+  row_spec(0, bold = T) %>%
+  row_spec(1, bold=T, italic = T) %>%
+  row_spec(10,bold=T, italic = T) %>%
+  kable_styling(position = 'center', latex_options = c('hold_position', 'scale_down'), font_size = 7) %>%
+   add_footnote("Unweighted sample sizes rounded to nearest 10 per NCES restricted data license regulations", notation="symbol")
+```
+
+
 ```{r orders-filters-combo}
 bind_cols(
   orders_filters_combo %>% 
@@ -716,31 +743,6 @@ bind_cols(
 _Notes: Top filter combinations are based on 830 College Board student list purchases made by research (N=8) and ma/doctoral (N=6) universities from 2016-2020. Geodemographic and Segment filters are proprietary filters created by College Board that use geodemography to predict the college-going behaviors of students within specific geographic areas._
 
 
-
-
-```{r descriptives}
-df1 <- data.frame(
-  category = c("Race/Ethnicity", "White", "Asian", "Hisp", "Black", "Multi", "NH/PI", "AI/AN", "", "Academic Filters",  "College Entrance Exam Completer", "College Entrance Exam Non-Completer", "College Pre-Entrance Exam Completer", "College Pre-Entrance Exam Non-Completer", "AP test-taker (any)", "AP non-test-taker (any)", "AP test-taker (STEM)", "AP non-test-taker (STEM)", "Academic GPA", "Missing Academic GPA"),
-  unweight = c("", "9,390", "1,370", "2,520", "1,660", "1,410", "70", "110", "", "" , "7,910", "8,610", "4,780",  "11,760", "2,990", "13,530", "1,800" , "14,720" ,  "16,480",  "40"),
-  n = c("", "2,163,043", "150,222", "920,384", "574,370", "332,043", "18,784", "28,519",  "", "", "1,860,677", "2,326,689", "3,086,739",  "1,100,627", "694,359" , "3,493,007", "383,669" , "3,803,697", "4,177,402" , "9,964"),
-  se = c("", "45,293", "15,373", "41,451", "36,346", "12,921", "5,241", "6,288",  "", "", "54,277", "54,249", "51,247",  "51,417", "33,918", "34,022", "23,721", "23,893", "6,863", "6,562"),
-  pct = c("", "51.7", "3.6", "22.0", "13.7", "7.9", "0.4", "0.7",  "", "" ,"55.6", "44.4", "73.7", "26.3", "16.6", "83.4", "9.2", "90.8", "99.8", "0.2")
-)
-
-df1 %>%
-  kable(
-    booktabs = T, 
-    col.names = c(' ', 'Unweighted', 'N', 'SE', 'Pct'), 
-    align = c('l', 'r', 'r', 'r', 'r'),
-    linesep = '',
-    caption = "HSLS09 Descriptive Statistics"
-  ) %>%
-  row_spec(0, bold = T) %>%
-  row_spec(1, bold=T, italic = T) %>%
-  row_spec(10,bold=T, italic = T) %>%
-  kable_styling(position = 'center', latex_options = c('hold_position', 'scale_down'), font_size = 7) %>%
-   add_footnote("Unweighted sample sizes rounded to nearest 10 per NCES restricted data license regulations", notation="symbol")
-```
 
 
 \clearpage
@@ -1115,34 +1117,39 @@ orders_psat %>%
 
 <!-- ``` -->
 
-
-
-\begin{landscape}
 \pagebreak
 
+\begin{landscape}
 
 
-```{r gpa-sat-psat, echo = FALSE, fig.align = 'center', fig.cap = "Academic Combinations: GPA (3.0+) and College Entrance or Pre-Entrance Exams (across score thresholds)", out.width = "49%", fig.show='hold'}
+
+```{r gpa-sat-psat, echo = FALSE, fig.align = 'center', fig.cap = "Academic Combinations: GPA (3.0+) and College Entrance or Pre-Entrance Exams (across score thresholds)", out.width = "35%", fig.show='hold', out.width = "3in"}
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
 knitr::include_graphics(c("./../../outputs/figures/combo1_inc_satv2.png"))
 knitr::include_graphics(c("./../../outputs/figures/combo1_inc_psatv2.png"))
-knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 
 
 ```
-\pagebreak
 
-```{r gpa-sat-psat-zip, echo = FALSE, fig.align = 'center', fig.cap = "Academic and Geographic Combination: GPA (3.0+), College Pre-Entrance (150+) or Entrance (1050+) Exams, and Zip (across income thresholds)", out.width = "49%", fig.show='hold'}
+```{r , echo = FALSE, fig.align = 'center', out.width = "32%", fig.show='hold'}
+
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png")) 
+
+```
+
+```{r gpa-sat-psat-zip, echo = FALSE, fig.align = 'center', fig.cap = "Academic and Geographic Combination: GPA (3.0+), College Pre-Entrance (150+) or Entrance (1050+) Exams, and Zip (across income thresholds)", out.width = "35%", fig.show='hold'}
 
 knitr::include_graphics(c("./../../outputs/figures/combo2_inc_satV2.png"))
 knitr::include_graphics(c("./../../outputs/figures/combo2_inc_psatV2.png"))
-knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 
 
 ```
 
+```{r , echo = FALSE, fig.align = 'center', out.width = "32%", fig.show='hold'}
 
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png")) 
 
+```
 \end{landscape}
 
 \restoregeometry
