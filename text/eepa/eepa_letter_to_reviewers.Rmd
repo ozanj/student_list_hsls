@@ -150,9 +150,9 @@ The revised manuscript argues that our proposed public option student lists comp
 
 > **Editor concern**. *Seventh, we have concerns about the geographic analysis. HSLS is a dataset that is representative at the national level and at the regional level. It is not representative at the city or zipcode level. That means that, even with weighting, all the geographic analysis is on a unique sample (that does aggregate up to being regionally and nationally representative but is not reflective of these smaller geographic zones). While we’re not saying these analyses must be removed, the authors need to seriously grapple with what the geographic analyses can provide evidence for. If the authors decide to leave this analysis in, there must be significant justification for its inclusion and discussion of just what these random datapoints can tell the reader about their underlying geographic areas.*
 
-**Author response**. We thank the editor for bringing our attention to the ways in which we have misused the HSLS09 dataset. After consulting with a colleague who has expertise in the sampling procedures and extensive experience with using HSLS09, we believe our error was in using zip code as a "level of analysis." HSLS09 is designed to be representative at the national level for the U.S. population of high school students. HSLS09 is only representative at two lower geographies: at the state-level for a small subset of states and at the school-level for the base-year of the survey (Ingels et al., 2015). Because HSLS09 sampling procedures do not include stratification at the metropolitan or county level, it is inappropriate to dissagregate the HSLS09 sample to these lower levels of geography and assume representativeness. Therefore, we removed Proposition 3 that applied a zip code filter to the sub-sample of HSLS09 students living in the Los Angeles and New York metropolitan areas. We have also dropped Proposition 4 that tested hypothesis about filtering on smaller geographic localities leading to greater racial disparities, which is also no longer theoretically well-motivated by changes in our conceptual framework noted above.
+**Author response**. We thank the editor for bringing our attention to the ways in which we have misused the HSLS09 dataset. After consulting with a colleague who has expertise in the sampling procedures and extensive experience with using HSLS09, we believe our error was in using zip code as a "level of analysis." HSLS09 is designed to be representative at the national level for the U.S. population of high school students. HSLS09 is only representative at two lower geographies: at the state-level for a small subset of states and at the school-level for the base-year of the survey [(Ingels et al., 2015)](https://nces.ed.gov/pubs2015/2015036.pdf). Because HSLS09 sampling procedures do not include stratification at the metropolitan or county level, it is inappropriate to dissagregate the HSLS09 sample to these lower levels of geography and assume representativeness. Therefore, we removed analyes for Proposition 3 that applied a zip code filter to the sub-sample of HSLS09 students living in the Los Angeles and New York metropolitan areas. We have also dropped Proposition 4 that tested hypothesis about filtering on smaller geographic localities leading to greater racial disparities, which is also no longer theoretically well-motivated by changes in our conceptual framework noted above.
 
-However, after much deliberation as a research team and in consultation with our colleague, we believe that analyses that use zip code as a "covariate" on the full, weighted HSLS09 sample do not violate assumptions regarding representativeness outlined above. After removing the problematic analyses noted above that used lower geographic localities as levels of analysis, we believe the remaining analyses kept in the revised manuscript that apply a zip code filter based on level of affluence (which is motivated via previous literature/our conceptual framework and discussed in detail below) to the full weighted HSLS09 sample do not violate the issues outlined above for two reasons. 
+However, after much deliberation as a research team and in consultation with our colleague, we believe that analyses that use zip code as a "covariate" on the full, weighted HSLS09 sample do not violate assumptions regarding representativeness outlined above. After removing the problematic analyses noted above that used lower geographic localities as levels of analysis, we believe the remaining analyses kept in the revised manuscript that apply a zip code affluence filter based on percentile of affluence (which is motivated via previous literature/our conceptual framework and discussed in detail below) to the full weighted HSLS09 sample do not violate the issues outlined above for two reasons. 
 
 First, by including the full weighted HSLS09 sample, our remaining analyses draw on the national representativeness of HSLS09 to presume that the weighted student sample includes students that live in zip codes across a range of income percentiles just the same as we rely on the HSLS09 sample to include students across a range of personal demographics (e.g., race/ethnicity, gender, first-generation college status, etc.) that is nationally representative. In the original submission, we dealt with variance in median household income varying widely across the U.S. by categorizing all U.S. zip codes by percentiles based on levels of income within CBSA. In order to ensure we are not inextricably using zip code as a level of analysis when categorizing zip code affluence, we dropped our within CBSA categorization (which did not include or categorize rural zip codes) and instead categorized percentiles based on levels within state. To test our presumption that HSLS09 weighted student sample includes students that live in zip codes across a range of income percentiles that is nationally representative, we calculated percentages of the total 313 Million 2012 U.S. population (in comparison to the 4.2 million weighted HSLS09 sample) based on zip code affluence levels.: 15.3% (16.8%) lived in zip codes within 0-19th percentiles of affluence, 17.8% (20.6%) lived in zip codes within 20-39th percentiles of affluence, 18.6% (16.5%) lived in zip codes within 40-59th percentiles of affluence, 21.3% (18.6%) lived in zip codes within 60-79th percentiles, 12.7% (12.4%) lived in zip codes within 80-89th percentiles, and 14.0% (14.2%) lived in zip categorized as greater than the 90th percentiles of affluence. We therefore conclude that it is reasonable to assume that the HSLS09 weighted sample is nationally representative of students living in zip codes across a range of income percentiles.
 
@@ -303,31 +303,31 @@ Omitted variable bias is a coefficient that is biased because of relationship wi
 
 - **Reviewer 1 concern**: *p. 17 Can you describe the 830 College Board orders in more depth? I’m still not sure what data you actually have here—is it what filters were used (broad categories) or what levels of those filters (e.g., SAT scores above 1200…). How do these data enter the analysis?*
 
-**Author response**: KARINA - REVISE THE METHODS SECTION AND RESPOND TO CONCERN
+**Author response**: We apologize for the confusion regarding the 830 College Board orders. We have added more detail in the Data sub-section of the Methods section that describes the associated data, which includes a link that shows an example of a College Board summary for a student list purchase.
 
 
 - **Reviewer 1 concern**: *p. 18 Explain whether X3TGPAACAD is weighted or not and how this aligns with what students might report to the College Board.*
 
-**Author response**: KARINA 
+**Author response**: We have added text that clarifies X3TGPAACAD is an unweighted high school GPA in academic courses, which is a question asked in the pre-test questionnaire of College Board assessments. We have added a footnote that explains students can self-report their high school GPA on College Board's SAT Questionnaire by selecting from a 12-point interval scale ranging from 0.00 (F) to 4.33 (A+). However, we are unsure whether the questionnaire asks students to specify the weighting-scale used. Because schools use various weight-scales for reporting GPA and students are likely to report according to their school-calculated GPA, we use unweighted HSLS09 GPA as a conservative approach to capturing included students via minimum filter thresholds.
 
 
 - **Reviewer 1 concern**: *p.23 Would the College Board have GPAs for anyone who didn’t take the PSAT, SAT, or an AP exam? Is that exercise in the analysis just a question of “who took any of those exams?”*
 
-**Author response**: KARINA - SEE WHAT THEY ARE GETTING AT AND ANSWER THE UNDERLYING QUESTION. AND THEN SAY WHY WE EXCLUDED THIS ANALYSIS 
+**Author response**: We understand the reviewers concern regarding only having GPA available in concert with test scores. For this reason and for space considerations, we have removed analysis of using a GPA filter individually.
 
 
 - **Reviewer 1 concern**: *p.23 Don’t forget your CITE in the footnote.*
 
-**Author response**: KARINA 
+**Author response**: Done. 
 
 
 - **Reviewer 1 concern**: *Throughout the results: I don’t know what p < 0.000 is as a significance level. Is this just a rounding/significant digit thing based on your statistical software? If so, report the lowest reasonable p-value that this rounding infers (I’m guessing p < 0.001)*
 
-**Author response**: KARINA 
+**Author response**: We apologize for the confusion. We have changed all instances of p<0.000 to p<0.001.  We have also added table notes to online appendices for statistical significance. 
 
 - **Reviewer 1 concern**: *p. 30 (and other places) I think there’s a substantive difference between filtering by zip code (e.g., “we want students in these zip codes in the catchment area for CSU Long Beach”) and filtering on zip code affluence, but often filtering on affluence is referred to a simply filtering by zipcode, which I find confusing at best. Keep the distinction clear.*
 
-**Author response**: We agree that this distinction is important. We have fixed instances of failing to make this distinction. KARINA - MAKE SURE MANUSCRIPT DOESN'T DO THIS.
+**Author response**: We agree that this distinction is important. We have fixed instances of failing to make this distinction.
 
 - **Reviewer 1 concern**: *How should we think about inclusion and exclusion based on SAT scores in a world where more states and localities are now requiring high schools to take the SAT/ACT?*
 
@@ -344,7 +344,6 @@ Omitted variable bias is a coefficient that is biased because of relationship wi
 
 # Reviewer 2
 
-KARINA - STARTING HERE, I DID NOT DO A SECOND READ OF MY RESPONSES.
 
 ## Major recommendations/concerns
 
@@ -400,7 +399,7 @@ I do think we are at a moment of potential structural change -- both for good an
 
 - **Reviewer 2 concern**: *Is there a citation for Figure 1? Or does it draw on previous literature to identify the funnel?*
 
-**Author response**: KARINA -- HANDLE THIS. THE THEIR UNDERLYING CONCERN IS IFTHE FUNNEL IS SOMETHING WE MADE UP OR IF IT IS A REAL THING THAT EXISTS IN THE WORLD. SO CITE SOME ORIGINAL SOURCE, AND INDICATE THAT WE JUST CHANGED THE COLORS OR SOMETHING LIKE THAT.
+**Author response**: Yes, it is a commonly used conceptual model and we have added a couple of citations to Figure 1 that showcase this.
 
 - **Reviewer 2 concern**: *The authors mention a period of vertical acquisitions in the enrollment management industry, but I’m not sure I saw a discussion of these vertical acquisitions in the text that follows*
 
@@ -434,11 +433,11 @@ We introduce "selection devices" as the first and primary concept of the concept
 
 - **Reviewer 2 concern**: *Round sample sizes to nearest 10 for HLS09 data reporting throughout*
 
-**Author response**: KARINA 
+**Author response**: We appreciate this concern and careful read. Per NCES, we have rounded all unweighted sample sizes throughout the manuscript. Due the rounding of sample sizes to thousands in figures for space considerations, we believe unweighted samples are also in the clear for reporting regulations.
 
 - **Reviewer 2 concern**: *In discussing the 2 data sources on pages 16-17, can you clarify which data are used to investigate each proposition?*
 
-**Author response**: KARINA
+**Author response**: We apologize for the confusion. We have revised the Data sub-section to provide more details about data sources and which data sources are used for answering research questions 1-3.
 
 - **Reviewer 2 concern**: *Are both Table 1 and Figure 3 necessary? It might be possible to just have one of these given the number of tables and figures*
 
@@ -446,7 +445,7 @@ We introduce "selection devices" as the first and primary concept of the concept
 
 - **Reviewer 2 concern**: *In 6.3 starting on page 27, it might be useful to reference back to table 1 or figure 3 to note how these combined filters were selected (i.e., based on common search filters)*
 
-**Author response**: KARINA
+**Author response**: We agree with Reviewer 2. We have referenced Table 1 in the revised section for _analyses based on HSLS09_ that explore common combinations of filters. 
 
 - **Reviewer 2 concern**: *The authors note how much colleges pay per name, but it might help to provide an overall amount some colleges spend on student lists, just togive the reader a sense of the importance these lists play in recruitment*
 
@@ -465,11 +464,12 @@ We introduce "selection devices" as the first and primary concept of the concept
 
 However, the manuscript does not go into great depth about racial inequality in college access (e.g., in relation to affirmative action legislation, test-optional policies). Our basic reason is that the manuscript is very long! So we make the assumption that the assumption that most readers already know that racial inequality in college access is an enduring problem. Considering the basic structure of the revised manuscript, if Reviewer 3 has ideas about how to succinctly weave scholarship/trends about racial inequality in access into this structure, we would be happy to consider those ideas.
 
-2. xxx
+2. Critical Quant Citations 
 
 > **Reviewer 3 concern**. *The mention of micro-targeting and market segmentation made me think about critical quant studies in education policy research and the work of scholars (e.g., Samantha Viano and Dominique Baker) raising questions about the construction of large-scale datasets such as what are the types of variables that are being included. How are race and class conceptualized? How are other critical variables operationalized? It seems this literature is quite relevant to the paper and I would encourage the authors to consider featuring it more prominently or at least citing it in the discussion of critical data studies.*
 
-**Author response**. KARINA -- CAN YOU HANDLE THIS ONE; THE VIANO AND BAKER ARTICLE IS ABOUT HOW RACE AND ETHNICITY ARE CONSTRUCTED WHEN WORKING W/ ADMIN DATA https://journals.sagepub.com/doi/epub/10.3102/0091732X20903321 ; YOU COULD INSERT THIS CITATION IN THE DATA/VARIABLES PART OR LIMITATIONS PART TO SAY ABOUT HOW WE CREATED THE MEASURE OF RACE/ETHNCITY AND HOW IT CREATES A SINGLE VARIABLE FROM TWO SEPARATE VARAIABLES OF RACE AND ETHNICITY. SOME STATEMENT ABOUT HOW THIS REDUCES NUMMBER OF STUDENTS WHO IDENTIFY AS RACE/ETHNICITY X, Y, Z. AND THEN SAY, WE CHOOSE NOT TO INCORPORATE THIS LITERATURE INTO A DISCUSSION OF CRITICAL DATA STUDIES BECAUSE WE HAVE LARGELY REMOVED CRITICAL DATA STUDIES FROM THE MANUSCRIPT DUE TO CONCERNS ABOUT LENGTH AND SCOPE.
+**Author response**. We thank Reviewer 3 for this excellent suggestion. We have referenced the Viano and Baker 2020 study in the methods section under variables as we create a consolidated race/ethnicity via HSLS09 and College Board data that aligns with their recommendations regarding combining the measure of Hispanic ethnicity with the broader race measure. However, we are unable to incorporate into our discussion of critical data studies as the revisions to the manuscript have largely removed this section from our conceptual framework due to concerns regarding its length and scope. 
+
 
 3. Unclear organization of the conceptual framework
 
@@ -498,3 +498,5 @@ However, the manuscript does not go into great depth about racial inequality in 
 - Implications for scholarship
 
 Additionally, we worked to remove rendundancy from the discussion section and the section begins by framing issue importance vis-a-vis racial inequality in college access.
+
+\newpage
