@@ -1,6 +1,6 @@
 ---
-title: "Response to Editors and Reviewers"
-author: "ozan"
+#title: "Response to Editors and Reviewers"
+#author: "ozan"
 date: "`r Sys.Date()`"
 output: pdf_document
 bibliography: ../../assets/bib/eepa_student_list.bib
@@ -10,6 +10,10 @@ csl: ../../assets/bib/apa.csl
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+May 1, 2023
+
+Dear Editors,
 
 We thank the Reviewers and the Editor for excellent, thoughtful, and detailed feedback. We were too "close" to the manuscript and could not see many of these flaws on our own. We agreed with the majority of concerns/suggestions and revised the manuscript accordingly. We disagreed with some concerns (discussed below). However, even these areas of disagreement, helped us identify areas where we had to make our arguments stronger and our explanations clearer. The biggest changes we made to the manuscript are as follows:
 
@@ -26,8 +30,9 @@ We thank the Reviewers and the Editor for excellent, thoughtful, and detailed fe
   - remove unnecessary figures
   - remove text motivating creation of broader literature on third-party products/vendors in education
 
-The result is a manuscript that we feel is dramatically improved. We are extremely grateful for the effort in care you have given to help improve this manuscript and to help us develop as scholars. The revised manuscript is five pages longer than the original. We believe this length is warranted by the additional issues that the Editor/Reviewers asked the manuscript to address.
+The result is a manuscript that we feel is dramatically improved. We are extremely grateful for the effort in care you have given to help improve this manuscript and to help us develop as scholars. The original submission was 36 pages of text and 15 pages of tables/figures (not including references). The revised manuscript is 41 pages of text and 12 pages of tables/figures (not including references). We believe the addition of length is warranted by the additional issues that the Editor/Reviewers asked the manuscript to address.
 
+-Authors
 
 # Editor 
 
