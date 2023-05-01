@@ -420,7 +420,7 @@ Y = characteristics of students included in student list filters
 -->
 <!-- When analyzing the racial composition of student lists via HSLS09, our dependent variable measures student demographic characteristics and our independent variables are measures of student list filters (individual or combination). When analyzing the racial composition of actual student list purchases via the public records request data collection, our dependent and independent variables remain the same except we use fields provided by the College Board. We therefore focus on providing details regarding HSLS09 variables used below. Descriptive statistics for HSLS09 analysis variables are shown in Table \@ref(tab:descriptives). -->
 
-**Dependent variable**. Our primary dependent variable is prospects' race/ethnicity. For HSLS09, we use the student race/ethnicity composite variable X2RACE, which includes the following seven categories: American Indian/Alaska Native, non-Hispanic; Asian, non-Hispanic; Black/African-American, non-Hispanic; Hispanic; More than one race, non-Hispanic; Native Hawaiian/Pacific Islander, non-Hispanic; and White, non-Hispanic.^[We collapse "Hispanic, no race specified" and "Hispanic, race specified" into a single category.] We select X2RACE based on recommendations by @Viano2020 to combine the measure of Hispanic ethnicity with the broader racial/ethnic to effectively measure and use race/ethnicity in analyses. For public records request data, College Board data have separate measures for race and ethnicity, which allow students to select more than one option as per changes to census reporting requirements. Similar to HSLS09, we aggregate this into a single race/ethnicity measure with the same seven categories listed above.
+**Dependent variable**. Our primary dependent variable is prospects' race/ethnicity. For HSLS09, we use the student race/ethnicity composite variable X2RACE, which includes the following seven categories: American Indian/Alaska Native, non-Hispanic; Asian, non-Hispanic; Black/African-American, non-Hispanic; Hispanic; More than one race, non-Hispanic; Native Hawaiian/Pacific Islander, non-Hispanic; and White, non-Hispanic.^[We collapse "Hispanic, no race specified" and "Hispanic, race specified" into a single category.] We select X2RACE based on recommendations by @Viano2020 to combine the measure of Hispanic ethnicity with the broader racial/ethnic variable to effectively measure and use race/ethnicity in analyses. For public records request data, College Board data have separate measures for race and ethnicity, which allow students to select more than one option as per changes to census reporting requirements. Similar to HSLS09, we aggregate this into a single race/ethnicity measure with the same seven categories listed above.
 
 <!-- CUT FROM ABOVE PARAGRAPH : Following our conceptual framework, this manuscript is primarily concerned with the racial composition of prospects who are included in student list purchases compared to the racial composition of prospects who are excluded. We also conducted analyses that utilized parental education (`X2PAREDU`) and family income (`X2FAMINCOME`) as dependent variables, but we exclude these analyses because of manuscript space limits.-->
 
@@ -706,6 +706,12 @@ bind_cols(
 #   row_spec(0, bold = T) %>%
 #   kable_styling(position = 'center', latex_options = c('hold_position', 'scale_down'), )
 ```
+
+\begingroup\fontsize{8}{12}\selectfont -->
+ _Notes: Top filter combinations are based on 830 College Board student list purchases made by research (N=8) and ma/doctoral (N=6) universities from 2016-2020. Geodemographic and Segment filters are proprietary filters created by College Board that use geodemography to predict the college-going behaviors of students within specific geographic areas._
+
+
+
 
 ```{r descriptives}
 df1 <- data.frame(
