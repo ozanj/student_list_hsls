@@ -11,9 +11,22 @@ csl: ../../assets/bib/apa.csl
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-We thank the Reviewers and the Editor for excellent, thoughtful, and detailed feedback. We were too "close" to the manuscript and could not see many of these flaws on our own. We agreed with the majority of concerns/suggestions and revised the manuscript accordingly. We disagreed with some concerns (discussed below). However, even these areas of disagreement, helped us identify areas where we had to make our arguments stronger and our explanations clearer. The result is a manuscript that we feel is dramatically improved. We are extremely grateful for the effort in care you have given to help improve this manuscript and to help us develop as scholars.
+We thank the Reviewers and the Editor for excellent, thoughtful, and detailed feedback. We were too "close" to the manuscript and could not see many of these flaws on our own. We agreed with the majority of concerns/suggestions and revised the manuscript accordingly. We disagreed with some concerns (discussed below). However, even these areas of disagreement, helped us identify areas where we had to make our arguments stronger and our explanations clearer. The biggest changes we made to the manuscript are as follows:
 
-The revised manuscript is XX [KARINA] pages longer than the original. We feel this length is warranted by the additional issues that the Editor/Reviewers asked the manuscript to address.
+- Frame the manuscript in terms of racial inequality in college access and Hoxby's [-@RN2133;-@RN2247] conceptualization of the market for college access
+- Motivate the problem as (a) the underlying architecture of student list products and how colleges (b) how colleges utilize student list products
+- Conceptualize how colleges utilize student list products
+- Analyze how colleges utilize student list products
+- Improve background and literature review
+  - Provide an overview of the recruitment process; provide relevant background on student list products; broaden review of scholarship on recruiting beyond studies from sociology
+- Remove content deemed unnecessary by Editor/Reviewers
+  - remove discussion of consultancies and market for student list data
+  - remove legal speculation
+  - remove discussion of critical data studies from conceptual framework
+  - remove unnecessary figures
+  - remove text motivating creation of broader literature on third-party products/vendors in education
+
+The result is a manuscript that we feel is dramatically improved. We are extremely grateful for the effort in care you have given to help improve this manuscript and to help us develop as scholars. The revised manuscript is five pages longer than the original. We believe this length is warranted by the additional issues that the Editor/Reviewers asked the manuscript to address.
 
 
 # Editor 
