@@ -1,9 +1,9 @@
 ---
 title: "A Sociological Analysis of Structural Racism in Student List Products"
 #subtitle: ""
-#author: 
-#  - Ozan Jaquette
-#  - Karina Salazar
+author: 
+  - Ozan Jaquette
+  - Karina Salazar
 bibliography: ../../assets/bib/eepa_student_list.bib
 csl: ../../assets/bib/apa.csl
 citeproc: no
