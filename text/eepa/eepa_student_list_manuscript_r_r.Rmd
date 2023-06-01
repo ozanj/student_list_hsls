@@ -32,7 +32,8 @@ header-includes:
   #- \renewcommand{\familydefault}{\sfdefault}
   #- \usepackage[T1]{fontenc}
   - \usepackage{geometry}
-      
+  - \usepackage{subfig}
+
       
 ---
 
@@ -395,7 +396,7 @@ Colleges may utilize student list products to increase enrollment by underrepres
 
 ## Data 
 
-Our analyses utilize two data sources. First, the primary data source is the High School Longitudinal Study of 2009 (HSLS09) conducted by the National Center for Education Statistics (NCES). HSLS09 is a nationally representative survey that follows a cohort of more than 23,000 students from 944 schools entering the ninth grade in Fall 2009. Follow-up surveys were administered to students in Spring 2012 (when most were in 11th grade), in 2013, in 2016, and NCES collected high school transcripts in 2013-14. HSLS provides the extensive student-level demographic, geographic, and academic variables needed to create academic and geographic filters used within student list purchases. We use HSLS09 to run analyses for RQ1 and RQ3. 
+Our analyses utilize two data sources. First, the primary data source is the High School Longitudinal Study of 2009 (HSLS09) conducted by the National Center for Education Statistics (NCES). HSLS09 is a nationally representative survey that follows a cohort of more than 23,000 students from more than 940 schools entering the ninth grade in Fall 2009.^[Unweighted sample size numbers are rounded to nearest 10 to meet NCES restricted data regulations.] Follow-up surveys were administered to students in Spring 2012 (when most were in 11th grade), in 2013, in 2016, and NCES collected high school transcripts in 2013-14. HSLS provides the extensive student-level demographic, geographic, and academic variables needed to create academic and geographic filters used within student list purchases. We use HSLS09 to run analyses for RQ1 and RQ3. 
 
 <!-- cut text, original text from karina
 
@@ -404,7 +405,7 @@ Surveys collected during the base year include responses from students' parents,
 HSLS provides the extensive student-level demographic, geographic, and academic variables needed to create academic and geographic filters used within student list purchases. Moreover, HSLS09's nationally representative sample of high school students allows us to analyze patterns of who is included and excluded in simulated student list purchases as filter combinations and filter thresholds change.
 -->
 
-Our HSLS09 analysis sample includes students who meet all of the following conditions: completed Spring 2012 first follow-up survey; completed 2013 update survey; and obtained high school transcript data. Of the 23,503 respondents included in HSLS09, our unweighted analysis sample consists of the 16,530 students who meet all conditions.^[Unweighted sample size numbers are rounded to nearest 10 to meet NCES restricted data regulations.] The survey weight variable W3W2STUTR is designed for respondents who meet these conditions. After weighting, these 16,530 students represent the population of approximately 4.187 million U.S. 9th graders in 2009.
+Our HSLS09 analysis sample includes students who meet all of the following conditions: completed Spring 2012 first follow-up survey; completed 2013 update survey; and obtained high school transcript data. Of the more than 23,000 respondents included in HSLS09, our unweighted analysis sample consists of the 16,530 students who meet all conditions. The survey weight variable W3W2STUTR is designed for respondents who meet these conditions. After weighting, these 16,530 students represent the population of approximately 4.187 million U.S. 9th graders in 2009.
 
 <!-- From paragraph above
 [STATE 95% CI FOR THIS POINT ESTIMATE?] The analysis sample is smaller for analyses that utilize variables that have missing values for some respondents [? SAY MIN ANALYSIS SAMPLE SIZE IS THIS?]-->
@@ -683,10 +684,15 @@ df1 %>%
   row_spec(0, bold = T) %>%
   row_spec(1, bold=T, italic = T) %>%
   row_spec(10,bold=T, italic = T) %>%
-  kable_styling(position = 'center', latex_options = c('hold_position', 'scale_down'), font_size = 7) %>%
-   add_footnote("Unweighted sample sizes rounded to nearest 10 per NCES restricted data license regulations", notation="symbol")
+  kable_styling(position = 'center', latex_options = c('hold_position', 'scale_down'), font_size = 7) #%>%
+   #add_footnote("NOTE: Unweighted sample sizes rounded to nearest 10 per NCES restricted data license regulations", notation=" ")
 ```
+\begingroup\fontsize{8}{12}\selectfont 
 
+_NOTE: Unweighted sample sizes rounded to nearest 10 per NCES restricted data license regulations._
+
+_SOURCE: U.S. Department of Education, National Center for Education
+Statistics, High School Longitudinal Study of 2009 (HSLS09)._
 
 ```{r orders-filters-combo}
 bind_cols(
@@ -740,7 +746,7 @@ bind_cols(
 
 \begingroup\fontsize{8}{12}\selectfont 
 
-_Notes: Top filter combinations are based on 830 College Board student list purchases made by research (N=8) and ma/doctoral (N=6) universities from 2016-2020. Geodemographic and Segment filters are proprietary filters created by College Board that use geodemography to predict the college-going behaviors of students within specific geographic areas._
+_NOTES: Top filter combinations are based on 830 College Board student list purchases made by research (N=8) and ma/doctoral (N=6) universities from 2016-2020. Geodemographic and Segment filters are proprietary filters created by College Board that use geodemography to predict the college-going behaviors of students within specific geographic areas._
 
 
 
@@ -836,10 +842,9 @@ knitr::include_graphics('./../../outputs/images/enroll_funnelv2.png')
 
 
 \begin{landscape}
-\pagebreak
 
 
-```{r test-takers, echo = FALSE, fig.align = 'center', fig.cap = "Test Takers Across College Extrance, College Pre-Entrance, and AP Assessments", out.width = "49%", fig.show='hold'}
+```{r test-takers, echo = FALSE, fig.align = 'center', fig.cap = "Test Takers Across College Extrance, College Pre-Entrance, and AP Assessments", out.width = "40%", fig.show='hold'}
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
 knitr::include_graphics(c("./../../outputs/figures/p1_sat.png","./../../outputs/figures/p1_ap.png"))
 knitr::include_graphics(c("./../../outputs/figures/p1_psat.png","./../../outputs/figures/p1_apstem.png"))
@@ -848,9 +853,15 @@ knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 
 ```
 
+
+\begingroup
+\fontsize{8}{8}\selectfont
+SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09).
+\endgroup
+
 \pagebreak
 
-```{r thresholds-tests, echo = FALSE, fig.align = 'center', fig.cap = "College Entrance and Pre-Entrance Exam Filters Across Thresholds", out.width = "49%", fig.show='hold'}
+```{r thresholds-tests, echo = FALSE, fig.align = 'center', fig.cap = "College Entrance and Pre-Entrance Exam Filters Across Thresholds", out.width = "35%", fig.show='hold'}
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
 knitr::include_graphics(c("./../../outputs/figures/p2_sat_incv2.png","./../../outputs/figures/p2_sat_excv2.png"))
 knitr::include_graphics(c("./../../outputs/figures/p2_psat_incv2.png","./../../outputs/figures/p2_psat_excv2.png"))
@@ -859,9 +870,14 @@ knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 
 ```
 
+\begingroup
+\fontsize{8}{8}\selectfont
+SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09).
+\endgroup
+
 \pagebreak
 
-```{r thresholds-tests-ap, echo = FALSE, fig.align = 'center', fig.cap = "AP Filter Across Thresholds", out.width = "49%", fig.show='hold'}
+```{r thresholds-tests-ap, echo = FALSE, fig.align = 'center', fig.cap = "AP Filter Across Thresholds", out.width = "35%", fig.show='hold'}
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
 knitr::include_graphics(c("./../../outputs/figures/p2_ap_incv2.png","./../../outputs/figures/p2_ap_excv2.png"))
 knitr::include_graphics(c("./../../outputs/figures/p2_apstem_incv2.png","./../../outputs/figures/p2_apstem_excv2.png"))
@@ -870,11 +886,16 @@ knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 
 ```
 
+\begingroup
+\fontsize{8}{8}\selectfont
+SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09).
+\endgroup
+
 \pagebreak
 
 
 
-```{r zipcode-affluence, echo = FALSE, fig.align = 'center', fig.cap = "Zip Code Filter Across Affluence Percentiles", out.width = "49%", fig.show='hold'}
+```{r zipcode-affluence, echo = FALSE, fig.align = 'center', fig.cap = "Zip Code Filter Across Affluence Percentiles", out.width = "40%", fig.show='hold'}
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
 knitr::include_graphics(c("./../../outputs/figures/p3_zip_incV2.png"))
 knitr::include_graphics(c("./../../outputs/figures/p3_zip_excV2.png"))
@@ -883,6 +904,10 @@ knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 
 ```
 
+\begingroup
+\fontsize{8}{8}\selectfont
+SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09).
+\endgroup
 
 \end{landscape}
 \pagebreak
@@ -1137,6 +1162,14 @@ knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 
 ```
 
+\begingroup
+\fontsize{8}{8}\selectfont
+SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09).
+\endgroup
+
+\pagebreak
+
+
 ```{r gpa-sat-psat-zip, echo = FALSE, fig.align = 'center', fig.cap = "Academic and Geographic Combination: GPA (3.0+), College Pre-Entrance (150+) or Entrance (1050+) Exams, and Zip (across income thresholds)", out.width = "35%", fig.show='hold'}
 
 knitr::include_graphics(c("./../../outputs/figures/combo2_inc_satV2.png"))
@@ -1150,6 +1183,12 @@ knitr::include_graphics(c("./../../outputs/figures/combo2_inc_psatV2.png"))
 knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png")) 
 
 ```
+
+\begingroup
+\fontsize{8}{8}\selectfont
+SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09).
+\endgroup
+
 \end{landscape}
 
 \restoregeometry
@@ -1425,7 +1464,9 @@ p1_table %>%
 ```
 \begingroup
 \fontsize{10}{10}\selectfont
-_Note: `*`p<0.05, `**`p<0.01, `***`p<0.001_
+_NOTE: `*`p<0.05, `**`p<0.01, `***`p<0.001_
+
+_SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09)._
 \endgroup
 
 \clearpage
@@ -1440,6 +1481,11 @@ knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 
 
 ```
+
+\begingroup
+\fontsize{8}{8}\selectfont
+SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09).
+\endgroup
 
 \pagebreak
 
@@ -1482,7 +1528,9 @@ p2_table %>%
 
 \begingroup
 \fontsize{10}{10}\selectfont
-_Note: `*`p<0.05, `**`p<0.01, `***`p<0.001_
+_NOTE: `*`p<0.05, `**`p<0.01, `***`p<0.001_
+
+_SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09)._
 \endgroup
 
 
@@ -1520,7 +1568,9 @@ p3_table %>%
 
 \begingroup
 \fontsize{10}{10}\selectfont
-_Note: `*`p<0.05, `**`p<0.01, `***`p<0.001_
+_NOTE: `*`p<0.05, `**`p<0.01, `***`p<0.001_
+
+_SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09)._
 \endgroup
 
 \clearpage
@@ -1545,8 +1595,8 @@ c1_table %>%
     caption = "GPA and College Entrance or Pre-Entrance Exam Score Threshold Proportion Differences in Included vs. Excluded across Race/Ethnicity",
   ) %>%
   row_spec(0, bold = T, font_size=6) %>%
-  pack_rows("College Entrance Exam", 1, 3) %>%
-  pack_rows("College Pre-Entrance Exam", 4, 9) %>%
+  pack_rows("College Entrance Exam", 1, 4) %>%
+  pack_rows("College Pre-Entrance Exam", 5, 9) %>%
 
 
   #row_spec(1, bold=T, italic = T, font_size=2) %>%
@@ -1560,7 +1610,9 @@ c1_table %>%
 
 \begingroup
 \fontsize{10}{10}\selectfont
-_Note: `*`p<0.05, `**`p<0.01, `***`p<0.001_
+_NOTE: `*`p<0.05, `**`p<0.01, `***`p<0.001_
+
+_SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09)._
 \endgroup
 
 
@@ -1600,7 +1652,9 @@ c2_table %>%
 ```
 \begingroup
 \fontsize{10}{10}\selectfont
-_Note: `*`p<0.05, `**`p<0.01, `***`p<0.001_
+_NOTE: `*`p<0.05, `**`p<0.01, `***`p<0.001_
+
+_SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09)._
 \endgroup
 
 \clearpage
@@ -1639,7 +1693,9 @@ c3_table %>%
 ```
 \begingroup
 \fontsize{10}{10}\selectfont
-_Note: `*`p<0.05, `**`p<0.01, `***`p<0.001_
+_NOTE: `*`p<0.05, `**`p<0.01, `***`p<0.001_
+
+_SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09)._
 \endgroup
 
 \clearpage
