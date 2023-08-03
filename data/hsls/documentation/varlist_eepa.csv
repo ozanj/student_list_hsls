@@ -31,7 +31,7 @@ W4STUDENT,Second follow-up student analytic weight,IDs and weights,0,0,0,0,IDs,W
 W4W1STU,"Student Longitudinal Analytic Weight, BY-F2",IDs and weights,0,0,0,0,IDs,W4,0,
 W4W1STUP1,"Student Longitudinal Analytic Weight with BY Parent, BY-F2",IDs and weights,0,0,0,0,IDs,W4,0,
 W4W1STUP1P2,"Student Longitudinal Analytic Weight with BY and F1 Parent, BY-F2",IDs and weights,0,0,0,0,IDs,W4,0,
-W4W1W2W3STU,"Second follow-up, base year, first follow-up, and 2013 Update weight",IDs and weights,0,0,0,0,IDs,W4,0,
+W4W1W2W3STU,"Second follow-up, base year, first follow-up, and 2013 Update weight",IDs and weights,1,0,0,0,IDs,W4,0,
 W3W1MATHTCH,"Student Longitudinal Analytic Weight with BY Math Teacher, BY-U13",IDs and weights,0,0,0,0,IDs,W3,0,
 W3W1SCITCH,"Student Longitudinal Analytic Weight with BY Science Teacher, BY-U13",IDs and weights,0,0,0,0,IDs,W3,0,
 X1SEX,X1 Student's sex,BY student level composites,0,1,0,0,BY,X1,0,
@@ -325,7 +325,7 @@ X3CLASSES,X3 Imputed version of S3CLASSES,U13 student level composites,0,0,0,0,U
 X3WORK,X3 Imputed version of S3WORK,U13 student level composites,0,0,0,0,U13,X3,0,
 X3LASTHSDATE,X3 Imputed version of S3LASTHSYR/S3LASTHSMO combined as one date (YYYYMM),U13 student level composites,0,0,0,0,U13,X3,0,
 X3NCESID,X3 School identification number from CCD or PSS,U13 student level composites,0,0,0,0,U13,X3,1,
-X3CONTROL,X3 School control,U13 student level composites,0,0,0,0,U13,X3,0,
+X3CONTROL,X3 School control,U13 student level composites,0,0,0,0,U13,X3,0,89
 X3LOCALE,X3 School locale (urbanicity),U13 student level composites,0,0,0,0,U13,X3,0,
 X3REGION,X3 School region,U13 student level composites,0,0,0,0,U13,X3,0,
 X3CENDIV,X3 School census geographic division,U13 student level composites,0,0,0,0,U13,X3,1,
@@ -552,7 +552,7 @@ X4SQSTAT,X4 Student questionnaire status,F2 student level composites,0,0,0,0,F2,
 X4SQDATE,X4 Student questionnaire date (YYYYMM),F2 student level composites,0,0,0,0,F2,X4,0,
 X4HSCOMPSTAT,"X4 High school credential status and type, February 2016",F2 student level composites,0,0,0,0,F2,X4,0,
 X4HSCOMPDATE,X4 Date received high school credential,F2 student level composites,0,0,0,0,F2,X4,0,
-X41CONTROL,X4 Base year through second follow-up high school control,F2 student level composites,0,0,0,0,F2,X4,0,
+X41CONTROL,X4 Base year through second follow-up high school control,F2 student level composites,0,0,0,0,F2,X4,0,8
 X4NCESID,X4 High school identification number from CCD or PSS,F2 student level composites,0,0,0,0,F2,X4,0,
 X4CONTROL,X4 High school control,F2 student level composites,0,0,0,0,F2,X4,0,
 X4STATE,X4 State code for high school,F2 student level composites,0,0,0,0,F2,X4,1,
@@ -573,7 +573,7 @@ X4GEDDATE,X4 GED test date passed,F2 student level composites,0,0,0,0,F2,X4,1,
 X4GEDSTATE,X4 GED test state taken,F2 student level composites,0,0,0,0,F2,X4,1,
 X4EVRAPPCLG,X4 Whether applied to or registered at a college,F2 student level composites,0,0,0,0,F2,X4,0,
 X4CLGAPPNUM,X4 Number of colleges applied to when first applied,F2 student level composites,0,0,0,0,F2,X4,0,
-X4EVRATNDCLG,X4 Imputed version of S4EVRATNDCLG,F2 student level composites,0,0,0,0,F2,X4,0,8
+X4EVRATNDCLG,X4 Imputed version of S4EVRATNDCLG,F2 student level composites,1,0,0,0,F2,X4,0,8
 X4EVR2YPUB,X4 Ever attended 2-year public institution after high school,F2 student level composites,0,0,0,0,F2,X4,0,
 X4ATNDCLG16FB,X4 Whether respondent was enrolled in postsecondary education in February 2016,F2 student level composites,0,0,0,0,F2,X4,0,
 X4CHOICEAPPID,X4 First choice among colleges applied to,F2 student level composites,0,0,0,0,F2,X4,1,
@@ -581,12 +581,12 @@ X4CHOICEACCID,X4 First choice among colleges accepted to,F2 student level compos
 X4ATNDAPPINST,X4 Institution ended up attending as result of first applications,F2 student level composites,0,0,0,0,F2,X4,1,
 X4HS2PSMOS,X4 Months between high school and postsecondary education,F2 student level composites,0,0,0,0,F2,X4,0,
 X4PSEND,X4 Month and year of last postsecondary enrollment anywhere,F2 student level composites,0,0,0,0,F2,X4,0,
-X4PS1,X4 First post-high school postsecondary institution,F2 student level composites,0,0,0,0,F2,X4,1,
-X4PS1START,X4 Month and year of enrollment at first postsecondary institution,F2 student level composites,0,0,0,0,F2,X4,0,
-X4PS1SECTOR,X4 First postsecondary institution sector,F2 student level composites,0,0,0,0,F2,X4,0,
-X4PS1LEVEL,X4 First postsecondary institution level,F2 student level composites,0,0,0,0,F2,X4,0,
-X4PS1CTRL,X4 First postsecondary institution control,F2 student level composites,0,0,0,0,F2,X4,0,
-X4PS1SELECT,X4 First postsecondary institution selectivity,F2 student level composites,0,0,0,0,F2,X4,0,
+X4PS1,X4 First post-high school postsecondary institution,F2 student level composites,1,0,0,0,F2,X4,1,
+X4PS1START,X4 Month and year of enrollment at first postsecondary institution,F2 student level composites,1,0,0,0,F2,X4,0,
+X4PS1SECTOR,X4 First postsecondary institution sector,F2 student level composites,1,0,0,0,F2,X4,0,789
+X4PS1LEVEL,X4 First postsecondary institution level,F2 student level composites,1,0,0,0,F2,X4,0,789
+X4PS1CTRL,X4 First postsecondary institution control,F2 student level composites,1,0,0,0,F2,X4,0,789
+X4PS1SELECT,X4 First postsecondary institution selectivity,F2 student level composites,1,0,0,0,F2,X4,0,789
 X4REFINST,X4 Reference institution ID,F2 student level composites,0,0,0,0,F2,X4,1,
 X4REFSECTOR,X4 Sector of reference institution,F2 student level composites,0,0,0,0,F2,X4,0,
 X4REFLEVEL,X4 Level of reference institution,F2 student level composites,0,0,0,0,F2,X4,0,
