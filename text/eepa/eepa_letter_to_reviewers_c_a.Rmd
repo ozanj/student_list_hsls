@@ -1,0 +1,59 @@
+---
+#title: "Response to Editors and Reviewers"
+#author: "ozan"
+date: "`r Sys.Date()`"
+output: pdf_document
+bibliography: ../../assets/bib/eepa_student_list.bib
+csl: ../../assets/bib/apa.csl
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+August XX, 2023
+
+Dear Editors,
+
+We thank the Reviewers and the Editor for excellent, thoughtful, and detailed feedback. 
+
+-Authors
+
+# Editor 
+
+## Major recommendations/concerns
+
+X. XXXX
+
+> **Editor concern**. *First, Reviewer 1 and 2 note that several of the arguments made in the paper are not necessarily about college lists, but instead about the admissions priorities of each institution. We believe it would be useful to tease this out more in the paper. We also believe it would be helpful to provide some (masked) information about the 14 institutions. This could be rounded enrollment numbers (in bands) or Carnegie Classification or something else. But as it feels like the argument is strengthened on why this might be about the admissions priorities of institutions, the reader would benefit from better understanding the contexts of the 14 institutions.*
+
+> **Reviewer 1 concern**. *Where does the problem lie? The manuscript, in large part, seems inspired by the earlier FOIA request of student list purchases and the filters that determined the content of those requests. This is a cool FOIA request to think to make, and obviously a lot of work. The nature of the request made me think we’re dealing with how universities use student list requests either implicitly or explicitly to privilege certain groups in the search and recruitment process.*
+
+**Author response**: We agree with these concerns raised by Reviewers 1 and 2. Our interpretation is, the problem is not just underlying architecture of student list products but how student lists are utilized by colleges (including college admissions priorities).
+
+# Reviewers
+
+## Major recommendations/concerns
+
+
+X. Ambiguity between definition of standardized selection device versus discretionary selection device
+
+> **Reviewer 2 concern**. *Pages 12-13: discusses how student list products are discretionary rather than standardized selection devices, but the metrics that colleges use to select lists are standardized (test scores, GPA, zip code) rather than discretionary – enrollment managers may have discretion over what thresholds they set, but themetrics themselves are standardized (just like admissions based on GPA and test score would be standardized) – I think this actually ties into the argument that continues on page 13 about structural racism better than thinking about these as discretionary*
+
+> **Reviewer ` concern**. *In the revised conceptual framework, I may not fully understand the distinction between discretionary and standardized selection. The example of public university admission based on ACT and GPA is used to illustrate a standardized selection device, but this process sounds very similar to the determination of list criteria (based on ACT and GPA…), which is described instead as discretionary. Doesn’t someone make choices about which criteria to use and at what level for public university admissions in the same way they do for which list of students to purchase?*
+
+**Author response**: We thank Reviewer 2 and Reviewer 1 for raising this issue. We agree that the definitions and examples we provided for standardized versus discretionary selection devices were ambiguous. The reviewers observe that (1) we called student list products discretionary because a college college administrators choose which search filters and filter thresholds to select when purchasing lists and (2) we call a public university that admits applicants based on a function of ACT score and GPA an example of a standardized selection device, but this seems just like student lists in that the college is exercising discretion about the thresholds necessary for admission.
+
+Our revised manuscript makes it clear that the distinction between discretionary vs. standardized is whether the individual administrator utilizing the selection device has discretion. We state (pg. XX) that "discretionary selection processes rely on the judgment of individual administrators, who have discretion about which inputs to consider and/or how to evaluate these inputs" whereas in "in “standardized
+selection devices,” the relationship between the value of input variables and the outcome is dictated by a mathematical formula that is beyond the discretion of individual administrators using the product." 
+
+Additionally, after defining student list products as discretionary selection devices, we add a footnote stating that "By contrast, a “direct admissions” policy that admitted applicants based on a function of ACT score and GPA would be considered a standardized selection device; even though the test score and GPA thresholds are chosen by the college or a state policy organization, individual admissions administrators have no discretion over these thresholds"
+
+Reviewer 1 implies that discretionary selection devices include any process in which decisions are made about variables and/or cut-points that determine a decision. By this logic, all selection devices would be discretionary and standardized selection devices do not exist. We disagree with this perspective. All selection devices involve subjective decisions about which factors to consider and the relative weight to assign to each factor. Standardized selection devices make subjective decisions that centrally. For example, consider an algorithm for the likelihood of a parole violation that is based on a regression analysis of prior cases of parole violation. Here, subjective decisions are made about which variables to include in the model, functional form, etc. But we would define this selection device as standordized in that individual users of the product do not have discretion over the algorithm which determines the output value based on input values.
+
+
+X. haven't dealt w/ this from reviewer 2 [related to standardized vs. discretionary:
+
+> **Reviewer 2 concern**. *if you want to call them discretionary, one thing you could discuss in more detail is how filters intersect with local patterns of segregation by talking about how these patterns vary across localities and thus become more subjective when people aren’t aware of these patterns* 
+
+\newpage
