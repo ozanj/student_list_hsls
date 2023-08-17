@@ -77,6 +77,14 @@ Additionally, after defining student list products as discretionary selection de
 
 Reviewer 1 implies that discretionary selection devices include any process in which decisions are made about variables and/or cut-points that determine a decision. By this logic, all selection devices would be discretionary and standardized selection devices do not exist. We disagree with this perspective. All selection devices involve subjective decisions about which factors to consider and the relative weight to assign to each factor. Standardized selection devices make subjective decisions that centrally. For example, consider an algorithm for the likelihood of a parole violation that is based on a regression analysis of prior cases of parole violation. Here, subjective decisions are made about which variables to include in the model, functional form, etc. But we would define this selection device as standordized in that individual users of the product do not have discretion over the algorithm which determines the output value based on input values.
 
+X. Discussion of how studetn list filters intersect with local patterns of seggregation
+
+> **Reviewer 2 concern**. \ldots if you want to call them [student list products] discretionary, one thing you could discuss in more detail is how filters intersect with local patterns of segregation by talking about how these patterns vary across localities and thus become more subjective when people aren’t aware of thesepatterns
+
+**Author response**: This is an excellent suggestion and something we have been thinking about. While conducting analyses, we have noticed that for a given student list purchase, the extent of racial exclusion differs substantially across metropolitan areas. Our sense is that the relationship between school/cummunity segregation patterns and student list filters is quite complicated and requires thorough investigation. Therefore, the new submission suggests this as a topic for future research. Here is the relevant text:
+
+> Another topic for future research is patterns of segregation in schools and communities, which vary dramatically across and within metropolitan areas. Student list filters seem to interact with segregation patterns in ways that are not easily anticipated by administrators who purchase student lists. These interactions require more investigation.
+
 X. text text text
 
 > **Editor concern**. *As well, I agree with reviewer 1 that a very short overview of the 14 institutions that were included would be helpful in the appendix, as originally requested in my previous letter. This is not so much about Carnegie Classification as it is about things like general size of the undergraduate student body, region of the country,etc. This information could go into the appendix (to take care of space concerns) but feels vital to ensure that proper implications can be drawn from the current study.*
@@ -99,7 +107,7 @@ X. Affirmative action and GPA
 
 **Author response**: 
 
-- We changed "post affirmative action" to "following the Supreme Court decision about the consideration of race in college admissions decisions"
+- We removed "post affirmative action"
 - In the sentence that referred to GPA as a "non-racialized" filter we changed the text to "less-racialized" 
 
 X. Copy editing, causal language, and terms
@@ -132,6 +140,26 @@ X. Public option and micro-targeting the "right" students
 
 > Even with free names, targeted marketing materials still cost money. Colleges may have an incentive to obtain profiles for a large number of prospects, while being selective about which prospects receive which recruiting interventions. Considering the low marginal cost of email, we believe that colleges would reach out to prospects not currently being contacted under the system where names cost money. This would be an important change because @RN4324 finds that first-generation and historically underrepresented students of color are particularly sensitive to recruiting overtures from colleges. Because the public option would not contain information about College Board/ACT standardized test scores, it may be less useful for colleges that consider these tests for admissions decisions. @list_policy provide more detail about essential product features and challenges to overcome.
 
+X. Argument about regulating student lists as consumer reporting agencies is muddled.
+
+> **Reviewer 1 concern**. *I am also not fully sure I understand the argument about credit access and regulation. Here the manuscript refers to Norris and how racist inputs resulted in differential access to credit. In the Norris case, however,the racism in the system was preventing minoritized groups from accessing credit that we would otherwise want them to have (like a loan to buy a house). We obviously want students to access loans to pay for college if they have access to college, but it’s not clear they aren’t getting access to those loans if they do—there’s no need for the loan if they don’t go to college, and it’s clearly bad that a student list might keep as student out of college, it’s not because they are being excluded from student loans. The manuscript also nods to the harms of student debt, which seems to take the argument in a direction I can’t quite follow (one could see an argument that racist student lists are doing minoritized students a favor by preventing themfrom accessing student debt they may struggle to repay). It’s all a muddle to me.*
+
+**Author response**: As per usual, Reviewer 1 is right on the money! The previous submission created a muddled argument by tying student lists to student debt. In actuality, consumer protection law views access to credit as a good thing, and wants consumers to have equal access to products and offers of credit regardless of race. The new submission removes mention of debt. Here is relevant text:
+
+> Given the clear link between student lists and the extension of credit, student list products should be classified as consumer credit reports. Considering varying levels of quality amongst higher education institutions, this designation would allow federal consumer protection agencies to ensure that student list products do not systematically funnel students to low quality institutions along racial lines.
+
+X. More specifics about what federal third-party servicer regulations sould look like
+
+> **Reviewer 1 concern**. *However, the authors get there—I’m more persuaded by the “dear colleague” letter discussion in the concluding sections—they clearly are advocating for more federal regulation. A reader might benefit from some specifics about what this regulation would look like. Would regulation prevent the use of racist inputs?What would consequences be? Loss of Title IV eligibility (this is quite the nuclear option that doesn’t appear to do much in other attempts at accountability)?*
+
+**Author response**: We have added a bit more specificity here, stating that:
+
+> We recommend that the definition of third-party servicers be revised to include student list vendors because student lists are root intermediaries linking students to Title IV institutions and the receipt of Title IV aid. Certain aspects of student list products may violate the antidiscrimination provision of the Higher Education Act ([SEC. 111. 20 U.S.C. 1011). For example, geodemographic filters allow colleges to target schools and neighborhoods with high college-going rates and these characteristics may be tied to historic racial segregation.
+
+We elected not to add more specifics because of space concerns.
+
+Additionally, we cut a paragraph from the "future research" section that focused on research about market dynamics in the market for student list data. we moved four sentences from this cut paragraph to the third-party servicer paragraph because these ideas fit better there. 
+
 Reviewer 1 smaller points
 
 The sentence “Following the creation…” on p.2 feels out of place in its paragraph.
@@ -150,6 +178,20 @@ X. haven't dealt w/ this from reviewer 2 [related to standardized vs. discretion
 > **Reviewer 2 concern**. *if you want to call them discretionary, one thing you could discuss in more detail is how filters intersect with local patterns of segregation by talking about how these patterns vary across localities and thus become more subjective when people aren’t aware of these patterns* 
 
 X. TEXT TEXT TEXT
+
+X. Discuss implications of Supreme Court ruling for student lists and discuss implications for practice by colleges.
+
+> **Reviewer 3 concern**. *As for the implications for policy, I would like to see the authors add more about affirmative action than the quick reference on p. 42. Especially now that SCOTUS has ruled on the use of race in college admissions, I believe there is an even stronger argument for the need to evaluate the use of student list purchases. Further, beyond implications for federal and state policy, what are the implications for enrollment management policy and practice for institutions themselves? The authors need to make a stronger connection to key components of their conceptual framework, particularly the role of administrator discretion and how lists are utilized. This can be addressed in the implications section of the manuscript.*
+
+**Author response**: Reviewer 3 makes two suggestions here, both excellent. We believe that both suggestions can be addressed by adding text about institutional practices to the "Policy Implications" section. Here is the text:
+
+> **Institutions**. Student lists – and recruiting more generally – become more important for institutional efforts to increase racial diversity following the Supreme Court’s ruling about race and admissions. In August 2023, the Biden Administration issued guidance to institutions, including how to pursue racial diversity while complying with the law. This guidance states that “The Court’s decision in SFFA does not require institutions to ignore race when identifying prospective students for outreach and recruitment” (US Department of Justice & US Department of Education, 2023). Some colleges may respond to this guidance by adding student list purchases that target underrepresented students of color, either directly using race/ethnicity filters or indirectly by targeting particular zip codes.
+
+> We recommend a somewhat different course of action. Our previous research finds that the off-campus recruiting visits of public research universities and selective private colleges disproportionately target affluent, predominantly white public and private schools (Jaquette et al., 2023; Salazar, 2022; Salazar et al., 2021). This article shows that student list products systematically exclude communities of color and that student list purchases can unintentionally exclude students of color at alarming rates. Therefore, rather than adding a bit of racially progressive recruiting atop a racially biased recruitment funnel, we recommend that colleges begin by interrogating their recruiting practices. For example, how do the high
+schools they visit differ racially and socioeconomically those they do not visit? How do the prospect profiles they purchase differ racially and socioeconomically from those they do not purchase?
+
+
+X. Make definition of racialized inputs more prominent
 
 > **Reviewer 3 concern**. *One minor suggestion is to improve the transition into the sub-section on racialized inputs. Research from Norris seems to be critical to one of the paper’s arguments on racialized inputs. Consider starting with the definition or the broader point that Norris makes (line 50) as opposed to starting with the sentence about Moody city government credit rating algorithm (line 47).*
 
