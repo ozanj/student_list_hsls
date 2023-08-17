@@ -33,8 +33,11 @@ header-includes:
   #- \usepackage[T1]{fontenc}
   - \usepackage{geometry}
   - \usepackage{subfig}
-
-      
+  - \newcommand{\beginsupplement}{
+  - \setcounter{table}{0}  
+  - \renewcommand{\thetable}{S\arabic{table}} 
+  - \setcounter{figure}{0} 
+  - \renewcommand{\thefigure}{S\arabic{figure}}}
 ---
 
 ```{r setup, include= FALSE}
@@ -509,9 +512,13 @@ Second, test-takers have the opportunity to opt-out of the College Board Student
 
 ## Racial Composition of Individual Filters  
 
-We address RQ1 by first describing the racial characteristics of HSLS09 students who completed standardized assessments in comparison to those who did not, which would determine inclusion in the underlying College Board student list database. Figure \@ref(fig:test-takers) presents the racial/ethnic composition of prospects included (i.e., completed assessment) and excluded (i.e., did not complete assessment) across standardized tests. For example, the top left graph shows that more than 1.8 million prospects completed a college entrance exam and would have presumably been included in the College Board student list database. In comparison, more than 2.3 million prospects did not complete a college entrance exam and would be excluded from the database. White students make up 57% of included students who completed a college entrance exam and 47% of excluded students who did not. Online Appendix Table \@ref(tab:p1table) reports statistical tests for proportions between included and excluded students by race/ethnicity. Differences in White student proportions across included and excluded prospects are statistically significant (p<0.001).  While Asian and Multiracial students make up nearly equal proportions in both included and excluded prospects, Hispanic students make up only 17% of included prospects relative to 26% of excluded prospects (p<0.001). Black students similarly make up 12% of included prospects but 15% of excluded prospects (p<0.001). 
+We address RQ1 by first describing the racial characteristics of HSLS09 students who completed standardized assessments in comparison to those who did not, which would determine inclusion in the underlying College Board student list database. Figure \@ref(fig:test-takers) in the Supplemental Online Appendix presents the racial/ethnic composition of prospects included (i.e., completed assessment) and excluded (i.e., did not complete assessment) across standardized tests. More than 1.8 million prospects completed a college entrance exam and would have presumably been included in the College Board student list database. On average, these included prospects were 57% White, 4% Asian, 17% Hispanic, 12% Black, and 8% Multiracial. In comparison, more than 2.3 million prospects did not complete a college entrance exam and would be excluded from the database. Excluded prospects included a lesser proportion of White students (47%) and greater proportions of Black (15%) and Hispanic (26%) students. Other standardized assessments such as AP exams and college pre-entrance exams resulted in similar included prospects that on average made up of larger proportions of White and Asian students and smaller proportions of Hispanic, Black, and American Indian/Alaska Native students than excluded groups. Table \@ref(tab:p1table) in the Supplemental Online Appendix shows nearly all differences in proportions between included and excluded students by race/ethnicity were statistically significant, lending support for Proposition P1.
 
-Other standardized assessments resulted in similar included prospects that on average made up of larger proportions of White and Asian students and smaller proportions of Hispanic, Black, and American Indian/Alaska Native students than excluded groups, lending support for Proposition P1. For example, Figure \@ref(fig:test-takers) also shows the composition of included versus excluded prospects by AP exam completion in any subject on the top right panel. Similar to college entrance exams, White (54% versus 51%) and Asian students (8% versus 3%) make up statistically significant (p<0.001) larger proportions of included prospects. While an equal proportion of included and excluded students are Hispanic (22%), Black students make up a smaller share (p<0.001) of included prospects (8%) than excluded prospects (15%). When inclusion versus exclusion is determined by completing an AP exam in a STEM subject, total included students declines to nearly half (383,669) of those included via completing any AP exam. Moreover, Black (7% versus 14%), Hispanic (19% versus 22%), Multiracial (7% versus 14%), and American Indian/Alaska Native (0.2% versus 0.7%) students make up smaller statistically significant proportions of the included prospects relative to excluded prospects based on completion of an AP STEM exam. 
+<!-- White students make up a larger proportion of (57%) of included students who completed a college entrance exam than (47%) of excluded students who did not. While Asian and Multiracial students make up nearly equal proportions in both included and excluded prospects, Hispanic students make up only 17% of included prospects relative to 26% of excluded prospects. Black students similarly make up 12% of included prospects but 15% of excluded prospects. Online Appendix Table \@ref(tab:p1table) reports statistical tests for proportions between included and excluded students by race/ethnicity.  -->
+
+<!-- Differences in White student proportions across included and excluded prospects are statistically significant (p<0.001).  While Asian and Multiracial students make up nearly equal proportions in both included and excluded prospects, Hispanic students make up only 17% of included prospects relative to 26% of excluded prospects (p<0.001). Black students similarly make up 12% of included prospects but 15% of excluded prospects (p<0.001).  -->
+
+<!-- Other standardized assessments resulted in similar included prospects that on average made up of larger proportions of White and Asian students and smaller proportions of Hispanic, Black, and American Indian/Alaska Native students than excluded groups, lending support for Proposition P1. For example, Figure \@ref(fig:test-takers) also shows the composition of included versus excluded prospects by AP exam completion in any subject on the top right panel. Similar to college entrance exams, White (54% versus 51%) and Asian students (8% versus 3%) make up statistically significant (p<0.001) larger proportions of included prospects. While an equal proportion of included and excluded students are Hispanic (22%), Black students make up a smaller share (p<0.001) of included prospects (8%) than excluded prospects (15%). When inclusion versus exclusion is determined by completing an AP exam in a STEM subject, total included students declines to nearly half (383,669) of those included via completing any AP exam. Moreover, Black (7% versus 14%), Hispanic (19% versus 22%), Multiracial (7% versus 14%), and American Indian/Alaska Native (0.2% versus 0.7%) students make up smaller statistically significant proportions of the included prospects relative to excluded prospects based on completion of an AP STEM exam.  -->
 
 Proposition P2 states that the proportion of underrepresented minority students included in student lists decline relative to the proportion who are excluded as assessment score thresholds increase. In order to test this proposition, we analyze the racial composition of included versus excluded HSLS09 students at minimum score thresholds commonly used across student list purchase orders for college entrance, pre-entrance, and AP exams. For example, Figure \@ref(fig:thresholds-tests) presents these results for college entrance (top panel) and pre-entrance assessments (bottom panel). For the top left panel, each bar represents the racial composition of included prospects who completed an entrance exam and scored at the minimum threshold indicated. On the top right panel of Figure \@ref(fig:thresholds-tests), each bar represents the racial composition of excluded prospects who did not complete an entrance exam in addition to students who did complete the exam but did not meet the minimum score threshold indicated. Statistical tests for differences in proportion for Figure \@ref(fig:thresholds-tests) are reported in online appendices for space considerations.
 
@@ -1251,7 +1258,7 @@ knitr::include_graphics(c("./../../outputs/images/uiuc-map.png"))
 \clearpage
 
 
-# Online Appendix
+# Supplemental Online Appendix
 
 
 \pagenumbering{gobble}
@@ -1260,7 +1267,7 @@ knitr::include_graphics(c("./../../outputs/images/uiuc-map.png"))
 \pagestyle{fancy}
 \setlength{\headheight}{15pt}
 
-
+\beginsupplement
 
 
 ```{r em-funnel, echo = FALSE, fig.align = 'center', fig.cap = "The Enrollment Funnel", out.width = "45%"}
