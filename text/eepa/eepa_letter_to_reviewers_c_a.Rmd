@@ -25,11 +25,11 @@ We thank the Reviewers and the Editor for excellent, thoughtful, and detailed fe
 
 X. Cutting results from main text to shorten article
 
-> **Editor concern**. *A key concern is that the paper is too long. Please look at the submission guidelines for EEPA which require45 pages of text including tables, figures, and footnotes/endnotes. I understand that you wanted a bit morespace to be responsive to my, and the reviewer’s, extensive suggestions. As of right now I count 39 pagesof text (not including title or abstract) and 12 pages of table and figures for a total of 51. I did go through theincluded tables and figures and I would strongly suggest that figures 1, 2, 4, 8, and 13 be moved to theappendix (I selected these due to the great explanation of the figures in the text). That will cut nearly 5pages from the paper*
+> **Editor concern**. *A key concern is that the paper is too long. Please look at the submission guidelines for EEPA which require 45 pages of text including tables, figures, and footnotes/endnotes. I understand that you wanted a bit more space to be responsive to my, and the reviewer’s, extensive suggestions. As of right now I count 39 pages of text (not including title or abstract) and 12 pages of table and figures for a total of 51. I did go through the included tables and figures and I would strongly suggest that figures 1, 2, 4, 8, and 13 be moved to theappendix (I selected these due to the great explanation of the figures in the text). That will cut nearly 5pages from the paper*
 
 > *\ldots The first two paragraphs of the results could also likely be trimmed. I’m not wedded to any one suggestion, just that this paper get much closer to the page requirements for EEPA which can be fairly easily done by selectively shifting figures that are adequately described in the text and tightening language a bit (and if the selection devices piece remains, the paper needs to address the concerns brought up by the reviewers).*
 
-**Author response**: KARINA ADD TEXT
+**Author response**: We acknowledge that the manuscript was previously too long and appreciate the editor's very helpful suggestions for trimming to the EEPA submission guidelines. Per recommendations, we have moved figures 1, 2, 4, 8, and 13 into the supplemental online appendix. We have also trimmed back the first two paragraphs of the results section. We have also done XYZ. This resulted in XX pages of text (not including title, abstract, or references) and XX pages of table and figures for a total of XX.
 
 
 X. Add discussion of critical policy analysis to front of the paper
@@ -77,11 +77,11 @@ Additionally, after defining student list products as discretionary selection de
 
 Reviewer 1 implies that discretionary selection devices include any process in which decisions are made about variables and/or cut-points that determine a decision. By this logic, all selection devices would be discretionary and standardized selection devices do not exist. We disagree with this perspective. All selection devices involve subjective decisions about which factors to consider and the relative weight to assign to each factor. Standardized selection devices make subjective decisions that centrally. For example, consider an algorithm for the likelihood of a parole violation that is based on a regression analysis of prior cases of parole violation. Here, subjective decisions are made about which variables to include in the model, functional form, etc. But we would define this selection device as standordized in that individual users of the product do not have discretion over the algorithm which determines the output value based on input values.
 
-X. Discussion of how studetn list filters intersect with local patterns of seggregation
+X. Discussion of how student list filters intersect with local patterns of segregation
 
 > **Reviewer 2 concern**. \ldots if you want to call them [student list products] discretionary, one thing you could discuss in more detail is how filters intersect with local patterns of segregation by talking about how these patterns vary across localities and thus become more subjective when people aren’t aware of thesepatterns
 
-**Author response**: This is an excellent suggestion and something we have been thinking about. While conducting analyses, we have noticed that for a given student list purchase, the extent of racial exclusion differs substantially across metropolitan areas. Our sense is that the relationship between school/cummunity segregation patterns and student list filters is quite complicated and requires thorough investigation. Therefore, the new submission suggests this as a topic for future research. Here is the relevant text:
+**Author response**: This is an excellent suggestion and something we have been thinking about. While conducting analyses, we have noticed that for a given student list purchase, the extent of racial exclusion differs substantially across metropolitan areas. Our sense is that the relationship between school/community segregation patterns and student list filters is quite complicated and requires thorough investigation. Therefore, the new submission suggests this as a topic for future research. Here is the relevant text:
 
 > Another topic for future research is patterns of segregation in schools and communities, which vary dramatically across and within metropolitan areas. Student list filters seem to interact with segregation patterns in ways that are not easily anticipated by administrators who purchase student lists. These interactions require more investigation.
 
@@ -95,10 +95,10 @@ X. text text text
 
 X. Geography analyses
 
-> **Editor concern**. *I appreciate the authors taking such care with the geographic portions of the paper relating to HSLS. I thinkthe only thing that is needed is a single line as a footnote in the paper that mentions that the data is notrepresentative at the metro area for Figures 11 and 13 and so should not be thought of as representative ofthe area*
+> **Editor concern**. *I appreciate the authors taking such care with the geographic portions of the paper relating to HSLS. I think the only thing that is needed is a single line as a footnote in the paper that mentions that the data is not representative at the metro area for Figures 11 and 13 and so should not be thought of as representative of the area*
 
 
-**Author response**: KARINA ADD TEXT
+**Author response**: We apologize for confusion regarding the remaining metropolitan area analyses and figures. Figures 7 and S6 (previous Figures 11 and 13) are analyses for RQ3 using public records data. Analyses of Segment and Women in STEM orders contextualize the characteristics of prospects by showing the characteristics of population-level comparison groups (e.g., all high school graduates in the metropolitan area) using the National Center for Education Statistics (NCES) Common Core of Data (CCD). Therefore, there is not need to include a note regarding representative at the metro area as we are not using HSLS09 for these comparisons.  To clarify and avoid reader confusion on these figures, we have added a sentence to the data sub-section of the Methods with this information for RQ3 and have linked our larger project for more detailed information about data, see @list_empirics. We have also added/extended figure captions with source notes to clearly differentiate between HSLS09 figures and figures using CCD as a comparison group for public records data on prospects.
 
 X. Affirmative action and GPA
 

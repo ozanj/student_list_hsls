@@ -441,7 +441,7 @@ Our HSLS09 analysis sample includes students who meet all of the following condi
 
 Collected as part of a larger project [@list_empirics], the second data source consists of "order summaries" and their resulting "student lists" for College Board purchases by 14 universities. This [link](https://drive.google.com/file/d/1wUd_tf-drCsFEaDGjZV3sdBRboo4QPjo/view?usp=sharing) shows an example of a College Board summary for a student list purchase. These order summaries were converted into tabular data and used in analyses for RQ2.  Order summaries were collected by issuing public records requests to all public universities in five states (CA, IL, TX, MN, and one anonymous state) about student lists purchased from 2016-2020. This public records request data collection included 830 College Board orders by 14 universities. 
 
-For RQ3 - analyzing the racial composition of lists that filter on multiple search filters - some analyses rely on HSLS09 data. For other analyses, we pull selectively from 414 orders - associated with 2,549,085 prospects- in our public records request data where we have both the order summary (i.e., which combinations of filters were used) and the prospect-level data (i.e., the resulting student list). This [link](https://drive.google.com/file/d/1Qvc_QRi9izEF1W78Lh4nNi5NsXjCZqUE/view) shows some of the prospect-level data associated with ordered linked above. For more detailed information about data collect, see @list_empirics. 
+For RQ3 - analyzing the racial composition of lists that filter on multiple search filters - some analyses rely on HSLS09 data. For other analyses, we pull selectively from 414 orders - associated with 2,549,085 prospects- in our public records request data where we have both the order summary (i.e., which combinations of filters were used) and the prospect-level data (i.e., the resulting student list). This [link](https://drive.google.com/file/d/1Qvc_QRi9izEF1W78Lh4nNi5NsXjCZqUE/view) shows some of the prospect-level data associated with ordered linked above. For more detailed information about data collection, see @list_empirics.  Lastly, some analyses contextualize the characteristics of prospects from public records data by showing the characteristics of population-level comparison groups (e.g., all high school graduates in the metropolitan area) using the National Center for Education Statistics (NCES) Common Core of Data (CCD) .
 
 <!-- From paragraph above
 Figure \@ref(fig:order-filters-empirical-report) shows the filters utilized in these orders.
@@ -469,7 +469,7 @@ Propositions **P1** and **P2** focus on academic filters. **P1** is concerned ab
 
 <!-- A limitation of measures created for **P1** and **P2** is that HSLS does not have separate measures for SAT and ACT. Instead, SAT and ACT test scores are converted to the same scale, but we do not know which students took which assessments. The same is true for PSAT and PreACT assessment. -->
 
-Proposition **P3** focuses on geographic filters. We create measures for student's school zip code by merging in data from the National Center for Education Statistics (NCES). Next, we attach income data to zip code by merging in data from the American Community Survey (ACS) 2012 5-year estimates. 
+Proposition **P3** focuses on geographic filters. We create measures for student's school zip code by merging in data from NCES. Next, we attach income data to zip code by merging in data from the American Community Survey (ACS) 2012 5-year estimates. 
 
 <!-- We do not create independent variables for geomarket filter or geodemograhic segment filter because these filters utilize geographic borders based on proprietary College Board data. -->
 
@@ -1268,7 +1268,7 @@ grid.arrange(
 
 \begingroup
 \fontsize{10}{10}\selectfont
-_Note: Filters used across these orders include HS Class, GPA (B-A+), State (in-state vs. out-of-state), AP STEM (3 min for in-state; 4 min for out-of-state) or SAT (1200 minimum for in-state; 1300 minimum for out-of-state) with STEM major interest_
+_Note: Filters used across these orders include HS Class, GPA (B-A+), State (in-state vs. out-of-state), AP STEM (3 min for in-state; 4 min for out-of-state) or SAT (1200 minimum for in-state; 1300 minimum for out-of-state) with STEM major interest. Metro population source is the National Center for Education Statistic's Common Core of Data and includes all students attending a public high school in the metropolitan area. _
 \endgroup
 
 
@@ -1499,7 +1499,7 @@ grid.arrange(
 
 \begingroup
 \fontsize{10}{10}\selectfont
-_Note: Filters used across these orders include HS Class, Segment, GPA (B-A+), PSAT/SAT (1220-1450); State/CBSAs_
+_Note: Filters used across these orders include HS Class, Segment, GPA (B-A+), PSAT/SAT (1220-1450); State/CBSAs. Metro population source is the National Center for Education Statistic's Common Core of Data and includes all students attending a public high school in the metropolitan area. _
 \endgroup
 
 \pagebreak
