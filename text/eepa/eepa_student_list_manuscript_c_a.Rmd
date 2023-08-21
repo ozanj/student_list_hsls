@@ -33,6 +33,11 @@ header-includes:
   #- \usepackage[T1]{fontenc}
   - \usepackage{geometry}
   - \usepackage{subfig}
+  - \newcommand{\beginsupplement}{
+  - \setcounter{table}{0}  
+  - \renewcommand{\thetable}{S\arabic{table}} 
+  - \setcounter{figure}{0} 
+  - \renewcommand{\thefigure}{S\arabic{figure}}}
 
       
 ---
@@ -794,7 +799,7 @@ _NOTES: Top filter combinations are based on 830 College Board student list purc
 
 \clearpage
 
-
+\newpage
 
 # Figures
 
@@ -875,32 +880,8 @@ _NOTES: Top filter combinations are based on 830 College Board student list purc
 <!-- \pagebreak -->
 
 
-```{r em-funnel, echo = FALSE, fig.align = 'center', fig.cap = "The Enrollment Funnel", out.width = "45%"}
-knitr::include_graphics('./../../outputs/images/enroll_funnelv2.png')
-#knitr::include_graphics('./../../outputs/figures/enrollment_funnel.png')
-#![The enrollment funnel](assets/images/enrollment_funnel.png)
-```
 
 
-\begin{landscape}
-
-
-```{r test-takers, echo = FALSE, fig.align = 'center', fig.cap = "Test Takers Across College Extrance, College Pre-Entrance, and AP Assessments", out.width = "40%", fig.show='hold'}
-#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
-knitr::include_graphics(c("./../../outputs/figures/p1_sat.png","./../../outputs/figures/p1_ap.png"))
-knitr::include_graphics(c("./../../outputs/figures/p1_psat.png","./../../outputs/figures/p1_apstem.png"))
-knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
-
-
-```
-
-
-\begingroup
-\fontsize{8}{8}\selectfont
-SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09).
-\endgroup
-
-\pagebreak
 
 ```{r thresholds-tests, echo = FALSE, fig.align = 'center', fig.cap = "College Entrance and Pre-Entrance Exam Filters Across Thresholds", out.width = "35%", fig.show='hold'}
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
@@ -916,23 +897,6 @@ knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
 SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09).
 \endgroup
 
-\pagebreak
-
-```{r thresholds-tests-ap, echo = FALSE, fig.align = 'center', fig.cap = "AP Filter Across Thresholds", out.width = "35%", fig.show='hold'}
-#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
-knitr::include_graphics(c("./../../outputs/figures/p2_ap_incv2.png","./../../outputs/figures/p2_ap_excv2.png"))
-knitr::include_graphics(c("./../../outputs/figures/p2_apstem_incv2.png","./../../outputs/figures/p2_apstem_excv2.png"))
-knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
-
-
-```
-
-\begingroup
-\fontsize{8}{8}\selectfont
-SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09).
-\endgroup
-
-\pagebreak
 
 
 
@@ -1130,38 +1094,6 @@ orders_sat %>%
 ```
 
 
-```{r orders-psat, fig.height = 3, fig.cap = "PSAT Filter Used by Research vs. MA/Doctoral Universities"}
-orders_psat_total <- orders_psat %>% 
-  filter(test_range == 'psat_min') %>% 
-  group_by(univ_type) %>% 
-  summarise(
-    num_orders = sum(num)
-  ) %>% 
-  pull(num_orders, univ_type)
-
-orders_psat %>% 
-  mutate(
-    range_label = recode_factor(
-      test_range,
-      'psat_min' = 'Minimum',
-      'psat_max' = 'Maximum'
-    ),
-    univ_label = recode_factor(
-      univ_type,
-      'research' = str_c('Research (N=', orders_psat_total[['research']], ')'),
-      'regional' = str_c('MA/doctoral (N=', orders_psat_total[['regional']], ')')
-    )
-  ) %>% 
-  ggplot(aes(x = brks, y = pct, fill = univ_label)) +
-  geom_bar(position = position_dodge2(reverse = T, padding = 0), stat = 'identity') +
-  geom_text(aes(label = num), hjust = -0.1, size = 2, position = position_dodge2(0.9, reverse = T, padding = 0)) +
-  scale_y_continuous(expand = expansion(mult = c(0.01, 0.1)), labels = label_percent(accuracy = 1)) +
-  scale_fill_manual(values = color_palette, name = 'University type') +
-  xlab('') + ylab('% of orders in university type') +
-  facet_wrap(~ range_label) +
-  coord_flip()
-```
-
 
 <!-- ```{r zipcode-affluence-metros, echo = FALSE, fig.align = 'center', fig.cap = "Zip Code Filter Across Affluence Percentiles for Los Angeles and New York", out.width = "49%", fig.show='hold'} -->
 <!-- #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png') -->
@@ -1350,6 +1282,118 @@ knitr::include_graphics(c("./../../outputs/images/uiuc-map.png"))
 
 \end{landscape}
 
+\newpage
+
+# Supplemental Online Appendix
+
+
+\pagenumbering{gobble}
+\pagenumbering{arabic}
+\renewcommand*{\thepage}{A\arabic{page}}
+\pagestyle{fancy}
+\setlength{\headheight}{15pt}
+
+\beginsupplement
+
+
+```{r em-funnel, echo = FALSE, fig.align = 'center', fig.cap = "The Enrollment Funnel", out.width = "45%"}
+knitr::include_graphics('./../../outputs/images/enroll_funnelv2.png')
+#knitr::include_graphics('./../../outputs/figures/enrollment_funnel.png')
+#![The enrollment funnel](assets/images/enrollment_funnel.png)
+```
+
+
+\begin{landscape}
+
+
+```{r test-takers, echo = FALSE, fig.align = 'center', fig.cap = "Test Takers Across College Extrance, College Pre-Entrance, and AP Assessments", out.width = "40%", fig.show='hold'}
+#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
+knitr::include_graphics(c("./../../outputs/figures/p1_sat.png","./../../outputs/figures/p1_ap.png"))
+knitr::include_graphics(c("./../../outputs/figures/p1_psat.png","./../../outputs/figures/p1_apstem.png"))
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+
+
+```
+
+\begingroup
+\fontsize{8}{8}\selectfont
+SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09).
+\endgroup
+
+\pagebreak
+
+
+
+```{r thresholds-tests-ap, echo = FALSE, fig.align = 'center', fig.cap = "AP Filter Across Thresholds", out.width = "37%", fig.show='hold'}
+#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
+knitr::include_graphics(c("./../../outputs/figures/p2_ap_incv2.png","./../../outputs/figures/p2_ap_excv2.png"))
+knitr::include_graphics(c("./../../outputs/figures/p2_apstem_incv2.png","./../../outputs/figures/p2_apstem_excv2.png"))
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+
+
+```
+
+\begingroup
+\fontsize{8}{8}\selectfont
+SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09).
+\endgroup
+
+\pagebreak
+
+\end{landscape}
+
+```{r gpa-ap, echo = FALSE, fig.align = 'center', fig.cap = "Academic and Geographic Combination: GPA (3.0+) and AP (across score thresholds)", out.width = "80%", fig.show='hold'}
+#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
+knitr::include_graphics(c("./../../outputs/figures/combo3_inc_apv2.png"))
+knitr::include_graphics(c("./../../outputs/figures/combo3_inc_apstemv2.png"))
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+
+
+```
+
+\begingroup
+\fontsize{8}{8}\selectfont
+SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09).
+\endgroup
+
+\pagebreak
+
+
+
+```{r orders-psat, fig.height = 3, fig.cap = "PSAT Filter Used by Research vs. MA/Doctoral Universities"}
+orders_psat_total <- orders_psat %>% 
+  filter(test_range == 'psat_min') %>% 
+  group_by(univ_type) %>% 
+  summarise(
+    num_orders = sum(num)
+  ) %>% 
+  pull(num_orders, univ_type)
+
+orders_psat %>% 
+  mutate(
+    range_label = recode_factor(
+      test_range,
+      'psat_min' = 'Minimum',
+      'psat_max' = 'Maximum'
+    ),
+    univ_label = recode_factor(
+      univ_type,
+      'research' = str_c('Research (N=', orders_psat_total[['research']], ')'),
+      'regional' = str_c('MA/doctoral (N=', orders_psat_total[['regional']], ')')
+    )
+  ) %>% 
+  ggplot(aes(x = brks, y = pct, fill = univ_label)) +
+  geom_bar(position = position_dodge2(reverse = T, padding = 0), stat = 'identity') +
+  geom_text(aes(label = num), hjust = -0.1, size = 2, position = position_dodge2(0.9, reverse = T, padding = 0)) +
+  scale_y_continuous(expand = expansion(mult = c(0.01, 0.1)), labels = label_percent(accuracy = 1)) +
+  scale_fill_manual(values = color_palette, name = 'University type') +
+  xlab('') + ylab('% of orders in university type') +
+  facet_wrap(~ range_label) +
+  coord_flip()
+```
+
+
+
 \clearpage
 
 ```{r ucsd-deep-dive, fig.cap = "Women in STEM Prospects by Metropolitan Area"}
@@ -1454,19 +1498,7 @@ grid.arrange(
 _Note: Filters used across these orders include HS Class, Segment, GPA (B-A+), PSAT/SAT (1220-1450); State/CBSAs_
 \endgroup
 
-
-\newpage
-
-# Online Appendix
-
-
-\pagenumbering{gobble}
-\pagenumbering{arabic}
-\renewcommand*{\thepage}{A\arabic{page}}
-\pagestyle{fancy}
-\setlength{\headheight}{15pt}
-
-
+\pagebreak
 
 
 ```{r p1table}
@@ -1508,24 +1540,6 @@ p1_table %>%
 _NOTE: `*`p<0.05, `**`p<0.01, `***`p<0.001_
 
 _SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09)._
-\endgroup
-
-\clearpage
-
-
-
-```{r gpa-ap, echo = FALSE, fig.align = 'center', fig.cap = "Academic and Geographic Combination: GPA (3.0+) and AP (across score thresholds)", out.width = "80%", fig.show='hold'}
-#knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
-knitr::include_graphics(c("./../../outputs/figures/combo3_inc_apv2.png"))
-knitr::include_graphics(c("./../../outputs/figures/combo3_inc_apstemv2.png"))
-knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
-
-
-```
-
-\begingroup
-\fontsize{8}{8}\selectfont
-SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09).
 \endgroup
 
 \pagebreak
@@ -1809,3 +1823,8 @@ hs_df %>%
 
 
 \clearpage
+
+
+
+
+
