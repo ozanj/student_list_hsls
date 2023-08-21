@@ -89,7 +89,7 @@ X. text text text
 
 > **Editor concern**. *As well, I agree with reviewer 1 that a very short overview of the 14 institutions that were included would be helpful in the appendix, as originally requested in my previous letter. This is not so much about Carnegie Classification as it is about things like general size of the undergraduate student body, region of the country,etc. This information could go into the appendix (to take care of space concerns) but feels vital to ensure that proper implications can be drawn from the current study.*
 
-**Author response**: KARINA ADD TEXT
+**Author response**: We have added a table in the appendix summarizing the characteristics of the 14 institutions included in the public records request data collection and reference it in the methods, although we do not describe it in detail due to space concerns.
 
 ## Smaller Points
 
