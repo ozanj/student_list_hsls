@@ -88,6 +88,7 @@ load("./../../outputs/tables/p4_table.Rda")
 load("./../../outputs/tables/c1_table.Rda")
 load("./../../outputs/tables/c2_table.Rda")
 load("./../../outputs/tables/c3_table.Rda")
+load("./../../outputs/tables/sample_table.Rda")
 
 
 theme_set(
@@ -439,7 +440,7 @@ Our HSLS09 analysis sample includes students who meet all of the following condi
 <!-- From paragraph above
 [STATE 95% CI FOR THIS POINT ESTIMATE?] The analysis sample is smaller for analyses that utilize variables that have missing values for some respondents [? SAY MIN ANALYSIS SAMPLE SIZE IS THIS?]-->
 
-Collected as part of a larger project [@list_empirics], the second data source consists of "order summaries" and their resulting "student lists" for College Board purchases by 14 universities. This [link](https://drive.google.com/file/d/1wUd_tf-drCsFEaDGjZV3sdBRboo4QPjo/view?usp=sharing) shows an example of a College Board summary for a student list purchase. These order summaries were converted into tabular data and used in analyses for RQ2.  Order summaries were collected by issuing public records requests to all public universities in five states (CA, IL, TX, MN, and one anonymous state) about student lists purchased from 2016-2020. This public records request data collection included 830 College Board orders by 14 universities. 
+Collected as part of a larger project [@list_empirics], the second data source consists of "order summaries" and their resulting "student lists" for College Board purchases by 14 universities. Table \@ref(tab:sampletable) in the supplemental online appendix shows selected characteristics for the universities in our data collection sample. This [link](https://drive.google.com/file/d/1wUd_tf-drCsFEaDGjZV3sdBRboo4QPjo/view?usp=sharing) shows an example of a College Board summary for a student list purchase. These order summaries were converted into tabular data and used in analyses for RQ2.  Order summaries were collected by issuing public records requests to all public universities in five states (CA, IL, TX, MN, and one anonymous state) about student lists purchased from 2016-2020. This public records request data collection included 830 College Board orders by 14 universities. 
 
 For RQ3 - analyzing the racial composition of lists that filter on multiple search filters - some analyses rely on HSLS09 data. For other analyses, we pull selectively from 414 orders - associated with 2,549,085 prospects- in our public records request data where we have both the order summary (i.e., which combinations of filters were used) and the prospect-level data (i.e., the resulting student list). This [link](https://drive.google.com/file/d/1Qvc_QRi9izEF1W78Lh4nNi5NsXjCZqUE/view) shows some of the prospect-level data associated with ordered linked above. For more detailed information about data collection, see @list_empirics.  Lastly, some analyses contextualize the characteristics of prospects from public records data by showing the characteristics of population-level comparison groups (e.g., all high school graduates in the metropolitan area) using the National Center for Education Statistics (NCES) Common Core of Data (CCD) .
 
@@ -1363,7 +1364,6 @@ SOURCE: U.S. Department of Education, National Center for Education Statistics, 
 \pagebreak
 
 
-
 ```{r orders-psat, fig.height = 3, fig.cap = "PSAT Filter Used by Research vs. MA/Doctoral Universities"}
 orders_psat_total <- orders_psat %>% 
   filter(test_range == 'psat_min') %>% 
@@ -1502,7 +1502,55 @@ grid.arrange(
 _Note: Filters used across these orders include HS Class, Segment, GPA (B-A+), PSAT/SAT (1220-1450); State/CBSAs. Metro population source is the National Center for Education Statistic's Common Core of Data and includes all students attending a public high school in the metropolitan area. _
 \endgroup
 
+
 \pagebreak
+
+
+```{r sampletable}
+
+# df1 <- data.frame(
+#   cat = p1_table$x2race,
+#   prop1 = p1_table$testtaker_estimate,
+#   prop2 = p1_table$nontesttaker_estimate,
+#   diff = round(as.numeric(p1_table$nontesttaker_estimate) - as.numeric(p1_table$nontesttaker_estimate), digits=3 ),
+#   pval= p1_table$pval
+# )
+
+df %>% 
+  kable(
+    format = "latex", booktabs = TRUE,
+    #longtable = T,
+    col.names = c(' ', 'Type', 'Region', 'Tuition & Fees, In-State', "Total Enrollment", "% Non-Resident", "% Pell", "% Asian", "% Black","% Hispanic", "% Native American", "% Multiracial", "% White"), 
+    align = c('l', 'r', 'r', 'r', 'r','r', 'r', 'r', 'r', 'r','r', 'r', 'r'),
+    linesep = '',
+    caption = 'Characteristics of universities in public records request sample',
+    ) %>%
+  row_spec(0, bold = T, font_size=2) %>%
+  #pack_rows("College Entrance Exam", 1, 7) %>%
+  #pack_rows("College Pre-Entrance Exam", 8, 14) %>%
+  #pack_rows("AP", 15, 21) %>%
+  #pack_rows("AP STEM", 22, 28) %>%
+
+
+  #row_spec(1, bold=T, italic = T, font_size=2) %>%
+  #row_spec(9,bold=T, italic = T, font_size=2) %>%
+  #row_spec(17,bold=T, italic = T, font_size=2) %>%
+  #row_spec(25,bold=T, italic = T, font_size=2) %>%
+
+  kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
+                    full_width = FALSE), font_size = 2.5) %>%
+  add_header_above(c(" " = 5, "Undergraduate Freshmen" = 8))
+```
+\begingroup
+\fontsize{10}{10}\selectfont
+_SOURCE: U.S. Department of Education, Integrated Postsecondary Education Data System, 2017-18._
+\endgroup
+
+\pagebreak
+
+\end{landscape}
+
+
 
 
 ```{r p1table}
