@@ -1504,9 +1504,9 @@ _Note: Filters used across these orders include HS Class, Segment, GPA (B-A+), P
 
 
 \pagebreak
+\landscape
 
-
-```{r sampletable}
+```{r sampletable, results='asis'}
 
 # df1 <- data.frame(
 #   cat = p1_table$x2race,
@@ -1538,7 +1538,7 @@ df %>%
   #row_spec(25,bold=T, italic = T, font_size=2) %>%
 
   kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
-                    full_width = FALSE), font_size = 2.5) %>%
+                    full_width = FALSE), font_size = 3) %>%
   add_header_above(c(" " = 5, "Undergraduate Freshmen" = 8))
 ```
 \begingroup
@@ -1547,8 +1547,7 @@ _SOURCE: U.S. Department of Education, Integrated Postsecondary Education Data S
 \endgroup
 
 \pagebreak
-
-\end{landscape}
+\endlandscape
 
 
 
