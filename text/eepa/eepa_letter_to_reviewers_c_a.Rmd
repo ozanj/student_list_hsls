@@ -29,13 +29,11 @@ We thank the Reviewers and the Editor for excellent and detailed feedback. Once 
 
 > *\ldots The first two paragraphs of the results could also likely be trimmed. I’m not wedded to any one suggestion, just that this paper get much closer to the page requirements for EEPA which can be fairly easily done by selectively shifting figures that are adequately described in the text and tightening language a bit (and if the selection devices piece remains, the paper needs to address the concerns brought up by the reviewers).*
 
-**Author response**: We acknowledge that the manuscript was previously too long and appreciate the editor's very helpful suggestions for trimming to the EEPA submission guidelines. Per recommendations, we have moved figures 1, 2, 4, 8, and 13 into the supplemental online appendix. We have trimmed back the first two paragraphs of the results section as suggested. Although several editor/reviewer suggestions (below) prompted us to add more text, we sought to balance these additions by thoroughly shaving text throughout the manuscript.
+**Author response**: We acknowledge that the manuscript was previously too long and appreciate the editor's very helpful suggestions for trimming to the EEPA submission guidelines. Per recommendations, we have moved figures 1, 2, 4, and 8 into the supplemental online appendix. While we believe it was important to keep Figure 13 in the main manuscript, we have have alternatively moved Table 1 to online appendices to shorten the length of tables and figures. We have also trimmed back the first two paragraphs of the results section as suggested. Although several editor/reviewer suggestions (below) prompted us to add more text, we sought to balance these additions by thoroughly shaving text throughout the manuscript.
 
 The previous manuscript contained XX pages of text (not including title, abstract, or references) and XX pages of table and figures for a total of XX. 
 
 The new manuscript contains XX pages of text (not including title, abstract, or references) and XX pages of table and figures for a total of XX. 
-
-KARINA FINISH THIS. 
 
 
 2. Add discussion of critical policy analysis to front of the paper
@@ -101,7 +99,7 @@ Additionally, after defining student list products as discretionary selection de
 > **Editor concern**. *I appreciate the authors taking such care with the geographic portions of the paper relating to HSLS. I think the only thing that is needed is a single line as a footnote in the paper that mentions that the data is not representative at the metro area for Figures 11 and 13 and so should not be thought of as representative of the area*
 
 
-**Author response**: We apologize for confusion regarding the remaining metropolitan area analyses and figures. Figures 7 and S6 (previous Figures 11 and 13) are analyses for RQ3 using public records data. Analyses of Segment and Women in STEM orders contextualize the characteristics of prospects by showing the characteristics of population-level comparison groups (e.g., all high school graduates in the metropolitan area) using the National Center for Education Statistics (NCES) Common Core of Data (CCD). Therefore, there is not a need to include a note regarding representative at the metro area as we are not using HSLS09 for these comparisons.  To clarify and avoid reader confusion on these figures, we have added a sentence to the data sub-section of the Methods with this information for RQ3 and have linked our larger project for more detailed information about data, see @list_empirics. We have also added/extended figure captions with source notes to clearly differentiate between HSLS09 figures and figures using CCD as a comparison group for public records data on prospects.
+**Author response**: We apologize for confusion regarding the remaining metropolitan area analyses and figures. Figures 7 and S6 (previous Figures 11 and 13) are analyses for RQ3 using public records data. Analyses of Segment and Women in STEM orders contextualize the characteristics of prospects by showing the characteristics of population-level comparison groups (e.g., all high school graduates in the metropolitan area) using the National Center for Education Statistics (NCES) Common Core of Data (CCD). Therefore, there is no need to include a note regarding representative at the metro area as we are not using HSLS09 for these comparisons. However, to clarify and avoid reader confusion on these figures, we revised text in the analysis sub-section of the Methods with this information for RQ3 and have linked our larger project for more detailed information about data, see @list_empirics. We have also added/extended figure captions with source notes to clearly differentiate between HSLS09 figures and figures using public records data on prospects.
 
 2. Affirmative action and GPA
 
@@ -117,7 +115,7 @@ Additionally, after defining student list products as discretionary selection de
 
 There are also a few typos (e.g., “stidents” for “students” on the first page) that it would be useful to clean up. I’ll also note that at several points an extra e.g., is included after a semi-colon when citing references in the text. Please review this for APA given that copy editing will likely remove that e.g. given that typically that would come at the front of the list (and it is assumed that the parenthetical includes a single list of citations). Oh and on page 21, there’s a 23,503 that needs to be rounded. Footnote 12 is missing punctuation. Finally,please review the entire manuscript for any causal implications that are not suited to the weight of the evidence. For example, on page 32, the sentence “…we can explore the effects of utilizing filters” probably needs to change to “…we can explore the potential effects of utilizing filters” or page 36 where the paper notes “student list products positively affect college access” yet all the references in the paper would suggest the research cited was correlational (so there’s a positive correlation or relationship but not an affect). Also need to mention (footnote is fine) that the research/ma/doctoral distinction is from Carnegie basic classification (and use the proper terms from them on first use so other scholars can understand howto replicate this work).
 
-**Author response**: KARINA ADD TEXT. ALSO NOTE THAT WE WILL CREATE A PUBLIC GIT REPOSITORY TO AID REPLICATION
+**Author response**: All of these copy edits and suggestions have been incorporated into the revised manuscript. The carnegie classification explanation is now footnoted in the data sub-section for Table S2. Additionally, we will be creating a public git repository with all scripts needed to replicate HSLS09 analyses.
 
 # Reviewers
 
@@ -167,7 +165,7 @@ Additionally, we moved four sentences about market dynamics from the "future res
 - What are the two different colors in Figure 6 indicating?
 - Is Figure 14 mistitled? I don’t know that I see the geographic element in there.
 
-**Author response**: KARINA ADD TEXT.
+**Author response**: We apologize for these smaller points that added to Reviewer 1's confusion. We have clarified and revised all of these accordingly in the manuscript. This includes reducing the number of "vis-a-vis" phrases in the manuscript to two usages and Reviewer 1's suggested edits to Table 1, which has now been moved into the online appendix for space considerations. 
 
 5. Discuss implications of Supreme Court ruling for student lists and discuss implications for practice by colleges.
 
