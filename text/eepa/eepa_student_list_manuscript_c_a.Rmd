@@ -420,7 +420,7 @@ The flip-side of micro-targeting is exclusion [@RN4795]. Purchased lists do not 
 
 College Board and ACT have added search filters based on predictive analytics (e.g., College Board "Geomarket", ACT "Enrollment Predictor"). The Geomarket filter sub-divides states/metropolitan areas into distinct markets based on historical data about college enrollment. Geodemographic Segment filters allocate individual census tracts and individual high schools into distinct clusters based on past college enrollment. Creating new geographic borders based on historical patterns amplifies the effect of historic race-based inequality [@RN4794]. Furthermore, administrators utilizing these filters have incomplete knowledge about how these borders interact with local patterns of segregation. We expect that using Geomarket or Geodemographic filters, in concert with other search filters, is associated with racial inequality in targeted versus excluded prospects.
 
-Finally, colleges may utilize student list products to increase enrollment by underrepresented populations. College Board and ACT student list products incorporate filters for race, ethnicity, and first-generation status. For example, colleges may purchase separate lists for particular racial/ethnic groups, specifying different test score thresholds for different groups. <!--Purchases that explicitly target underrepresented populations may be more or less inclusive of students from communities of color.  --> Considering the complexity of student list products and incomplete knowledge about race-based income inequality [@RN4884], student list purchases designed to overcome one inequality may unintentionally amplify other social inequalities. For example, purchases designed to target "women in STEM" may yield racial or socioeconomic inequality. Additionally, purchases that explicitly target underrepresented minority students with high test scores may systematically exclude students from predominantly non-white communities.
+Finally, colleges may utilize student list products to increase enrollment by underrepresented populations. College Board and ACT student list products incorporate filters for race, ethnicity, and first-generation status. For example, colleges may purchase separate lists for particular racial/ethnic groups, specifying different test score thresholds for different groups. <!--Purchases that explicitly target underrepresented populations may be more or less inclusive of students from communities of color.  --> Considering the complexity of student list products and incomplete knowledge about race-based income inequality [@RN4884], student list purchases designed to overcome one inequality may unintentionally amplify other social inequalities. For example, purchases designed to target "women in STEM" may yield racial or socioeconomic inequality. Purchases that explicitly target underrepresented minority students with high test scores may also yield socioeconomic or geographical inequality by systematically excluding low-students or excluding students living in predominantly non-white communities.
 
 # Methods
 
@@ -440,7 +440,7 @@ Of the more than 23,000 respondents included in HSLS09, our unweighted analysis 
 <!-- From paragraph above
 [STATE 95% CI FOR THIS POINT ESTIMATE?] The analysis sample is smaller for analyses that utilize variables that have missing values for some respondents [? SAY MIN ANALYSIS SAMPLE SIZE IS THIS?]-->
 
-The second data source consists of "order summaries" and their resulting "student lists" for College Board purchases by 14 public universities. Table \@ref(tab:sampletable) in the supplemental online appendix shows selected characteristics for the universities in our data collection sample. This [link](https://drive.google.com/file/d/1wUd_tf-drCsFEaDGjZV3sdBRboo4QPjo/view?usp=sharing) shows an example of a College Board summary for a student list purchase. Order summaries were collected as part of a larger project by issuing public records requests to all public universities in five states (CA, IL, TX, MN, and one anonymous state) about student lists purchased from 2016-2020. Order summaries from 830 student lists purchased by 14 universities were used to analyze RQ2, which asks which search filters did public universities utilize?
+The second data source consists of "order summaries" and their resulting "student lists" for College Board purchases by 14 public universities. Table \@ref(tab:sampletable) in the supplemental online appendix shows selected characteristics for the universities in our data collection sample.^[Table \@ref(tab:sampletable) uses Carnegie 2020 Basic classification to collapse institutions into two institution types. All doctoral universities with highest or high research activity were categorized as "Research Universities. Master's universities across all programs were categorized as "Master's Universities".] This [link](https://drive.google.com/file/d/1wUd_tf-drCsFEaDGjZV3sdBRboo4QPjo/view?usp=sharing) shows an example of a College Board summary for a student list purchase. Order summaries were collected as part of a larger project by issuing public records requests to all public universities in five states (CA, IL, TX, MN, and one anonymous state) about student lists purchased from 2016-2020. Order summaries from 830 student lists purchased by 14 universities were used to analyze RQ2, which asks which search filters did public universities utilize?
 
 RQ3 analyzes the racial composition of lists that filter on multiple search filters. We pull selectively from 414 orders -- associated with 2,549,085 prospects -- in our public records request data where we have both the order summary (i.e., which combinations of filters were used) and the prospect-level data (i.e., the resulting student list). This [link](https://drive.google.com/file/d/1Qvc_QRi9izEF1W78Lh4nNi5NsXjCZqUE/view) shows some of the prospect-level data associated with ordered linked above. For more detailed information about data collection, see @list_empirics.
 
@@ -488,7 +488,7 @@ All analyses compare the racial composition of included versus excluded prospect
 
 Analyses utilize simple descriptive statistics. For RQ1, analyses compare the racial composition of included versus excluded HSLS09 prospects when an individual search filter is utilized in isolation. We run (weighted) statistical tests for comparing differences in included versus excluded students by race/ethnicity. Consider a hypothetical purchase of all prospects that took an AP STEM exam. We compare the racial composition of the included group to the racial composition of the excluded group. For example, Black students comprise 5% (`=90/1800`) of AP STEM test-takers and Black students comprise 11% (`=1560/14720`) of students who do not take an AP STEM exam. The test for difference in proportions compares whether the proportion of included prospects who identify as Black differs from the proportion of excluded prospects who identify as Black, and this test is run separately for each race/ethnicity group.<!-- Analyses for propositions P1 through P3, which answer RQ1, examine HSLS09 prospects included versus excluded based on individual filters in isolation.-->
 
-RQ2 asks which search filters did public universities utilize. <!--Analyses draw on order summaries for the 830 student list purchases across the 14 universities in our public records request data collection.  --> We use counts and proportions of filters used across research (N=8) versus ma/doctoral (N=6) universities to describe patterns in how racialized search filters are used alongside other filters when purchasing lists.
+RQ2 asks which search filters did public universities utilize. <!--Analyses draw on order summaries for the 830 student list purchases across the 14 universities in our public records request data collection.  --> We use counts and proportions of filters used across research (N=9) versus master's (N=5) universities to describe patterns in how racialized search filters are used alongside other filters when purchasing lists.
 
 RQ3 examines the racial composition of student list purchases that utilize multiple search filters simultaneously. Choices about filters are informed by our theoretical framework. Analyses based on HSLS09 examine included versus excluded prospects by race/ethnicity when multiple filters are utilized. We also analyze RQ3 using data from actual student lists purchased by public universities, selecting from purchases where we are able to obtain the order summary *and* the associated prospect-level data. In contrast to analyses based on HSLS09, analyses based on public records requests are unable to make inferences about the population of student list purchases. We are also unable to make comparative inferences about excluded groups for analyses based on public records requests. We leverage secondary data from NCES and ACS to show how the characteristics of purchased lists compare to relevant groups (e.g., all high school graduates in the metropolitan area). 
 
@@ -579,18 +579,18 @@ However, we acknowledge that categorizing zip codes within CBSA limits the numbe
 
 To answer RQ2, in what ways do public universities use racialized input search filters, we analyze how often filters were used for College Board students list purchases by the 14 universities in our public records request data collection. 
 
-Figure \@ref(fig:order-filters-empirical-report) illustrates the prevalence of each individual filter by institution type. We categorize filters within academic, geographic, demographic, and student preference groups. Both research and ma/doctoral universities commonly used academic filters like GPA, SAT, and PSAT. However, compared to ma/doctoral universities, research universities were less likely to filter on GPA or PSAT score and more likely to filter on SAT score. Additionally, AP filters were only used by research universities. Geographic filters used to purchase student lists also differed across institution type. Orders by research universities were more likely to use a state filter whereas ma/doctoral universities were more likely to use a zip code filter. Research universities also used filters utilizing predictive analytics to make inferences about the college going behavior of prospective students living in specific geographic areas (e.g., geomarket, segment). Research universities also used demographic and student preference filters. Filters for race, low socioeconomic status, and gender were the most commonly used demographic filters, whereas college size, major, college type, and location were the most commonly used student preferences. 
+Figure \@ref(fig:order-filters-empirical-report) illustrates the prevalence of each individual filter by institution type. We categorize filters within academic, geographic, demographic, and student preference groups. Both research and master's universities commonly used academic filters like GPA, SAT, and PSAT. However, compared to master's universities, research universities were less likely to filter on GPA or PSAT score and more likely to filter on SAT score. Additionally, AP filters were only used by research universities. Geographic filters used to purchase student lists also differed across institution type. Orders by research universities were more likely to use a state filter whereas master's universities were more likely to use a zip code filter. Research universities also used filters utilizing predictive analytics to make inferences about the college going behavior of prospective students living in specific geographic areas (e.g., geomarket, segment). Research universities also used demographic and student preference filters. Filters for race, low socioeconomic status, and gender were the most commonly used demographic filters, whereas college size, major, college type, and location were the most commonly used student preferences. 
 
-Given the prevalence of academic filters across universities, Figure \@ref(fig:orders-sat) shows minimum and maximum thresholds used in SAT score filters by institution type, respectively. The figure shows that research universities tended to specify higher minimum SAT score thresholds and higher maximum SAT score thresholds compared to ma/doctoral universities. Similar patterns are evident for PSAT score thresholds (see Figure \@ref(fig:orders-psat) online).
+Given the prevalence of academic filters across universities, Figure \@ref(fig:orders-sat) shows minimum and maximum thresholds used in SAT score filters by institution type, respectively. The figure shows that research universities tended to specify higher minimum SAT score thresholds and higher maximum SAT score thresholds compared to master's universities. Similar patterns are evident for PSAT score thresholds (see Figure \@ref(fig:orders-psat) online).
 
-Student list purchases typically filter on multiple criteria. Table \@ref(tab:orders-filters-combo) shows the top ten filter combinations used for student list purchases across institution type for the 14 universities in our public records request data collection. ^[While the majority of orders specified multiple filters as "AND" conditions, some orders specified particular filters as "OR" conditions (e.g., SAT score in some range or PSAT score in some range). Additionally, filter combinations are skewed by universities that made large numbers of orders relative to other universities.] For ma/doctoral universities, the top 10 filter combinations account for 96% of all orders. This is a function of nearly half of all orders using a combination of high school graduation class, GPA, PSAT scores, and zip code as filters and another 33% of orders using the same filters with SAT scores instead of PSAT. For research universities, the top ten filter combinations account for 60% of all orders. The most common filter combination, making up 19% of all orders, included high school graduation class, GPA, SAT, and zip code. The second most common combination the same filters along with PSAT, high school rank, state, and race. The remaining top orders also used these filter combinations in addition to filters like low-socioeconomic status, AP scores, Geomarket, Segment, and gender. 
+Student list purchases typically filter on multiple criteria. Table \@ref(tab:orders-filters-combo) shows the top ten filter combinations used for student list purchases across institution type for the 14 universities in our public records request data collection. ^[While the majority of orders specified multiple filters as "AND" conditions, some orders specified particular filters as "OR" conditions (e.g., SAT score in some range or PSAT score in some range). Additionally, filter combinations are skewed by universities that made large numbers of orders relative to other universities.] For master's universities, the top 10 filter combinations account for 96% of all orders. This is a function of nearly half of all orders using a combination of high school graduation class, GPA, PSAT scores, and zip code as filters and another 33% of orders using the same filters with SAT scores instead of PSAT. For research universities, the top ten filter combinations account for 60% of all orders. The most common filter combination, making up 19% of all orders, included high school graduation class, GPA, SAT, and zip code. The second most common combination the same filters along with PSAT, high school rank, state, and race. The remaining top orders also used these filter combinations in addition to filters like low-socioeconomic status, AP scores, Geomarket, Segment, and gender. 
 
 
 ## Racial Composition of Multiple Filters 
 
-__Analyses Based on HSLS09__. Our last research question focuses on assessing the racial composition of student list purchases that utilize racialized input search filters in concert with other search filters. We begin by analyzing the racial composition of included versus excluded groups when filtering the HSLS09 sample based on common combinations of filters used by research and ma/doctoral universities in Table \@ref(tab:orders-filters-combo). For example, Figure \@ref(fig:gpa-sat-psat) shows included prospects resulting from combining the two most common academic filters: GPA and college entrance and pre-entrance exams. Drawing on our conceptual framework, high school GPA is a strong predictor of postsecondary student success [@RN6019] and is less likely to be theoretically and empirically correlated to racial disadvantage than standardized test scores [@RN2517;@RN1749]. On the other hand, universities may filter on test score thresholds that are consistent with their admissions standards (e.g., more prestigious universities recruit and enroll students with higher test scores) [@NACAC2019] but hold race-based differences driven by structural inequality. We therefore explore the racial composition of prospects included in student lists when filtering on GPA greater than or equal to 3.0 while simulating increases to minimum thresholds for standardized tests. 
+__Analyses Based on HSLS09__. Our last research question focuses on assessing the racial composition of student list purchases that utilize racialized input search filters in concert with other search filters. We begin by analyzing the racial composition of included versus excluded groups when filtering the HSLS09 sample based on common combinations of filters used by research and master's universities in Table \@ref(tab:orders-filters-combo). For example, Figure \@ref(fig:gpa-sat-psat) shows included prospects resulting from combining the two most common academic filters: GPA and college entrance and pre-entrance exams. Drawing on our conceptual framework, high school GPA is a strong predictor of postsecondary student success [@RN6019] and is less likely to be theoretically and empirically correlated to racial disadvantage than standardized test scores [@RN2517;@RN1749]. On the other hand, universities may filter on test score thresholds that are consistent with their admissions standards (e.g., more prestigious universities recruit and enroll students with higher test scores) [@NACAC2019] but hold race-based differences driven by structural inequality. We therefore explore the racial composition of prospects included in student lists when filtering on GPA greater than or equal to 3.0 while simulating increases to minimum thresholds for standardized tests. 
 
-The left panel of Figure \@ref(fig:gpa-sat-psat) presents the racial composition of prospects included when filtering on GPA greater than or equal to 3.0 across college entrance exam thresholds at increments of 50 beginning at scores just above the HSLS09 sample median of 1010. For space considerations, we do not present the plot for excluded prospect groups across all thresholds but include an "All" column showing the racial composition of the HSLS09 sample. The figure suggests that even at the lowest college entrance exam score threshold, White students make up much larger proportions of included prospects while Black and Hispanic students make up statistically significant smaller proportions when filtering for both GPA and entrance exam scores. ^[Table \@ref(tab:c1table) within online appendices report statistical tests for proportions between included and excluded students by race/ethnicity for combining GPA with college entrance exams.] For example, White students make up 72% of included prospects when filtering for GPAs greater than or equal to 3.0 in combination with entrance exam scores greater than 1050, whereas Hispanic and Black students make up 10% and 3%, respectively. Racial disparities only grow as score thresholds increase. Moreover, these racial disparities are greater than when filtering at similar thresholds for entrance exam score (Figure \@ref(fig:thresholds-tests)) alone. The right panel of Figure \@ref(fig:gpa-sat-psat) suggest Hispanic and Black students make up decreasing proportions of included students when combining a GPA filter greater than or equal to 3.0 and a pre-college entrance exam filter, whereas the proportions of White and Asian students increase. Although, we do not see the same magnitude in disparities. Online appendices also show similar racial disparities are evident when filtering on both GPA and AP scores (Figure \@ref(fig:gpa-ap) and Table \@ref(tab:c3table)). 
+The left panel of Figure \@ref(fig:gpa-sat-psat) presents the racial composition of prospects included when filtering on GPA greater than or equal to 3.0 across college entrance exam thresholds at increments of 50 beginning at scores just above the HSLS09 sample median of 1010. For space considerations, we do not present the plot for excluded prospect groups across all thresholds but include an "All" column showing the racial composition of the HSLS09 sample. The figure suggests that even at the lowest college entrance exam score threshold, White students make up much larger proportions of included prospects while Black and Hispanic students make up statistically significant smaller proportions when filtering for both GPA and entrance exam scores. ^[Table \@ref(tab:c1table) within online appendices report statistical tests for proportions between included and excluded students by race/ethnicity for combining GPA with college entrance exams.] For example, White students make up 72% of included prospects when filtering for GPAs greater than or equal to 3.0 in combination with entrance exam scores greater than 1050, whereas Hispanic and Black students make up 10% and 3%, respectively. Racial disparities only grow as score thresholds increase. Moreover, these racial disparities are greater than when filtering at similar thresholds for entrance exam score (Figure \@ref(fig:thresholds-tests)) alone. The right panel of Figure \@ref(fig:gpa-sat-psat) suggest Hispanic and Black students make up decreasing proportions of included students when combining a GPA filter greater than or equal to 3.0 and a pre-college entrance exam filter, whereas the proportions of White and Asian students increase. Although, we do not see the same magnitude in disparities for a college pre-entrance exam filter relative to an entrance-exam filter. Online appendices also show similar racial disparities are evident when filtering on both GPA and AP scores (Figure \@ref(fig:gpa-ap) and Table \@ref(tab:c3table)). 
 
 <!-- While Hispanic and Black students make up larger proportions at lower thresholds of PSAT in comparison to SAT when combined with GPA, the racial disparity for Black students is still greater in the combination of filters than filtering for similar thresholds of PSAT score (Figure \@ref(fig:thresholds-tests)) individually. Online appendices show similar racial disparities are evident when filtering on both GPA and AP scores in (Figure \@ref(fig:gpa-ap)).  -->
 
@@ -764,9 +764,9 @@ bind_cols(
     booktabs = T, 
     col.names = rep(c('Filters', 'Count', 'Percent'), 2), 
     align = rep(c('l', 'c', 'c'), 2),
-    caption = "Top filter combinations used in College Board orders purchased purchased by research vs. ma/doctoral"
+    caption = "Top filter combinations used in College Board orders purchased purchased by research vs. master's"
   ) %>%
-  add_header_above(c('Research' = 3, 'MA/doctoral' = 3), bold = T) %>% 
+  add_header_above(c('Research' = 3, 'M.A.' = 3), bold = T) %>% 
   row_spec(0, bold = T) %>%
   kable_styling(position = 'center', latex_options = c('hold_position', 'scale_down'))
 
@@ -799,7 +799,7 @@ bind_cols(
 
 \begingroup\fontsize{8}{12}\selectfont 
 
-_NOTES: Top filter combinations are based on 830 College Board student list purchases made by research (N=8) and ma/doctoral (N=6) universities from 2016-2020. Geodemographic and Segment filters are proprietary filters created by College Board that use geodemography to predict the college-going behaviors of students within specific geographic areas._
+_NOTES: Top filter combinations are based on 830 College Board student list purchases made by research (N=9) and master's (N=5) universities from 2016-2020. Geodemographic and Segment filters are proprietary filters created by College Board that use geodemography to predict the college-going behaviors of students within specific geographic areas._
 
 
 
@@ -937,6 +937,11 @@ orders_filters %>%
   add_row(univ_label = 'Research', filters = 'student preferences', is_asu = 'all', num = 0) %>% 
   add_row(univ_label = 'MA/doctoral', filters = 'student preferences', is_asu = 'all', num = 0) %>% 
   mutate(
+    univ_label = recode_factor(
+      univ_label,
+      "Research" = "Research",
+      "MA/doctoral" = "M.A."
+    ),
     filters_label = recode_factor(
       filters,
       'citizenship' = 'Citizenship',
@@ -989,7 +994,7 @@ orders_filters %>%
   scale_fill_manual(values = rev(color_palette[c(1, 2)]), name = 'ASU') +
   xlab('') + ylab('Number of orders') +
   guides(fill = guide_legend(reverse = T)) +
-  facet_wrap(~ factor(univ_label, levels = c('Research', 'MA/doctoral'))) +
+  facet_wrap(~ factor(univ_label, levels = c('Research', 'M.A.'))) +
   coord_flip() + 
   theme(
     legend.position = 'none'
@@ -1064,11 +1069,15 @@ orders_filters %>%
 #   coord_flip()
 ```
 
+\begingroup
+\fontsize{8}{8}\selectfont
+NOTE: One research university placed a large amount of orders, which influenced the overall filters used for all research universities. The contribution of this particular university is shown in the darker teal color in the figure.
+\endgroup
 
 
 
 
-```{r orders-sat, fig.height = 3, fig.cap = "SAT Filter Used by Research vs. MA/Doctoral Public Universities"}
+```{r orders-sat, fig.height = 3, fig.cap = "SAT Filter Used by Research vs. Master's Public Universities"}
 orders_sat_total <- orders_sat %>% 
   filter(test_range == 'sat_min') %>% 
   group_by(univ_type) %>% 
@@ -1087,7 +1096,7 @@ orders_sat %>%
     univ_label = recode_factor(
       univ_type,
       'research' = str_c('Research (N=', orders_sat_total[['research']], ')'),
-      'regional' = str_c('MA/doctoral (N=', orders_sat_total[['regional']], ')')
+      'regional' = str_c('M.A. (N=', orders_sat_total[['regional']], ')')
     )
   ) %>% 
   ggplot(aes(x = brks, y = pct, fill = univ_label)) +
@@ -1459,7 +1468,7 @@ SOURCE: U.S. Department of Education, National Center for Education Statistics, 
 \pagebreak
 
 
-```{r orders-psat, fig.height = 3, fig.cap = "PSAT Filter Used by Research vs. MA/Doctoral Universities"}
+```{r orders-psat, fig.height = 3, fig.cap = "PSAT Filter Used by Research vs. Master's Universities"}
 orders_psat_total <- orders_psat %>% 
   filter(test_range == 'psat_min') %>% 
   group_by(univ_type) %>% 
@@ -1478,7 +1487,7 @@ orders_psat %>%
     univ_label = recode_factor(
       univ_type,
       'research' = str_c('Research (N=', orders_psat_total[['research']], ')'),
-      'regional' = str_c('MA/doctoral (N=', orders_psat_total[['regional']], ')')
+      'regional' = str_c('M.A. (N=', orders_psat_total[['regional']], ')')
     )
   ) %>% 
   ggplot(aes(x = brks, y = pct, fill = univ_label)) +
@@ -1494,7 +1503,7 @@ orders_psat %>%
 
 \pagebreak
 
-```{r gpa-ap, echo = FALSE, fig.align = 'center', fig.cap = "Academic and Geographic Combination: GPA (3.0+) and AP (across score thresholds)", out.width = "80%", fig.show='hold'}
+```{r gpa-ap, echo = FALSE, fig.align = 'center', fig.cap = "Academic Combination: GPA (3.0+) and AP (across score thresholds)", out.width = "80%", fig.show='hold'}
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
 knitr::include_graphics(c("./../../outputs/figures/combo3_inc_apv2.png"))
 knitr::include_graphics(c("./../../outputs/figures/combo3_inc_apstemv2.png"))
@@ -1526,8 +1535,8 @@ df %>%
   kable(
     format = "latex", booktabs = TRUE,
     #longtable = T,
-    col.names = c(' ', 'Type', 'Region', 'Tuition & Fees, In-State', "Total Enrollment", "% Non-Resident", "% Pell", "% Asian", "% Black","% Hispanic", "% Native American", "% Multiracial", "% White"), 
-    align = c('l', 'r', 'r', 'r', 'r','r', 'r', 'r', 'r', 'r','r', 'r', 'r'),
+    col.names = c(' ', 'Type', 'Tuition & Fees, In-State', "Total Enrollment", "% Non-Resident", "% Pell", "% Asian", "% Black","% Hispanic", "% Native American", "% Multiracial", "% White"), 
+    align = c('l', 'r', 'r', 'r','r', 'r', 'r', 'r', 'r','r', 'r', 'r'),
     linesep = '',
     caption = 'Characteristics of universities in public records request sample',
     ) %>%
@@ -1545,7 +1554,7 @@ df %>%
 
   kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
                     full_width = FALSE), font_size = 3) %>%
-  add_header_above(c(" " = 5, "Undergraduate Freshmen" = 8))
+  add_header_above(c(" " = 4, "Undergraduate Freshmen" = 7))
 ```
 \begingroup
 \fontsize{10}{10}\selectfont
