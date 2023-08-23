@@ -603,7 +603,7 @@ students (College Board, 2011b), which then categorizes every U.S. Census tract 
 
 
 
-We, therefore, analyze the racial composition of student lists from eight orders by a public research university that utilized Segment filters in concert with academic filters. These eight orders targeted 2019-2023 high school graduating classes, and resulted in 131,562 prospects whose profiles were purchased. All eight Segment orders filtered on GPAs ranging from a low of B- to a high of A+. The orders specified minimum SAT and PSAT scores that ranged from 1220-1240 on an SAT scale, whereas maximum PSAT and SAT scores were filtered at 1450. These student list purchases were also geographically filtered by state, CBSAs, and Segment. All eight orders filtered on the same Segment high school and neighborhood clusters, which are highlighted in online appendices Table \@ref(tab:orders-cluster-en) and Table \@ref(tab:orders-cluster-hs).^[All orders filtered for the following school and neighborhood clusters combinations: 1) Neighborhood cluster 51, with any high school cluster; 2) Neighborhood cluster 53, with high school cluster 70; 3) Neighborhood cluster 58, with any high school cluster; 3) Neighborhood cluster 60, with high school clusters 65, 70, or 79; 4) Neighborhood cluster 61, with high school cluster 65; 5) Neighborhood cluster 63, with high school clusters 68 or 70; 6) Neighborhood cluster 69, with high school clusters 65 or 79; 7) Neighborhood cluster 70, with high school clusters 65, 68, 70, or 75; 8) Neighborhood cluster 73, with any high school cluster; 9) Neighborhood cluster 78, with high school cluster 66; 10) High school cluster 79, with any neighborhood.]
+We, therefore, analyze the racial composition of student lists from eight orders by a public research university that utilized Segment filters in concert with academic filters. These eight orders targeted 2019-2023 high school graduating classes, and resulted in 131,562 prospects whose profiles were purchased. All eight Segment orders filtered on GPAs ranging from a low of B- to a high of A+. The orders specified minimum SAT and PSAT scores that ranged from 1220-1240 on an SAT scale, whereas maximum PSAT and SAT scores were filtered at 1450. These student list purchases were also geographically filtered by state, CBSAs, and Segment. All eight orders filtered on the same Segment high school and neighborhood clusters, which are highlighted in online appendices Table \@ref(tab:orders-cluster-en) and Table \@ref(tab:orders-cluster-hs).
 
 Figure \@ref(fig:uiuc-deep-dive) compares racial and income characteristics of prospects whose profiles were purchased via Segment to the characteristics of the public high school student population in the top four metropolitan areas where the most prospect profiles were purchased: New York (27,932 prospects, rank #1), Los Angeles (12,307 prospects, rank #2), Philadelphia (9,126 prospects, rank #3), Washington, DC (5,728 prospects, rank #4). For each metropolitan area, we show two figures. The right column shows the racial composition of prospects from the metropolitan area whose profiles were purchased compared to the racial composition of all public high school students in the metropolitan area. The left column shows the income of prospects whose profiles were purchased –- defined as the average median household income of prospects’ home zip codes –- compared to the overall median income of the metropolitan area.
 
@@ -1857,6 +1857,10 @@ en_df %>%
   column_spec (1:7, border_left = F, border_right = F) %>% 
   kable_styling(latex_options = 'scale_down')
 ```
+\begingroup
+\fontsize{10}{10}\selectfont
+_NOTE: All Segment orders analyzed in Figure \@ref(fig:uiuc-deep-dive) filtered for the following school and neighborhood clusters combinations: 1) Neighborhood cluster 51, with any high school cluster; 2) Neighborhood cluster 53, with high school cluster 70; 3) Neighborhood cluster 58, with any high school cluster; 3) Neighborhood cluster 60, with high school clusters 65, 70, or 79; 4) Neighborhood cluster 61, with high school cluster 65; 5) Neighborhood cluster 63, with high school clusters 68 or 70; 6) Neighborhood cluster 69, with high school clusters 65 or 79; 7) Neighborhood cluster 70, with high school clusters 65, 68, 70, or 75; 8) Neighborhood cluster 73, with any high school cluster; 9) Neighborhood cluster 78, with high school cluster 66; 10) High school cluster 79, with any neighborhood._
+\endgroup
 
 
 \clearpage
@@ -1894,7 +1898,10 @@ hs_df %>%
   column_spec (1:7, border_left = F, border_right = F) %>% 
   kable_styling(latex_options = 'scale_down')
 ```
-
+\begingroup
+\fontsize{10}{10}\selectfont
+_NOTE: All Segment orders analyzed in Figure \@ref(fig:uiuc-deep-dive) filtered for the following school and neighborhood clusters combinations: 1) Neighborhood cluster 51, with any high school cluster; 2) Neighborhood cluster 53, with high school cluster 70; 3) Neighborhood cluster 58, with any high school cluster; 3) Neighborhood cluster 60, with high school clusters 65, 70, or 79; 4) Neighborhood cluster 61, with high school cluster 65; 5) Neighborhood cluster 63, with high school clusters 68 or 70; 6) Neighborhood cluster 69, with high school clusters 65 or 79; 7) Neighborhood cluster 70, with high school clusters 65, 68, 70, or 75; 8) Neighborhood cluster 73, with any high school cluster; 9) Neighborhood cluster 78, with high school cluster 66; 10) High school cluster 79, with any neighborhood._
+\endgroup
 
 \clearpage
 
