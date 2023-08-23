@@ -11,96 +11,99 @@ csl: ../../assets/bib/apa.csl
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-August XX, 2023
+August 23, 2023
 
 Dear Editors,
 
-We thank the Reviewers and the Editor for excellent, thoughtful, and detailed feedback. 
+We thank the Reviewers and the Editor for excellent and detailed feedback. Once again, you have stretched as scholars. The result is a more thoughtful and tighter product than we could have developed on our own. Thank you.
 
 -Authors
 
-# Editor 
+# Editor
 
 ## Bigger Points
 
-X. Cutting results from main text to shorten article
+1. Cutting results from main text to shorten article
 
-> **Editor concern**. *A key concern is that the paper is too long. Please look at the submission guidelines for EEPA which require 45 pages of text including tables, figures, and footnotes/endnotes. I understand that you wanted a bit more space to be responsive to my, and the reviewer’s, extensive suggestions. As of right now I count 39 pages of text (not including title or abstract) and 12 pages of table and figures for a total of 51. I did go through the included tables and figures and I would strongly suggest that figures 1, 2, 4, 8, and 13 be moved to theappendix (I selected these due to the great explanation of the figures in the text). That will cut nearly 5pages from the paper*
+> **Editor concern**. *A key concern is that the paper is too long. Please look at the submission guidelines for EEPA which require 45 pages of text including tables, figures, and footnotes/endnotes. I understand that you wanted a bit more space to be responsive to my, and the reviewer’s, extensive suggestions. As of right now I count 39 pages of text (not including title or abstract) and 12 pages of table and figures for a total of 51. I did go through the included tables and figures and I would strongly suggest that figures 1, 2, 4, 8, and 13 be moved to the appendix (I selected these due to the great explanation of the figures in the text). That will cut nearly 5pages from the paper*
 
 > *\ldots The first two paragraphs of the results could also likely be trimmed. I’m not wedded to any one suggestion, just that this paper get much closer to the page requirements for EEPA which can be fairly easily done by selectively shifting figures that are adequately described in the text and tightening language a bit (and if the selection devices piece remains, the paper needs to address the concerns brought up by the reviewers).*
 
-**Author response**: We acknowledge that the manuscript was previously too long and appreciate the editor's very helpful suggestions for trimming to the EEPA submission guidelines. Per recommendations, we have moved figures 1, 2, 4, 8, and 13 into the supplemental online appendix. We have also trimmed back the first two paragraphs of the results section. We have also done XYZ. This resulted in XX pages of text (not including title, abstract, or references) and XX pages of table and figures for a total of XX.
+**Author response**: We acknowledge that the manuscript was previously too long and appreciate the editor's very helpful suggestions for trimming to the EEPA submission guidelines. Per recommendations, we have moved figures 1, 2, 4, 8, and 13 into the supplemental online appendix. We have trimmed back the first two paragraphs of the results section as suggested. Although several editor/reviewer suggestions (below) prompted us to add more text, we sought to balance these additions by thoroughly shaving text throughout the manuscript.
+
+The previous manuscript contained XX pages of text (not including title, abstract, or references) and XX pages of table and figures for a total of XX. 
+
+The new manuscript contains XX pages of text (not including title, abstract, or references) and XX pages of table and figures for a total of XX. 
+
+KARINA FINISH THIS. 
 
 
-X. Add discussion of critical policy analysis to front of the paper
+2. Add discussion of critical policy analysis to front of the paper
 
 > **Editor concern**. *Part of the reason that this paper needs a bit more space is that I’m also going to echo the call from reviewer 2 that a bit more attention needs to be given to critical policy analysis in the front matter of the paper. I think that the first full paragraph on page 4 (last of the intro) could be expanded to engage with what critical ed policy is, how this work fits within that, and why it matters. Basically, a nice meaty conversation about how this work contributes on that front would be a great grounding and connector to the other articles in this special issue. Then, it would be useful for the authors to see if there are any ways to connect to critical work in the newly revised conceptual framework.*
 
 > **Reviewer 2 concern**. *Bringing in more of a critical framework – some of the critical perspective that made this piece so interesting seems to be lost in the revision. I understand the need to simplify the framework, but is there a way to more closely link sociology of race to critical studies? When I think about the special issue, I see the critical policy research as the key piece holding all the pieces together, but critical policy research isn’t mentioned until the end of this revised version.*
 
 
-**Author response**: We agree with and greatly appreciate this suggestion. We added three paragraphs to the end of the introduction:
+**Author response**: We agree with and greatly appreciate this suggestion. Our interpretation of the ask is: what is critical ed policy research in education; how does this manuscript fits within critical ed policy; why is critical ed policy research practically important; how can the sociology of race conceptual framework push forward critical ed policy research.
 
-- Paragraph 1 defines critical policy research as being focused on underlying structures that produce systematic inequality and explains how our scholarship on student list products fits within critical policy research.
-- Paragraph 2 states that selection devices are important objects of critical policy research. Selection devices determine who gets allocated to which opportunity or intervention. Amidst the data science revolution, many contemporary products utilized by schools and colleges can be usefully conceptualized as selection devices. Our conceptual framework casts attention to the inputs used by selection devices, which motivates future scholarship to deconstruct selection devices.
-- Paragraph 3 states that the practical importance of critical policy research focused on selection devices is two-fold
+We added three paragraphs to the end of the introduction (pg XX):
+
+- *Paragraph 1*: defines critical policy research as being focused on underlying structures that produce inequality and explains how our scholarship on student list products fits within critical policy research.
+- *Paragraph 2*: argues that "selection devices" should be objects of critical ed policy research because many contemporary products used in education can be conceptualized as selection devices. Our conceptual framework on selection devices has utility because it compels researchers to interrogate the inputs these selection devices use. 
+- *Paragraph 3*: states that the practical importance of critical policy research focused on selection devices is two-fold. 
   - First, we argue that a focus on destroying underlying structures that produce racial inequality may be more effective than trying to defend efforts to defend racially progressive policies. 
-  - Second, amidst the data science revolution, third-party products increasingly perform core functions on behalf of schools and colleges. So if policy research ignores these products it will have diminishing influence on core functions of schools and colleges.
-
+  - Second, amidst the data science revolution, third-party products increasingly perform core functions on behalf of schools and colleges. So if policy research ignores these products it will have diminishing influence on education.
 
 Additionally, the final two paragraphs of the new manuscript revisit these themes again (replacing the final two paragraphs from the previous submission)
 
-X. Should the conceptual framework distinguish between standardized versus discretionary selection devices?
+3. Should the conceptual framework distinguish between standardized versus discretionary selection devices?
 
 > **Editor concern**. *I also believe the conceptual framework section can be tightened a bit. For example, while I agree with the reviewers about the confusion with “standardized selection devices,” the paper never really engages with these points in the analysis nor does it really return to this point in the discussion section. I wonder whether the discussion of discretionary versus standardized actually needs to be included in the paper. By removing that, I think the front part of the paper will focus more strongly on the way the inputs are racialized (and would also provide more space to address the point I mention below).*
 
+**Author response**: The introduction and the discussion of the revised manuscript now gives greater attention to selection devices. Our reasoning is that the editor asked the introduction to develop a "meaty" discussion of critical policy research that connects with our conceptual framework and shows how our research contributes/connects to other critical ed policy research. Amidst the data science revolution, there is a proliferation of products in education -- internally developed and third-party -- that yield recommendations about who gets what (which prospect profiles to buy, who gets which institutional aid package, who is at risk for dropout, who gets admitted by direct admissions, which courses should students be placed in, etc.). We believe the concept of selection devices has utility because it brings these disparate topics under one umbrella while simultaneously connecting scholarship in education to critical scholarship in sociology and information studies (search engine algorithms, credit rating algorithms, job performance ratings, etc.).
 
-The introduction and the discussion of the revised manuscript now gives greater attention to selection devices. Our reasoning is that the editor asked the introduction to develop a "meaty" discussion of critical policy research that connects with our conceptual framework and shows how our research contributes/connects to other critical policy research in education. We believe that "selection device" is a key concept that connects our research to critical scholarship in sociology and to critical policy research in education. Amidst the data science revolution, there is a proliferation of software-as-service products that yield recommendations about who gets what (which prospect profiles to buy, who gets which institutional aid package, who is at risk for dropout, who gets admitted by direct admissions, XXXX ONE OR TWO MORE, ETC). The concept selection devices" has utility because it brings these disparate topics under one umbrella and connects scholarship in education to critical scholarship in sociology and information studies that investigates selection devices in empirical contexts that can provide insights for education researchers.
+We believe the distinction between standardized and discretionary selection devices is sufficiently important to remain in the manuscript. There is a long debate in psychology, sociology, and related professional fields about whether discretionary or standardized selection processes yield greater racial equity. For a review, see @RN4778 and @RN4794. While we lack space for substantive review of this debate, we hope to inform education researchers about the distinction between standardized vs. discretionary selection devices. We want educational researchers to know the broad ways that both standardized and discretionary selection devices can produce structural inequality. We recognize that maintaining this distinction forces the reader to work harder and that selection devices are quite heterogeneous and complicated. Nevertheless, we believe this discussion will help move our field forward conceptually.
 
-We believe the distinction between standardized and discretionary selection devices is sufficiently important to remain in the manuscript. There is a long debate in psychology, sociology, and related professional fields about whether discretionary or standardized selection processes yield greater racial equity (For a review, see @RN4778 and @RN4794). While we lack space for substantive review of this debate, we hope to inform education researchers about the distinction between standardized vs. discretionary selection devices. We want educational researchers to know the broad ways that both standardized and discretionary selection devices can produce structural inequality. We do recognize that maintaining this distinction forces the reader to work harder and that selection devices are quite heterogeneous and complicated. But we believe this discussion helps move our field forward conceptually.
+4. The definitions and examples of discretionary vs. standardized selection devices are ambiguous.
 
-SAY SOMETHING ABOUT END OF DISCUSSION SECTION NOW RETURNS TO SELECTION DEVICES.
-
-X. The definitions and examples of discretionary vs. standardized selection devices are ambiguous.
-
-> **Reviewer 2 concern**. *Pages 12-13: discusses how student list products are discretionary rather than standardized selection devices, but the metrics that colleges use to select lists are standardized (test scores, GPA, zip code) rather than discretionary – enrollment managers may have discretion over what thresholds they set, but themetrics themselves are standardized (just like admissions based on GPA and test score would be standardized) – I think this actually ties into the argument that continues on page 13 about structural racism better than thinking about these as discretionary*
+> **Reviewer 2 concern**. *Pages 12-13: discusses how student list products are discretionary rather than standardized selection devices, but the metrics that colleges use to select lists are standardized (test scores, GPA, zip code) rather than discretionary – enrollment managers may have discretion over what thresholds they set, but the metrics themselves are standardized (just like admissions based on GPA and test score would be standardized) – I think this actually ties into the argument that continues on page 13 about structural racism better than thinking about these as discretionary*
 
 > **Reviewer 1 concern**. *In the revised conceptual framework, I may not fully understand the distinction between discretionary and standardized selection. The example of public university admission based on ACT and GPA is used to illustrate a standardized selection device, but this process sounds very similar to the determination of list criteria (based on ACT and GPA…), which is described instead as discretionary. Doesn’t someone make choices about which criteria to use and at what level for public university admissions in the same way they do for which list of students to purchase?*
 
 
-**Author response**: We thank Reviewer 2 and Reviewer 1 for raising concern about ambiguity around discretionary vs. standardized selection devices. We agree that the definitions and examples we provided for standardized versus discretionary selection devices were ambiguous. The reviewers observe that (1) we called student list products discretionary because a college college administrators choose which search filters and filter thresholds to select when purchasing lists and (2) we call a public university that admits applicants based on a function of ACT score and GPA an example of a standardized selection device, but this seems just like student lists in that the college is exercising discretion about the thresholds necessary for admission.
+**Author response**: We thank Reviewer 2 and Reviewer 1 for raising concern about ambiguity around discretionary vs. standardized selection devices. We agree that the definitions and examples we provided for standardized versus discretionary selection devices were ambiguous. 
 
-Our revised manuscript makes it clear that the distinction between discretionary vs. standardized is whether the individual administrator utilizing the selection device has discretion. We state (pg. XX) that "discretionary selection processes rely on the judgment of individual administrators, who have discretion about which inputs to consider and/or how to evaluate these inputs" whereas in "in “standardized
-selection devices,” the relationship between the value of input variables and the outcome is dictated by a mathematical formula that is beyond the discretion of individual administrators using the product." 
+Our revised manuscript makes it clear that the distinction between discretionary vs. standardized is whether the individual administrator utilizing the selection device has discretion. We state (pg. XX) that "discretionary selection processes rely on the judgment of individual administrators, who have discretion about which inputs to consider and/or how to evaluate these inputs" whereas in "in “standardized selection devices, the relationship between the value of input variables and the outcome is dictated by a mathematical formula that is beyond the discretion of individual administrators using the product." 
 
-Additionally, after defining student list products as discretionary selection devices, we add a footnote stating that "By contrast, a “direct admissions” policy that admitted applicants based on a function of ACT score and GPA would be considered a standardized selection device; even though the test score and GPA thresholds are chosen by the college or a state policy organization, individual admissions administrators have no discretion over these thresholds"
+Additionally, after defining student list products as discretionary selection devices, we add text explaining why a college's direct admissions policy would be categorized as a standardized selection device (pg XX):
 
-Reviewer 1 implies that discretionary selection devices include any process in which decisions are made about variables and/or cut-points that determine a decision. By this logic, all selection devices would be discretionary and standardized selection devices do not exist. We disagree with this perspective. All selection devices involve subjective decisions about which factors to consider and the relative weight to assign to each factor. Standardized selection devices make subjective decisions that centrally. For example, consider an algorithm for the likelihood of a parole violation that is based on a regression analysis of prior cases of parole violation. Here, subjective decisions are made about which variables to include in the model, functional form, etc. But we would define this selection device as standordized in that individual users of the product do not have discretion over the algorithm which determines the output value based on input values.
+> By contrast, a “direct admissions” policy that admitted applicants based on a function of ACT score and GPA would be considered a standardized selection device; even though the test score and GPA thresholds are chosen by the college or a state policy organization, individual admissions administrators have no discretion over these thresholds"
 
-X. Discussion of how student list filters intersect with local patterns of segregation
+5. Discussion of how student list filters intersect with local patterns of segregation
 
-> **Reviewer 2 concern**. \ldots if you want to call them [student list products] discretionary, one thing you could discuss in more detail is how filters intersect with local patterns of segregation by talking about how these patterns vary across localities and thus become more subjective when people aren’t aware of thesepatterns
+> **Reviewer 2 concern**. *\ldots if you want to call them [student list products] discretionary, one thing you could discuss in more detail is how filters intersect with local patterns of segregation by talking about how these patterns vary across localities and thus become more subjective when people aren’t aware of thesepatterns*
 
-**Author response**: This is an excellent suggestion and something we have been thinking about. While conducting analyses, we have noticed that for a given student list purchase, the extent of racial exclusion differs substantially across metropolitan areas. Our sense is that the relationship between school/community segregation patterns and student list filters is quite complicated and requires thorough investigation. Therefore, the new submission suggests this as a topic for future research. Here is the relevant text:
+**Author response**: This is an excellent suggestion and something we have been thinking about. In our exploratory data analyses we notice that for a given student list purchase, the extent of racial exclusion differs substantially across metropolitan areas. Our sense is that the relationship between school/community segregation patterns and student list filters is quite complicated and requires thorough investigation. Therefore, the discussion suggestion of the new submission suggests this as a topic for future research. Here is the relevant text (pg XX):
 
 > Another topic for future research is patterns of segregation in schools and communities, which vary dramatically across and within metropolitan areas. Student list filters seem to interact with segregation patterns in ways that are not easily anticipated by administrators who purchase student lists. These interactions require more investigation.
 
-X. text text text
+6. Provide overview of the 14 institutions included in the sample
 
 > **Editor concern**. *As well, I agree with reviewer 1 that a very short overview of the 14 institutions that were included would be helpful in the appendix, as originally requested in my previous letter. This is not so much about Carnegie Classification as it is about things like general size of the undergraduate student body, region of the country,etc. This information could go into the appendix (to take care of space concerns) but feels vital to ensure that proper implications can be drawn from the current study.*
 
-**Author response**: We have added a table in the appendix summarizing the characteristics of the 14 institutions included in the public records request data collection and reference it in the methods, although we do not describe it in detail due to space concerns.
+**Author response**: We have added a table in the appendix summarizing the characteristics of the 14 institutions included in the public records request data collection and reference it in the methods, although we do not describe it in detail due to space concerns. Note that we include the name of each institution but we consciously exclude information about the list-buying behavior of each institution (In case you are interested, Arizona State University exhibited the most racially and socioeconomically progressive list-buying behavior).
 
 ## Smaller Points
 
-X. Geography analyses
+1. Geography analyses
 
 > **Editor concern**. *I appreciate the authors taking such care with the geographic portions of the paper relating to HSLS. I think the only thing that is needed is a single line as a footnote in the paper that mentions that the data is not representative at the metro area for Figures 11 and 13 and so should not be thought of as representative of the area*
 
 
-**Author response**: We apologize for confusion regarding the remaining metropolitan area analyses and figures. Figures 7 and S6 (previous Figures 11 and 13) are analyses for RQ3 using public records data. Analyses of Segment and Women in STEM orders contextualize the characteristics of prospects by showing the characteristics of population-level comparison groups (e.g., all high school graduates in the metropolitan area) using the National Center for Education Statistics (NCES) Common Core of Data (CCD). Therefore, there is not need to include a note regarding representative at the metro area as we are not using HSLS09 for these comparisons.  To clarify and avoid reader confusion on these figures, we have added a sentence to the data sub-section of the Methods with this information for RQ3 and have linked our larger project for more detailed information about data, see @list_empirics. We have also added/extended figure captions with source notes to clearly differentiate between HSLS09 figures and figures using CCD as a comparison group for public records data on prospects.
+**Author response**: We apologize for confusion regarding the remaining metropolitan area analyses and figures. Figures 7 and S6 (previous Figures 11 and 13) are analyses for RQ3 using public records data. Analyses of Segment and Women in STEM orders contextualize the characteristics of prospects by showing the characteristics of population-level comparison groups (e.g., all high school graduates in the metropolitan area) using the National Center for Education Statistics (NCES) Common Core of Data (CCD). Therefore, there is not a need to include a note regarding representative at the metro area as we are not using HSLS09 for these comparisons.  To clarify and avoid reader confusion on these figures, we have added a sentence to the data sub-section of the Methods with this information for RQ3 and have linked our larger project for more detailed information about data, see @list_empirics. We have also added/extended figure captions with source notes to clearly differentiate between HSLS09 figures and figures using CCD as a comparison group for public records data on prospects.
 
-X. Affirmative action and GPA
+2. Affirmative action and GPA
 
 > **Editor concern**. *Please also choose a different phrase than “post affirmative action” which is found in the discussion section.While the SFFA decisions most definitely make a real change, we are not past the point of using race inadmissions practices and I wouldn’t want this paper to imply something inaccurate. Along a similar nitpickynote, it’s probably not true that GPA is a non-racialized filter. It might be better to say less-racialized? Giventhe explanations in the paper it’s not clear that this is not racialized at all.*
 
@@ -110,106 +113,76 @@ X. Affirmative action and GPA
 - We removed "post affirmative action"
 - In the sentence that referred to GPA as a "non-racialized" filter we changed the text to "less-racialized" 
 
-X. Copy editing, causal language, and terms
+3. Copy editing, causal language, and terms
 
 There are also a few typos (e.g., “stidents” for “students” on the first page) that it would be useful to clean up. I’ll also note that at several points an extra e.g., is included after a semi-colon when citing references in the text. Please review this for APA given that copy editing will likely remove that e.g. given that typically that would come at the front of the list (and it is assumed that the parenthetical includes a single list of citations). Oh and on page 21, there’s a 23,503 that needs to be rounded. Footnote 12 is missing punctuation. Finally,please review the entire manuscript for any causal implications that are not suited to the weight of the evidence. For example, on page 32, the sentence “…we can explore the effects of utilizing filters” probably needs to change to “…we can explore the potential effects of utilizing filters” or page 36 where the paper notes “student list products positively affect college access” yet all the references in the paper would suggest the research cited was correlational (so there’s a positive correlation or relationship but not an affect). Also need to mention (footnote is fine) that the research/ma/doctoral distinction is from Carnegie basic classification (and use the proper terms from them on first use so other scholars can understand howto replicate this work).
 
-**Author response**: 
-
-- ALSO NOTE THAT WE WILL CREATE A PUBLIC GIT REPOSITORY TO AID REPLICATION
+**Author response**: KARINA ADD TEXT. ALSO NOTE THAT WE WILL CREATE A PUBLIC GIT REPOSITORY TO AID REPLICATION
 
 # Reviewers
 
 We turn next to reviewer concerns that were not addressed in the response to the Editors above.
 
-X. Student lists as discretionary selection devices and local patterns of segregation.
-
-> **Reviewer 2 concern**. *if you want to call them [student list products] discretionary, one thing you could discuss in more detail is how filters intersect with local patterns of segregation by talking about how these patterns vary across localities and thus become more subjective when people aren’t aware of these patterns*
-
-**Author response**: STATE THAT THIS IS TOO COMPLICATED TO TAKE ON SUBSTANTIVELY IN THIS ARTICLE ADD A COUPLE SENTENCES STATING THAT THIS SHOULD BE THE SUBJECT OF FUTURE MANUSCRIPT.
-
-X. Public option and micro-targeting the "right" students
+1. Public option and micro-targeting the "right" students
 
 > **Reviewer 2 concern**. *One small point in the discussion: the authors write that “Therefore, the public option would have no need for search filters that help colleges micro-target the “right” students.” – I think selective colleges are always going to want to target their searches to particular groups of students, even with a public option*
 
 > **Reviewer 1 concern**. *As I mentioned above, I like the recommendation to create state lists. The primary benefit of these lists appears to be that inclusion does not rely on a student interacting with a College Board product. I do think the thinking here could be pushed a bit more. For example, even if a student is on a list without interacting with a College Board product, they probably will need to eventually or SAT scores will need to be fully optional, so how can colleges help this happen. We still seem a little far from tests being universally optional, and this policy comes with its own consequences for admissions priorities... I also don’t understand why a complete list of students would preclude a college from filtering to target the “right”students after they receive it. There are still costs to marketing, so I don’t know if it’s safe to assume that a college will market to every contact they receive from a state list. It seems like a few more details could come from Author XXXXf, which I can’t claim to have read*
 
-**Author response**: We revised text to state more clearly that colleges would still have an incentive to be selective about which prospects receive marketing materials that cost money and to respond to Reviewer 1's concern about standardized tests. The revised text is as follows:
+**Author response**: We revised text to state more clearly that colleges would still have an incentive to be selective about which prospects receive marketing materials that cost money and to respond to Reviewer 1's concern about standardized tests. The revised text is as follows (pg XX):
 
-> Colleges would receive the contact information and academic achievement of students who opt in for free, which reduces the motivation for fine-grained search filters that enable colleges to micro-target the "right" students. 
+> \ldots Colleges would receive the contact information and academic achievement of students who opt in for free, which reduces the motivation for fine-grained search filters that enable colleges to micro-target the “right” students.
 
-> Even with free names, targeted marketing materials still cost money. Colleges may have an incentive to obtain profiles for a large number of prospects, while being selective about which prospects receive which recruiting interventions. Considering the low marginal cost of email, we believe that colleges would reach out to prospects not currently being contacted under the system where names cost money. This would be an important change because @RN4324 finds that first-generation and historically underrepresented students of color are particularly sensitive to recruiting overtures from colleges. Because the public option would not contain information about College Board/ACT standardized test scores, it may be less useful for colleges that consider these tests for admissions decisions. @list_policy provide more detail about essential product features and challenges to overcome.
+> Even with free names, targeted marketing materials still cost money. Colleges may have an incentive to obtain profiles for a large number of prospects, while being selective about which prospects receive which recruiting interventions. Considering the low marginal cost of email, we believe that colleges would reach out to prospects not currently being contacted under the system where names cost money. This would be an important change because Holland (2019) finds that first-generation and historically underrepresented students of color are particularly sensitive to recruiting overtures from colleges. Because the public option would not contain information about College Board/ACT standardized test scores, it may be less useful for
+colleges that consider these tests for admissions decisions.
 
-X. Argument about regulating student lists as consumer reporting agencies is muddled.
+2. Argument about regulating student lists as consumer reporting agencies is muddled.
 
-> **Reviewer 1 concern**. *I am also not fully sure I understand the argument about credit access and regulation. Here the manuscript refers to Norris and how racist inputs resulted in differential access to credit. In the Norris case, however,the racism in the system was preventing minoritized groups from accessing credit that we would otherwise want them to have (like a loan to buy a house). We obviously want students to access loans to pay for college if they have access to college, but it’s not clear they aren’t getting access to those loans if they do—there’s no need for the loan if they don’t go to college, and it’s clearly bad that a student list might keep as student out of college, it’s not because they are being excluded from student loans. The manuscript also nods to the harms of student debt, which seems to take the argument in a direction I can’t quite follow (one could see an argument that racist student lists are doing minoritized students a favor by preventing themfrom accessing student debt they may struggle to repay). It’s all a muddle to me.*
+> **Reviewer 1 concern**. *I am also not fully sure I understand the argument about credit access and regulation. Here the manuscript refers to Norris and how racist inputs resulted in differential access to credit. In the Norris case, however,the racism in the system was preventing minoritized groups from accessing credit that we would otherwise want them to have (like a loan to buy a house). We obviously want students to access loans to pay for college if they have access to college, but it’s not clear they aren’t getting access to those loans if they do—there’s no need for the loan if they don’t go to college, and it’s clearly bad that a student list might keep as student out of college, it’s not because they are being excluded from student loans. The manuscript also nods to the harms of student debt, which seems to take the argument in a direction I can’t quite follow (one could see an argument that racist student lists are doing minoritized students a favor by preventing them from accessing student debt they may struggle to repay). It’s all a muddle to me.*
 
-**Author response**: As per usual, Reviewer 1 is right on the money! The previous submission created a muddled argument by tying student lists to student debt. In actuality, consumer protection law views access to credit as a good thing, and wants consumers to have equal access to products and offers of credit regardless of race. The new submission removes mention of debt. Here is relevant text:
+**Author response**: Again, Reviewer 1 is right on the money! The previous submission created a muddled argument by tying student lists to student debt, which implies that access to loan aid (and college access) is a bad thing. In actuality, consumer protection law views access to credit as a good thing. Consumer protection law wants consumers to have equal access to products and offers of credit regardless of race. The new submission removes mention of debt. Here is relevant text (pg XX):
 
-> Given the clear link between student lists and the extension of credit, student list products should be classified as consumer credit reports. Considering varying levels of quality amongst higher education institutions, this designation would allow federal consumer protection agencies to ensure that student list products do not systematically funnel students to low quality institutions along racial lines.
+> \ldots Given the clear link between student lists and the extension of credit, student list products should be classified as consumer credit reports. Considering varying levels of quality amongst higher education institutions, this designation would allow federal consumer protection agencies to ensure that student list products do not systematically funnel students to low quality institutions along racial lines.
 
-X. More specifics about what federal third-party servicer regulations sould look like
+3. More specifics about what federal third-party servicer regulations should look like
 
 > **Reviewer 1 concern**. *However, the authors get there—I’m more persuaded by the “dear colleague” letter discussion in the concluding sections—they clearly are advocating for more federal regulation. A reader might benefit from some specifics about what this regulation would look like. Would regulation prevent the use of racist inputs?What would consequences be? Loss of Title IV eligibility (this is quite the nuclear option that doesn’t appear to do much in other attempts at accountability)?*
 
-**Author response**: We have added a bit more specificity here, stating that:
+**Author response**: We have added a bit more specificity, stating that (pg XX):
 
 > We recommend that the definition of third-party servicers be revised to include student list vendors because student lists are root intermediaries linking students to Title IV institutions and the receipt of Title IV aid. Certain aspects of student list products may violate the antidiscrimination provision of the Higher Education Act ([SEC. 111. 20 U.S.C. 1011). For example, geodemographic filters allow colleges to target schools and neighborhoods with high college-going rates and these characteristics may be tied to historic racial segregation.
 
 We elected not to add more specifics because of space concerns.
 
-Additionally, we cut a paragraph from the "future research" section that focused on research about market dynamics in the market for student list data. we moved four sentences from this cut paragraph to the third-party servicer paragraph because these ideas fit better there. 
+Additionally, we moved four sentences about market dynamics from the "future research section" to this paragraph on third-party servicers. The sentences fit better here and allowed us to cut text.
 
-Reviewer 1 smaller points
+4. Reviewer 1 smaller points
 
-The sentence “Following the creation…” on p.2 feels out of place in its paragraph.
+- The sentence “Following the creation…” on p.2 feels out of place in its paragraph.
 - The phrase “vis-a-vis” is used a lot, which stands out particularly when it occurs multiple times on thesame page.
 - on p. 31, the sentence “Although, we do not see the same disparities” does not appear to be complete.
-- I am having a hard time parsing the sentence “Prior scholarship finds that…” on p. 19. I think maybe aword is missing? Or a comma?
-- On p 21, is the sentence “Additionally, purchases the explicitly target…” making the point that evensearches that target underrepresented students will systematically exclude students that don’t appear in thesearch database at all (i.e., don’t interact with College Board products, or have opted out of Search)? Or isthere more going on here with the “high test scores” language? Does “communities” here refer toneighborhoods or populations? More clarification may help here. I also think it might be worth making thispoint explicit by working through the exercise like you do with the “women in STEM” search.
+- I am having a hard time parsing the sentence “Prior scholarship finds that\ldots” on p. 19. I think maybe a word is missing? Or a comma?
+- On p 21, is the sentence “Additionally, purchases the explicitly target\ldots” making the point that even searches that target underrepresented students will systematically exclude students that don’t appear in the search database at all (i.e., don’t interact with College Board products, or have opted out of Search)? Or is there more going on here with the “high test scores” language? Does “communities” here refer to neighborhoods or populations? More clarification may help here. I also think it might be worth making this point explicit by working through the exercise like you do with the “women in STEM” search.
 - Table 1 could be more elegant if it omitted summarizing both sides of a dichotomous category.
 - What are the two different colors in Figure 6 indicating?
 - Is Figure 14 mistitled? I don’t know that I see the geographic element in there.
 
+**Author response**: KARINA ADD TEXT.
 
-
-X. haven't dealt w/ this from reviewer 2 [related to standardized vs. discretionary:
-
-> **Reviewer 2 concern**. *if you want to call them discretionary, one thing you could discuss in more detail is how filters intersect with local patterns of segregation by talking about how these patterns vary across localities and thus become more subjective when people aren’t aware of these patterns* 
-
-X. TEXT TEXT TEXT
-
-X. Discuss implications of Supreme Court ruling for student lists and discuss implications for practice by colleges.
+5. Discuss implications of Supreme Court ruling for student lists and discuss implications for practice by colleges.
 
 > **Reviewer 3 concern**. *As for the implications for policy, I would like to see the authors add more about affirmative action than the quick reference on p. 42. Especially now that SCOTUS has ruled on the use of race in college admissions, I believe there is an even stronger argument for the need to evaluate the use of student list purchases. Further, beyond implications for federal and state policy, what are the implications for enrollment management policy and practice for institutions themselves? The authors need to make a stronger connection to key components of their conceptual framework, particularly the role of administrator discretion and how lists are utilized. This can be addressed in the implications section of the manuscript.*
 
-**Author response**: Reviewer 3 makes two suggestions here, both excellent. We believe that both suggestions can be addressed by adding text about institutional practices to the "Policy Implications" section. Here is the text:
+**Author response**: Reviewer 3 makes two excellent suggestions here. We believe that both suggestions can be addressed by adding text about institutional practices to the "Policy Implications" section. Here is the text we added (pg. XX):
 
-> **Institutions**. Student lists – and recruiting more generally – become more important for institutional efforts to increase racial diversity following the Supreme Court’s ruling about race and admissions. In August 2023, the Biden Administration issued guidance to institutions, including how to pursue racial diversity while complying with the law. This guidance states that “The Court’s decision in SFFA does not require institutions to ignore race when identifying prospective students for outreach and recruitment” (US Department of Justice & US Department of Education, 2023). Some colleges may respond to this guidance by adding student list purchases that target underrepresented students of color, either directly using race/ethnicity filters or indirectly by targeting particular zip codes.
+> **Institutions**. Student lists – and recruiting more generally – become more important for institutional efforts to increase racial diversity following the Supreme Court’s ruling on race and admissions. In August 2023, the Biden Administration issued guidance to institutions, including how to pursue racial diversity while complying with the law. This guidance states that “the Court’s decision in SFFA does not require institutions to ignore race when identifying prospective students for outreach and recruitment” (US Department of Justice & US Department of Education, 2023). Some colleges may respond to this guidance by adding student list purchases that target underrepresented students of color, either directly using race/ethnicity filters or indirectly by targeting particular zip codes.
 
-> We recommend a somewhat different course of action. Our previous research finds that the off-campus recruiting visits of public research universities and selective private colleges disproportionately target affluent, predominantly white public and private schools (Jaquette et al., 2023; Salazar, 2022; Salazar et al., 2021). This article shows that student list products systematically exclude communities of color and that student list purchases can unintentionally exclude students of color at alarming rates. Therefore, rather than adding a bit of racially progressive recruiting atop a racially biased recruitment funnel, we recommend that colleges begin by interrogating their recruiting practices. For example, how do the high
-schools they visit differ racially and socioeconomically those they do not visit? How do the prospect profiles they purchase differ racially and socioeconomically from those they do not purchase?
+> We recommend a different course of action. Our previous research finds that the off-campus recruiting visits of public research universities and selective private colleges disproportionately target affluent, predominantly white public and private schools (Author, XXXXa, XXXXb, XXXXc). This article shows that student list products systematically exclude communities of color and that student list purchases can unintentionally exclude students of color at alarming rates. Therefore, rather than adding a bit of racially progressive recruiting atop a racially biased recruitment funnel, we recommend that colleges begin by interrogating their recruiting practices. For example, how do the high schools they visit differ racially and socioeconomically from those they skip? How do the prospect profiles they purchase differ racially and socioeconomically from those they do not purchase?
 
-
-X. Make definition of racialized inputs more prominent
+6. Make definition of racialized inputs more prominent
 
 > **Reviewer 3 concern**. *One minor suggestion is to improve the transition into the sub-section on racialized inputs. Research from Norris seems to be critical to one of the paper’s arguments on racialized inputs. Consider starting with the definition or the broader point that Norris makes (line 50) as opposed to starting with the sentence about Moody city government credit rating algorithm (line 47).*
 
 **Author response**: This is an excellent suggestion. We have made the requested change.
-
-
-X. TEXT TEXT TEXT
-
-> **Reviewer 3 concern**. *As for the implications for policy, I would like to see the authors add more about affirmative action than the quick reference on p. 42. Especially now that SCOTUS has ruled on the use of race in college admissions, I believe there is an even stronger argument for the need to evaluate the use of student list purchases.*
-
-**Author response**: TEXT TEXT TEXT
-
-X. TEXT TEXT TEXT
-
-> **Reviewer 3 concern**. *Further, beyond implications for federal and state policy, what are the implications for enrollment management policy and practice for institutions themselves? The authors need to make a stronger connection to key components of their conceptual framework, particularly the role of administrator discretion and how lists are utilized. This can be addressed in the implications section of the manuscript*
-
-**Author response**: TEXT TEXT TEXT
-
-
 
 \newpage
