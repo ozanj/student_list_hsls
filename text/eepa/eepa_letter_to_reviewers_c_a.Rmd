@@ -33,7 +33,7 @@ We thank the Reviewers and the Editor for excellent and detailed feedback. Once 
 
 The previous manuscript contained 41 pages of text (not including title, abstract, or references), 2 tables, and 13 figures. Assuming one page per table and figure. This is a total of 41+2+13 = 56 pages.
 
-The new manuscript contains 40 pages of text (not including title, abstract, or references), 1 table, and 9 figures for a total of 50 pages. Assuming one page per table and figure, this is a total of 40+1+9 = 50 pages.
+The new manuscript contains 40 pages of text (not including title, abstract, or references), 1 table, and 9 figures. Assuming one page per table and figure, this is a total of 40+1+9 = 50 pages.
 
 
 2. Add discussion of critical policy analysis to front of the paper
