@@ -12,6 +12,7 @@ output:
   bookdown::pdf_document2:
     toc: FALSE
     pandoc_args: !expr rmdfiltr::add_wordcount_filter(rmdfiltr::add_citeproc_filter(args = NULL))
+    keep_tex: true
 eoutput: pdf_document
 always_allow_html: true
 urlcolor: blue
@@ -151,7 +152,7 @@ Colleges identify prospective students by purchasing “student lists.” Studen
 
 __BIOS__
 
-Ozan Jaquette, Ph.D, is an associate professor in the School of Education and Information Studies at the University of California, Los Angeles. His research program analyzes how postsecondary institutions change behavior to generate enrollment from desired student populations, with a focus on the tensions between the enrollment pursuits of access, academic prestige, and revenue generation. 
+Ozan Jaquette, Ph.D, is an associate professor in the School of Education and Information Studies at the University of California, Los Angeles. His research program analyzes enrollment management and organizational behavior. 
 
 Karina G. Salazar, Ph.D., is an assistant professor in the Center for The Study of Higher Education at the University of Arizona. Her research analyzes how the enrollment management practices of public universities shape college access for undererved student populations.
 
