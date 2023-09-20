@@ -1046,7 +1046,7 @@ orders_filters %>%
 
 \begingroup
 \fontsize{8}{8}\selectfont
-NOTE: One research university placed a large amount of orders, which influenced the overall filters used for all research universities. The contribution of this particular university is shown in the darker teal color in the figure.
+NOTE: One research university placed a large amount of orders, which influenced the overall filters used for all research universities. The contribution of this particular university is shown in the darker color in the figure.
 \endgroup
 
 
