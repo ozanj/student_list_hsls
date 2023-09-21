@@ -866,7 +866,7 @@ _NOTES: Top filter combinations are based on 830 College Board student list purc
 
 
 
-```{r thresholds-tests, echo = FALSE, fig.align = 'center', fig.cap = "College Entrance and Pre-Entrance Exam Filters Across Thresholds", out.width = "35%", fig.show='hold'}
+```{r thresholds-tests, echo = FALSE, fig.align = 'center', fig.cap = "College Entrance and Pre-Entrance Exam Filters Across Thresholds", out.width = "40%", fig.show='hold'}
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
 knitr::include_graphics(c("./../../outputs/figures/p2_sat_inc_bw.png","./../../outputs/figures/p2_sat_exc_bw.png"))
 knitr::include_graphics(c("./../../outputs/figures/p2_psat_inc_bw.png","./../../outputs/figures/p2_psat_exc_bw.png"))
@@ -885,9 +885,9 @@ SOURCE: U.S. Department of Education, National Center for Education Statistics, 
 
 ```{r zipcode-affluence, echo = FALSE, fig.align = 'center', fig.cap = "Zip Code Filter Across Affluence Percentiles", out.width = "40%", fig.show='hold'}
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
-knitr::include_graphics(c("./../../outputs/figures/p3_zip_incV2.png"))
-knitr::include_graphics(c("./../../outputs/figures/p3_zip_excV2.png"))
-knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png"))
+knitr::include_graphics(c("./../../outputs/figures/p3_zip_inc_bw.png"))
+knitr::include_graphics(c("./../../outputs/figures/p3_zip_exc_bw.png"))
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal_bw.png"))
 
 
 ```
@@ -1115,15 +1115,15 @@ orders_sat %>%
 
 ```{r gpa-sat-psat, echo = FALSE, fig.align = 'center', fig.cap = "Academic Combinations: GPA (3.0+) and College Entrance or Pre-Entrance Exams (across score thresholds)", out.width = "35%", fig.show='hold', out.width = "3in"}
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
-knitr::include_graphics(c("./../../outputs/figures/combo1_inc_satv2.png"))
-knitr::include_graphics(c("./../../outputs/figures/combo1_inc_psatv2.png"))
+knitr::include_graphics(c("./../../outputs/figures/combo1_inc_sat_bw.png"))
+knitr::include_graphics(c("./../../outputs/figures/combo1_inc_psat_bw.png"))
 
 
 ```
 
 ```{r , echo = FALSE, fig.align = 'center', out.width = "32%", fig.show='hold'}
 
-knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png")) 
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal_bw.png")) 
 
 ```
 
@@ -1137,15 +1137,15 @@ SOURCE: U.S. Department of Education, National Center for Education Statistics, 
 
 ```{r gpa-sat-psat-zip, echo = FALSE, fig.align = 'center', fig.cap = "Academic and Geographic Combination: GPA (3.0+), College Pre-Entrance (150+) or Entrance (1050+) Exams, and Zip (across income thresholds)", out.width = "35%", fig.show='hold'}
 
-knitr::include_graphics(c("./../../outputs/figures/combo2_inc_satV2.png"))
-knitr::include_graphics(c("./../../outputs/figures/combo2_inc_psatV2.png"))
+knitr::include_graphics(c("./../../outputs/figures/combo2_inc_sat_bw.png"))
+knitr::include_graphics(c("./../../outputs/figures/combo2_inc_psat_bw.png"))
 
 
 ```
 
 ```{r , echo = FALSE, fig.align = 'center', out.width = "32%", fig.show='hold'}
 
-knitr::include_graphics(c("./../../outputs/figures/legend_horizontal.png")) 
+knitr::include_graphics(c("./../../outputs/figures/legend_horizontal_bw.png")) 
 
 ```
 
