@@ -1264,9 +1264,9 @@ _Note: Filters used across these orders include HS Class, GPA (B-A+), State (in-
 
 \begin{landscape}
 
-```{r uiuc-map, echo = FALSE, fig.align = 'center', fig.cap = "Maps of Segment Filter Prospects by Metropolitan Area", out.width = "100%", fig.show='hold'}
+```{r uiuc-map, echo = FALSE, fig.align = 'center', fig.cap = "Maps of Segment Filter Prospects by Metropolitan Area", out.width = "95%", fig.show='hold'}
 #knitr::include_graphics('./../../outputs/images/enrollment_funnel.png')
-knitr::include_graphics(c("./../../outputs/images/uiuc-map.png"))
+knitr::include_graphics(c("./../../outputs/figures/segment_allmetros.png"))
 
 
 
