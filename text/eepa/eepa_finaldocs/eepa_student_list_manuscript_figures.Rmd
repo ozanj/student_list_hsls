@@ -1,0 +1,1593 @@
+---
+title: "A Sociological Analysis of Structural Racism in 'Student List' Lead Generation Products"
+#subtitle: ""
+author: 
+  - Ozan Jaquette
+  - Karina G. Salazar
+bibliography: ../../../assets/bib/eepa_student_list.bib
+csl: ../../../assets/bib/apa.csl
+citeproc: no
+output: 
+  #bookdown::word_document2:    
+  bookdown::pdf_document2:
+    toc: FALSE
+    pandoc_args: !expr rmdfiltr::add_wordcount_filter(rmdfiltr::add_citeproc_filter(args = NULL))
+    keep_tex: true
+eoutput: pdf_document
+always_allow_html: true
+urlcolor: blue
+fontsize: 12pt
+#header-includes:
+#      - \usepackage{pdflscape}
+#      - \usepackage{geometry}
+header-includes:
+  - \usepackage{floatrow}
+  - \floatsetup{capposition=top}
+  #- \usepackage{setspace}\doublespacing
+  #- \usepackage{setspace}\onehalfspacing #\doublespacing
+  #- \usepackage{setspace}\setstretch{2.0}
+  - \usepackage{setspace}
+  - \usepackage{fancyhdr}
+  - \usepackage{titlesec}
+  #- \usepackage[scaled]{helvet}  # https://stackoverflow.com/a/28538633/6373540
+  #- \renewcommand{\familydefault}{\sfdefault}
+  #- \usepackage[T1]{fontenc}
+  - \usepackage{geometry}
+  - \usepackage{subfig}
+  - \newcommand{\beginsupplement}{
+  - \setcounter{table}{0}  
+  - \renewcommand{\thetable}{S\arabic{table}} 
+  - \setcounter{figure}{0} 
+  - \renewcommand{\thefigure}{S\arabic{figure}}}
+
+      
+---
+
+```{r setup, include= FALSE}
+library(knitr)
+library(bookdown)
+
+# https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_pdf.pdf
+library(kableExtra)
+library(tidyverse)
+library(gridExtra)
+library(scales)
+
+knitr::opts_chunk$set(echo = F, message = F, warning = F)
+
+knitr::knit_hooks$set(inline = function(x) {   if(!is.numeric(x)){     x   }else{    prettyNum(round(x,2), big.mark=",")    } })
+
+theme_set(
+  theme(
+    text = element_text(size = 7),
+    panel.background = element_blank(),
+    plot.title = element_text(color = '#444444', size = 7, hjust = 0.5, face = 'bold'),
+    axis.ticks = element_blank(),
+    axis.title = element_text(face = 'bold'),
+    legend.title = element_text(face = 'bold'),
+    legend.key.size = unit(0.3, 'cm')
+  )
+)
+
+
+options(knitr.kable.NA = '')
+options(scipen = 999)
+# webshot::install_phantomjs()
+
+library(ggbreak)
+library(usmap)
+
+
+#load(url('https://github.com/mpatricia01/public_requests_eda/blob/main/data/tbl_fig_data_final.RData?raw=true'))
+load(url('https://github.com/mpatricia01/public_requests_eda/blob/main/data/tbl_fig_data_final_v2.RData?raw=true'))
+
+#load in table data
+load("./../../../outputs/tables/p1_table.Rda")
+load("./../../../outputs/tables/p2_table.Rda")
+load("./../../../outputs/tables/p3_table.Rda")
+load("./../../../outputs/tables/p4_table.Rda")
+load("./../../../outputs/tables/c1_table.Rda")
+load("./../../../outputs/tables/c2_table.Rda")
+load("./../../../outputs/tables/c3_table.Rda")
+load("./../../../outputs/tables/sample_table.Rda")
+
+
+theme_set(
+  theme(
+    text = element_text(size = 7, family = 'Helvetica'),
+    panel.background = element_blank(),
+    plot.title = element_text(color = '#444444', size = 7, face = 'bold', hjust = 0.5),
+    axis.ticks = element_blank(),
+    axis.title = element_text(face = 'bold'),
+    legend.title = element_text(face = 'bold', hjust = 0),
+    legend.key.size = unit(0.3, 'cm'),
+    strip.text.x = element_text(size = 7, face = 'bold', hjust = 0.5),
+    strip.background = element_rect(fill = NA, color = NA)
+  )
+)
+
+# color_palette <- c('#bbcfd7', '#d2c8bc', '#ba9a88')
+color_palette <- c('#46a69e', '#7ec7b8', '#b9efe6', '#bf7bb2', '#9e508a', '#537ec4', '#344273', '#fdc3bb', '#fa634b')
+
+color_palette2 <- c('#1B1D1F', '#454C53', '#72787F', '#9EA4AA', '#C9CDD2', '#E8EBED', '#F7F8F9', '#fdc3bb','#fa634b')
+color_palette_2cat <- c('#454C53', '#C9CDD2')
+extra_colors <- c('#b5b5b5', '#767676')
+color_text <- 'white'
+
+# https://stackoverflow.com/a/65844319/6373540
+linesep <- function(x, y = character()){
+  if(!length(x))
+    return(y)
+  linesep(x[-length(x)], c(rep('', x[length(x)] - 1), '\\addlinespace', y))  
+}
+```
+
+
+
+# Tables
+
+
+```{r orders-filters-combo}
+bind_cols(
+  orders_filters_combo %>% 
+    filter(univ_type == 'research') %>% 
+    select(filter_combos, n, pct) %>% 
+    head(10) %>%
+    mutate(pct = str_c(round(pct * 100), '%')),
+  orders_filters_combo %>% 
+    filter(univ_type == 'regional') %>% 
+    select(filter_combos, n, pct) %>% 
+    head(10) %>%
+    mutate(pct = str_c(round(pct * 100), '%'))
+) %>% 
+  kable(
+    booktabs = T, 
+    col.names = rep(c('Filters', 'Count', 'Percent'), 2), 
+    align = rep(c('l', 'c', 'c'), 2),
+    caption = "Top filter combinations used in College Board orders purchased purchased by research vs. master's"
+  ) %>%
+  add_header_above(c('Research' = 3, 'M.A.' = 3), bold = T) %>% 
+  row_spec(0, bold = T) %>%
+  kable_styling(position = 'center', latex_options = c('hold_position', 'scale_down'))
+
+
+#OLD TABLE WITHOUT INSTITUTION TYPE
+# orders_filters_combo %>% 
+#   group_by(filter_combos) %>% 
+#   summarise(
+#     n = sum(n), 
+#     pct = sum(n) / sum((orders_filters %>% select(univ_type, total) %>% distinct())$total)*100
+#   ) %>% 
+#   ungroup() %>% 
+#   arrange(-pct) %>% 
+#   mutate(
+#     cum_n = cumsum(n),
+#     cum_pct = round(cumsum(pct), digits = 1),
+#     pct = round(pct, digits = 1)
+#   ) %>% 
+#   head(20) %>% 
+#   kable(
+#     booktabs = T, 
+#     col.names = c('Filters', 'Count', 'Pct', 'Cum count', 'Cum pct'), 
+#     align = c('l', 'r', 'r', 'r', 'r'),
+#     linesep = '',
+#     caption = "Top filter combinations used in College Board orders purchased purchased by 14 public universities"
+#   ) %>%
+#   row_spec(0, bold = T) %>%
+#   kable_styling(position = 'center', latex_options = c('hold_position', 'scale_down'), )
+```
+
+_NOTES: Top filter combinations are based on 830 College Board student list purchases made by research (N=9) and master's (N=5) universities from 2016-2020. Geodemographic and Segment filters are proprietary filters created by College Board that use geodemography to predict the college-going behaviors of students within specific geographic areas._
+
+
+
+
+\clearpage
+
+\newpage
+
+# Figures
+
+
+Figure 1: College Entrance and Pre-Entrance Exam Filters Across Thresholds
+
+(For Online Version)
+
+- fig1_p2sat_inc.png
+- fig1_p2sat_exc.png
+- fig1_p2psat_inc.png
+- fig1_p2psat_exc.png
+- legend_horizontal.png
+
+(For Black and White Print Version)
+
+- fig1_p2sat_inc_bw.png
+- fig1_p2sat_exc_bw.png
+- fig1_p2psat_inc_bw.png
+- fig1_p2psat_exc_bw.png
+- legend_horizontal_bw.png
+
+
+
+SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09).
+
+
+\newpage
+
+Figure 2: Zip Code Filter Across Affluence Percentiles
+
+(For Online Version)
+
+- fig2_p3zip_inc.png
+- fig2_p3zip_exc.png
+- legend_horizontal.png
+
+
+
+(For Black and White Print Version)
+
+- fig2_p3zip_inc_bw.png
+- fig2_p3zip_exc_bw.png
+- legend_horizontal_bw.png
+
+
+
+SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09).
+
+
+
+\pagebreak
+
+Figure 3: Filters used in College Board Orders Purchased by 14 Public Universities \newline 
+
+(For Online Version) \newline
+
+```{r order-filters-empirical-report1, fig.height = 5}
+orders_filters %>% 
+  add_row(univ_label = 'Research', filters = 'academic', is_asu = 'all', num = 0) %>% 
+  add_row(univ_label = 'MA/doctoral', filters = 'academic', is_asu = 'all', num = 0) %>% 
+  add_row(univ_label = 'Research', filters = 'geographic', is_asu = 'all', num = 0) %>% 
+  add_row(univ_label = 'MA/doctoral', filters = 'geographic', is_asu = 'all', num = 0) %>% 
+  add_row(univ_label = 'Research', filters = 'demographic', is_asu = 'all', num = 0) %>% 
+  add_row(univ_label = 'MA/doctoral', filters = 'demographic', is_asu = 'all', num = 0) %>% 
+  add_row(univ_label = 'Research', filters = 'student preferences', is_asu = 'all', num = 0) %>% 
+  add_row(univ_label = 'MA/doctoral', filters = 'student preferences', is_asu = 'all', num = 0) %>% 
+  mutate(
+    univ_label = recode_factor(
+      univ_label,
+      "Research" = "Research",
+      "MA/doctoral" = "M.A."
+    ),
+    filters_label = recode_factor(
+      filters,
+      'citizenship' = 'Citizenship',
+      'rotc' = 'ROTC',
+      'financial_aid' = 'Financial aid',
+      'national_recognition_programs' = 'NRP',
+      'edu_aspirations' = 'Education aspirations',
+      'college_setting' = 'College setting',
+      'college_studentbody' = 'College student body',
+      'college_living_plans' = 'College living plans',
+      'college_location' = 'College location',
+      'college_type' = 'College type',
+      'major' = 'Major',
+      'college_size' = 'College size',
+      'student preferences' = '   ',
+      'first_gen_parent' = 'First generation',
+      'low_ses' = 'Low SES',
+      'gender' = 'Gender',
+      'race' = 'Race',
+      'demographic' = '  ',
+      'proximity_search' = 'Proximity search',
+      'county' = 'County',
+      'intl' = 'International',
+      'cbsa' = 'CBSA',
+      'segment' = 'Segment',
+      'geomarket' = 'Geomarket',
+      'zip' = 'Zip code',
+      'states_fil' = 'State',
+      'geographic' = ' ',
+      'hs_math' = 'HS math',
+      'sat_reading_writing' = 'SAT reading/writing',
+      'sat_reading' = 'SAT reading',
+      'sat_writing' = 'SAT writing',
+      'sat_math' = 'SAT math',
+      'ap_score' = 'AP score',
+      'rank' = 'Rank',
+      'psat' = 'PSAT',
+      'sat' = 'SAT',
+      'gpa' = 'GPA',
+      'academic' = '',
+      'hsgrad_class' = 'HS grad class'
+    )
+  ) %>% 
+  filter(!filters %in% c('hs_math', 'proximity_search', 'rotc', 'citizenship')) %>% 
+  ggplot(aes(x = filters_label, y = num, fill = is_asu)) +
+  geom_bar(stat = 'identity') +
+  geom_text(aes(label = if_else(filters %in% c('academic', 'geographic', 'demographic', 'student preferences') & univ_label == 'Research', str_c(str_to_sentence(filters), ' filters'), ''), y = 0), hjust = 0, vjust = 0.8, size = 2, fontface = 'bold') +
+  geom_text(aes(y = num_total, label = if_else(!filters %in% c('academic', 'geographic', 'demographic', 'student preferences') & is_asu != 'asu', str_c(round(pct * 100), '%'), '')), hjust = -0.1, size = 2) +
+  scale_y_continuous(expand = expansion(mult = c(0.01, 0.1))) +
+  scale_fill_manual(values = rev(color_palette[c(1, 2)]), name = 'ASU') +
+  xlab('') + ylab('Number of orders') +
+  guides(fill = guide_legend(reverse = T)) +
+  facet_wrap(~ factor(univ_label, levels = c('Research', 'M.A.'))) +
+  coord_flip() + 
+  theme(
+    legend.position = 'none'
+  )
+
+#OLD TABLE WITHOUT INSTITUTION TYPE
+# orders_filters %>% 
+#   filter(is_asu == 'all') %>% 
+#   group_by(filters) %>% 
+#   summarise(
+#     num_total = sum(num_total), 
+#     total = sum(total), 
+#     pct = sum(num_total) / sum(total)
+#   ) %>% 
+#   ungroup() %>% 
+#   add_row(filters = 'academic', num_total = 0) %>% 
+#   add_row(filters = 'geographic', num_total = 0) %>% 
+#   add_row(filters = 'demographic', num_total = 0) %>% 
+#   add_row(filters = 'student preferences', num_total = 0) %>% 
+#   mutate(
+#     filters_label = recode_factor(
+#       filters,
+#       'citizenship' = 'Citizenship',
+#       'rotc' = 'ROTC',
+#       'financial_aid' = 'Financial aid',
+#       'national_recognition_programs' = 'NRP',
+#       'edu_aspirations' = 'Education aspirations',
+#       'college_setting' = 'College setting',
+#       'college_studentbody' = 'College student body',
+#       'college_living_plans' = 'College living plans',
+#       'college_location' = 'College location',
+#       'college_type' = 'College type',
+#       'major' = 'Major',
+#       'college_size' = 'College size',
+#       'student preferences' = '   ',
+#       'first_gen_parent' = 'First generation',
+#       'low_ses' = 'Low SES',
+#       'gender' = 'Gender',
+#       'race' = 'Race',
+#       'demographic' = '  ',
+#       'proximity_search' = 'Proximity search',
+#       'county' = 'County',
+#       'intl' = 'International',
+#       'cbsa' = 'CBSA',
+#       'segment' = 'Segment',
+#       'geomarket' = 'Geomarket',
+#       'zip' = 'Zip code',
+#       'states_fil' = 'State',
+#       'geographic' = ' ',
+#       'hs_math' = 'HS math',
+#       'sat_reading_writing' = 'SAT reading/writing',
+#       'sat_reading' = 'SAT reading',
+#       'sat_writing' = 'SAT writing',
+#       'sat_math' = 'SAT math',
+#       'ap_score' = 'AP score',
+#       'rank' = 'Rank',
+#       'psat' = 'PSAT',
+#       'sat' = 'SAT',
+#       'gpa' = 'GPA',
+#       'academic' = '',
+#       'hsgrad_class' = 'HS grad class'
+#     )
+#   ) %>% 
+#   filter(!filters %in% c('hs_math', 'proximity_search', 'rotc', 'citizenship')) %>% 
+#   ggplot(aes(x = filters_label, y = num_total)) +
+#   geom_bar(stat = 'identity', fill = '#7ec7b8') +
+#   geom_text(aes(label = if_else(filters %in% c('academic', 'geographic', 'demographic', 'student preferences'), str_c(str_to_sentence(filters), ' filters'), ''), y = 0), hjust = 0, vjust = 0.8, size = 2, fontface = 'bold') +
+#   geom_text(aes(y = num_total, label = if_else(!filters %in% c('academic', 'geographic', 'demographic', 'student preferences'), str_c(round(pct * 100), '%'), '')), hjust = -0.1, size = 2) +
+#   scale_y_continuous(expand = expansion(mult = c(0.01, 0.1))) +
+#   xlab('') + ylab('Number of orders') +
+#   guides(fill = guide_legend(reverse = T)) +
+#   coord_flip()
+```
+
+
+
+\pagebreak
+
+(For Print Version) \newline
+
+```{r order-filters-empirical-report, fig.height = 5}
+orders_filters %>% 
+  add_row(univ_label = 'Research', filters = 'academic', is_asu = 'all', num = 0) %>% 
+  add_row(univ_label = 'MA/doctoral', filters = 'academic', is_asu = 'all', num = 0) %>% 
+  add_row(univ_label = 'Research', filters = 'geographic', is_asu = 'all', num = 0) %>% 
+  add_row(univ_label = 'MA/doctoral', filters = 'geographic', is_asu = 'all', num = 0) %>% 
+  add_row(univ_label = 'Research', filters = 'demographic', is_asu = 'all', num = 0) %>% 
+  add_row(univ_label = 'MA/doctoral', filters = 'demographic', is_asu = 'all', num = 0) %>% 
+  add_row(univ_label = 'Research', filters = 'student preferences', is_asu = 'all', num = 0) %>% 
+  add_row(univ_label = 'MA/doctoral', filters = 'student preferences', is_asu = 'all', num = 0) %>% 
+  mutate(
+    univ_label = recode_factor(
+      univ_label,
+      "Research" = "Research",
+      "MA/doctoral" = "M.A."
+    ),
+    filters_label = recode_factor(
+      filters,
+      'citizenship' = 'Citizenship',
+      'rotc' = 'ROTC',
+      'financial_aid' = 'Financial aid',
+      'national_recognition_programs' = 'NRP',
+      'edu_aspirations' = 'Education aspirations',
+      'college_setting' = 'College setting',
+      'college_studentbody' = 'College student body',
+      'college_living_plans' = 'College living plans',
+      'college_location' = 'College location',
+      'college_type' = 'College type',
+      'major' = 'Major',
+      'college_size' = 'College size',
+      'student preferences' = '   ',
+      'first_gen_parent' = 'First generation',
+      'low_ses' = 'Low SES',
+      'gender' = 'Gender',
+      'race' = 'Race',
+      'demographic' = '  ',
+      'proximity_search' = 'Proximity search',
+      'county' = 'County',
+      'intl' = 'International',
+      'cbsa' = 'CBSA',
+      'segment' = 'Segment',
+      'geomarket' = 'Geomarket',
+      'zip' = 'Zip code',
+      'states_fil' = 'State',
+      'geographic' = ' ',
+      'hs_math' = 'HS math',
+      'sat_reading_writing' = 'SAT reading/writing',
+      'sat_reading' = 'SAT reading',
+      'sat_writing' = 'SAT writing',
+      'sat_math' = 'SAT math',
+      'ap_score' = 'AP score',
+      'rank' = 'Rank',
+      'psat' = 'PSAT',
+      'sat' = 'SAT',
+      'gpa' = 'GPA',
+      'academic' = '',
+      'hsgrad_class' = 'HS grad class'
+    )
+  ) %>% 
+  filter(!filters %in% c('hs_math', 'proximity_search', 'rotc', 'citizenship')) %>% 
+  ggplot(aes(x = filters_label, y = num, fill = is_asu)) +
+  geom_bar(stat = 'identity') +
+  geom_text(aes(label = if_else(filters %in% c('academic', 'geographic', 'demographic', 'student preferences') & univ_label == 'Research', str_c(str_to_sentence(filters), ' filters'), ''), y = 0), hjust = 0, vjust = 0.8, size = 2, fontface = 'bold') +
+  geom_text(aes(y = num_total, label = if_else(!filters %in% c('academic', 'geographic', 'demographic', 'student preferences') & is_asu != 'asu', str_c(round(pct * 100), '%'), '')), hjust = -0.1, size = 2) +
+  scale_y_continuous(expand = expansion(mult = c(0.01, 0.1))) +
+  scale_fill_manual(values = rev(color_palette_2cat[c(1, 2)]), name = 'ASU') +
+  xlab('') + ylab('Number of orders') +
+  guides(fill = guide_legend(reverse = T)) +
+  facet_wrap(~ factor(univ_label, levels = c('Research', 'M.A.'))) +
+  coord_flip() + 
+  theme(
+    legend.position = 'none'
+  )
+
+#OLD TABLE WITHOUT INSTITUTION TYPE
+# orders_filters %>% 
+#   filter(is_asu == 'all') %>% 
+#   group_by(filters) %>% 
+#   summarise(
+#     num_total = sum(num_total), 
+#     total = sum(total), 
+#     pct = sum(num_total) / sum(total)
+#   ) %>% 
+#   ungroup() %>% 
+#   add_row(filters = 'academic', num_total = 0) %>% 
+#   add_row(filters = 'geographic', num_total = 0) %>% 
+#   add_row(filters = 'demographic', num_total = 0) %>% 
+#   add_row(filters = 'student preferences', num_total = 0) %>% 
+#   mutate(
+#     filters_label = recode_factor(
+#       filters,
+#       'citizenship' = 'Citizenship',
+#       'rotc' = 'ROTC',
+#       'financial_aid' = 'Financial aid',
+#       'national_recognition_programs' = 'NRP',
+#       'edu_aspirations' = 'Education aspirations',
+#       'college_setting' = 'College setting',
+#       'college_studentbody' = 'College student body',
+#       'college_living_plans' = 'College living plans',
+#       'college_location' = 'College location',
+#       'college_type' = 'College type',
+#       'major' = 'Major',
+#       'college_size' = 'College size',
+#       'student preferences' = '   ',
+#       'first_gen_parent' = 'First generation',
+#       'low_ses' = 'Low SES',
+#       'gender' = 'Gender',
+#       'race' = 'Race',
+#       'demographic' = '  ',
+#       'proximity_search' = 'Proximity search',
+#       'county' = 'County',
+#       'intl' = 'International',
+#       'cbsa' = 'CBSA',
+#       'segment' = 'Segment',
+#       'geomarket' = 'Geomarket',
+#       'zip' = 'Zip code',
+#       'states_fil' = 'State',
+#       'geographic' = ' ',
+#       'hs_math' = 'HS math',
+#       'sat_reading_writing' = 'SAT reading/writing',
+#       'sat_reading' = 'SAT reading',
+#       'sat_writing' = 'SAT writing',
+#       'sat_math' = 'SAT math',
+#       'ap_score' = 'AP score',
+#       'rank' = 'Rank',
+#       'psat' = 'PSAT',
+#       'sat' = 'SAT',
+#       'gpa' = 'GPA',
+#       'academic' = '',
+#       'hsgrad_class' = 'HS grad class'
+#     )
+#   ) %>% 
+#   filter(!filters %in% c('hs_math', 'proximity_search', 'rotc', 'citizenship')) %>% 
+#   ggplot(aes(x = filters_label, y = num_total)) +
+#   geom_bar(stat = 'identity', fill = '#7ec7b8') +
+#   geom_text(aes(label = if_else(filters %in% c('academic', 'geographic', 'demographic', 'student preferences'), str_c(str_to_sentence(filters), ' filters'), ''), y = 0), hjust = 0, vjust = 0.8, size = 2, fontface = 'bold') +
+#   geom_text(aes(y = num_total, label = if_else(!filters %in% c('academic', 'geographic', 'demographic', 'student preferences'), str_c(round(pct * 100), '%'), '')), hjust = -0.1, size = 2) +
+#   scale_y_continuous(expand = expansion(mult = c(0.01, 0.1))) +
+#   xlab('') + ylab('Number of orders') +
+#   guides(fill = guide_legend(reverse = T)) +
+#   coord_flip()
+```
+
+NOTE: One research university placed a large amount of orders, which influenced the overall filters used for all research universities. The contribution of this particular university is shown in the darker color in the figure.
+
+
+\pagebreak
+
+Figure 4: SAT Filter Used by Research vs. Master's Public Universities \newline
+
+(Online Version) \newline
+```{r orders-sat1, fig.height = 3}
+orders_sat_total <- orders_sat %>% 
+  filter(test_range == 'sat_min') %>% 
+  group_by(univ_type) %>% 
+  summarise(
+    num_orders = sum(num)
+  ) %>% 
+  pull(num_orders, univ_type)
+
+orders_sat %>% 
+  mutate(
+    range_label = recode_factor(
+      test_range,
+      'sat_min' = 'Minimum',
+      'sat_max' = 'Maximum'
+    ),
+    univ_label = recode_factor(
+      univ_type,
+      'research' = str_c('Research (N=', orders_sat_total[['research']], ')'),
+      'regional' = str_c('M.A. (N=', orders_sat_total[['regional']], ')')
+    )
+  ) %>% 
+  ggplot(aes(x = brks, y = pct, fill = univ_label)) +
+  geom_bar(position = position_dodge2(reverse = T, padding = 0), stat = 'identity') +
+  geom_text(aes(label = num), hjust = -0.1, size = 2, position = position_dodge2(0.9, reverse = T, padding = 0)) +
+  scale_y_continuous(expand = expansion(mult = c(0.01, 0.1)), labels = label_percent(accuracy = 1)) +
+  scale_fill_manual(values = color_palette, name = 'University type') +
+  xlab('') + ylab('% of orders in university type') +
+  facet_wrap(~ range_label) +
+  coord_flip()
+```
+
+
+
+(Print Version) \newline
+```{r orders-sat, fig.height = 3, fig.cap = "Figure 4: SAT Filter Used by Research vs. Master's Public Universities"}
+orders_sat_total <- orders_sat %>% 
+  filter(test_range == 'sat_min') %>% 
+  group_by(univ_type) %>% 
+  summarise(
+    num_orders = sum(num)
+  ) %>% 
+  pull(num_orders, univ_type)
+
+orders_sat %>% 
+  mutate(
+    range_label = recode_factor(
+      test_range,
+      'sat_min' = 'Minimum',
+      'sat_max' = 'Maximum'
+    ),
+    univ_label = recode_factor(
+      univ_type,
+      'research' = str_c('Research (N=', orders_sat_total[['research']], ')'),
+      'regional' = str_c('M.A. (N=', orders_sat_total[['regional']], ')')
+    )
+  ) %>% 
+  ggplot(aes(x = brks, y = pct, fill = univ_label)) +
+  geom_bar(position = position_dodge2(reverse = T, padding = 0), stat = 'identity') +
+  geom_text(aes(label = num), hjust = -0.1, size = 2, position = position_dodge2(0.9, reverse = T, padding = 0)) +
+  scale_y_continuous(expand = expansion(mult = c(0.01, 0.1)), labels = label_percent(accuracy = 1)) +
+  scale_fill_manual(values = color_palette_2cat, name = 'University type') +
+  xlab('') + ylab('% of orders in university type') +
+  facet_wrap(~ range_label) +
+  coord_flip()
+```
+
+
+\pagebreak
+
+Figure 5: Academic Combinations: GPA (3.0+) and College Entrance or Pre-Entrance Exams (across score thresholds)
+
+(For Online Version)
+
+- fig5_combo1_inc_sat.png
+- fig5_combo1_inc_psat.png
+- legend_horizontal.png
+
+
+(For Black and White Print Version)
+
+- fig5_combo1_inc_sat_bw.png
+- fig5_combo1_inc_psat_bw.png
+- legend_horizontal_bw.png
+
+
+SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09).
+
+\pagebreak
+
+
+Figure 6: Academic and Geographic Combination: GPA (3.0+), College Pre-Entrance (150+) or Entrance (1050+) Exams, and Zip (across income thresholds)"
+
+(For Online Version)
+
+- fig6_combo2_inc_sat.png
+- fig6_combo2_inc_psat.png
+- legend_horizontal.png
+
+
+(For Black and White Print Version)
+
+- fig6_combo2_inc_sat_bw.png
+- fig6_combo2_inc_psat_bw.png
+- legend_horizontal_bw.png
+
+
+SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09).
+
+
+\pagebreak
+
+Figure 7: Segment Filter Prospects by Metropolitan Area \newline 
+
+(For Online Version) \newline
+```{r uiuc-deep-dive1, fig.height = 3.8}
+uiuc_income_figure <- uiuc_income %>% 
+  mutate(
+    count_type = recode_factor(
+      ord_type,
+      'prospect' = 'Prospects',
+      'metro' = 'Metro'
+    ),
+    cbsa_name = str_replace(cbsa_name, ' Metro Area', '')
+  ) %>% 
+  ggplot(aes(y = count_type, x = income_2564)) + 
+  geom_bar(stat = 'identity', fill = extra_colors[[1]]) + 
+  geom_text(mapping = aes(label = str_c('$', round(income_2564 / 1000), 'K')), size = 2, hjust = -0.1) +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.04)), limits = c(0, 250000)) +
+  scale_y_discrete(expand = expansion(mult = c(0.01, 0.1))) +
+  xlab('') + ylab('') +
+  facet_wrap(~ factor(cbsa_name, levels = c('New York-Newark-Jersey City, NY-NJ-PA', 'Los Angeles-Long Beach-Anaheim, CA', 'Philadelphia-Camden-Wilmington, PA-NJ-DE-MD', 'Washington-Arlington-Alexandria, DC-VA-MD-WV')), ncol = 1) +
+  guides(fill = guide_legend(reverse = T)) +
+  theme(
+    # plot.background = element_rect(color = 'gray'),
+    # panel.background = element_rect(color = 'red'),
+    axis.text.x = element_blank(),
+    axis.text.y = element_text(color = '#444444', size = 6, face = 'bold', hjust = 1),
+    strip.text.x = element_text(size = 7, face = 'bold', hjust = 0, margin = margin(2, 0, 2, 0, 'mm'))
+  )
+
+uiuc_race_figure_data <- uiuc_race %>% 
+  mutate(
+    race = recode_factor(
+      race,
+      'unknown' = 'Missing',
+      'noresponse' = 'No response',
+      'other' = 'Other',
+      'tworaces' = 'Multiracial',
+      'nativehawaii' = 'NH/PI',
+      'amerindian' = 'AI/AN',
+      'hispanic' = 'Hispanic',
+      'black' = 'Black',
+      'asian' = 'Asian',
+      'white' = 'White'
+    ),
+    count_type = recode_factor(
+      ord_type,
+      'prospect' = 'Prospects',
+      'metro' = 'Metro'
+    ),
+    cbsa_name = str_replace(cbsa_name, ' Metro Area', '')
+  ) 
+
+uiuc_race_figure_totals <- uiuc_race_full %>% 
+  mutate(
+    count_type = recode_factor(
+        ord_type,
+        'prospect' = 'Prospects',
+        'metro' = 'Metro'
+    )
+  ) %>% 
+  group_by(cbsa_name, count_type) %>% 
+  summarise(
+    count = sum(count)
+  ) %>% 
+  ungroup()
+  
+uiuc_race_figure <- uiuc_race_figure_data %>% 
+  filter(!race %in% c('Missing', 'No response')) %>% 
+  ggplot(aes(y = count_type, x = pct, fill = race)) + 
+  geom_bar(position = 'stack', stat = 'identity') + 
+  geom_text(mapping = aes(label = if_else(pct > 0.02, as.character(round(pct * 100)), '')), size = 2, position = position_stack(vjust = 0.5), color = color_text) +
+  geom_text(data = uiuc_race_figure_totals, mapping = aes(x = 1, fill = NULL, label = if_else(count_type != 'Metro', str_c('N=', prettyNum(count, big.mark = ',')), '')), size = 2, hjust = -0.15) +
+  # scale_fill_brewer(palette = 'BrBG', direction = -1, name = 'Race') +
+  scale_fill_manual(values = rev(color_palette[1:7]), name = 'Race') +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.04)), limits = c(0, 1.14)) +
+  scale_y_discrete(expand = expansion(mult = c(0.01, 0.1))) +
+  xlab('') + ylab('') +
+  facet_wrap(~ factor(cbsa_name, levels = c('New York-Newark-Jersey City, NY-NJ-PA', 'Los Angeles-Long Beach-Anaheim, CA', 'Philadelphia-Camden-Wilmington, PA-NJ-DE-MD', 'Washington-Arlington-Alexandria, DC-VA-MD-WV')), ncol = 1) +
+  guides(fill = guide_legend(reverse = T)) +
+  theme(
+    # plot.background = element_rect(color = 'gray'),
+    # panel.background = element_rect(color = 'red'),
+    axis.text.x = element_blank(),
+    axis.text.y = element_blank(),
+    strip.text.x = element_text(color = NA, size = 7, face = 'bold', hjust = 0, margin = margin(2, 0, 2, 0, 'mm')),
+    plot.margin = unit(c(5.5, 0, 5.5, -45), 'pt')
+  )
+
+grid.arrange(
+  uiuc_income_figure,
+  uiuc_race_figure,
+  ncol = 2
+)
+```
+
+\pagebreak
+
+(For Print Version) \newline
+```{r uiuc-deep-dive, fig.height = 3.8}
+uiuc_income_figure <- uiuc_income %>% 
+  mutate(
+    count_type = recode_factor(
+      ord_type,
+      'prospect' = 'Prospects',
+      'metro' = 'Metro'
+    ),
+    cbsa_name = str_replace(cbsa_name, ' Metro Area', '')
+  ) %>% 
+  ggplot(aes(y = count_type, x = income_2564)) + 
+  geom_bar(stat = 'identity', fill = extra_colors[[1]]) + 
+  geom_text(mapping = aes(label = str_c('$', round(income_2564 / 1000), 'K')), size = 2, hjust = -0.1) +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.04)), limits = c(0, 250000)) +
+  scale_y_discrete(expand = expansion(mult = c(0.01, 0.1))) +
+  xlab('') + ylab('') +
+  facet_wrap(~ factor(cbsa_name, levels = c('New York-Newark-Jersey City, NY-NJ-PA', 'Los Angeles-Long Beach-Anaheim, CA', 'Philadelphia-Camden-Wilmington, PA-NJ-DE-MD', 'Washington-Arlington-Alexandria, DC-VA-MD-WV')), ncol = 1) +
+  guides(fill = guide_legend(reverse = T)) +
+  theme(
+    # plot.background = element_rect(color = 'gray'),
+    # panel.background = element_rect(color = 'red'),
+    axis.text.x = element_blank(),
+    axis.text.y = element_text(color = '#444444', size = 6, face = 'bold', hjust = 1),
+    strip.text.x = element_text(size = 7, face = 'bold', hjust = 0, margin = margin(2, 0, 2, 0, 'mm'))
+  )
+
+uiuc_race_figure_data <- uiuc_race %>% 
+  mutate(
+    race = recode_factor(
+      race,
+      'unknown' = 'Missing',
+      'noresponse' = 'No response',
+      'other' = 'Other',
+      'tworaces' = 'Multiracial',
+      'nativehawaii' = 'NH/PI',
+      'amerindian' = 'AI/AN',
+      'hispanic' = 'Hispanic',
+      'black' = 'Black',
+      'asian' = 'Asian',
+      'white' = 'White'
+    ),
+    count_type = recode_factor(
+      ord_type,
+      'prospect' = 'Prospects',
+      'metro' = 'Metro'
+    ),
+    cbsa_name = str_replace(cbsa_name, ' Metro Area', '')
+  ) 
+
+uiuc_race_figure_totals <- uiuc_race_full %>% 
+  mutate(
+    count_type = recode_factor(
+        ord_type,
+        'prospect' = 'Prospects',
+        'metro' = 'Metro'
+    )
+  ) %>% 
+  group_by(cbsa_name, count_type) %>% 
+  summarise(
+    count = sum(count)
+  ) %>% 
+  ungroup()
+  
+uiuc_race_figure <- uiuc_race_figure_data %>% 
+  filter(!race %in% c('Missing', 'No response')) %>% 
+  ggplot(aes(y = count_type, x = pct, fill = race)) + 
+  geom_bar(position = 'stack', stat = 'identity') + 
+  geom_text(mapping = aes(label = if_else(pct > 0.02, as.character(round(pct * 100)), '')), size = 2, position = position_stack(vjust = 0.5), color = color_text) +
+  geom_text(data = uiuc_race_figure_totals, mapping = aes(x = 1, fill = NULL, label = if_else(count_type != 'Metro', str_c('N=', prettyNum(count, big.mark = ',')), '')), size = 2, hjust = -0.15) +
+  # scale_fill_brewer(palette = 'BrBG', direction = -1, name = 'Race') +
+  scale_fill_manual(values = rev(color_palette2[1:7]), name = 'Race') +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.04)), limits = c(0, 1.14)) +
+  scale_y_discrete(expand = expansion(mult = c(0.01, 0.1))) +
+  xlab('') + ylab('') +
+  facet_wrap(~ factor(cbsa_name, levels = c('New York-Newark-Jersey City, NY-NJ-PA', 'Los Angeles-Long Beach-Anaheim, CA', 'Philadelphia-Camden-Wilmington, PA-NJ-DE-MD', 'Washington-Arlington-Alexandria, DC-VA-MD-WV')), ncol = 1) +
+  guides(fill = guide_legend(reverse = T)) +
+  theme(
+    # plot.background = element_rect(color = 'gray'),
+    # panel.background = element_rect(color = 'red'),
+    axis.text.x = element_blank(),
+    axis.text.y = element_blank(),
+    strip.text.x = element_text(color = NA, size = 7, face = 'bold', hjust = 0, margin = margin(2, 0, 2, 0, 'mm')),
+    plot.margin = unit(c(5.5, 0, 5.5, -45), 'pt')
+  )
+
+grid.arrange(
+  uiuc_income_figure,
+  uiuc_race_figure,
+  ncol = 2
+)
+```
+
+
+_Note: Filters used across these orders include HS Class, GPA (B-A+), State (in-state vs. out-of-state), AP STEM (3 min for in-state; 4 min for out-of-state) or SAT (1200 minimum for in-state; 1300 minimum for out-of-state) with STEM major interest. Metro population source is the National Center for Education Statistic's Common Core of Data and includes all students attending a public high school in the metropolitan area. _
+
+
+\pagebreak
+
+
+Figure 8: Maps of Segment Filter Prospects by Metropolitan Area
+
+(For Online Version)
+
+- fig8_map.png
+
+
+(For Black and White Print Version)
+
+- fig8_map_bw.png
+
+
+\pagebreak
+
+Figure 9: Women in STEM Prospects by Metropolitan Area \newline
+
+(For Online Version) \newline
+```{r ucsd-deep-dive1}
+ucsd_income_figure <- ucsd_income %>% 
+  mutate(
+    count_type = recode_factor(
+      ord_type,
+      'sat' = 'SAT',
+      'ap' = 'AP',
+      'metro' = 'Metro'
+    ),
+    cbsa_name = str_replace(str_replace(cbsa_name, 'Roswell', 'Alpharetta'), ' Metro Area', '')
+  ) %>% 
+  ggplot(aes(y = count_type, x = income_2564)) + 
+  geom_bar(stat = 'identity', fill = extra_colors[[1]]) + 
+  geom_text(mapping = aes(label = str_c('$', round(income_2564 / 1000), 'K')), size = 2, hjust = -0.1) +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.04)), limits = c(0, 163000)) +
+  scale_y_discrete(expand = expansion(mult = c(0.01, 0.1))) +
+  xlab('') + ylab('') +
+  facet_wrap(~ cbsa_name, ncol = 1) +
+  guides(fill = guide_legend(reverse = T)) +
+  theme(
+    # plot.background = element_rect(color = 'gray'),
+    # panel.background = element_rect(color = 'red'),
+    axis.text.x = element_blank(),
+    axis.text.y = element_text(color = '#444444', size = 6, face = 'bold', hjust = 1),
+    strip.text.x = element_text(size = 7, face = 'bold', hjust = 0, margin = margin(2, 0, 2, 0, 'mm'))
+  )
+
+ucsd_race_figure_data <- ucsd_race %>% 
+  mutate(
+    race = recode_factor(
+      race,
+      'missing' = 'Missing',
+      'noresponse' = 'No response',
+      'other' = 'Other',
+      'tworaces' = 'Multiracial',
+      'nativehawaii' = 'NH/PI',
+      'amerindian' = 'AI/AN',
+      'hispanic' = 'Hispanic',
+      'black' = 'Black',
+      'asian' = 'Asian',
+      'white' = 'White'
+    ),
+    count_type = recode_factor(
+      ord_type,
+      'sat' = 'SAT',
+      'ap' = 'AP',
+      'metro' = 'Metro'
+    ),
+    cbsa_name = str_replace(cbsa_name, ' Metro Area', '')
+  )
+
+ucsd_race_figure_totals <- ucsd_race_full %>% 
+  mutate(
+    count_type = recode_factor(
+      ord_type,
+      'sat' = 'SAT',
+      'ap' = 'AP',
+      'metro' = 'Metro'
+    )
+  ) %>% 
+  group_by(cbsa_name, count_type) %>% 
+  summarise(
+    count = sum(count)
+  ) %>% 
+  ungroup()
+  
+ucsd_race_figure <- ucsd_race_figure_data %>% 
+  filter(!race %in% c('Missing', 'No response')) %>% 
+  ggplot(aes(y = count_type, x = pct, fill = race)) + 
+  geom_bar(position = 'stack', stat = 'identity') + 
+  geom_text(mapping = aes(label = if_else(pct > 0.02, as.character(round(pct * 100)), '')), size = 2, position = position_stack(vjust = 0.5), color = color_text) +
+  geom_text(data = ucsd_race_figure_totals, mapping = aes(x = 1, fill = NULL, label = if_else(count_type != 'Metro', str_c('N=', count), '')), size = 2, hjust = -0.2) +
+  # scale_fill_brewer(palette = 'BrBG', direction = -1, name = 'Race') +
+  scale_fill_manual(values = rev(color_palette[1:7]), name = 'Race') +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.04)), limits = c(0, 1.14)) +
+  scale_y_discrete(expand = expansion(mult = c(0.01, 0.1))) +
+  xlab('') + ylab('') +
+  facet_wrap(~ cbsa_name, ncol = 1) +
+  guides(fill = guide_legend(reverse = T)) +
+  theme(
+    # plot.background = element_rect(color = 'gray'),
+    # panel.background = element_rect(color = 'red'),
+    axis.text.x = element_blank(),
+    axis.text.y = element_blank(),
+    strip.text.x = element_text(color = 'white', size = 7, face = 'bold', hjust = 0, margin = margin(2, 0, 2, 0, 'mm')),
+    plot.margin = unit(c(5.5, 0, 5.5, 2), 'pt')
+  )
+
+grid.arrange(
+  ucsd_income_figure,
+  ucsd_race_figure,
+  ncol = 2,
+  widths = c(2, 3)
+)
+```
+
+\pagebreak
+
+(For Print Version) \newline
+```{r ucsd-deep-dive, fig.cap = "Figure 9: Women in STEM Prospects by Metropolitan Area"}
+ucsd_income_figure <- ucsd_income %>% 
+  mutate(
+    count_type = recode_factor(
+      ord_type,
+      'sat' = 'SAT',
+      'ap' = 'AP',
+      'metro' = 'Metro'
+    ),
+    cbsa_name = str_replace(str_replace(cbsa_name, 'Roswell', 'Alpharetta'), ' Metro Area', '')
+  ) %>% 
+  ggplot(aes(y = count_type, x = income_2564)) + 
+  geom_bar(stat = 'identity', fill = extra_colors[[1]]) + 
+  geom_text(mapping = aes(label = str_c('$', round(income_2564 / 1000), 'K')), size = 2, hjust = -0.1) +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.04)), limits = c(0, 163000)) +
+  scale_y_discrete(expand = expansion(mult = c(0.01, 0.1))) +
+  xlab('') + ylab('') +
+  facet_wrap(~ cbsa_name, ncol = 1) +
+  guides(fill = guide_legend(reverse = T)) +
+  theme(
+    # plot.background = element_rect(color = 'gray'),
+    # panel.background = element_rect(color = 'red'),
+    axis.text.x = element_blank(),
+    axis.text.y = element_text(color = '#444444', size = 6, face = 'bold', hjust = 1),
+    strip.text.x = element_text(size = 7, face = 'bold', hjust = 0, margin = margin(2, 0, 2, 0, 'mm'))
+  )
+
+ucsd_race_figure_data <- ucsd_race %>% 
+  mutate(
+    race = recode_factor(
+      race,
+      'missing' = 'Missing',
+      'noresponse' = 'No response',
+      'other' = 'Other',
+      'tworaces' = 'Multiracial',
+      'nativehawaii' = 'NH/PI',
+      'amerindian' = 'AI/AN',
+      'hispanic' = 'Hispanic',
+      'black' = 'Black',
+      'asian' = 'Asian',
+      'white' = 'White'
+    ),
+    count_type = recode_factor(
+      ord_type,
+      'sat' = 'SAT',
+      'ap' = 'AP',
+      'metro' = 'Metro'
+    ),
+    cbsa_name = str_replace(cbsa_name, ' Metro Area', '')
+  )
+
+ucsd_race_figure_totals <- ucsd_race_full %>% 
+  mutate(
+    count_type = recode_factor(
+      ord_type,
+      'sat' = 'SAT',
+      'ap' = 'AP',
+      'metro' = 'Metro'
+    )
+  ) %>% 
+  group_by(cbsa_name, count_type) %>% 
+  summarise(
+    count = sum(count)
+  ) %>% 
+  ungroup()
+  
+ucsd_race_figure <- ucsd_race_figure_data %>% 
+  filter(!race %in% c('Missing', 'No response')) %>% 
+  ggplot(aes(y = count_type, x = pct, fill = race)) + 
+  geom_bar(position = 'stack', stat = 'identity') + 
+  geom_text(mapping = aes(label = if_else(pct > 0.02, as.character(round(pct * 100)), '')), size = 2, position = position_stack(vjust = 0.5), color = color_text) +
+  geom_text(data = ucsd_race_figure_totals, mapping = aes(x = 1, fill = NULL, label = if_else(count_type != 'Metro', str_c('N=', count), '')), size = 2, hjust = -0.2) +
+  # scale_fill_brewer(palette = 'BrBG', direction = -1, name = 'Race') +
+  scale_fill_manual(values = rev(color_palette2[1:7]), name = 'Race') +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.04)), limits = c(0, 1.14)) +
+  scale_y_discrete(expand = expansion(mult = c(0.01, 0.1))) +
+  xlab('') + ylab('') +
+  facet_wrap(~ cbsa_name, ncol = 1) +
+  guides(fill = guide_legend(reverse = T)) +
+  theme(
+    # plot.background = element_rect(color = 'gray'),
+    # panel.background = element_rect(color = 'red'),
+    axis.text.x = element_blank(),
+    axis.text.y = element_blank(),
+    strip.text.x = element_text(color = 'white', size = 7, face = 'bold', hjust = 0, margin = margin(2, 0, 2, 0, 'mm')),
+    plot.margin = unit(c(5.5, 0, 5.5, 2), 'pt')
+  )
+
+grid.arrange(
+  ucsd_income_figure,
+  ucsd_race_figure,
+  ncol = 2,
+  widths = c(2, 3)
+)
+```
+
+
+
+_Note: Filters used across these orders include HS Class, Segment, GPA (B-A+), PSAT/SAT (1220-1450); State/CBSAs. Metro population source is the National Center for Education Statistic's Common Core of Data and includes all students attending a public high school in the metropolitan area. _
+
+\newpage
+
+# Supplemental Online Appendix
+
+
+Figure S1: The Enrollment Funnel
+
+- figs1_enroll_funnelv2.png
+
+
+Figure S2: Test Takers Across College Extrance, College Pre-Entrance, and AP Assessments
+
+- figS2_p1_sat.png
+- figS2_p1_ap.png
+- figS2_p1_psat.png
+- figS2_p1_apstem.png
+- legend_horizontal.png
+
+
+\begingroup
+\fontsize{8}{8}\selectfont
+SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09).
+\endgroup
+
+
+Figure S3: AP Filter Across Thresholds
+
+- figS3_p2_ap_inc.png
+- figS3_p2_ap_exc.png
+- figS3_p2_apstem_inc.png
+- figS3_p2_apstem_exc.png
+- legend_horizontal.png
+
+
+\begingroup
+\fontsize{8}{8}\selectfont
+SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09).
+\endgroup
+
+
+\pagebreak
+
+Figure S4: PSAT Filter Used by Research vs. Master's Universities \newline
+
+```{r orders-psat, fig.height = 3}
+orders_psat_total <- orders_psat %>% 
+  filter(test_range == 'psat_min') %>% 
+  group_by(univ_type) %>% 
+  summarise(
+    num_orders = sum(num)
+  ) %>% 
+  pull(num_orders, univ_type)
+
+orders_psat %>% 
+  mutate(
+    range_label = recode_factor(
+      test_range,
+      'psat_min' = 'Minimum',
+      'psat_max' = 'Maximum'
+    ),
+    univ_label = recode_factor(
+      univ_type,
+      'research' = str_c('Research (N=', orders_psat_total[['research']], ')'),
+      'regional' = str_c('M.A. (N=', orders_psat_total[['regional']], ')')
+    )
+  ) %>% 
+  ggplot(aes(x = brks, y = pct, fill = univ_label)) +
+  geom_bar(position = position_dodge2(reverse = T, padding = 0), stat = 'identity') +
+  geom_text(aes(label = num), hjust = -0.1, size = 2, position = position_dodge2(0.9, reverse = T, padding = 0)) +
+  scale_y_continuous(expand = expansion(mult = c(0.01, 0.1)), labels = label_percent(accuracy = 1)) +
+  scale_fill_manual(values = color_palette, name = 'University type') +
+  xlab('') + ylab('% of orders in university type') +
+  facet_wrap(~ range_label) +
+  coord_flip()
+```
+
+
+\pagebreak
+
+Figure S5: Academic Combination: GPA (3.0+) and AP (across score thresholds)
+
+- figS5_combo3_inc_ap.png
+- figS5_combo3_inc_apstem.png
+- legend_horizontal.png
+
+\begingroup
+\fontsize{8}{8}\selectfont
+SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09).
+\endgroup
+
+\pagebreak
+
+Table S1: HSLS09 Descriptive Statistics
+
+```{r descriptives}
+df1 <- data.frame(
+  category = c("Race/Ethnicity", "White", "Asian", "Hisp", "Black", "Multi", "NH/PI", "AI/AN", "", "Academic Filters",  "College Entrance Exam Completer", "College Pre-Entrance Exam Completer", "AP test-taker (any)", "AP test-taker (STEM)", "Academic GPA", "Missing Academic GPA"),
+  unweight = c("", "9,390", "1,370", "2,520", "1,660", "1,410", "70", "110", "", "" , "7,910", "4,780", "2,990", "1,800" ,  "16,480",  "40"),
+  n = c("", "2,163,043", "150,222", "920,384", "574,370", "332,043", "18,784", "28,519",  "", "", "1,860,677", "3,086,739", "694,359" , "383,669" , "4,177,402" , "9,964"),
+  se = c("", "45,293", "15,373", "41,451", "36,346", "12,921", "5,241", "6,288",  "", "", "54,277", "51,247", "33,918","23,721", "6,863", "6,562"),
+  pct = c("", "51.7", "3.6", "22.0", "13.7", "7.9", "0.4", "0.7",  "", "" ,"55.6", "73.7", "16.6",  "9.2", "99.8", "0.2")
+)
+
+df1 %>%
+  kable(
+    booktabs = T, 
+    col.names = c(' ', 'Unweighted', 'N', 'SE', 'Pct'), 
+    align = c('l', 'r', 'r', 'r', 'r'),
+    linesep = '',
+  ) %>%
+  row_spec(0, bold = T) %>%
+  row_spec(1, bold=T, italic = T) %>%
+  row_spec(10,bold=T, italic = T) %>%
+  kable_styling(position = 'center', latex_options = c('hold_position', 'scale_down'), font_size = 7) #%>%
+   #add_footnote("NOTE: Unweighted sample sizes rounded to nearest 10 per NCES restricted data license regulations", notation=" ")
+```
+\begingroup\fontsize{8}{12}\selectfont 
+
+_NOTE: Unweighted sample sizes rounded to nearest 10 per NCES restricted data license regulations._
+
+_SOURCE: U.S. Department of Education, National Center for Education
+Statistics, High School Longitudinal Study of 2009 (HSLS09)._
+
+
+
+\pagebreak
+
+\landscape
+
+Table S2: Characteristics of universities in public records request sample \newline
+
+```{r sampletable, results='asis'}
+
+# df1 <- data.frame(
+#   cat = p1_table$x2race,
+#   prop1 = p1_table$testtaker_estimate,
+#   prop2 = p1_table$nontesttaker_estimate,
+#   diff = round(as.numeric(p1_table$nontesttaker_estimate) - as.numeric(p1_table$nontesttaker_estimate), digits=3 ),
+#   pval= p1_table$pval
+# )
+
+df %>% 
+  kable(
+    format = "latex", booktabs = TRUE,
+    #longtable = T,
+    col.names = c(' ', 'Type', 'Tuition & Fees, In-State', "Total Enrollment", "% Non-Resident", "% Pell", "% Asian", "% Black","% Hispanic", "% Native American", "% Multiracial", "% White"), 
+    align = c('l', 'r', 'r', 'r','r', 'r', 'r', 'r', 'r','r', 'r', 'r'),
+    linesep = '',
+    ) %>%
+  row_spec(0, bold = T, font_size=2) %>%
+  #pack_rows("College Entrance Exam", 1, 7) %>%
+  #pack_rows("College Pre-Entrance Exam", 8, 14) %>%
+  #pack_rows("AP", 15, 21) %>%
+  #pack_rows("AP STEM", 22, 28) %>%
+
+
+  #row_spec(1, bold=T, italic = T, font_size=2) %>%
+  #row_spec(9,bold=T, italic = T, font_size=2) %>%
+  #row_spec(17,bold=T, italic = T, font_size=2) %>%
+  #row_spec(25,bold=T, italic = T, font_size=2) %>%
+
+  kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
+                    full_width = FALSE), font_size = 3) %>%
+  add_header_above(c(" " = 4, "Undergraduate Freshmen" = 7))
+```
+\begingroup
+\fontsize{10}{10}\selectfont
+_SOURCE: U.S. Department of Education, Integrated Postsecondary Education Data System, 2017-18._
+\endgroup
+
+\pagebreak
+\endlandscape
+
+
+Table S3: Assessment Completer Differences in Proportion
+
+
+```{r p1table}
+
+# df1 <- data.frame(
+#   cat = p1_table$x2race,
+#   prop1 = p1_table$testtaker_estimate,
+#   prop2 = p1_table$nontesttaker_estimate,
+#   diff = round(as.numeric(p1_table$nontesttaker_estimate) - as.numeric(p1_table$nontesttaker_estimate), digits=3 ),
+#   pval= p1_table$pval
+# )
+
+p1_table %>% 
+  kable(
+    format = "latex", booktabs = TRUE,
+    #longtable = T,
+    col.names = c(' ', 'Included', 'Excluded', 'Difference', "Lower CI", "Upper CI"), 
+    align = c('l', 'r', 'r', 'r', 'r','r'),
+    linesep = '',
+  ) %>%
+  row_spec(0, bold = T, font_size=2) %>%
+  pack_rows("College Entrance Exam", 1, 7) %>%
+  pack_rows("College Pre-Entrance Exam", 8, 14) %>%
+  pack_rows("AP", 15, 21) %>%
+  pack_rows("AP STEM", 22, 28) %>%
+
+
+  #row_spec(1, bold=T, italic = T, font_size=2) %>%
+  #row_spec(9,bold=T, italic = T, font_size=2) %>%
+  #row_spec(17,bold=T, italic = T, font_size=2) %>%
+  #row_spec(25,bold=T, italic = T, font_size=2) %>%
+
+  kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
+                    full_width = FALSE), font_size = 2.5)
+```
+\begingroup
+\fontsize{10}{10}\selectfont
+_NOTE: `*`p<0.05, `**`p<0.01, `***`p<0.001_
+
+_SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09)._
+\endgroup
+
+\pagebreak
+
+Table S4: Score Threshold Proportion Differences in Included vs. Excluded across Race/Ethnicity
+
+```{r p2table}
+
+# df1 <- data.frame(
+#   cat = p1_table$x2race,
+#   prop1 = p1_table$testtaker_estimate,
+#   prop2 = p1_table$nontesttaker_estimate,
+#   diff = round(as.numeric(p1_table$nontesttaker_estimate) - as.numeric(p1_table$nontesttaker_estimate), digits=3 ),
+#   pval= p1_table$pval
+# )
+
+p2_table %>% 
+  kable(
+    format = "latex", booktabs = TRUE,
+    #longtable = T,
+    col.names = c(' ', 'White', 'Asian', 'Hisp', "Black", "Multi", "NH/PI", "AI/AN"), 
+    align = c('l', 'r', 'r', 'r', 'r','r', 'r','r'),
+    linesep = '',
+  ) %>%
+  row_spec(0, bold = T, font_size=6) %>%
+  pack_rows("College Entrance Exam", 1, 5) %>%
+  pack_rows("College Pre-Entrance Exam", 6, 10) %>%
+  pack_rows("AP", 11, 15) %>%
+  pack_rows("AP STEM", 16, 20) %>%
+  pack_rows("GPA", 21, 25) %>%
+
+
+  #row_spec(1, bold=T, italic = T, font_size=2) %>%
+  #row_spec(9,bold=T, italic = T, font_size=2) %>%
+  #row_spec(17,bold=T, italic = T, font_size=2) %>%
+  #row_spec(25,bold=T, italic = T, font_size=2) %>%
+
+  kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
+                    full_width = FALSE), font_size = 4)
+```
+
+\begingroup
+\fontsize{10}{10}\selectfont
+_NOTE: `*`p<0.05, `**`p<0.01, `***`p<0.001_
+
+_SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09)._
+\endgroup
+
+\pagebreak
+
+Table S5: Zip Code Affluence Proportion Differences in Included vs. Excluded across Race/Ethnicity
+
+```{r p3table}
+
+# df1 <- data.frame(
+#   cat = p1_table$x2race,
+#   prop1 = p1_table$testtaker_estimate,
+#   prop2 = p1_table$nontesttaker_estimate,
+#   diff = round(as.numeric(p1_table$nontesttaker_estimate) - as.numeric(p1_table$nontesttaker_estimate), digits=3 ),
+#   pval= p1_table$pval
+# )
+
+p3_table %>% 
+  kable(
+    format = "latex", booktabs = TRUE,
+    #longtable = T,
+    col.names = c(' ', 'White', 'Asian', 'Hisp', "Black", "Multi", "NH/PI", "AI/AN"), 
+    align = c('l', 'r', 'r', 'r', 'r','r', 'r','r'),
+    linesep = '',
+  ) %>%
+  row_spec(0, bold = T, font_size=6) %>%
+  pack_rows("Affluence Percentile", 1, 6) %>%
+
+
+  #row_spec(1, bold=T, italic = T, font_size=2) %>%
+  #row_spec(9,bold=T, italic = T, font_size=2) %>%
+  #row_spec(17,bold=T, italic = T, font_size=2) %>%
+  #row_spec(25,bold=T, italic = T, font_size=2) %>%
+
+  kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
+                    full_width = FALSE), font_size = 4)
+```
+
+\begingroup
+\fontsize{10}{10}\selectfont
+_NOTE: `*`p<0.05, `**`p<0.01, `***`p<0.001_
+
+_SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09)._
+\endgroup
+
+\clearpage
+
+Table S6: GPA and College Entrance or Pre-Entrance Exam Score Threshold Proportion Differences in Included vs. Excluded across Race/Ethnicity
+
+```{r c1table}
+
+# df1 <- data.frame(
+#   cat = p1_table$x2race,
+#   prop1 = p1_table$testtaker_estimate,
+#   prop2 = p1_table$nontesttaker_estimate,
+#   diff = round(as.numeric(p1_table$nontesttaker_estimate) - as.numeric(p1_table$nontesttaker_estimate), digits=3 ),
+#   pval= p1_table$pval
+# )
+
+c1_table %>% 
+  kable(
+    format = "latex", booktabs = TRUE,
+    #longtable = T,
+    col.names = c(' ', 'White', 'Asian', 'Hisp', "Black", "Multi", "NH/PI", "AI/AN"), 
+    align = c('l', 'r', 'r', 'r', 'r','r', 'r','r'),
+    linesep = '',
+  ) %>%
+  row_spec(0, bold = T, font_size=6) %>%
+  pack_rows("College Entrance Exam", 1, 4) %>%
+  pack_rows("College Pre-Entrance Exam", 5, 9) %>%
+
+
+  #row_spec(1, bold=T, italic = T, font_size=2) %>%
+  #row_spec(9,bold=T, italic = T, font_size=2) %>%
+  #row_spec(17,bold=T, italic = T, font_size=2) %>%
+  #row_spec(25,bold=T, italic = T, font_size=2) %>%
+
+  kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
+                    full_width = FALSE), font_size = 4)
+```
+
+\begingroup
+\fontsize{10}{10}\selectfont
+_NOTE: `*`p<0.05, `**`p<0.01, `***`p<0.001_
+
+_SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09)._
+\endgroup
+
+
+
+
+\clearpage
+
+
+Table S7: GPA and AP Proportion Differences in Included vs. Excluded across Race/Ethnicity
+
+```{r c3table}
+
+# df1 <- data.frame(
+#   cat = p1_table$x2race,
+#   prop1 = p1_table$testtaker_estimate,
+#   prop2 = p1_table$nontesttaker_estimate,
+#   diff = round(as.numeric(p1_table$nontesttaker_estimate) - as.numeric(p1_table$nontesttaker_estimate), digits=3 ),
+#   pval= p1_table$pval
+# )
+
+c3_table %>% 
+  kable(
+    format = "latex", booktabs = TRUE,
+    #longtable = T,
+    col.names = c(' ', 'White', 'Asian', 'Hisp', "Black", "Multi", "NH/PI", "AI/AN"), 
+    align = c('l', 'r', 'r', 'r', 'r','r', 'r','r'),
+    linesep = '',
+  ) %>%
+  row_spec(0, bold = T, font_size=6) %>%
+  pack_rows("AP", 1, 5) %>%
+  pack_rows("AP STEM", 6, 10) %>%
+
+
+  #row_spec(1, bold=T, italic = T, font_size=2) %>%
+  #row_spec(9,bold=T, italic = T, font_size=2) %>%
+  #row_spec(17,bold=T, italic = T, font_size=2) %>%
+  #row_spec(25,bold=T, italic = T, font_size=2) %>%
+
+  kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
+                    full_width = FALSE), font_size = 4)
+```
+\begingroup
+\fontsize{10}{10}\selectfont
+_NOTE: `*`p<0.05, `**`p<0.01, `***`p<0.001_
+
+_SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09)._
+\endgroup
+
+
+\clearpage
+
+Table S8: GPA, College Entrance/Pre-Entrance Exam, by Zip Code Affluence Proportion Differences in Included vs. Excluded across Race/Ethnicity
+
+```{r c2table}
+
+# df1 <- data.frame(
+#   cat = p1_table$x2race,
+#   prop1 = p1_table$testtaker_estimate,
+#   prop2 = p1_table$nontesttaker_estimate,
+#   diff = round(as.numeric(p1_table$nontesttaker_estimate) - as.numeric(p1_table$nontesttaker_estimate), digits=3 ),
+#   pval= p1_table$pval
+# )
+
+c2_table %>% 
+  kable(
+    format = "latex", booktabs = TRUE,
+    #longtable = T,
+    col.names = c(' ', 'White', 'Asian', 'Hisp', "Black", "Multi", "NH/PI", "AI/AN"), 
+    align = c('l', 'r', 'r', 'r', 'r','r', 'r','r'),
+    linesep = '',
+  ) %>%
+  row_spec(0, bold = T, font_size=6) %>%
+  pack_rows("College Entrance Exam (1050+)", 1, 6) %>%
+  pack_rows("College Pre-Entrance Exam (150+)", 7, 12) %>%
+
+
+  #row_spec(1, bold=T, italic = T, font_size=2) %>%
+  #row_spec(9,bold=T, italic = T, font_size=2) %>%
+  #row_spec(17,bold=T, italic = T, font_size=2) %>%
+  #row_spec(25,bold=T, italic = T, font_size=2) %>%
+
+  kable_styling(position = 'center', latex_options = c('scale_down', "hold_position", "striped",
+                    full_width = FALSE), font_size = 4)
+```
+\begingroup
+\fontsize{10}{10}\selectfont
+_NOTE: `*`p<0.05, `**`p<0.01, `***`p<0.001_
+
+_SOURCE: U.S. Department of Education, National Center for Education Statistics, High School Longitudinal Study of 2009 (HSLS09)._
+\endgroup
+
+
+
+
+\pagebreak
+
+Table S9: Filter by neighborhood segments \newline
+
+```{r orders-cluster-en}
+en_df <- data.frame(
+  cluster = c(51:83, 'Total'),
+  sat_math = c(546, 480, 561, 458, 566, 420, 541, 533, 561, 589, 585, 596, 548, 466, 440, 499, 519, 552, 534, 613, 405, 399, 528, 433, 459, 514, 502, 594, 550, 534, 491, 496, 500, 512),
+  sat_cr = c(533, 470, 544, 443, 565, 411, 519, 489, 562, 590, 567, 595, 541, 466, 433, 492, 501, 558, 521, 598, 408, 397, 514, 435, 457, 509, 492, 578, 551, 527, 483, 491, 490, 502),
+  pct_outofstate = c(0.32, 0.3, 0.32, 0.25, 0.52, 0.29, 0.52, 0.28, 0.52, 0.63, 0.51, 0.67, 0.39, 0.48, 0.23, 0.2, 0.27, 0.52, 0.37, 0.65, 0.39, 0.31, 0.29, 0.29, 0.28, 0.27, 0.26, 0.56, 0.57, 0.39, 0.27, 0.29, 0.19, 0.32),
+  pct_nonwhite = c(0.3, 0.58, 0.5, 0.83, 0.24, 0.93, 0.47, 0.87, 0.24, 0.37, 0.3, 0.24, 0.23, 0.34, 0.93, 0.12, 0.53, 0.35, 0.19, 0.29, 0.97, 0.87, 0.42, 0.84, 0.85, 0.38, 0.18, 0.26, 0.32, 0.39, 0.57, 0.21, 0.26, 0.43),
+  pct_aid = c(0.57, 0.71, 0.55, 0.76, 0.63, 0.66, 0.43, 0.69, 0.74, 0.36, 0.4, 0.72, 0.65, 0.29, 0.78, 0.76, 0.59, 0.65, 0.65, 0.61, 0.68, 0.47, 0.62, 0.79, 0.72, 0.64, 0.75, 0.39, 0.74, 0.65, 0.72, 0.75, 0.71, 0.65),
+  med_income = c(95432, 63578, 92581, 38977, 71576, 35308, 67394, 68213, 54750, 104174, 123858, 59824, 69347, 49829, 45081, 50453, 60960, 57902, 88100, 86381, 42661, 32708, 90849, 44065, 50421, 61332, 62372, 134400, 40909, 49877, 63030, 53465, 49335, 70231)
+)
+
+en_df %>% 
+  mutate(
+    pct_outofstate = percent(pct_outofstate, accuracy = 1),
+    pct_nonwhite = percent(pct_nonwhite, accuracy = 1),
+    pct_aid = percent(pct_aid, accuracy = 1),
+    med_income = dollar(med_income)
+  ) %>% 
+  kable(
+    booktabs = T,
+    linesep = linesep(nrow(en_df) - 1, 1),
+    col.names = c('2011 D+ Cluster', 'SAT Math', 'SAT CR', 'Going Out of State', 'Percent NonWhite', 'Need Financial Aid', 'Med Income'),
+    align = c('l', rep('c', 6)),
+  ) %>% 
+  row_spec(c(0, nrow(en_df)), bold = T) %>%
+  row_spec(c(1, 3, 8, 10, 11, 13, 19, 20, 23, 28), background = color_palette[[3]]) %>% 
+  column_spec (1:7, border_left = F, border_right = F) %>% 
+  kable_styling(latex_options = 'scale_down')
+```
+\begingroup
+\fontsize{10}{10}\selectfont
+_NOTE: All Segment orders analyzed in Figure 7 filtered for the following school and neighborhood clusters combinations: 1) Neighborhood cluster 51, with any high school cluster; 2) Neighborhood cluster 53, with high school cluster 70; 3) Neighborhood cluster 58, with any high school cluster; 3) Neighborhood cluster 60, with high school clusters 65, 70, or 79; 4) Neighborhood cluster 61, with high school cluster 65; 5) Neighborhood cluster 63, with high school clusters 68 or 70; 6) Neighborhood cluster 69, with high school clusters 65 or 79; 7) Neighborhood cluster 70, with high school clusters 65, 68, 70, or 75; 8) Neighborhood cluster 73, with any high school cluster; 9) Neighborhood cluster 78, with high school cluster 66; 10) High school cluster 79, with any neighborhood._
+\endgroup
+
+
+\pagebreak
+
+Table S10: Filter by high school segments \newline
+
+
+```{r orders-cluster-hs}
+hs_df <- data.frame(
+  cluster = c(51:79, 'Total'),
+  sat_math = c(462, 489, 471, 376, 489, 536, 434, 592, 499, 523, 485, 474, 440, 606, 515, 498, 526, 541, 390, 595, 400, 528, 451, 654, 514, 600, 595, 473, 594, 514),
+  sat_cr = c(457, 496, 484, 371, 481, 508, 435, 577, 489, 549, 370, 473, 427, 542, 503, 515, 546, 540, 395, 581, 412, 544, 438, 579, 502, 584, 508, 468, 585, 502),
+  pct_outofstate = c(0.14, 0.81, 0.28, 0.33, 0.39, 0.73, 0.29, 0.51, 0.19, 0.23, 0.33, 0.34, 0.28, 0.37, 0.28, 0.37, 0.48, 0.41, 0.36, 0.56, 0.57, 0.35, 0.24, 0.76, 0.31, 0.72, 0.64, 0.48, 0.61, 0.32),
+  pct_nonwhite = c(0.33, 0.99, 0.38, 0.96, 0.46, 0.43, 0.82, 0.27, 0.18, 0.3, 0.89, 0.92, 0.86, 0.89, 0.43, 0.37, 0.41, 0.26, 0.92, 0.33, 0.98, 0.25, 0.89, 0.8, 0.2, 0.5, 0.75, 0.43, 0.26, 0.44),
+  pct_aid = c(0.68, 0.77, 0.62, 0.38, 0.44, 0.49, 0.79, 0.32, 0.74, 0.33, 0.09, 0.67, 0.72, 0.57, 0.65, 0.73, 0.69, 0.62, 0.74, 0.48, 0.8, 0.64, 0.76, 0.46, 0.71, 0.28, 0.39, 0.22, 0.71, 0.65),
+  med_income = c(40918, 64730, 60833, 38146, 71845, 63967, 48301, 104509, 47685, 70175, 61385, 55515, 49238, 81911, 72692, 60272, 71279, 79260, 43391, 105721, 43137, 70018, 48406, 59089, 72850, 90265, 39490, 56703, 65180, 70223)
+)
+
+hs_df %>% 
+  mutate(
+    pct_outofstate = percent(pct_outofstate, accuracy = 1),
+    pct_nonwhite = percent(pct_nonwhite, accuracy = 1),
+    pct_aid = percent(pct_aid, accuracy = 1),
+    med_income = dollar(med_income)
+  ) %>% 
+  kable(
+    booktabs = T,
+    linesep = linesep(nrow(hs_df) - 1, 1),
+    col.names = c('2011 D+ Cluster', 'SAT Math', 'SAT CR', 'Going Out of State', 'Percent NonWhite', 'Need Financial Aid', 'Med Income'),
+    align = c('l', rep('c', 6)),
+  ) %>% 
+  row_spec(c(0, nrow(hs_df)), bold = T) %>%
+  row_spec(c(8, 13:16, 18:20, 23, 25, 29), background = color_palette[[3]]) %>% 
+  column_spec (1:7, border_left = F, border_right = F) %>% 
+  kable_styling(latex_options = 'scale_down')
+```
+\begingroup
+\fontsize{10}{10}\selectfont
+_NOTE: All Segment orders analyzed in Figure 7 filtered for the following school and neighborhood clusters combinations: 1) Neighborhood cluster 51, with any high school cluster; 2) Neighborhood cluster 53, with high school cluster 70; 3) Neighborhood cluster 58, with any high school cluster; 3) Neighborhood cluster 60, with high school clusters 65, 70, or 79; 4) Neighborhood cluster 61, with high school cluster 65; 5) Neighborhood cluster 63, with high school clusters 68 or 70; 6) Neighborhood cluster 69, with high school clusters 65 or 79; 7) Neighborhood cluster 70, with high school clusters 65, 68, 70, or 75; 8) Neighborhood cluster 73, with any high school cluster; 9) Neighborhood cluster 78, with high school cluster 66; 10) High school cluster 79, with any neighborhood._
+\endgroup
+
+\clearpage
+
+
+
+
+
